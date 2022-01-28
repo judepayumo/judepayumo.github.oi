@@ -226,6 +226,7 @@
 			}
 			function serviceStory(){
 				var count = 0;
+				var ServiceNotesF = "<BR>**********<br>"
 				var storyBase = "TEST DROVE THE VEHICLE. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. TOPPED OFF COOLANT, WASHER FLUID, AND CHECKED BRAKE FLUID LEVEL. INSPECTED ENGINE BAY. LIFTED THE VEHICLE. CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY FOR DAMAGE. REMOVED ENGINE LOWER COVER AND DRAINED ENGINE OIL. ";
 				if (document.getElementById("drainPlug").checked == false) {
 					var storyBase = storyBase + "INSTALLED DRAIN PLUG WITH NEW CRUSH WASHER. ";
@@ -286,10 +287,17 @@
 				} else {
 					var storyPSI = storyPSI + ". ";
 				}
+				if (document.getElementById("ServiceNotesIn").value != 0) {
+					var ServiceNotesF = ServiceNotesF + document.getElementById("ServiceNotesIn").value;
+				}else {
+					var ServiceNotesF = "";
+				}
 				document.getElementById("storyResult").innerHTML = storyBase;
 				document.getElementById("storyBrake").innerHTML = storyBrake;
 				document.getElementById("storyTires").innerHTML = storyTires;
 				document.getElementById("storyPSI").innerHTML = storyPSI;
+				document.getElementById("ServiceNotesOut").innerHTML = ServiceNotesF;
+
 			}
 			function form2021010004(){
 				var base2021010004 = "AS PERMB RECALL CAMPAIGN 2021010004 , THE POWER SUPPLY HARNESS OF THE STARTER MOTOR MUST BE CHECKED FOR DAMAGES AND PROPER CLEARANCE WITH THE STARTER SOLENOID. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER. CHECKED STARTER WIRING HARNESS AT STARTER. ";
@@ -968,7 +976,7 @@
 							<input type="checkbox" id="keyBattery" name="keyBattery" checked>
 							<label class="s1" for="keyBattery">Key Battery&nbsp;</label>
 							<input type="checkbox" id="midtronic" name="midtronic">
-							<label class="s1" for="midtronic">Midtronics&nbsp;</label>
+							<label class="s1" for="midtronic">Battery Test&nbsp;</label>
 							<input type="checkbox" id="heater" name="heater">
 							<label class="s1" for="heater">Block Heater&nbsp;</label>
 							<input type="checkbox" id="fuel" name="fuel">
@@ -1000,6 +1008,8 @@
 							<label class="s1">AdBlue: </label>
 							<input type="text" id="def" name="def" size="5" placeholder="0L" maxlength="4">
 							&nbsp; &nbsp;
+							<input type="text" id="ServiceNotesIn" size="40" placeholder="Notes">
+							&nbsp; &nbsp;
 							<input type="reset" onclick="serviceStory()" value="Reset">
 						</form>
 						<s1 id="SERVICE">
@@ -1007,6 +1017,7 @@
 							<s1 id="storyBrake"></s1>
 							<s1 id="storyTires"></s1>
 							<s1 id="storyPSI"></s1>
+							<s1 id="ServiceNotesOut"></s1>
 						</s1>
 
 					<span class="a"></span>
@@ -1824,7 +1835,7 @@
 
 
 
-		<!--
+					<!--
 					<s1 id="test1">Test1</s1>
 					<form oninput=recallNumberSelect(a,"test1")>
 						<input type="radio" value="1" id="test1In" name="a">
@@ -1838,6 +1849,7 @@
 						</select>
 					</form>
 		-->
+
 
 
 
