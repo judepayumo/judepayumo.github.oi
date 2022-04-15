@@ -492,6 +492,30 @@
 				}
 				document.getElementById("M276NENGINE").innerHTML = functionM276NENGINEResult;
 			}
+			function functionM156ENGINE(){
+				var functionM156ENGINEResult = "";
+				var M156ENGINERemove = "PLACED THE VEHICLE IN NEUTRAL ON A HOIST. DISCONNECTED BATTERY GROUND. REMOVED UPPER ENGINE COVER, LEFT AND RIGHT AIR INTAKE DUCTS AND AIR FILTER HOUSINGS. REMOVED LEFT AND RIGHT STRUT MOUNT COVERS, PRE-DUST COVER, BULKHEAD PIECES. DISCONNECTED BOTH FRONT STRUT AIR LINES. RECOVERED AC REFRIGERANT. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE, TRANSMISSION, AND RADIATOR COVERS. REMOVED BOTH FRONT WHEELS, FENDER LINERS, AND PARTIALLY REMOVED LEFT AND RIGHT UNDERBODY COVERS. DRAINED COOLANT FROM LOW TEMP AND HIGH TEMP SYSTEMS. DISCONNECTED DRIVESHAFT FROM TRANSFERCASE. REMOVED EXHAUST CLAMPS BY CENTRE MUFFLER. REMOVED ENGINE FAN UNIT AND ENGINE CONTROL UNIT. DISCONNECTED ALL RELEVANT OIL LINES, TRANSMISSION COOLER LINES, COOLING SYSTEM HOSES, ACTIVE CURVE SYSTEM LINES, FUEL LINE, VACUUM LINES IN ORDER TO DROP THE ENGINE. REMOVED TRANSMISSION MOUNT. UNFASTENED FRONT BRAKE CALLIPERS FROM THE STEERING KNUCKLE, KNUCKLE TO THE TOP CONTROL ARM, AND REMOVED SPEED SENSORS FROM KNUCKLES. LOWERED THE ENGINE WITH TRANSMISSION, TRANSFERCASE, FRONT AXLE CARRIER ASSEMBLY.";
+				var M156ENGINEInstall = "ASSEMBLED IN REVERSE ORDER. PERFORMED VACUUM AND LEAK TEST OF AC SYSTEM FOR 30MIN. CONFIRMED NO LEAK IS DETECTED. CHARGED AC SYSTEM TO SPEC AND INJECTED OIL. APPLIED VACUUM TO BOTH COOLING SYSTEM EXPANSION TANKS FOR 5MIN AND CONFIRMED BOTH SYSTEMS ARE HOLDING VACUUM—THUS NO LEAKS ARE PRESENT IN THE SYSTEM. CONNECTED BATTERY CHARGER AND XENTRY SCANNER. PERFORMED FINAL QUICK TEST AND CONFIRMED NO CONCERNING FAULTS ARE PRESENT. FILLED BOTH COOLING SYSTEM. ADDED OIL TO ACTIVE CURVE SYSTEM RESERVOIR AND PERFORMED BLEEDING OF THE SYSTEM. CONFIRMED SYSTEM OIL LEVEL IS CORRECT. TEST DROVE THE VEHICLE.";
+				var M156ENGINEOilFilterHousing = "DISCONNECTED BATTERY GROUND, DRAINED MAIN COOLANT SYSTEM, AND REMOVED ENGINE FAN UNIT. REMOVED UPPER ENGINE COVER, LEFT AIR INTAKE DUCT, LEFT AIR FILTER HOUSING, AND LEFT TURBO INTAKE AND CHARGE PIPES. UNLOCKED THE BELT TENSIONER AND REMOVED DRIVE BELT. DISCONNECTED UPPER RAD HOSE AND REMOVED THERMOSTAT HOUSING. DISCONNECTED LEFT TURBO COOLANT LINES AT FRONT COVER. LOOSENED OIL FILTER HOUSING CAP AND REMOVED TWO OIL COOLER LINES AT FILTER HOUSING. REMOVED OIL FILTER HOUSING. TAPPED NEW M8X1.25 THREAD ON NEW FILTER HOUSING AND SWAPPED OVER GUIDE PULLEY. INSTALLED NEW OIL FILTER HOUSING AND TORQUED TO SPEC/PATTERN. ASSEMBLED IN REVERSE ORDER. CHECKED AND CONFIRMED CORRECT LEVEL OF ENGINE OIL. APPLIED VACUUM AND CONFIRMED COOLING SYSTEM CAN HOLD VACUUM. FILLED COOLING SYSTEM.";
+				var M156ENGINEThermostat = "DISCONNECTED BATTERY GROUND, DRAINED MAIN COOLANT SYSTEM, AND REMOVED ENGINE FAN UNIT. REMOVED UPPER ENGINE COVER, LEFT AIR INTAKE DUCT, LEFT AIR FILTER HOUSING, AND LEFT TURBO INTAKE AND CHARGE PIPES. UNLOCKED THE BELT TENSIONER AND REMOVED DRIVE BELT. DISCONNECTED UPPER RAD HOSE AND REMOVED THERMOSTAT HOUSING. INSTALLED NEW THERMOSTAT ASSEMBLY AND ASSEMBLED IN REVERSE ORDER. APPLIED VACUUM AND CONFIRMED COOLING SYSTEM CAN HOLD VACUUM. FILLED COOLING SYSTEM.";
+				var M156ENGINECamCovers = "DISCONNECTED BATTERY GROUND, DRAINED MAIN COOLANT SYSTEM, AND REMOVED ENGINE FAN UNIT. REMOVED UPPER ENGINE COVER, AIR INTAKE DUCTS, LEFT AND RIGHT AIR FILTER HOUSING, AND LEFT AND RIGHT TURBO INTAKE AND CHARGE PIPES. UNLOCKED THE BELT TENSIONER AND REMOVED DRIVE BELT. DISCONNECTED UPPER RAD HOSE AND REMOVED THERMOSTAT HOUSING. DISCONNECTED LEFT TURBO COOLANT LINES AT FRONT COVER. LOOSENED OIL FILTER HOUSING CAP AND REMOVED TWO OIL COOLER LINES AT FILTER HOUSING. REMOVED OIL FILTER HOUSING. REMOVED LEFT AND RIGHT FRONT CAM COVERS. CLEANED OLD RTV SEALS. APPLIED NEW SEALANT AND INSTALLED FRONT CAM COVERS. REMOVED CAM ADJUSTERS AND RE-INSTALLED WITH NEW O-RINGS. ASSEMBLED IN REVERSE ORDER. CHECKED AND CONFIRMED CORRECT LEVEL OF ENGINE OIL. APPLIED VACUUM AND CONFIRMED COOLING SYSTEM CAN HOLD VACUUM. FILLED COOLING SYSTEM.";
+				if (document.getElementById("M156ENGINERemove").checked == true) {
+					var functionM156ENGINEResult = M156ENGINERemove;
+				}
+				if (document.getElementById("M156ENGINEInstall").checked == true) {
+					var functionM156ENGINEResult = M156ENGINEInstall;
+				}
+				if (document.getElementById("M156ENGINEOilFilterHousing").checked == true) {
+					var functionM156ENGINEResult = M156ENGINEOilFilterHousing;
+				}
+				if (document.getElementById("M156ENGINEThermostat").checked == true) {
+					var functionM156ENGINEResult = M156ENGINEThermostat;
+				}
+				if (document.getElementById("M156ENGINECamCovers").checked == true) {
+					var functionM156ENGINEResult = M156ENGINECamCovers;
+				}
+				document.getElementById("M156ENGINE").innerHTML = functionM156ENGINEResult;
+			}
 			function functionFieldMeasure(){
 				var functionFieldMeasureResult = "";
 				var fmPreInspection = "CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED QUICK TEST. PERFORMED PRE-INSPECTION. LIFTED THE VEHICLE AND PERFORMED VISUAL INSPECTION OF EMISSION SYSTEM. CONFIRMED ALL EMISSION EQUIPMENT ARE PRESENT AND NO NON-COMPLIANT ALTERATIONS HAVE BEEN PERFORMED. VEHICLE IS READY FOR FIELD MEASURE INSTALLATION.";
@@ -941,6 +965,25 @@
 				document.getElementById("COPYPASTE").innerHTML = copypasteROFull;
 				CopyToClipboard('COPYPASTE');
 			}
+			function functionEngineTemplate(){
+				var functionTENGINEResult = "";
+				var MENGINEOption1 = "Option 1 story";
+				var MENGINEOption2 = "Option 2 story";
+				var MENGINEOption3 = "Option 3 story";
+				var M270ENGINEAirFilter = "";
+				var M270ENGINETransmissionService = "";
+				var M270ENGINERemove = "";
+				if (document.getElementById("MENGINEOption1").checked == true) {
+					var functionTENGINEResult = MENGINEOption1;
+				}
+				if (document.getElementById("MENGINEOption2").checked == true) {
+					var functionTENGINEResult = MENGINEOption2;
+				}
+				if (document.getElementById("MENGINEOption3").checked == true) {
+					var functionTENGINEResult = MENGINEOption3;
+				}
+				document.getElementById("MENGINEidInMainStory").innerHTML = functionTENGINEResult;
+			}
 		</script>
 	</head>
 <body style="background-color: black">
@@ -1385,11 +1428,29 @@
 							<label class="s1" for="M270ENGINEAirFilter">Air Filters&emsp;</label>
 							<input type="radio" id="M270ENGINERemove" name="M270ENGINE">
 							<label class="s1" for="M270ENGINERemove">Engine Removal/Installation&emsp;</label>
-
 						</form>
 						<s1 id="M270ENGINE";></s1>
 
 					<span class="a"></span>
+
+					<button class="button"; onclick="CopyToClipboard('M156ENGINE')">
+						M156 ENGINE</button><br>
+						<form oninput="functionM156ENGINE()">
+							<input type="radio" id="M156ENGINERemove" name="M156ENGINE">
+							<label class="s1" for="M156ENGINERemove">Remove Engine&emsp;</label>
+							<input type="radio" id="M156ENGINEInstall" name="M156ENGINE">
+							<label class="s1" for="M156ENGINEInstall">Install Engine&emsp;</label>
+							<input type="radio" id="M156ENGINECamCovers" name="M156ENGINE">
+							<label class="s1" for="M156ENGINECamCovers">Front Cam Cover Re-seal&emsp;</label>
+							<input type="radio" id="M156ENGINEThermostat" name="M156ENGINE">
+							<label class="s1" for="M156ENGINEThermostat">Thermostat&emsp;</label>
+							<input type="radio" id="M156ENGINEOilFilterHousing" name="M156ENGINE">
+							<label class="s1" for="M156ENGINEOilFilterHousing">Oil Filter Housing&emsp;</label>
+						</form>
+						<s1 id="M156ENGINE";></s1>
+
+					<span class="a"></span>
+
 
 					<button class="button"; onclick="CopyToClipboard('M274ENGINE')">
 						M274 ENGINE</button><br>
@@ -1919,12 +1980,24 @@
 							<option value="test2">test2</option>
 						</select>
 					</form>
-		-->
 
 
 
 
-
+		<button class="button"; onclick="CopyToClipboard('M270ENGINE')">
+			M270 ENGINE</button><br>
+			<form oninput="functionM270ENGINE()">
+				<input type="radio" id="M270ENGINESpark" name="M270ENGINE">
+				<label class="s1" for="M270ENGINESpark">Spark Plugs&emsp;</label>
+				<input type="radio" id="M270ENGINETransmissionService" name="M270ENGINE">
+				<label class="s1" for="M270ENGINETransmissionService">Transmission Service&emsp;</label>
+				<input type="radio" id="M270ENGINEAirFilter" name="M270ENGINE">
+				<label class="s1" for="M270ENGINEAirFilter">Air Filters&emsp;</label>
+				<input type="radio" id="M270ENGINERemove" name="M270ENGINE">
+				<label class="s1" for="M270ENGINERemove">Engine Removal/Installation&emsp;</label>
+			</form>
+			<s1 id="M270ENGINE";></s1>
+-->
 
 
 					<!---Test area end---------->
@@ -1935,7 +2008,7 @@
 
 
 			<span class="b"></span>
-			<s2>&#169; Jude Payumo &emsp;&emsp; Updated: 03 April 2022</s2> <!-- UDATE DATE *******-->
+			<s2>&#169; Jude Payumo &emsp;&emsp; Updated: 14 April 2022</s2> <!-- UDATE DATE *******-->
 			<span class="b"></span>
 
 			</div><!-- Story container-->
