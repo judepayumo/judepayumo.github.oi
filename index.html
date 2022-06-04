@@ -102,7 +102,8 @@
 				width:100%;
 				margin:-9px;
 				color:#fff;
-				background-image: linear-gradient(to bottom, #000 20px, rgba(0, 0, 0, 0.72), rgba(50, 70, 200, 0.3)), url(https://www.mercedes-benz.com/en/design/_jcr_content/root/slider_0_copy/sliderchilditems/slideritem_0/image/MQ7-0-image-20220216171235/01-mercedes-benz-design-uebersicht-3400x1440.jpeg);
+				background-image: linear-gradient(to bottom, #000 20px, rgba(0, 0, 0, 0.72), rgba(50, 70, 200, 0.3)), url(https://www.mercedes-amg.com/en/home/_jcr_content/stage/media/slides/slide_1775332595_cop_771106324/media1/video.video.20220527174120.mp4); /*https://www.mercedes-amg.com/content/global/en/vehicles/mercedes-amg-one/jcr:content/content/imageslider_1477917283/slides/slide/media1/image.media5.responsive_full_viewport_16_9.1531816317159.jpeg
+				*/
 				background-size: cover;
 			}
 			.converter{
@@ -444,6 +445,18 @@
 				}
 				document.getElementById("M270ENGINE").innerHTML = functionM270ENGINEResult;
 			}
+			function functionM260ENGINE(){//M260
+				var functionM260ENGINEResult = "";
+				var M260ENGINESpark = "REMOVED UPPER ENGINE COVER, AIR DUCT UPSTREAM OF TURBO, AND FOUR COIL PACKS. REMOVED FOUR SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUE TO 23NM. REINSTALLED ALL PARTS IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
+				var M260ENGINEHead = "PLACED VEHICLE IN NEUTRAL AND DISCONNECTED BATTERY GROUND. LIFTED THE VEHICLE AND REMOVED UPPER AND LOWER ENGINE COVER. REMOVED FRONT RIGHT WHEEL AND WHEEL WELL LINER. DRAINED COOLANT. DISCONNECTED CHARGE AIR HOSE DOWNSTREAM OF TURBO, TURBO COOLANT LINES AND OIL LINES, ELECTRICAL CONNECTORS FOR MAIN ENGINE HARNESS, AND ALL RELEVANT VACUUM LINES AND COOLANT LINES. REMOVED COOLANT RESERVOIR, INTAKE DUCT DOWNSTREAM OF AIR FILTER, CHARGE AIR PIPE UPSTREAM OF THROTTLE VALVE, FRONT ENGINE MOUNT, THROTTLE VALVE, AND CHARGE AIR DISTRIBUTOR. DETACHED MAIN ENGINE WIRING HARNESS FROM ITS CLIPS AND MOVED HARNESS TO ONE SIDE. REMOVED VACUUM PUMP, HIGH PRESSURE FUEL PUMP, FUEL RAIL WITH INJECTORS ATTACHED, INTAKE CAM ADJUSTER. DETACHED OIL FILLER NECK FROM HEAD COVER. REMOVED TURBO HEAT SHIELDS, TURBOCHARGER WITH EXHAUST MANIFOLD, ENGINE LIFT LUGS, AND TIMING CHAIN TENSIONER. REMOVED HEAD COVER, FRONT TIMING COVER, INTAKE AND EXHAUST VALVES. REMOVED CYLINDER HEAD WITH VALVES. CLEANED SURFACE AND INSTALLED NEW HEAD GASKET. INSTALLED NEW CYLINDER HEAD WITH VALVES. TRANSFERRED OVER PINS FOR TIMING CHAIN GUIDES, DOWELS FOR FRONT COVER ON TO NEW HEAD. TORQUED HEAD BOLTS TO SPEC. INSTALLED CAMS AND CONFIRMED ENGINE TIMING. TRANSFERRED TOP TIMING CHAIN GUIDE ON TO NEW HEAD COVER. APPLIED SILICONE SEALANT TO NEW HEAD COVER AS DETAILED IN WORKSHOP INSTRUCTION. INSTALLED HEAD COVER AND TORQUED TO SPEC. ASSEMBLED IN REVERSE ORDER WITH NEW SEALS/O-RINGS/BOLTS WHERE NEEDED. CONNECTED VACUUM COOLANT FILLER AND CONFIRMED COOLING SYSTEM CAN HOLD VACUUM FOR 5MIN. FILLED COOLING SYSTEM. PERFORMED TWO START UP CRANK CYCLES WITH INJECTORS DISCONNECTED TO CONFIRM ENGINE OIL IS CIRCULATING. CONNECTED ALL INJECTORS AND STARTED THE ENGINE. CONNECTED XENTRY SCANNER AND CLEARED STORED FAULTS. PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE AND CONFIRMED NO OBVIOUS ISSUES/CEL. LIFTED THE VEHICLE AND CHECKED FOR LEAKS, FOUND NONE.";
+				if (document.getElementById("M260ENGINEHead").checked == true) {
+					var functionM260ENGINEResult = M260ENGINEHead;
+				}
+				if (document.getElementById("M260ENGINESpark").checked == true) {
+					var functionM260ENGINEResult = M260ENGINESpark;
+				}
+				document.getElementById("M260ENGINE").innerHTML = functionM260ENGINEResult;
+				}
 			function functionM274ENGINE(){
 				var functionM274ENGINEResult = "";
 				var M274ENGINESpark = "REMOVED UPPER ENGINE COVER, ENGINE AIR FILTER BOX, AND FOUR COIL PACKS. REMOVED FOUR SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUE TO 23NM. ASSEMBLED IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
@@ -999,8 +1012,9 @@
 		<div>
 			<div class="headerSpace">
 				<div class="mainTitle">
-						<img src="https://www.mercedes-benz.ca/etc/designs/mb-nafta/images/Mercedes_Benz__logo--desktop.png" width="50" height="50" href="#" onclick="passcode();"><span class="xf-only-frame-title" style="padding-left: 10px; padding-top:5px;">
-						Jude's Stories<br></span>
+						<img src="https://www.mercedes-benz.ca/etc/designs/mb-nafta/images/Mercedes_Benz__logo--desktop.png"
+						 width="50" height="50" href="#" onclick="passcode();"><span class="xf-only-frame-title" style="padding-left: 10px; padding-top:5px;">
+						Jude's Stories<br></span> <!-- Main title Logo https://www.mercedes-benz.ca/etc/designs/mb-nafta/images/Mercedes_Benz__logo--desktop.png-->
 				</div>
 				<img alt="banner" class="banner-image" src="https://ats.daimler.com/attachment/downloadByRedirect?skey=1b2e366b-5a52-4679-823f-223a080bc859&inline=true">
 			</div>
@@ -1440,6 +1454,18 @@
 							<label class="s1" for="M270ENGINERemove">Engine Removal/Installation&emsp;</label>
 						</form>
 						<s1 id="M270ENGINE";></s1>
+
+					<span class="a"></span>
+
+					<button class="button"; onclick="CopyToClipboard('M260ENGINE')">
+						M260 ENGINE</button><br>
+						<form oninput="functionM260ENGINE()">
+							<input type="radio" id="M260ENGINESpark" name="M260ENGINE">
+							<label class="s1" for="M260ENGINESpark">Spark Plugs&emsp;</label>
+							<input type="radio" id="M260ENGINEHead" name="M260ENGINE">
+							<label class="s1" for="M260ENGINEHead">Cylinder Head&emsp;</label>
+						</form>
+						<s1 id="M260ENGINE";></s1>
 
 					<span class="a"></span>
 
@@ -2035,7 +2061,7 @@
 
 
 			<span class="b"></span>
-			<s2>&#169; Jude Payumo &emsp;&emsp; Updated: 14 May 2022</s2> <!-- UDATE DATE *******-->
+			<s2>&#169; Jude Payumo &emsp;&emsp; Updated: 3 June 2022)</s2> <!-- UDATE DATE *******-->
 			<span class="b"></span>
 
 			</div><!-- Story container-->
