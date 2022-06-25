@@ -105,7 +105,7 @@
 				width:100%;
 				margin:-9px;
 				color:#fff;
-				background-image: linear-gradient(to bottom, #000 20px, rgba(0, 0, 0, 0.72), rgba(50, 70, 200, 0.3)), url(https://www.mercedes-amg.com/en/home/_jcr_content/stage/media/slides/slide_1775332595_cop_771106324/media1/video.video.20220527174120.mp4);
+				background-image: linear-gradient(to bottom, #000 20px, rgba(0, 0, 0, .3), rgba(50, 70, 200, .1)), url(https://www.mercedes-amg.com/en/home/_jcr_content/stage/media/slides/slide_1775332595_cop_771106324/media1/video.video.20220527174120.mp4);
 				/*https://www.mercedes-amg.com/content/global/en/vehicles/mercedes-amg-one/jcr:content/content/imageslider_1477917283/slides/slide/media1/image.media5.responsive_full_viewport_16_9.1531816317159.jpeg
 				*/
 				background-size: cover;
@@ -148,7 +148,7 @@
 			}
 			.story-container{
 				position:absolute;
-				background-image: linear-gradient(to bottom, #fff 50%, rgba(156,156,156,.75));
+				background-image: linear-gradient(to bottom, #fff 60%, rgba(156,156,156,.80));
 				overflow-y:auto;
 				padding:20px 50px 50px;
 				margin: 0px 10px 20px;
@@ -1019,6 +1019,17 @@
 				}
 				document.getElementById("MENGINEidInMainStory").innerHTML = functionTENGINEResult;
 			}
+			function function2022030016(){
+				var base2022030016 = "PER MBC CAMPAIGN 2022030016, THE HERMES CONTROL UNIT REQUIRED FOR LTE CONNECTIVITY IS NOW AVAILABLE AND CAN BE RETROFITTED. REMOVED CODE 077. ";
+				var end2022030016 = "CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED RETROFIT PROGRAMMING OF NEW CONTROL UNIT UNDER TEACH-IN. REMOVED MASKING STICKER FROM SOS BUTTON. PERFORMED FUNCTION TEST. CONFIRMED SOS-NOT-READY MESSAGE GOES OUT AUTOMATICALLY.";
+				if (document.getElementById("2022030016A").checked == true) {
+					var base2022030016 = base2022030016 + "REMOVED LEFT COVER OF DASHBOARD AND LIGHT SWITCH MODULE. REMOVED HERMES CONTROL UNIT. INSTALLED NEW CONTROL UNIT AND ASSEMBLED IN REVERSE ORDER. " + end2022030016;
+				}
+				if (document.getElementById("2022030016GLC").checked == true) {
+					var base2022030016 = base2022030016 + "REMOVED CENTER CONSOLE STOWAGE BOX COVER AND CENTER CONSOLE COVER. REMOVED HERMES CONTROL UNIT. INSTALLED NEW CONTROL UNIT AND ASSEMBLED IN REVERSE ORDER." + end2022030016;
+				}
+				document.getElementById("2022030016").innerHTML = base2022030016;
+			}
 		</script>
 	</head>
 <body style="background-color: black">
@@ -1036,6 +1047,7 @@
 					<a href="https://xentry.daimler.com/xhpi/" target="_blank"><i class="fa fa-wrench"></i></a>
 					<a href="https://controlpanel.msoutlookonline.net/portal/aduser/login" target="_blank"><i class="fa fa-envelope"></i></a>
 					<a href="#"><i class="fa fa-lock" onclick="show('onOff','onOff');"></i></a><!--Lock button -->
+					<a href="#"><i class="fa fa-lock" onclick="show('topbanner','topbanner');"></i></a><!--Lock button -->
 				</div>
 			</div>
 			<!-- MAIN STORIES ********************************************************** -->
@@ -1998,11 +2010,17 @@
 					<span class="a"></span>
 
 					<button class="button"; onclick="CopyToClipboard('2022030016')">
-					HERMES CONTROL UNIT RETROFIT
-					</button><br>
-					<s1 id="2022030016";>
-						RETROFIT STORY… CONNECTED XENTRY DIAGNOSIS AND A BATTERY CHARGER. PERFORMED RETROFIT PROGRAMMING OF NEW CONTROL UNIT UNDER TEACH-IN. DISCONNECTED BATTERY CHARGER AND XENTRY. REMOVED MASKING STICKER FROM SOS BUTTON. PERFORMED FUNCTION TEST. CONFIRMED “SOS NOT READY” GOES OUT AUTOMATICALLY.
-					</s1>
+						HERMES CONTROL UNIT RETROFIT
+						</button><br>
+						<form oninput="function2022030016()">
+							<input type="radio" id="2022030016A" name="2022030016">
+							<label class="s1" for="2022030016A">118, 177, 247, 257 0.9H</label>
+							<input type="radio" id="2022030016GLC" name="2022030016">
+							<label class="s1" for="2022030016GLC">253 1.1H</label>
+						</form>
+						<s1 id="2022030016";>
+							RETROFIT STORY. CONNECTED XENTRY DIAGNOSIS AND A BATTERY CHARGER. PERFORMED RETROFIT PROGRAMMING OF NEW CONTROL UNIT UNDER TEACH-IN. DISCONNECTED BATTERY CHARGER AND XENTRY. REMOVED MASKING STICKER FROM SOS BUTTON. PERFORMED FUNCTION TEST. CONFIRMED SOS-NOT-READY GOES OUT AUTOMATICALLY.
+						</s1>
 
 					<span class="a"></span>
 					<span class="a"></span>
@@ -2082,7 +2100,7 @@
 
 
 			<span class="b"></span>
-			<s2>&#169; Jude Payumo &emsp;&emsp; Updated: 7 June 2022</s2> <!-- UDATE DATE *******-->
+			<s2>&#169; Jude Payumo &emsp;&emsp; Updated: 24 June 2022</s2> <!-- UDATE DATE *******-->
 			<span class="b"></span>
 
 			</div><!-- Story container-->
