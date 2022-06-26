@@ -1030,6 +1030,36 @@
 				}
 				document.getElementById("2022030016").innerHTML = base2022030016;
 			}
+			function functionPDI(){
+				var basePDI = "INSPECTED EXTERIOR AND INTERIOR FOR DAMAGE, SCRATCHES, OR DENTS. REMOVED SEAT AND FLOOR COVERS. INSTALLED SUPPLIED FLOOR MATS. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. TOPPED OFF COOLANT, WASHER FLUID, AND CHECKED BRAKE FLUID AND ENGINE OIL LEVELS. INSPECTED ENGINE BAY. LIFTED THE VEHICLE. CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY FOR DAMAGE. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED QUICK TEST. CONFIRMED NO ACTIVE FAULTS. PRINTED FINAL QUICK TEST. ";
+				var endPDI = "PERFORMED CHECKS AS PER PDI CHECKLIST. PERFORMED HAND-OVER IN WORKSHOP MENU AND RESET TPMS. TEST DROVE THE VEHICLE. ATTACHED FINAL QUICK TEST, FUEL RECEIPT, AND PDI CHECKLIST TO THE WORK ORDER.";
+				var notesPDI = "<br>**********<br>";
+				if (document.getElementById("PDIwheellock").checked == true) {
+					var basePDI = basePDI + "INSTALLED WHEEL LOCK BOLT SET AND PLACED KEY IN SPARE COMPARTMENT. ";
+				}
+				if (document.getElementById("PDIfrontplate").checked == true) {
+					var basePDI = basePDI + "INTALLED FRONT LICENSE PLATE BRACKET. ";
+				}
+				if (document.getElementById("PDIfPSI").value != 0 && document.getElementById("PDIrPSI").value != 0) {
+					var PDItirepressures = "SET TIRE PRESSURES TO " + document.getElementById("PDIfPSI").value + " PSI FRONTS, " + document.getElementById("PDIrPSI").value + " PSI REARS";
+					if (document.getElementById("PDIsPSI").value != 0) {
+						var PDItirepressures = PDItirepressures + ", " + document.getElementById("PDIsPSI").value + " PSI SPARE. ";
+					}else {
+						var PDItirepressures = PDItirepressures + ". "
+					}
+				}else {
+				 var PDItirepressures = "ADJUSTED ALL TIRE PRESSURES TO SPEC. ";
+			 	}
+				var basePDI = basePDI + PDItirepressures;
+				if (document.getElementById("PDIfuel").checked == true) {
+					var basePDI = basePDI + "FUELLED UP THE VEHICLE. ";
+				}
+				var basePDI = basePDI + endPDI;
+				if (document.getElementById("PDInotes").value != 0) {
+					var basePDI = basePDI + notesPDI + document.getElementById("PDInotes").value;
+				}
+				document.getElementById("PDIstory").innerHTML = basePDI;
+			}
 		</script>
 	</head>
 <body style="background-color: black">
@@ -1171,13 +1201,29 @@
 						</form>
 						<s1 id="additionalService";></s1>
 
-						<span class="a"></span>
+					<span class="a"></span>
 
-						<button class="button"; onclick="CopyToClipboard('PDI')">
-							PRE-DELIVERY INSPCTION</button><br>
-							<s1 id="PDI";>INSPECTED EXTERIOR AND INTERIOR FOR DAMAGE, SCRATCHES, OR DENTS. REMOVED SEAT AND FLOOR COVERS. INSTALLED SUPPLIED FLOOR MATS. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. TOPPED OFF COOLANT, WASHER FLUID, AND CHECKED BRAKE FLUID LEVEL. INSPECTED ENGINE BAY. LIFTED THE VEHICLE. CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY FOR DAMAGE. ADJUSTED ALL TIRE PRESSURES. PERFORMED HAND-OVER IN WORKSHOP MENU AND RESET TPMS. INSTALLED WHEEL LOCK BOLT SET AND PLACED KEY IN SPARE COMPARTMENT. ATTACHED ROADSIDE ASSISTANCE STICKER. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED QUICK TEST. CONFIRMED NO ACTIVE FAULTS. PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE. PERFORMED CHECKS AS PER PDI CHECKLIST. FUELLED UP THE VEHICLE. ATTACHED FINAL QUICK TEST, FUEL RECEIPT, AND PDI CHECKLIST TO WORK ORDER.</s1>
+					<button class="button"; onclick="CopyToClipboard('PDIstory')">
+						PRE-DELIVERY INSPECTION</button><br>
+						<form oninput="functionPDI()">
+							<input type="checkbox" id="PDIwheellock" name="PDI">
+							<label class="s1" for="PDIwheellock">Wheel Lock&emsp;</label>
+							<input type="checkbox" id="PDIfrontplate" name="PDI">
+							<label class="s1" for="PDIfrontplate">Front Plate Bracket&emsp;</label>
+							<input type="checkbox" id="PDIfuel" name="PDI">
+							<label class="s1" for="PDIfuel">Fuel Up&emsp;</label>
+							<label class="s1">Tire Pressures: </label>
+							<input type="text" id="PDIfPSI" name="PDI" size="5" placeholder="Fronts"  maxlength="2">
+							<input type="text" id="PDIrPSI" name="PDI" size="5" placeholder="Rears" maxlength="2">
+							<input type="text" id="PDIsPSI" name="PDI" size="5" placeholder="Spare" maxlength="2">
+							&nbsp; &nbsp;
+							<input type="text" id="PDInotes" size="40" placeholder="Notes">
+							&nbsp; &nbsp;
+							<input type="reset" onclick="functionPDI()" value="Reset">
+						</form>
+						<s1 id="PDIstory";>INSPECTED EXTERIOR AND INTERIOR FOR DAMAGE, SCRATCHES, OR DENTS. REMOVED SEAT AND FLOOR COVERS. INSTALLED SUPPLIED FLOOR MATS. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. TOPPED OFF COOLANT, WASHER FLUID, AND CHECKED BRAKE FLUID AND ENGINE OIL LEVELS. INSPECTED ENGINE BAY. LIFTED THE VEHICLE. CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY FOR DAMAGE. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED QUICK TEST. CONFIRMED NO ACTIVE FAULTS. PRINTED FINAL QUICK TEST. ADJUSTED ALL TIRE PRESSURES TO SPEC. PERFORMED CHECKS AS PER PDI CHECKLIST. PERFORMED HAND-OVER IN WORKSHOP MENU AND RESET TPMS. TEST DROVE THE VEHICLE. ATTACHED FINAL QUICK TEST, FUEL RECEIPT, AND PDI CHECKLIST TO THE WORK ORDER.</s1>
 
-						<span class="a"></span>
+					<span class="a"></span>
 
 					<button class="button"; onclick="CopyToClipboard('SAFETY')">
 						MB GOVERNMENT SAFETY INSPECTION</button><br>
@@ -2099,7 +2145,7 @@
 
 
 			<span class="b"></span>
-			<s2>&#169; Jude Payumo &emsp;&emsp; Updated: 24 June 2022</s2> <!-- UDATE DATE *******-->
+			<s2>&#169; Jude Payumo &emsp;&emsp; Updated: 26 June 2022</s2> <!-- UDATE DATE *******-->
 			<span class="b"></span>
 
 			</div><!-- Story container-->
