@@ -972,7 +972,7 @@
 			}
 			function viewDatacard(){
 				var datacardVIN = document.getElementById("dataVIN").value;
-				var datacardLink = "https://xentry.daimler.com/xhpi/datacard/chassis/" + datacardVIN + "/codes?lang=en";
+				var datacardLink = "https://xentry.mercedes-benz.com/xhpi/datacard/chassis/" + datacardVIN + "/codes?lang=en";
 				window.open(datacardLink, '_blank');
 			}
 			function functionCrankcase(){
@@ -1028,6 +1028,9 @@
 				if (document.getElementById("2022030016GLC").checked == true) {
 					var base2022030016 = base2022030016 + "REMOVED CENTER CONSOLE STOWAGE BOX COVER AND CENTER CONSOLE COVER. REMOVED HERMES CONTROL UNIT. INSTALLED NEW CONTROL UNIT AND ASSEMBLED IN REVERSE ORDER." + end2022030016;
 				}
+				if (document.getElementById("2022030016E").checked == true) {
+					var base2022030016 = base2022030016 + "REMOVED CENTER CONSOLE STOWAGE BOX BUTTON AND CENTER CONSOLE TRIM. REMOVED HEAD UNIT. REMOVED HERMES CONTROL UNIT. INSTALLED NEW CONTROL UNIT AND ASSEMBLED IN REVERSE ORDER." + end2022030016;
+				}
 				document.getElementById("2022030016").innerHTML = base2022030016;
 			}
 			function functionPDI(){
@@ -1073,8 +1076,8 @@
 				</div>
 				<img id="topbanner" alt="banner" class="banner-image" src="https://ats.daimler.com/attachment/downloadByRedirect?skey=1b2e366b-5a52-4679-823f-223a080bc859&inline=true" style="display:none;">
 				<div class="icon-bar">
-					<a href="https://xentry.daimler.com/home/" target="_blank"><i class="fa fa-home"></i></a>
-					<a href="https://xentry.daimler.com/xhpi/" target="_blank"><i class="fa fa-wrench"></i></a>
+					<a href="https://xentry.mercedes-benz.com/home/" target="_blank"><i class="fa fa-home"></i></a>
+					<a href="https://xentry.mercedes-benz.com/xhpi/" target="_blank"><i class="fa fa-wrench"></i></a>
 					<a href="https://controlpanel.msoutlookonline.net/portal/aduser/login" target="_blank"><i class="fa fa-envelope"></i></a>
 					<a href="#"><i class="fa fa-lock" onclick="show('onOff','onOff');"></i></a><!--Lock button -->
 				</div>
@@ -1104,8 +1107,8 @@
 					</form>
 					<s1>Datacard: </s1>
 					<form>
-						<input type="text" id="dataVIN" placeholder="VIN" size="18" maxlength="17">
-						<input type="button" onclick="viewDatacard()" value="View">
+						<input type="text" id="dataVIN" placeholder="WDDSJ4GB1GN288750" size="18" maxlength="17">
+						<input type="submit" onclick="viewDatacard(); return false" value="View">
 					</form>
 					<div class="controls">
 						<a href="#"><i class="fa fa-close" onclick="show('calcOn','calc');"></i></a> <!--Close button -->
@@ -2062,9 +2065,19 @@
 							<label class="s1" for="2022030016A">118, 177, 247, 257 0.9H</label>
 							<input type="radio" id="2022030016GLC" name="2022030016">
 							<label class="s1" for="2022030016GLC">253 1.1H</label>
+							<input type="radio" id="2022030016E" name="2022030016">
+							<label class="s1" for="2022030016E">213 1.0H</label>
 						</form>
 						<s1 id="2022030016";>
-							RETROFIT STORY. CONNECTED XENTRY DIAGNOSIS AND A BATTERY CHARGER. PERFORMED RETROFIT PROGRAMMING OF NEW CONTROL UNIT UNDER TEACH-IN. DISCONNECTED BATTERY CHARGER AND XENTRY. REMOVED MASKING STICKER FROM SOS BUTTON. PERFORMED FUNCTION TEST. CONFIRMED SOS-NOT-READY GOES OUT AUTOMATICALLY.
+							RETROFIT STORY FOR 2022030016. CONNECTED XENTRY DIAGNOSIS AND A BATTERY CHARGER. PERFORMED RETROFIT PROGRAMMING OF NEW CONTROL UNIT UNDER TEACH-IN. DISCONNECTED BATTERY CHARGER AND XENTRY. REMOVED MASKING STICKER FROM SOS BUTTON. PERFORMED FUNCTION TEST. CONFIRMED SOS-NOT-READY GOES OUT AUTOMATICALLY.
+						</s1>
+
+					<span class="a"></span>
+
+					<button class="button"; onclick="CopyToClipboard('2022040008')">
+						STEERING WHEEL HAND DETECTION 0.3H</button><br>
+						<s1 id="2022040008";>
+							AS PER MB RECALL CAMPAIGN 2022040008, HANDS-OFF DETECTION MIGHT NOT READ CORRECTLY WHEN USING THE DISTRONIC ASSISTANCE SYSTEM. CODING OF THE HAND DETECTION SYSTEM (HE) WILL HAVE TO BE UPDATED. CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED UPDATE OF <b>SCN CODING OF N179-HE</b>. DISCONNECTED BATTERY CHARGER AND XENTRY DIAGNOSIS.
 						</s1>
 
 					<span class="a"></span>
@@ -2145,7 +2158,7 @@
 
 
 			<span class="b"></span>
-			<s2>&#169; Jude Payumo &emsp;&emsp; Updated: 26 June 2022</s2> <!-- UDATE DATE *******-->
+			<s2>&#169; Jude Payumo &emsp;&emsp; Updated: 8 July 2022</s2> <!-- UDATE DATE *******-->
 			<span class="b"></span>
 
 			</div><!-- Story container-->
