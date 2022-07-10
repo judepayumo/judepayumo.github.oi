@@ -1063,6 +1063,97 @@
 				}
 				document.getElementById("PDIstory").innerHTML = basePDI;
 			}
+			function diagnosisStory(){
+				var diagStoryBase = "";
+				if (document.getElementById("diagdrive").checked == true) {
+					var diagStoryBase = diagStoryBase + "TEST DROVE THE VEHICLE. ";
+				}
+				if (document.getElementById("diagpos").checked == true) {
+					var diagStoryBase = diagStoryBase + "CONFIRMED CUSTOMER'S CONCERN: ";
+				}else if (document.getElementById("diagneg").checked == true) {
+					var diagStoryBase = diagStoryBase + "COULD NOT CONFIRM CUSTOMER'S CONCERN: ";
+				}
+				var diagStoryBase = diagStoryBase +  document.getElementById("diagcomplaint").value;
+				if (document.getElementById("diagscan").checked == true && document.getElementById("diagcharge").checked == true) {
+					var diagStoryBase = diagStoryBase + " CONNECTED BATTERY CHARGER AND XENTRY DIAGNOSIS. ";
+				}else if (document.getElementById("diagscan").checked == true) {
+					var diagStoryBase = diagStoryBase + " CONNECTED XENTRY DIAGNOSIS. ";
+				}
+				if (document.getElementById("diagiqt").checked == true) {
+					var diagStoryBase = diagStoryBase + "PERFORMED INITIAL QUICK TEST. ";
+				}
+				if (document.getElementById("diagfaultsn").value != 0 && document.getElementById("diagfaultsn").value <= 5) {
+					var diagStoryBase = diagStoryBase + "FOUND " + document.getElementById("diagfaultsn").value + " FAULTS REGARDING CUSTOMER'S CONCERN. ";
+				}
+				if (document.getElementById("diagfaultsn").value >= 6) {
+					var diagStoryBase = diagStoryBase + "FOUND MULTIPLE FAULTS REGARDING CUSTOMER'S CONCERN. ";
+				}
+				if (document.getElementById("diagfaultsn").value == 0 && document.getElementById("diagiqt").checked == true) {
+					var diagStoryBase = diagStoryBase + "FOUND NO FAULTS REGARDING CUSTOMER'S CONCERN. ";
+				}
+				if (document.getElementById("diagnote").value != 0) {
+					var diagStoryBase = diagStoryBase + document.getElementById("diagnote").value;
+				}
+
+				//ADD FAULT DESCRIPTIONS HERE
+				//ADD FAULTS HERE
+
+				if (document.getElementById("diagtips").checked == true) {
+					var diagStoryBase = diagStoryBase + " CHECKED TIPS FOR RELEVANT DOCUMENTS. ";
+					if (document.getElementById("diagtipsd").value == 0) {
+						var diagStoryBase = diagStoryBase + "FOUND NONE. ";
+					}
+				}
+				if (document.getElementById("diagtipsd").value != 0) {
+					var diagStoryBase = diagStoryBase + "FOUND TIPS DOCUMENT " + document.getElementById("diagtipsd").value + ". ";
+					if (document.getElementById("diagtipsr").value != 0) {
+						var diagStoryBase = diagStoryBase + "PER TIPS, " + document.getElementById("diagtipsr").value;
+					}
+				}
+				if (document.getElementById("diagupdate").checked == true) {
+					if (document.getElementById("diagcu").value != 0) {
+						var diagStoryBase = diagStoryBase + "CHECKED " + document.getElementById("diagcu").value + " FOR SOFTWARE UPDATES. ";
+					} else if (document.getElementById("diagcu").value == 0) {
+						var diagStoryBase = diagStoryBase + "CHECKED RELEVANT CONTROL UNITS FOR SOFTWARE UPDATES. ";
+					}
+				}
+				if (document.getElementById("diagupdatel").value != 0) {
+					var diagStoryBase = diagStoryBase + "FOUND A " + document.getElementById("diagupdatel").value + "MIN UPDATE IS AVAILABLE. ";
+				}
+				if (document.getElementById("diagupdated").checked == true) {
+					var diagStoryBase = diagStoryBase + "PERFORMED SOFTWARE UPDATE. ";
+				}
+				if (document.getElementById("diageqt").checked == true) {
+					var diagStoryBase = diagStoryBase + " ERASED FAULT MEMORY. ";
+				}
+				if (document.getElementById("diagfqt").checked == true) {
+					var diagStoryBase = diagStoryBase + " PERFORMED FINAL QUICK TEST. ";
+				}
+				if (document.getElementById("diagfdrive").checked == true) {
+					var diagStoryBase = diagStoryBase + "PERFORMED FINAL TEST DRIVE. ";
+				}
+				if (document.getElementById("diagnotefinal").value != 0) {
+					var diagStoryBase = diagStoryBase + document.getElementById("diagnotefinal").value;
+				}
+				document.getElementById("diagStory").innerHTML = diagStoryBase;
+			}//add fault descriptions & auto add lines
+
+
+			/*
+			var add_more_fields = document.getElementById('add_more_fields');
+
+			add_more_fields.onclick = function(){
+			  var newField = document.createElement('input');
+			  newField.setAttribute('type','text');
+			  newField.setAttribute('name','diag');
+			  newField.setAttribute('siz',50);
+			  newField.setAttribute('placeholder','Another Field');
+			  diagnosisForm.appendChild(newField);
+			}*/
+
+
+
+
 		</script>
 	</head>
 <body style="background-color: black">
@@ -1107,7 +1198,7 @@
 					</form>
 					<s1>Datacard: </s1>
 					<form>
-						<input type="text" id="dataVIN" placeholder="WDDSJ4GB1GN288750" size="18" maxlength="17">
+						<input type="text" id="dataVIN" value="WDDSJ4GB1GN288750" size="18" maxlength="17">
 						<input type="submit" onclick="viewDatacard(); return false" value="View">
 					</form>
 					<div class="controls">
@@ -1176,6 +1267,55 @@
 							<s1 id="storyPSI"></s1>
 							<s1 id="ServiceNotesOut"></s1>
 						</s1>
+
+					<span class="a"></span>
+
+					<button class="button"; onclick="CopyToClipboard('diagStory')">
+						XENTRY DIAGNOSIS</button><br>
+						<form id="diagnosisForm" oninput="diagnosisStory()">
+							<input type="checkbox" id="diagdrive" name="diag">
+							<label class="s1" for="diagdrive">Test Drive</label>
+							<input type="radio" id="diagpos" name="diag">
+							<label class="s1" for="diagpos">C</label>
+							<input type="radio" id="diagneg" name="diag">
+							<label class="s1" for="diagneg">NC</label>
+							<input type="text" id="diagcomplaint" name="diag" size="40" placeholder="Complaint">
+							&nbsp; &nbsp;
+							<input type="checkbox" id="diagscan" name="diag" checked>
+							<label class="s1" for="diagscan">Xentry&nbsp;</label>
+							<input type="checkbox" id="diagcharge" name="diag" checked>
+							<label class="s1" for="diagcharge">Charger&nbsp;</label>
+							&nbsp; &nbsp;
+							<input type="checkbox" id="diagiqt" name="diag" checked>
+							<label class="s1" for="diagiqt">IQT&nbsp;</label>
+							<input type="checkbox" id="diageqt" name="diag">
+							<label class="s1" for="diageqt">EFM&nbsp;</label>
+							<input type="checkbox" id="diagfqt" name="diag">
+							<label class="s1" for="diagfqt">FQT&nbsp;</label>
+							<br>
+							<input type="checkbox" id="diagupdate" name="diag">
+							<label class="s1" for="diagupdate">Software</label>
+							<input type="text" id="diagcu" name="diag" size="5" placeholder="CU">
+							<input type="text" id="diagupdatel" name="diag" size="5" placeholder="min">
+							<input type="checkbox" id="diagupdated" name="diag">
+							&nbsp; &nbsp;
+							<input type="checkbox" id="diagtips" name="diag">
+							<label class="s1" for="diagtips">Tips</label>
+							<input type="text" id="diagtipsd" name="diag" size="15" placeholder="GI20.10-P-059075">
+							<input type="text" id="diagtipsr" name="diag" size="15" placeholder="Cause/Remedy">
+							&nbsp; &nbsp;
+							<label class="s1">Faults: </label>
+							<input type="text" id="diagfaultsn" name="diag" size="3" placeholder="0" value="0" maxlength="2">
+							<input type="text" id="diagnote" name="diag" size="15" placeholder="Note">
+							&nbsp; &nbsp;
+							<input type="checkbox" id="diagfdrive" name="diag">
+							<label class="s1" for="diagfdrive">Test Drive</label>
+							<input type="text" id="diagnotefinal" name="diag" size="15" placeholder="Final Note">
+							&nbsp; &nbsp;
+							<input type="reset" onclick="diagnosisStory()" value="Reset">
+
+						</form>
+						<s1 id="diagStory">CONFIRMED CUSTOMER'S CONCERN: CHECK ENGINE LIGHT IS ON. CONNECTED BATTERY CHARGER AND XENTRY DIAGNOSIS. PERFORMED INITIAL QUICK TEST. FOUND MULTIPLE FAULTS REGARDING CUSTOMER'S CONCERN. ******** ERASED FAULT MEMORY. PERFORMED FINAL QUICK TEST. PERFORMED FINAL TEST DRIVE. CONFIRMED CEL IS NO LONGER ON.</s1>
 
 					<span class="a"></span>
 
@@ -2158,7 +2298,7 @@
 
 
 			<span class="b"></span>
-			<s2>&#169; Jude Payumo &emsp;&emsp; Updated: 8 July 2022</s2> <!-- UDATE DATE *******-->
+			<s2>&#169; Jude Payumo &emsp;&emsp; Updated: 9 July 2022</s2> <!-- UDATE DATE *******-->
 			<span class="b"></span>
 
 			</div><!-- Story container-->
