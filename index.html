@@ -586,6 +586,9 @@
 				if (document.getElementById("FM2021120029").checked == true) {
 					var functionFieldMeasureResult = fm2021120029;
 				}
+				if (document.getElementById("FM2021120030").checked == true) {
+					var functionFieldMeasureResult = fm2021120029;
+				}
 				if (document.getElementById("FM2021120027").checked == true) {
 					var functionFieldMeasureResult = fm2021120027;
 				}
@@ -602,15 +605,17 @@
 				}else {
 					var functionBrakesResult = "LIFTED THE VEHICLE. ";
 				}
-				if (functionBrakesFront && functionBrakesRear){
-					var functionBrakesFR = "FRONT AND REAR"
-				}else if (functionBrakesFront) {
+				if (functionBrakesFront) {
 					var functionBrakesFR = "FRONT"
-				}else if (functionBrakesRear) {
+				}
+				if (functionBrakesRear) {
 					var functionBrakesFR = "REAR"
 				}
+				if (functionBrakesFront && functionBrakesRear){
+					var functionBrakesFR = "FRONT AND REAR"
+				}
 				var functionBrakesResult = functionBrakesResult + "REMOVED " + functionBrakesFR + " WHEELS. ";
-				if ((functionBrakesFixed && functionBrakesFront) != functionBrakesRear) {
+				if ((functionBrakesFixed && functionBrakesFront) && (functionBrakesRear == false)) {
 					var functionBrakesResult = functionBrakesResult + "REMOVED FRONT CALIPERS, PADS, AND ROTORS. ";
 				}else {
 					var functionBrakesResult = functionBrakesResult + "REMOVED " + functionBrakesFR + " CALIPERS, PADS, CALIPER BRACKETS, AND ROTORS. ";
@@ -1500,12 +1505,6 @@
 
 						<span class="a"></span>
 
-					<button class="button"; onclick="CopyToClipboard('MOUNT2')">
-						MOUNTED AND BALANCED</button><br>
-						<s1 id="MOUNT2";>LIFTED THE VEHICLE. REMOVED ****** WHEEL. DISMOUNTED TIRES. MOUNTED AND BALANCED NEW TIRES. REINSTALLED &nbsp;WHEELS. ADJUSTED FOUR TIRE PRESSURES AND RESET TPMS. LOWERED THE VEHICLE AND TORQUED ALL FOUR WHEELS. TEST DROVE THE VEHICLE AND RE-TORQUED ALL FOUR WHEELS.</s1>
-
-					<span class="a"></span>
-
 					<button class="button"; onclick="CopyToClipboard('alignment')">
 						FOUR WHEEL ALIGNMENT
 						</button><br>
@@ -1815,6 +1814,8 @@
 							<label class="s1" for="FM2021120031">2021120031 5.3H&emsp;</label>
 							<input type="radio" id="FM2021120029" name="CANFM">
 							<label class="s1" for="FM2021120029">2021120029 4.2H&emsp;</label>
+							<input type="radio" id="FM2021120030" name="CANFM">
+							<label class="s1" for="FM2021120030">2021120030 4.2H&emsp;</label>
 							<input type="radio" id="FM2021120027" name="CANFM">
 							<label class="s1" for="FM2021120027">2021120027 5.2H&emsp;</label>
 						</form>
@@ -1980,6 +1981,13 @@
 
 					<span class="a"></span>
 
+					<button class="button"; onclick="CopyToClipboard('2022060017')">
+						REARVIEW CAMERA SOFTWARE UPDATE 0.3H</button><br>
+						<s1 id="2022060017";>
+							AS PER MB RECALL CAMPAIGN 2022060017, THE REAR-VIEW IMGAE MIGHT NOT BE DISPLAYED IN THE CENTRAL DISPLAY AFTER ENGAGING THE REVERSE GEAR. CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED <b>SOFTWARE UPDATE OF REVERSING CAMERA CONTROL UNIT (RFK)</b>. DISCONNECTED XENTRY AND CHARGER.&nbsp;</s1>
+
+					<span class="a"></span>
+
 					<button class="button"; onclick="CopyToClipboard('2020070009')">
 						177 A-CLASS A/C DRAIN HOSE 0.1H</button><br>
 						<s1 id="2020070009";>AS PER MB RECALL CAMPAIGN 2020070009 , INSTALLATION OF AIR CONDITION DRAIN HOSE HAS TO BE CHECKED. LIFTED FLOOR COVERING AT RIGHT FRONT CENTRE CONSOLE AND CHECKED CONDENSATION DRAIN HOSE OF A/C. FOUND DRAIN HOSE IS CORRECTLY INSTALLED; NO FURTHER STEPS REQUIRED.</s1>
@@ -2137,6 +2145,14 @@
 						ESP SOFTWARE UPDATE 0.3H</button><br>
 						<s1 id="2021030004";>
 							AS PER MB RECALL CAMPAIGN 2021030004 , THE ELECTRONIC STABILITY PROGRAM (ESP) SOFTWARE MIGHT NOT MEET SPECIFICATIONS. CONNECTED XENTRY SCAN TOOL AND BATTERY CHARGER. PERFORMED <b>SOFTWARE UPDATE OF ESP CONTROL UNIT (N30/4).</b>
+						</s1>
+
+					<span class="a"></span>
+
+					<button class="button"; onclick="CopyToClipboard('2022070003')">
+						ESP SCN UPDATE 0.3H</button><br>
+						<s1 id="2022070003";>
+							AS PER MB SERVICE ACTION 2022070003, CODING OF THE ESP CONTROL UNIT DOES NOT CORRESPOND TO THE CURRENT SERIES PRODUCTION CONFIGURATION. CONNECTED XENTRY SCAN TOOL AND BATTERY CHARGER. PERFORMED <b>SCN UPDATE OF ESP CONTROL UNIT (N30/4).</b>
 						</s1>
 
 					<span class="a"></span>
@@ -2408,7 +2424,7 @@
 
 
 			<span class="b"></span>
-			<s2>&#169; Jude Payumo &emsp;&emsp; Updated: 8 Sep 2022</s2> <!-- UDATE DATE *******-->
+			<s2>&#169; Jude Payumo &emsp;&emsp; Updated: 9 October 2022, Test Area (Backup)</s2> <!-- UDATE DATE *******-->
 			<span class="b"></span>
 
 			</div><!-- Story container-->
