@@ -2,7 +2,6 @@
 <html>
 <!-- TO DO:
 			Fade converter div when not in hover
-			Add jump to Service or Recall buttons
 			Add scroll to top button
 			Add in-lb to torque conversion
 			Add cross camber/toe to alignment function
@@ -10,14 +9,28 @@
 			Add saveable temp story
 
 		-->
+
+
+<!--
+			Main Title:					MainPageTitle
+			Banner:							MainPageBanner
+			Main Window Title: 	MainWindowTitle
+			Background video:		BGPageVideo
+			Main On/Off lock:		PasswordOnOff
+			Update Date: 				UpdateDate
+
+
+
+
+
+		-->
 	<head>
-		<title>Jude's Stories</title>
+		<title>Jude's Stories</title> <!-- MainWindowTitle -->
 		<link rel="shortcut icon" type="image/png" href="https://www.mercedes-benz.ca/favicon.ico">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<!--<link rel="stylesheet" href="https://xentry.daimler.com/xentry-frame-ui/css/main.css?v=2">-->
-		<video autoplay muted loop id="bgVideo">
+		<!--<video autoplay muted loop id="bgVideo">
   		<source src="https://www.mercedes-amg.com/en/home/_jcr_content/stage/media/slides/slide_1775332595_cop_771106324/media1/video.video.20220527174120.mp4" type="video/mp4">
-		</video>
+		</video> BGPageVideo for Chrome/Firefox -->
 		<style>
 			s1{/*font format for story*/
 				margin: 0px;
@@ -105,16 +118,13 @@
 				width:100%;
 				margin:-9px;
 				color:#fff;
-				background-image: linear-gradient(to bottom, #000 20px, rgba(0, 0, 0, .3), rgba(50, 70, 200, .1)), url(https://www.mercedes-amg.com/en/home/_jcr_content/stage/media/slides/slide_1775332595_cop_771106324/media1/video.video.20220527174120.mp4);
-				/*https://www.mercedes-amg.com/content/global/en/vehicles/mercedes-amg-one/jcr:content/content/imageslider_1477917283/slides/slide/media1/image.media5.responsive_full_viewport_16_9.1531816317159.jpeg
-				*/
+				background-image: linear-gradient(to bottom, #000 20px, rgba(0, 0, 0, .3), rgba(50, 70, 200, .1)), url(https://www.mercedes-amg.com/content/global/en/home/jcr:content/root/responsivegrid/herostage_726660968/teasers/teaser_copy.media5.responsive_full_viewport_16_9.1666615185519.jpeg); /*BGPageVideo for Safari*/
 				background-size: cover;
 			}
 			.converter{
 				position: fixed;
-				display: block;
 				right: 20px;
-				height: 110px;
+				height: 130px;
 				padding: 5px;
 				background-color: rgba(0,28,120,0.2);
 				border-radius: 15px 5px;
@@ -183,25 +193,6 @@
 			}
 		</style>
 		<script>
-			function passcode(){
-				displayBanner();
-				var passcodeInput = prompt("Password: ");
-				for (var i = 0; i < 2; i++) {
-					if (passcodeInput === null){
-						var passcodeInput = prompt("Password: ");
-					} else if (passcodeInput != "Jude"){
-						var passcodeInput = prompt("Password: ");
-					} else if (passcodeInput === "Jude") {
-						show('onOff','');
-						var i = 5;
-					}
-				}
-				if (passcodeInput != "Jude") {
-					window.open("https://i.kym-cdn.com/entries/icons/original/000/030/359/cover4.jpg", '_self');
-				} else if (passcodeInput === "Jude") {
-					show('onOff','');
-				}
-				}
 			function displayBanner(){
 				document.getElementById("topbanner").style.display='block';
 			}
@@ -221,7 +212,7 @@
 			function convert() {
 				var x = 0.73756;
 			  var userInput = document.getElementById("inputValue");
-				var unitInput = document.getElementById("unit");
+				var unitInput = document.getElementById("unit2");
 				if (unitInput.value==="nm") {
 					var result = parseInt(userInput.value) * x;
 			    document.getElementById("outputUnit").innerHTML = "ft-lb";
@@ -229,6 +220,20 @@
 				else {
 					var result = parseInt(userInput.value) / x;
 			    document.getElementById("outputUnit").innerHTML = "Nm";
+				}
+			    return result.toFixed(1);
+			}
+			function pressure() {
+				var bar = 14.5038;
+			  var presNInput = document.getElementById("presN");
+				var presUInput = document.getElementById("unit1");
+				if (presUInput.value==="psi") {
+					var result = parseInt(presNInput.value) / bar;
+			    document.getElementById("presUout").innerHTML = "BAR";
+				}
+				else {
+					var result = parseInt(presNInput.value) * bar;
+			    document.getElementById("presUout").innerHTML = "PSI";
 				}
 			    return result.toFixed(1);
 			}
@@ -991,11 +996,37 @@
 				}
 				document.getElementById("MOUNTBALANCE").innerHTML = mabResult;
 			}
-			function viewDatacard(){
+			function viewCodes(){
 				var datacardVIN = document.getElementById("dataVIN").value;
 				var datacardLink = "https://xentry.mercedes-benz.com/xhpi/datacard/chassis/" + datacardVIN + "/codes?lang=en";
 				window.open(datacardLink, '_blank');
 			}
+			function viewDatacard(){
+				var datacardVIN = document.getElementById("dataVIN").value;
+				var datacardLink = "https://xentry.mercedes-benz.com/xhpi/datacard/chassis/" + datacardVIN + "/agg?lang=en";
+				window.open(datacardLink, '_blank');
+			}
+			function mecheck(){
+				var checkchecksout = document.getElementById("GN288750").value;
+				var prompts = document.getElementById("WDDSJ4GB1").value + "ss" + document.getElementById("WDDSJ4GB1G").value + "d:";
+				displayBanner();
+				var mecheckInput = prompt(prompts);
+				for (var i = 0; i < 2; i++) {
+					if (mecheckInput === null){
+						var mecheckInput = prompt(prompts);
+					} else if (mecheckInput != checkchecksout){
+						var mecheckInput = prompt(prompts);
+					} else if (mecheckInput === checkchecksout) {
+						show('onOff','');
+						var i = 5;
+					}
+				}
+				if (mecheckInput != checkchecksout) {
+					window.open("https://i.kym-cdn.com/entries/icons/original/000/030/359/cover4.jpg", '_self');
+				} else if (mecheckInput === checkchecksout) {
+					show('onOff','');
+				}
+				}
 			function functionCrankcase(){
 				var crankcaseDiag = document.getElementById("crankcaseDiag").checked;
 				var crankcaseM270 = document.getElementById("crankcaseM270").checked;
@@ -1183,9 +1214,9 @@
 			<div class="headerSpace">
 				<div class="mainTitle";>
 						<img src="https://www.mercedes-benz.ca/etc/designs/mb-nafta/images/Mercedes_Benz__logo--desktop.png"
-						 width="50" height="50" href="#" onclick="passcode();"><span class="xf-only-frame-title" style="padding-left: 10px; padding-top:5px;">
-						Jude's Stories<br></span> <!-- Main title Logo https://www.mercedes-benz.ca/etc/designs/mb-nafta/images/Mercedes_Benz__logo--desktop.png-->
-				</div>
+						 width="50" height="50" href="#" onclick="mecheck();"><span class="xf-only-frame-title" style="padding-left: 10px; padding-top:5px;">
+						Jude's Stories<br></span> <!-- MainPageTitle -->
+				</div> <!-- MainPageBanner -->
 				<img id="topbanner" alt="banner" class="banner-image" src="https://ats.daimler.com/attachment/downloadByRedirect?skey=1b2e366b-5a52-4679-823f-223a080bc859&inline=true" style="display:none;">
 				<div class="icon-bar">
 					<a href="https://xentry.mercedes-benz.com/home/" target="_blank"><i class="fa fa-home"></i></a>
@@ -1196,12 +1227,12 @@
 				</div>
 			</div>
 			<!-- MAIN STORIES ********************************************************** -->
-			<div id="onOff"; class="story-container" style="height: 100%; display:none;">
+			<div id="onOff"; class="story-container" style="height: 100%; display:none;"> <!-- PasswordOnOff -->
 				<div id="calc"; class="converter">
 					<s1>Converter</s1>
 					<form oninput=ans.value=convert()>
 						<input type="text" id="inputValue" placeholder="0" size="5" maxlength="3">
-						<select name="unitSelect" id="unit">
+						<select name="unitSelect" id="unit2">
 							<option value="nm">Nm</option>
 							<option value="lb">ft-lb</option>
 						</select>
@@ -1210,18 +1241,30 @@
 						<s1 id="outputUnit"></s1>
 					</form>
 					<form oninput=depth.value=treadDepth()>
-						<input type="text" id="mmInput" placeholder="0" size="5" maxlength="4">
-						<select id="unit">
+						<input type="text" id="mmInput" placeholder="0" size="5" maxlength="3">
+						<select id="unit3">
 							<option>mm</option>
 						</select>
 						<s1> = </s1>
 						<input type="text" size="5" readonly placeholder="32nd" name="depth">
 						<s1 id="depthUnit"></s1>
 					</form>
-					<s1>Datacard: </s1>
+					<form oninput=ans.value=pressure()>
+						<input type="text" id="presN" placeholder="0" size="5" maxlength="3">
+						<select name="pressUnit" id="unit1">
+							<option value="psi">PSI</option>
+							<option value="bar">BAR</option>
+						</select>
+						<s1> = </s1>
+						<input type="text" size="5" readonly placeholder="0.0" name="ans">
+						<s1 id="presUout"></s1>
+					</form>
+					<s1>Vehicle Information </s1>
 					<form>
 						<input type="text" id="dataVIN" value="WDDSJ4GB1GN288750" size="18" maxlength="17">
-						<input type="submit" onclick="viewDatacard(); return false" value="View">
+						<input type="text" id="GN288750" value="Jude" hidden>
+						<a href="#"><i class="fa fa-book" onclick="viewCodes();"></i></a> <!-- View vedoc codes -->
+						<a href="#"><i class="fa fa-barcode" onclick="viewDatacard();"></i></a> <!-- View major components -->
 					</form>
 					<div class="controls">
 						<a href="#"><i class="fa fa-close" onclick="show('calcOn','calc');"></i></a> <!--Close button -->
@@ -1566,7 +1609,7 @@
 
 					<button class="button"; onclick="CopyToClipboard('725SERVICE')">
 						TRANSMISSION SERVICE 9G-Tronic 725</button><br>
-						<s1 id="725SERVICE";>LIFTED THE VEHICLE AND REMOVED LOWER ENGINE AND TRANSMISSION COVERS. DRAINED TRANSMISSION OIL. REMOVED TRANSMISSION OIL PAN. INSTALLED NEW TRANSMISSION OIL PAN WITH NEW BOLTS. PRE-FILLED TRANSMISSION OIL. CONNECTED XENTRY SCAN TOOL AND PERFORMED TRANSMISSION OIL LEVEL CHECK. ADJUSTED TRANSMISSION OIL TO CORRECT SPEC. INSTALLED NEW PLATIC DRAIN PLUG. REASSEMBLED IN REVERSE ORDER. TEST DROVE THE VEHICLE. VERIFIED VEHICLE DRVES AND SHIFTS SMOOTHLY.</s1>
+						<s1 id="725SERVICE";>LIFTED THE VEHICLE AND REMOVED LOWER ENGINE AND TRANSMISSION COVERS. DRAINED TRANSMISSION OIL. REMOVED TRANSMISSION OIL PAN. INSTALLED NEW TRANSMISSION OIL PAN WITH NEW BOLTS. PRE-FILLED TRANSMISSION OIL. CONNECTED XENTRY SCAN TOOL AND PERFORMED TRANSMISSION OIL LEVEL CHECK. ADJUSTED TRANSMISSION OIL TO CORRECT SPEC. INSTALLED NEW PLATIC DRAIN PLUG. REASSEMBLED IN REVERSE ORDER. TEST DROVE THE VEHICLE. VERIFIED VEHICLE DRIVES AND SHIFTS SMOOTHLY.</s1>
 						<s2><br>Drain positions: 4 (drain fully), 1 (fill), 2 (small drain), 3 (justify).
 							<br>Pan to transmission housing bolts: 4nm + 90 deg
 							<br>Prefill w/ 4.5L - drained from oil pan
@@ -2424,7 +2467,9 @@
 
 
 			<span class="b"></span>
-			<s2>&#169; Jude Payumo &emsp;&emsp; Updated: 9 October 2022, Test Area (Backup)</s2> <!-- UDATE DATE *******-->
+			<input type="text" id="WDDSJ4GB1G" value="wor" hidden>
+			<s2>&#169; Jude Payumo &emsp;&emsp; Updated: 30 October 2022</s2> <!-- UpdateDate -->
+			<input type="text" id="WDDSJ4GB1" value="Pa" hidden>
 			<span class="b"></span>
 
 			</div><!-- Story container-->
