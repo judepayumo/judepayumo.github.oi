@@ -1,4 +1,14 @@
 </<!DOCTYPE html>
+<!--
+Todo:
+	Countdown timer with alert
+	Converter div
+
+
+-->
+
+
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -25,7 +35,7 @@
       text-shadow: #000 0px 0 2px;
     }
     s3{/*font formal for titles*/
-      font-size: 11px;
+      font-size: 12px;
       font-family: "Lucinda Console", "Curier New", monospace;
       color: black;
     }
@@ -127,10 +137,29 @@
       width: 200px;
       overflow-y: scroll;
     }
+		.bottomDiv{
+			position: fixed;
+      bottom: 30px;
+      right: 40px;
+			height: 30;
+			width: 30;
+      font-size: 50px;
+    }
+		.bottomDiv a{
+		 transition: all 0.2s ease;
+		 color: rgb(110,13,0);
+		 text-decoration: none;
+	 }
+	 .bottomDiv a:hover{
+		 color: red;
+	 }
     table, th, td {
       color: white;
-      border: .1px dotted black;
+      /*border: .1px dotted black;*/
     }
+		tr:nth-child(even) {
+  		background-color: gray;
+		}
     .vinDiv input{
       background-color: black;
       border-radius: 6px 2px;
@@ -188,7 +217,6 @@
       document.getElementById(hidden).style.display='none';
       return false;
     }
-
     function convert() {
       var x = 0.73756;
       var userInput = document.getElementById("inputValue");
@@ -555,12 +583,17 @@
       var fm2021120024 = ""; //same text as fm2021120026
       var fm2021120031 = "LIFTED THE VEHICLE. DISCONNECTED BATTERY GROUND. REMOVED ENGINE COVER AND  CHARGE AIR PIPE AT TURBO. DRAINED COOLANT AT RADIATOR. REMOVED THERMOSTAT HOUSING WITH THERMOSTAT. REMOVED UNDERBODY PANELS. CUT OFF THE EXHAUST AT MARKED NOTCH. REMOVED DOC, DPF, SCR, NOX SENSORS, AND PM SENSOR. TRANSFERRED THE RUBBER DAMPER FROM OLD DPF TO NEW PART. INSTALLED NEW PARTS IN REVERSE ORDER. RECONNECTED BATTERY GROUND. APPLIED VACUUM TO COOLING SYSTEM AND CONFIRMED COOLING SYSTEM HELD VACUUM FOR 5MIN. FILLED COOLING SYSTEM WITH COOLANT. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED SERVICE MEASURE (EXHAUST AFTER-TREATMENT SYSTEM) UNDER CDI SPECIAL PROCEDURES. CLEATED STORED FAULTS AND PERFORMED FINAL QUICK TEST. TEST DROVE THE VEHICLE.";
       var fm2021120029 = "LIFTED THE VEHICLE. DISCONNECTED BATTERY GROUND. REMOVED LOWER ENGINE AND TRANSMISSION COVERS. LOWERED LEFT AND RIGHT UNDERBODY PANELS. REMOVED NOX SENSORS AND PARTICULATE SENSOR. CUT OFF THE EXHAUST SYSTEM AT MARKED NOTCH. DISCONNECTED METERING VALVE. REMOVED SCR. REMOVED LOWER TRANSMISSION SUPPORT MEMBER AND SUPPORTED TRANSFERCASE. REMOVED REMOVED CAT/DPF UNIT, AND SCR. TRANSFERRED RUBBER DAMPER FROM OLD CAT/DPF TO NEW PART. INSTALLED NEW PARTS IN REVERSE ORDER. RECONNECTED BATTERY GROUND. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED SERVICE MEASURE (EXHAUST AFTER-TREATMENT SYSTEM) UNDER CDI SPECIAL PROCEDURES. CLEATED STORED FAULTS AND PERFORMED FINAL QUICK TEST. TEST DROVE THE VEHICLE.";
-      var fm2021120027 = "LIFTED THE VEHICLE. DISCONNECTED BATTERY GROUND. REMOVED LOWER ENGINE AND TRANSMISSION COVERS. DRAINED COOLANT. REMOVED UPPER AND FRONT ENGINE COVER. DETACHED CHARGE AIR DAMPER AND REMOVED CHARGE AIR PIPE AFTER TURBO. REMOVED COOLANT THERMOSTAT AND INSTALLED A NEW THERMOSTAT. LOWERED LEFT AND RIGHT UNDERBODY PANELS. REMOVED NOX SENSORS. CUT OFF THE EXHAUST SYSTEM AT MARKED NOTCH. DISCONNECTED METERING VALVE. REMOVED SCR. REMOVED LOWER TRANSMISSION SUPPORT MEMBER AND SUPPORTED TRANSFERCASE. REMOVED REMOVED CAT/DPF UNIT, AND SCR. TRANSFERRED RUBBER DAMPER FROM OLD CAT/DPF TO NEW PART. INSTALLED NEW PARTS IN REVERSE ORDER. CONNECTED COOLANT FILLER AND APPLIED VACUUM TO THE COOLING SYSTEM. CONFIRMED THE COOLING SYSTEM CAN HOLD THE VACUUM FOR 5MIN. FILLED COOLING SYSTEM WITH COOLANT. RECONNECTED BATTERY GROUND. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED SERVICE MEASURE (EXHAUST AFTER-TREATMENT SYSTEM) UNDER CDI SPECIAL PROCEDURES. CLEATED STORED FAULTS AND PERFORMED FINAL QUICK TEST. TEST DROVE THE VEHICLE."
+      var fm2021120027 = "LIFTED THE VEHICLE. DISCONNECTED BATTERY GROUND. REMOVED LOWER ENGINE AND TRANSMISSION COVERS. DRAINED COOLANT. REMOVED UPPER AND FRONT ENGINE COVER. DETACHED CHARGE AIR DAMPER AND REMOVED CHARGE AIR PIPE AFTER TURBO. REMOVED COOLANT THERMOSTAT AND INSTALLED A NEW THERMOSTAT. LOWERED LEFT AND RIGHT UNDERBODY PANELS. REMOVED NOX SENSORS. CUT OFF THE EXHAUST SYSTEM AT MARKED NOTCH. DISCONNECTED METERING VALVE. REMOVED SCR. REMOVED LOWER TRANSMISSION SUPPORT MEMBER AND SUPPORTED TRANSFERCASE. REMOVED REMOVED CAT/DPF UNIT, AND SCR. TRANSFERRED RUBBER DAMPER FROM OLD CAT/DPF TO NEW PART. INSTALLED NEW PARTS IN REVERSE ORDER. CONNECTED COOLANT FILLER AND APPLIED VACUUM TO THE COOLING SYSTEM. CONFIRMED THE COOLING SYSTEM CAN HOLD THE VACUUM FOR 5MIN. FILLED COOLING SYSTEM WITH COOLANT. RECONNECTED BATTERY GROUND. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED SERVICE MEASURE (EXHAUST AFTER-TREATMENT SYSTEM) UNDER CDI SPECIAL PROCEDURES. CLEATED STORED FAULTS AND PERFORMED FINAL QUICK TEST. TEST DROVE THE VEHICLE.";
+      var fm2021120028 = "LIFTED THE VEHICLE. DISCONNECTED BATTERY GROUND. REMOVED ENGINE COVER AND CHARGE AIR PIPE AT TURBO. DRAINED COOLANT AT RADIATOR. REMOVED THERMOSTAT HOUSING WITH THERMOSTAT. REMOVED UNDERBODY PANELS. CUT OFF THE EXHAUST AT MARKED NOTCH. REMOVED DOC+DPF, SCR, NOX SENSORS, AND PM SENSOR. TRANSFERRED THE RUBBER DAMPER FROM OLD DPF TO NEW PART. INSTALLED NEW PARTS IN REVERSE ORDER. RECONNECTED BATTERY GROUND. APPLIED VACUUM TO COOLING SYSTEM AND CONFIRMED COOLING SYSTEM HELD VACUUM FOR 5MIN. FILLED COOLING SYSTEM WITH COOLANT. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED SERVICE MEASURE (EXHAUST AFTER-TREATMENT SYSTEM) UNDER CDI SPECIAL PROCEDURES. CLEATED STORED FAULTS AND PERFORMED FINAL QUICK TEST. TEST DROVE THE VEHICLE.";
+      var fm2022060006 = "New"; // FIXME:
       if (document.getElementById("FMPREINSPECTION").checked == true) {
         var functionFieldMeasureResult = fmPreInspection;
       }
       if (document.getElementById("FM2021120026").checked == true) {
         var functionFieldMeasureResult = fm2021120026;
+      }
+      if (document.getElementById("FM2021120028").checked == true) {
+        var functionFieldMeasureResult = fm2021120028;
       }
       if (document.getElementById("FM2021120024").checked == true) {
         var functionFieldMeasureResult = fm2021120026;
@@ -576,6 +609,9 @@
       }
       if (document.getElementById("FM2021120027").checked == true) {
         var functionFieldMeasureResult = fm2021120027;
+      }
+      if (document.getElementById("FM2022060006").checked == true) {
+        var functionFieldMeasureResult = fm2022060006;
       }
       document.getElementById("FieldMesaure").innerHTML = functionFieldMeasureResult;
     }
@@ -1177,6 +1213,51 @@
       }
       document.getElementById("diagStory").innerHTML = diagStoryBase;
     }//add fault descriptions & auto add lines
+		function scrollUp(){
+			document.getElementById('onOff').scrollTop = 0;
+			toggleDiv('bottomDiv'); //hides button when at the top
+		}
+		function scrollFunction(){ //show scroll button
+			var scrollPos = document.getElementById('onOff').scrollTop;
+			show('phoneDiv','phoneDiv'); // hides phone when mainDiv scrolls
+			if (scrollPos > 500 && scrollPos < 800) {
+				show('bottomDiv','');
+			}
+			}
+    function function2022050005(){
+      var bbrResult = "AS PER MB RECALL CAMPAIGN 2022050005, FUNCTION OF THE BRAKE BOOSTER MIGHT BE IMPAIRED DUE TO ADVANCED CORROSION. REMOVED ELASTIC BAND AROUND THE BRAKE BOOSTER. TOOK A PHOTO OF THE BAND ON THE VIN LABEL OF THE B-PILLAR AND SENT VIA EMAIL TO THE SERVICE MANAGER. CHECKED CORROSION OF THE BRAKE BOOSTER USING THE REMOVED ELASTIC BAND. ";
+      if (document.getElementById("bbr1").checked == true) {
+        var bbrResult = bbrResult + "FOUND CORROSION LEVEL IS PERMISSIBLE. NO FURTHER MEASURES NEEDED. APPLIED WHITE TOUCH-UP PAINT PEN MARKING TO THE CHECKED BRAKE BOOSTER.";
+      }else if (document.getElementById("bbr2").checked == true) {
+        var bbrResult = bbrResult + "FOUND CORROSION LEVEL IS NOT OKAY. CONNECTED BATTERY CHARGER AND XENTRY SCANNER. PERFORMED INITIAL QUICK TEST. PERFORMED TEST OF BRAKING POWER UNDER ESP CONTROL UNIT. ";
+        if (document.getElementById("bbr3").checked == true) {
+          var bbrResult = bbrResult + "TEST PASSED ON THE FIRST ATTEMPT. ";
+        }else if (document.getElementById("bbr4").checked == true) {
+          var bbrResult = bbrResult + "FIRST TEST FAILED. PERFORMED SECOND TEST. SECOND TEST PASSED. ";
+        }
+        if (document.getElementById("bbr5").checked == true) {
+          var bbrResult = bbrResult + "FIRST TEST FAILED. PERFORMED SECOND TEST. SECOND TEST FAILED. BRAKE BOOSTER MUST BE REPLACED. ";
+        }else {
+          var bbrResult = bbrResult + "PRINTED OUT BRAKING POWER REPORT. APPLIED WHITE TOUCH-UP PAINT PEN MARKING TO THE CHECKED BRAKE BOOSTER.";
+        }
+      }
+      document.getElementById("2022050005").innerHTML = bbrResult;
+    }
+    function testPreq(){
+      var preqResult = "";
+      if (document.getElementById("preq1").checked == true) {
+        var preqResult = preqResult + "M270 OIL FILTER <br>";
+      }
+      if (document.getElementById("preq2").checked == true) {
+        var preqResult = preqResult + "DRAIN PLUG GASKET <br>";
+      }
+      if (document.getElementById("preq3").checked == true) {
+        var preqResult = preqResult + "KEY BATTERY <br>";
+      }
+      document.getElementById("testPreq1").innerHTML = preqResult;
+    }
+
+
   </script>
   <body class="mainPage">
     <div class="topBanner">
@@ -1201,7 +1282,7 @@
       </div>
     </div>
 
-    <div class="mainDiv" id="onOff" style="display:none"> <!-- Main Story Div -->
+    <div class="mainDiv" id="onOff" style="display:none" onscroll="scrollFunction()";> <!-- Main Story Div -->                   <!-- FIXME:  -->
       <div class="mainStory"> <!-- ********************************************* SERVICE STORIES ******************************************** -->
         <s2>Service</s2><br>
         <button class="button"; onclick="CopyToClipboard('SERVICE')">
@@ -1786,6 +1867,10 @@
 							<label class="s1" for="FM2021120030">2021120030 4.2H&emsp;</label>
 							<input type="radio" id="FM2021120027" name="CANFM">
 							<label class="s1" for="FM2021120027">2021120027 5.2H&emsp;</label>
+              <input type="radio" id="FM2022060006" name="CANFM">
+							<label class="s1" for="FM2022060006">2022060006 16.5H&emsp;</label>
+              <input type="radio" id="FM2021120028" name="CANFM">
+							<label class="s1" for="FM2021120028">2021120028 5.2H&emsp;</label>
 						</form>
 					<s1 id="FieldMesaure";></s1>
       </div> <!--main story-->
@@ -1799,7 +1884,7 @@
 						<input type="text" id="parsScan" name="parsScan" size="6" maxlength="6">
 					</form>
 					<s1 id="2020030008A";>AS PER MB RECALL CAMPAIGN 2020030008 , DRIVER&rsquo;S AND PASSENGER FRONT AIRBAGS MUST BE REPLACED. CONFIRMED NO SRS LIGHT OR WARNING ARE ON. DISCONNECTED BATTERY GROUND TERMINAL. REMOVED DRIVERS STEERING WHEEL AIRBAG. REMOVED CENTRE DASHBOARD VENTS AND RIGHT VENT, REMOVED COMAND DISPLAY TRIM, AND DASHBOARD TRIM. REMOVED GLOVE COMPARTMENT. REMOVED PASSENGER FRONT AIRBAG. SCANNED AIRBAG CODES. INSTALLED NEW AIRBAGS IN REVERSE ORDER. REINSTALLED ALL PARTS IN REVERSE ORDER. RECONNECTED BATTERY GROUND TERMINAL. STARTED THE VEHICLE. VERIFIED NO SRS LIGHT OR WARNINGS. &nbsp; &nbsp; &nbsp; &nbsp;
-						<br>PARTS SCAN ID: <s1 id="2020030008Ascan"></s1></s1>
+					<br>PARTS SCAN ID: <s1 id="2020030008Ascan"></s1></s1>
 
 				<span class="a"></span>
 
@@ -1907,6 +1992,12 @@
 					<s1 id="2019040004";>AS PER MB RECALL CAMPAIGN 2019040004 , ENGINE ELECTRONICS CONTROL UNIT SOFTWARE MUST BE UPDATED. CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED SOFTWARE UPDATE OF ENGINE ELECTRONICS (ME). DISCONNECTED XENTRY AND CHARGER. TEST DROVE THE VEHICLE.</s1>
 
 				<span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('2022080011')">
+          CATALYST HEATING ME SOFTWARE UPDATE 0.3H</button><br>
+          <s1 id="2022080011";>AS PER MB SERVICE CAMPAIGN 2022080011, ENGINE CONTROL UNIT SOFTWARE MUST BE UPDATED TO ENSURE CATALYST HEATING IS WORKING CORRECTLY. CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED SOFTWARE UPDATE OF ENGINE ELECTRONICS (ME). DISCONNECTED XENTRY AND CHARGER.</s1>
+
+        <span class="a"></span>
 
 				<button class="button"; onclick="CopyToClipboard('2019090012')">
 					166 REWORK ECU CONNECTORS RECALL 0.1H</button><br>
@@ -2294,6 +2385,46 @@
 					<s1 id="2022030023";>
 						AS PER MBC CAMPAIGN 2022030023, SIDE IMPACT STRUTS OF THE FRONT AND REAR DOORS MAY NOT COMPLY WITH INTERNAL SPECIFICATIONS. REMOVED INTERIOR DOOR MODULE OF ALL FOUR DOORS. REMOVED OUTER WINDOW SEAL OF ALL FOUR WINDOWS, AND REMOVED ALL FOUR CRANK WINDOWS. REMOVED ALL FOUR EXTERIOR DOOR HANDLES AND WINDOW REGULATOR ASSEMBLY. APPLIED PRESERVATION AGENT TO ALL FOUR DOOR SIDE IMPACT STRUTS AS DETAILED IN THE DOCUMENT. RE-INSTALLED ALL FOUR WINDOW REGULATORS AND CRANK WINDOWS. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED NORMALIZATION OF ALL FOUR WINDOWS. ASSEMBLED IN REVERSE ORDER. CLEARED FAULTS AND PRINTED FINAL QUICK TEST. CONFIRMED ALL FOUR WINDOWS ARE NORMALIZED.
 					</s1>
+
+        <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('2022100006')">
+          REAR WINDOW DIVIDER 0.1H</button><br>
+          <s1 id="2022100006";>
+            AS PER MB RECALL CAMPAIGN 2022100006, THE FIXATION OF TRIM BAR AT THE REAR DOOR WINDOWS MIGHT NOT MEET SPECIFICATIONS. LOWERED BOTH REAR WINDOWS. CHECKED WETHER LEFT OR RIGHT WINDOW DIVIDERS ARE SEATED TIGHTLY AS DETAILED IN THE DOCUMENT. CONFIRMED BOTH REAR WINDOW DIVIDERS DID NOT WORK LOOSE DURING THE TEST. NO FURTHER WORK NEEDED.
+          </s1>
+
+        <span class="a"></span>
+
+
+        <button class="button"; onclick="CopyToClipboard('2022050005')">
+					BRAKE BOOSTER RECALL
+					</button><br>
+					<form oninput="function2022050005()">
+            <label class="s1">Corrosion:&nbsp;</label>
+						<input type="radio" id="bbr1" name="bbrCorrosion">
+						<label class="s1" for="bbr1">OK&nbsp;</label>
+						<input type="radio" id="bbr2" name="bbrCorrosion">
+						<label class="s1" for="bbr2">Not OK&nbsp;&nbsp;</label>
+            <label class="s1">&nbsp;Tests:&nbsp;</label>
+						<input type="radio" id="bbr3" name="bbrTest" checked>
+						<label class="s1" for="bbr3">1st Passed&nbsp;</label>
+            <input type="radio" id="bbr4" name="bbrTest">
+						<label class="s1" for="bbr4">2nd Passed&nbsp;</label>
+            <input type="radio" id="bbr5" name="bbrTest">
+						<label class="s1" for="bbr5">2nd Failed&nbsp;</label>
+					</form>
+					<s1 id="2022050005";>
+						AS PER MB RECALL CAMPAIGN 2022050005, FUNCTION OF THE BRAKE BOOSTER MIGHT BE IMPAIRED DUE TO ADVANCED CORROSION.
+					</s1><br>
+          <s3>Notes: Remove KeylessGo button when performing brake power test.</s3><br>
+          <s3>&nbsp; The elastic band should be separated above the barcode label.</s3><br>
+          <s3>&nbsp; See Check/test procedure A1 if elastic band is missing.</s3><br>
+          <s3>&nbsp; Test: "Main groups – Control units - Chassis – ESP-Electronic Stability Program – Complete list of guided tests – Braking Power".</s3><br>
+
+
+
+
       </div> <!--Recall story story-->
       <span class="c"></span>
       <div class="mainStory"> <!-- ********************************************* MISCELLANEOUS STORIES ************************************** -->
@@ -2306,16 +2437,46 @@
 				<br>
 				<textarea id="copypasteROStory" name="copypasteROStory" rows="30" cols="110"></textarea>
 				<br>
-				<s1 id="COPYPASTE";>
-				</s1>
+				<s1 id="COPYPASTE";></s1>
+
+        <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('testPreq')">
+          Test Preq
+        </button><br>
+        <s1 id="testPreq">M270 OIL FILTER<br>DRAIN PLUG GASKET<br>KEY BATTERY</s1>
+
+        <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('testPreq1')">
+          Test Preq
+        </button><br>
+        <form oninput="testPreq()">
+          <input type="checkbox" id="preq1" name="preqq">
+          <label class="s1" for="preq1">Engine oil filter&nbsp;</label>
+          <input type="checkbox" id="preq2" name="preqq">
+          <label class="s1" for="preq2">Drain plug gasket&nbsp;</label>
+          <input type="checkbox" id="preq3" name="preqq">
+          <label class="s1" for="preq3">Key battery&nbsp;</label>
+        </form>
+        <s1 id="testPreq1">M270 OIL FILTER<br>DRAIN PLUG GASKET<br>KEY BATTERY</s1>
+
+
+
+
+
+
 
 
         <span class="c"></span>
         <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
-        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 12 November 2022, Test Area (Backup)</s3>
+        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 15 November 2022</s3>                                    <!-- FIXME:  -->
         <input type="text" id="WDDSJ4GB1" value="Pa" hidden>
       </div>
       <span class="c"></span>
+			<div class="bottomDiv" id="bottomDiv" style="display:none">
+				<a href="#"><i class="fa  fa-angle-double-up" id="scrollBtn" onclick="scrollUp()"></i></a>
+			</div>
     </div>
     <div class="mainDiv" id="notMe" style="display:none"> <!-- Not Me Div -->
       <s2>You do not have the authorisations required for this page</s2>
