@@ -82,18 +82,18 @@ Todo:
       background-color: rgba(0, 0, 0, 0.5);
       position: fixed;
       width: 100%;
-      height: 110px;
+      height: 95px;
       top: 0;
       left: 0;
       margin: 0px 0px 10px 0px;
       padding: 20px 20px 5px 20px;
     }
     .topBannerLogo{
-      width: 360px;
+      width: 290px;
     }
     .mainDiv{ /* main div*/
       position: relative;
-      top: 100px;
+      top: 95px;
       max-height: 750px;
       max-width: 100%;
       overflow-y: scroll;
@@ -104,7 +104,7 @@ Todo:
     .mainStory{ /*story blocks*/
     }
     .shortcutDiv{
-      top: 40px;
+      top: 30px;
       right: 70px;
       position: absolute;
       align-content: center;
@@ -112,15 +112,15 @@ Todo:
     }
     .shortcutDiv a{
       transition: all 0.2s ease;
-      color: rgb(110,13,0);
+      color: rgb(226,30,0);
       text-decoration: none;
     }
     .shortcutDiv a:hover{
-      color: red;
+      color: rgb(201,201,201);
     }
     .vinDiv{
       position: absolute;
-      top: 80px;
+      top: 70px;
       right: 70px;
       font-size: 20px;
     }
@@ -170,11 +170,11 @@ Todo:
     }
     .vinDiv a{
       transition: all 0.2s ease;
-      color: rgb(110,13,0);
+      color: rgb(226,30,0);
       text-decoration: none;
     }
     .vinDiv a:hover{
-      color: red;
+      color: rgb(201,201,201);
     }
     span.topBannerTitle{
       position: absolute;
@@ -184,7 +184,7 @@ Todo:
       font-size: 40px;
       color: red;
       top: 40px;
-      left: 170px;
+      left: 130px;
     }
     span.a{/*For spacing stories*/
       display: block;
@@ -1246,13 +1246,13 @@ Todo:
     function testPreq(){
       var preqResult = "";
       if (document.getElementById("preq1").checked == true) {
-        var preqResult = preqResult + "M270 OIL FILTER <br>";
+        var preqResult = preqResult + "A <br><br> ITEM <br> B <br><br> Item B";
       }
       if (document.getElementById("preq2").checked == true) {
-        var preqResult = preqResult + "DRAIN PLUG GASKET <br>";
+        var preqResult = preqResult + "A <br><br> ITEM <br><br><br> ITEM 2 <br><br><br> ITEM 3";
       }
       if (document.getElementById("preq3").checked == true) {
-        var preqResult = preqResult + "KEY BATTERY <br>";
+        var preqResult = preqResult + "ITEM1 <br><br><br> ITEM 2 <br><br><br> ITEM 3";
       }
       document.getElementById("testPreq1").innerHTML = preqResult;
     }
@@ -2132,11 +2132,17 @@ Todo:
 
 				<span class="a"></span>
 
-				<button class="button"; onclick="CopyToClipboard('2020080003')">
+				<button class="button"; onclick="CopyToClipboard('20220500082022100014')">
 					DKG TRANSMISSION SOFTWARE UPDATE 0.3H
 					</button><br>
-					<s1 id="2022050008";>
-					AS PER MB RECALL CAMPAIGN 2022050008, TRANSMISSION CONTROL UNIT SOFTWARE MUST BE UPDATED. CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED SOFTWARE UPDATE OF TRANSMISSION CONTROL UNIT (DKG). DISCONNECTED XENTRY DIAGNOSIS.
+          <form oninput=recallNumberSelect(recallNumber,"20220500082022100014a")>
+            <input type="radio" checked value="2022050008" id="2022050008Forma" name="recallNumber">
+            <label class="s1" for="2022050008Forma">2022050008&nbsp;</label>
+            <input type="radio" value="2022100014" id="2022100014Forma" name="recallNumber">
+            <label class="s1" for="2022100014Forma">2022100014&nbsp;</label>
+          </form>
+					<s1 id="20220500082022100014";>
+					AS PER MB RECALL CAMPAIGN <s1 id="20220500082022100014a">2022050008</s1>, MERCEDES-BENZ AG HAS DETERMINED THAT THE SOFTWARE FOR THE TRANSMISSION CONTROL UNIT DOES NOT CORRESPOND TO THE CURRENT SERIES PRODUCTION CONFIGURATION. TRANSMISSION CONTROL UNIT SOFTWARE MUST BE UPDATED. CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED SOFTWARE UPDATE OF TRANSMISSION CONTROL UNIT (DKG). DISCONNECTED XENTRY DIAGNOSIS.
 					</s1>
 
 				<span class="a"></span>
@@ -2441,36 +2447,40 @@ Todo:
 
         <span class="a"></span>
 
-        <button class="button"; onclick="CopyToClipboard('testPreq')">
-          Test Preq
-        </button><br>
-        <s1 id="testPreq">M270 OIL FILTER<br>DRAIN PLUG GASKET<br>KEY BATTERY</s1>
-
-        <span class="a"></span>
-
         <button class="button"; onclick="CopyToClipboard('testPreq1')">
           Test Preq
         </button><br>
         <form oninput="testPreq()">
           <input type="checkbox" id="preq1" name="preqq">
-          <label class="s1" for="preq1">Engine oil filter&nbsp;</label>
+          <label class="s1" for="preq1">Line A Item, Line B Item&nbsp;</label>
           <input type="checkbox" id="preq2" name="preqq">
-          <label class="s1" for="preq2">Drain plug gasket&nbsp;</label>
+          <label class="s1" for="preq2">Line A Item, Item 2, Item 3&nbsp;</label>
           <input type="checkbox" id="preq3" name="preqq">
-          <label class="s1" for="preq3">Key battery&nbsp;</label>
+          <label class="s1" for="preq3">Item, Item, Item&nbsp;</label>
         </form>
-        <s1 id="testPreq1">M270 OIL FILTER<br>DRAIN PLUG GASKET<br>KEY BATTERY</s1>
+        <s1 id="testPreq1">Test<br>Test<br>Test</s1>
 
 
 
 
+        <span class="a"></span>
+
+        <button class="button">
+          GTLS
+        </button><br>
+        <s1>&#10004;&nbsp;Qualified Powertrain Systems Technician – T2123Q-CA<br>
+          &#10067;&nbsp;Qualified Chassis Systems Technician – T2125Q-CA<br>
+          &#10007;&nbsp;Qualified Electrics, Comfort & Telematics Systems Technician – T2120Q-CA<br>
+          &#10004;&nbsp;Diagnostic Strategies; 4 Level Model – T2166D-CA (Pre-requisite eLearning)<br>
+          &#10067;&nbsp;Diagnostic Strategies I – T0005F-CA (T0004F-CA ?) (2-day – Instructor Led Training)<br>
+          &#10004;&nbsp;Intermediate Electrical – T0220F-CA (2-day – Instructor Led Training)</s1>
 
 
 
 
         <span class="c"></span>
         <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
-        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 15 November 2022</s3>                                    <!-- FIXME:  -->
+        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 17 November 2022</s3>                                    <!-- FIXME:  -->
         <input type="text" id="WDDSJ4GB1" value="Pa" hidden>
       </div>
       <span class="c"></span>
