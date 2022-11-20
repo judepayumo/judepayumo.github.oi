@@ -3,6 +3,7 @@
 Todo:
 	Countdown timer with alert
 	Converter div
+  Oil capacity div
 
 
 -->
@@ -22,6 +23,11 @@ Todo:
       font-size: 12px;
       font-family: "Lucinda Console", "Curier New", monospace;
       color: white;
+    }
+    s6{/*font format for hidden*/
+      font-size: 0px;
+      font-family: "Lucinda Console", "Curier New", monospace;
+      color: black;
     }
     s2{/*font formal for titles*/
       display: block;
@@ -142,7 +148,7 @@ Todo:
       bottom: 30px;
       right: 40px;
 			height: 30;
-			width: 30;
+			width: 120;
       font-size: 50px;
     }
 		.bottomDiv a{
@@ -1215,14 +1221,20 @@ Todo:
     }//add fault descriptions & auto add lines
 		function scrollUp(){
 			document.getElementById('onOff').scrollTop = 0;
-			toggleDiv('bottomDiv'); //hides button when at the top
+			//toggleDiv('bottomDiv'); //hides button when at the top
 		}
+    function scrollDown(){
+      document.getElementById('onOff').scrollTop = 15000;
+    }
+    function scrollMid(){
+      document.getElementById('onOff').scrollTop = 6000;
+    }
 		function scrollFunction(){ //show scroll button
 			var scrollPos = document.getElementById('onOff').scrollTop;
 			show('phoneDiv','phoneDiv'); // hides phone when mainDiv scrolls
-			if (scrollPos > 500 && scrollPos < 800) {
-				show('bottomDiv','');
-			}
+			//if (scrollPos > 500 && scrollPos < 800) {
+			//	show('bottomDiv','');
+			//}
 			}
     function function2022050005(){
       var bbrResult = "AS PER MB RECALL CAMPAIGN 2022050005, FUNCTION OF THE BRAKE BOOSTER MIGHT BE IMPAIRED DUE TO ADVANCED CORROSION. REMOVED ELASTIC BAND AROUND THE BRAKE BOOSTER. TOOK A PHOTO OF THE BAND ON THE VIN LABEL OF THE B-PILLAR AND SENT VIA EMAIL TO THE SERVICE MANAGER. CHECKED CORROSION OF THE BRAKE BOOSTER USING THE REMOVED ELASTIC BAND. ";
@@ -1243,22 +1255,102 @@ Todo:
       }
       document.getElementById("2022050005").innerHTML = bbrResult;
     }
-    function testPreq(){
-      var preqResult = "";
-      if (document.getElementById("preq1").checked == true) {
-        var preqResult = preqResult + "A <br><br> ITEM <br> B <br><br> Item B";
+    function functionPreq(id){
+      var preqLinetoDesc = "<br><br>";
+      var preqDesctoDesc = "<br><br><br>";
+      var preqDesctoQtty = "<br><br>";
+      var preqQttytoDesc = "<br>";
+      var preqDesctoLine = "<br>";
+      if (document.getElementById("preqL1").value != 0) {
+        var preqFunctionResult = document.getElementById("preqL1").value + preqLinetoDesc;
+      }else if (document.getElementById("preqL1").value == 0) {
+        var preqFunctionResult = preqLinetoDesc;
       }
-      if (document.getElementById("preq2").checked == true) {
-        var preqResult = preqResult + "A <br><br> ITEM <br><br><br> ITEM 2 <br><br><br> ITEM 3";
+      if (document.getElementById("preqEng").value != 0) {                                                      // : if engine name entered
+        preqFunctionResult = preqFunctionResult + document.getElementById("preqEng").value + " ENGINE OIL FILTER" + preqDesctoDesc + "DRAIN PLUG GASKET";
+        document.getElementById("preqOilF").checked = true;
+        document.getElementById("preqDPG").checked = true;
+      }else if (document.getElementById("preqEng").value == 0) {                                                // if engine name not entered
+        if (document.getElementById("preqOilF").checked == true) {                                                 // if AMG oil checked
+          preqFunctionResult = preqFunctionResult + "ENGINE OIL FILTER";
+        }
+        if (document.getElementById("preqDPG").checked == true){                                                 // if AMG oil checked
+          preqFunctionResult = preqFunctionResult + preqDesctoDesc + "DRAIN PLUG GASKET";
+        }
+          }
+      if (document.getElementById("preqOil").checked == true) {                                                 // if AMG oil checked
+        preqFunctionResult = preqFunctionResult + preqDesctoDesc + "AMG ENGINE OIL";
       }
-      if (document.getElementById("preq3").checked == true) {
-        var preqResult = preqResult + "ITEM1 <br><br><br> ITEM 2 <br><br><br> ITEM 3";
+      if (document.getElementById("preqBatt").checked == true) {                                                // if key battery
+        preqFunctionResult = preqFunctionResult + preqDesctoQtty + document.getElementById("preqBattn").value + preqQttytoDesc + "KEY BATTERY";
       }
-      document.getElementById("testPreq1").innerHTML = preqResult;
+      if (document.getElementById("preqadblue").value != 0) {                                                   // if AdBlue
+        preqFunctionResult = preqFunctionResult + preqDesctoDesc + document.getElementById("preqadblue").value + "L ADBLUE";
+      }
+      if (document.getElementById("preqPredust").checked == true) {                                             // if PRE-DUST
+        preqFunctionResult = preqFunctionResult + preqDesctoDesc + "PRE-DUST FILTER";
+      }
+      if (document.getElementById("preqL2").value != 0) {                                                       // if combo has a line
+        preqFunctionResult = preqFunctionResult + preqDesctoLine + document.getElementById("preqL2").value + preqLinetoDesc + "COMBINATION FILTER";
+        document.getElementById("preqCombo").checked = true;
+      }else if (document.getElementById("preqL2").value == 0 && document.getElementById("preqCombo").checked) { // if combo has no line but checked
+        preqFunctionResult = preqFunctionResult + preqDesctoDesc + "COMBINATION FILTER";
+      }
+      if (document.getElementById("preqL3").value != 0) {                                                       // if wiper has a line
+        preqFunctionResult = preqFunctionResult + preqDesctoLine + document.getElementById("preqL3").value + preqLinetoDesc + "FRONT WIPERS";
+        document.getElementById("preqWipers").checked = true;
+      }else if (document.getElementById("preqL3").value == 0 && document.getElementById("preqWipers").checked) { // if wiper has no line but checked
+        preqFunctionResult = preqFunctionResult + preqDesctoDesc + "FRONT WIPERS";
+      }
+      if (document.getElementById("preqL4").value != 0) {                                                       // if brake fluid has a line
+        preqFunctionResult = preqFunctionResult + preqDesctoLine + document.getElementById("preqL4").value + preqLinetoDesc + "BRAKE FLUID";
+        document.getElementById("preqFlush").checked = true;
+      }else if (document.getElementById("preqL4").value == 0 && document.getElementById("preqFlush").checked) { // if brake fluid has no line but checked
+        preqFunctionResult = preqFunctionResult + preqDesctoDesc + "BRAKE FLUID";
+      }
+      if (document.getElementById("preqL5").value != 0) {                                                       // if Engien air filter
+        preqFunctionResult = preqFunctionResult + preqDesctoLine + document.getElementById("preqL5").value + preqLinetoDesc + "ENGINE AIR FILTER";
+      }
+      if (document.getElementById("preqL6").value != 0) {                                                       // if Spark plugs
+        preqFunctionResult = preqFunctionResult + preqDesctoLine + document.getElementById("preqL6").value + preqLinetoDesc +  "SPARK PLUGS";
+      }
+      if (document.getElementById("preqL7").value != 0) {                                                       // if fuel filter
+        preqFunctionResult = preqFunctionResult + preqDesctoLine + document.getElementById("preqL7").value + preqLinetoDesc +  "FUEL FILTER";
+      }
+      if (document.getElementById("preqL8").value != 0) {                                                       // if Transmission service
+        preqFunctionResult = preqFunctionResult + preqDesctoLine + document.getElementById("preqL8").value + preqLinetoDesc +  "TRANSMISSION SERVICE PARTS";
+      }
+      if (document.getElementById("preqL9").value != 0) {                                                       // if Rear diff service
+        preqFunctionResult = preqFunctionResult + preqDesctoLine + document.getElementById("preqL9").value + preqLinetoDesc +  "REAR DIFFERENTIAL SERVICE PARTS";
+      }
+      if (document.getElementById("preqL10").value != 0 && document.getElementById("preqL10D").value != 0) {   // additional line 1
+        preqFunctionResult = preqFunctionResult + preqDesctoLine + document.getElementById("preqL10").value + preqLinetoDesc + document.getElementById("preqL10D").value;
+      }
+      if (document.getElementById("preqL11").value != 0 && document.getElementById("preqL11D").value != 0) {   // additional line 1
+        preqFunctionResult = preqFunctionResult + preqDesctoLine + document.getElementById("preqL11").value + preqLinetoDesc + document.getElementById("preqL11D").value;
+      }
+      if (document.getElementById("preqL12").value != 0 && document.getElementById("preqL12D").value != 0) {   // additional line 1
+        preqFunctionResult = preqFunctionResult + preqDesctoLine + document.getElementById("preqL12").value + preqLinetoDesc + document.getElementById("preqL12D").value;
+      }
+      if (id) {
+        preqFunctionResult = "";
+      }
+      document.getElementById("partsrequest").innerHTML = preqFunctionResult.toUpperCase();
+    }//end of function
+    function preqAddButton(){
+      if (document.getElementById("preqL11").hidden) {
+        document.getElementById("addL11").hidden = true;
+        document.getElementById("preqL11").hidden = false;
+        document.getElementById("preqL11D").hidden = false;
+        document.getElementById("addL12").hidden = false;
+      }else if (document.getElementById("preqL12").hidden) {
+        document.getElementById("preqL12").hidden = false;
+        document.getElementById("preqL12D").hidden = false;
+        document.getElementById("addL12").hidden = true;
+      }
+
     }
-
-
-  </script>
+</script>
   <body class="mainPage">
     <div class="topBanner">
       <span class="topBannerTitle">Jude's Stories</span>
@@ -1283,7 +1375,7 @@ Todo:
     </div>
 
     <div class="mainDiv" id="onOff" style="display:none" onscroll="scrollFunction()";> <!-- Main Story Div -->                   <!-- FIXME:  -->
-      <div class="mainStory"> <!-- ********************************************* SERVICE STORIES ******************************************** -->
+      <div class="mainStory" id="svcDiv"> <!-- ********************************************* SERVICE STORIES ******************************************** -->
         <s2>Service</s2><br>
         <button class="button"; onclick="CopyToClipboard('SERVICE')">
           SERVICE</button><br>
@@ -1875,7 +1967,7 @@ Todo:
 					<s1 id="FieldMesaure";></s1>
       </div> <!--main story-->
       <span class="c"></span>
-      <div class="mainStory"> <!-- ********************************************* RECALL STORIES ********************************************* -->
+      <div class="mainStory" id="RclDiv"> <!-- ********************************************* RECALL STORIES ********************************************* -->
         <s2>Recalls</s2><br>
         <button class="button"; onclick="CopyToClipboard('2020030008A')">
 					X204 DRIVER AND PASSENGER AIRBAG RECALL 1.0H</button><br>
@@ -2433,7 +2525,7 @@ Todo:
 
       </div> <!--Recall story story-->
       <span class="c"></span>
-      <div class="mainStory"> <!-- ********************************************* MISCELLANEOUS STORIES ************************************** -->
+      <div class="mainStory" id="mscDiv"> <!-- ********************************************* MISCELLANEOUS STORIES ************************************** -->
         <s2>Miscellaneous</s2><br>
 				<button class="button"; onclick="copypasteRO('COPYPASTE')">
 				COPY-PASTE STORY
@@ -2447,21 +2539,61 @@ Todo:
 
         <span class="a"></span>
 
-        <button class="button"; onclick="CopyToClipboard('testPreq1')">
-          Test Preq
+        <button class="button"; onclick="CopyToClipboard('partsrequest')">
+          SERVICE PARTS REQUEST
         </button><br>
-        <form oninput="testPreq()">
-          <input type="checkbox" id="preq1" name="preqq">
-          <label class="s1" for="preq1">Line A Item, Line B Item&nbsp;</label>
-          <input type="checkbox" id="preq2" name="preqq">
-          <label class="s1" for="preq2">Line A Item, Item 2, Item 3&nbsp;</label>
-          <input type="checkbox" id="preq3" name="preqq">
-          <label class="s1" for="preq3">Item, Item, Item&nbsp;</label>
+        <form oninput="functionPreq()">
+          <input type="text" id="preqL1" placeholder="Line" size="1" maxlength="1">
+          <input type="text" id="preqEng" placeholder="ENGINE" size="5">
+          <input type="checkbox" id="preqOil" name="preqq">
+          <label class="s1" for="preqOil">AMG Oil&nbsp;</label>
+          <input type="checkbox" id="preqOilF" name="preqq">
+          <label class="s1" for="preqOilF">Oil Filter&nbsp;</label>
+          <input type="checkbox" id="preqDPG" name="preqq">
+          <label class="s1" for="preqDPG">Drain Plug Gasket&nbsp;</label>
+          <input type="number" id="preqBattn" value="1" size="1" maxlength="1" min="1" max="4">                 <!-- num of Key Battery:  -->
+          <input type="checkbox" id="preqBatt" name="preqq">
+          <label class="s1" for="preqBatt">Key Battery&nbsp;</label>
+          <input type="checkbox" id="preqPredust" name="preqq">
+          <label class="s1" for="preqPredust">Pre-Dust Filter&nbsp;</label>
+          <br>
+          <input type="text" id="preqL2" placeholder="Line" size="1" maxlength="1">                    <!-- Line for Combo:  -->
+          <input type="checkbox" id="preqCombo" name="preqq">
+          <label class="s1" for="preqCombo">Combination Filter&nbsp;&nbsp;</label>
+          <input type="text" id="preqL3" placeholder="Line" size="1" maxlength="1">                    <!-- Line for Wipers:  -->
+          <input type="checkbox" id="preqWipers" name="preqq">
+          <label class="s1" for="preqWipers">Front Wipers&nbsp;&nbsp;</label>
+          <input type="text" id="preqL4" placeholder="Line" size="1" maxlength="1">                    <!-- Line for Brake Fluid:  -->
+          <input type="checkbox" id="preqFlush" name="preqq">
+          <label class="s1" for="preqFlush">Brake Fluid&nbsp;</label>
+          <br>
+          <input type="text" id="preqL5" placeholder="Line" size="1" maxlength="1">                    <!-- Line for Engine Air Filter:  -->
+          <label class="s1" for="preqEngAir">Engine Air Filter&nbsp;&nbsp;</label>
+          <input type="text" id="preqL6" placeholder="Line" size="1" maxlength="1">                    <!-- Line for Spark Plugs:  -->
+          <label class="s1" for="preqSpark">Spark Plugs&nbsp;&nbsp;</label>
+          <input type="text" id="preqL7" placeholder="Line" size="1" maxlength="1">                    <!-- Line for Fuel Filter:  -->
+          <label class="s1" for="preqFuelFilter">Fluel Filter&nbsp;</label>
+          <br>
+          <input type="text" id="preqL8" placeholder="Line" size="1" maxlength="1">                    <!-- Line for Transmission Service:  -->
+          <label class="s1" for="preqTrans">Transmission Service&nbsp;&nbsp;</label>
+          <input type="text" id="preqL9" placeholder="Line" size="1" maxlength="1">                    <!-- Line for Rear Differential:  -->
+          <label class="s1" for="preqRdiff">Rear Differential&nbsp;&nbsp;</label>
+          <input type="text" id="preqadblue" placeholder="0.0L" size="3">          <!-- Num of Adblue:  -->
+          <label class="s1" for="preqadblue">AdBlue&nbsp;&nbsp;&nbsp;</label>
+          <button type="reset" onclick="functionPreq('true')">Clear</button>
+          <br>
+          <input type="text" id="preqL10" placeholder="Line" size="1" maxlength="1">                    <!-- additional line  -->
+          <input type="text" id="preqL10D" placeholder="Description" size="50">
+          <button type="button" id="addL11" onclick="preqAddButton()">+</button>
+          <br>
+          <input type="text" id="preqL11" placeholder="Line" size="1" maxlength="1" hidden>                    <!-- additional line  -->
+          <input type="text" id="preqL11D" placeholder="Description" size="50" hidden>
+          <button type="button" id="addL12" onclick="preqAddButton()" hidden>+</button>
+          <br>
+          <input type="text" id="preqL12" placeholder="Line" size="1" maxlength="1" hidden>                    <!-- additional line  -->
+          <input type="text" id="preqL12D" placeholder="Description" size="50" hidden>
         </form>
-        <s1 id="testPreq1">Test<br>Test<br>Test</s1>
-
-
-
+        <s6 id="partsrequest"></s6>
 
         <span class="a"></span>
 
@@ -2480,16 +2612,18 @@ Todo:
 
         <span class="c"></span>
         <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
-        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 17 November 2022</s3>                                    <!-- FIXME:  -->
+        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 19 November 2022</s3>                                    <!-- FIXME:  -->
         <input type="text" id="WDDSJ4GB1" value="Pa" hidden>
       </div>
       <span class="c"></span>
-			<div class="bottomDiv" id="bottomDiv" style="display:none">
-				<a href="#"><i class="fa  fa-angle-double-up" id="scrollBtn" onclick="scrollUp()"></i></a>
+			<div class="bottomDiv" id="bottomDiv" style="display:block">
+        <a href="#"><i class="fa fa-angle-double-up" onclick="scrollUp()"></i></a>
+        <a href="#"><i class="fa fa-angle-double-down" onclick="scrollDown()"></i></a>
+        <a href="#"><i class="fa fa-angle-double-right" onclick="scrollMid()"></i></a>
 			</div>
     </div>
     <div class="mainDiv" id="notMe" style="display:none"> <!-- Not Me Div -->
-      <s2>You do not have the authorisations required for this page</s2>
+      <s2>You do not have the authorizations required for this page</s2>
     </div>
     <div class="phoneDiv" id="phoneDiv" style="display:none">
       <table style="width:100%">
