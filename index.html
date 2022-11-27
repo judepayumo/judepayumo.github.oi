@@ -5,7 +5,6 @@ Todo:
 	Converter div
   Oil capacity div
   M260 crankcase
-  PARTS LIST SHORTCUTS
 
 
 -->
@@ -124,7 +123,7 @@ Todo:
       text-decoration: none;
     }
     .shortcutDiv a:hover{
-      color: rgb(201,201,201);
+      color: #ffae80;
     }
     .vinDiv{
       position: absolute;
@@ -172,7 +171,7 @@ Todo:
       background-color: black;
       border-radius: 6px 2px;
       border: 0.5px solid red;
-      color: gray;
+      color: #ffae80;
       width: 180px;
       height: 25px;
     }
@@ -182,7 +181,7 @@ Todo:
       text-decoration: none;
     }
     .vinDiv a:hover{
-      color: rgb(201,201,201);
+      color: #ffae80;
     }
     span.topBannerTitle{
       position: absolute;
@@ -211,7 +210,7 @@ Todo:
       background-color: none;
     }
   </style>
-  <script>
+  <script>//main story functions
     function serviceStory(){
       var count = 0;
       var ServiceNotesF = "<BR>**********<br>"
@@ -391,7 +390,7 @@ Todo:
     }
     function functionPartsList(){
       var functionPartsListResult = "";
-      var M270HeadGasket = "A0049903712 High pressure fuel pump bolts x 2<br>A0219979745 High pressure fuel pump o-ring<br>??? Camtronic actuator o-ring<br>A1770720000 Fuel injector seals x 4<br>A2700160080 Vacuum pump gasket<br>A2700181800 Oil filler neck seal<br>A0009975711 Head cover coolant line o-ring<br>A0009986590 Cylinder cover cap (cam plug)<br>A0019905722 Cylinder head cover bolts x 18<br>A0009908419 Cylinder head cover bolts x 6<br>A0000160569 Cylinder head bolts x 10<br>A0089906582 Cylinder head bolts spacer discs x 10<br>A2700160020 Cylinder head gasket<br>A0009953033 Exhaust clamp after flex pipe<br>A2711420780 Cat to turbo seal<br>A0029903950 cat to turbo nuts x 3<br>A0019906614 cat to turbo studs x 3<br>A0009973807 seal for turbo coolant feed and return lines x 2<br>A0249971045 seal for turbo oil return and return lines x 2<br>A1199970045 seal for turbo oil return line to crankcase<br>A2701420480 Exhaust manifold gasket<br>A0019901816 Exhaust manifold studs x 8<br>A2711420072 Exhaust manifold nuts x 8<br>A2700960180 Intake manifold seals x 4<br>A2700150200 Timing chain tensioner cap<br>A0169975045 Cam adjuster o-rings x 2<br>A2700960080 Throttle valve actuator seal<br>N000000006648 Bolt for turbo oil feed/return line, coolant lines x 5<br>N000000007820 Engine mount to timing case bolts x 2<br>Black rtv sealant for cylinder head cover and front cover x 2<br>Pink Coolant<br>Engine oil and filter?";
+      var M270HeadGasket = "A0049903712 High pressure fuel pump bolts x 2<br>A0219979745 High pressure fuel pump o-ring<br>A1770720000 Fuel injector seals x 4<br>A2700160080 Vacuum pump gasket<br>A2700181800 Oil filler neck seal<br>A0009975711 Head cover coolant line o-ring<br>A0009986590 Cylinder cover cap (cam plug)<br>A0019905722 Cylinder head cover bolts x 18<br>A0009908419 Cylinder head cover bolts x 6<br>A0000160569 Cylinder head bolts x 10<br>A0089906582 Cylinder head bolts spacer discs x 10<br>A2700160020 Cylinder head gasket<br>A0009953033 Exhaust clamp after flex pipe<br>A2711420780 Cat to turbo seal<br>A0029903950 cat to turbo nuts x 3<br>A0019906614 cat to turbo studs x 3<br>A0009973807 seal for turbo coolant feed and return lines x 2<br>A0249971045 seal for turbo oil return and return lines x 2<br>A1199970045 seal for turbo oil return line to crankcase<br>A2740960100 seal for turbo oil return line<br>A2701420480 Exhaust manifold gasket<br>A0019901816 Exhaust manifold studs x 8<br>A2711420072 Exhaust manifold nuts x 8<br>A2700960180 Intake manifold seals x 4<br>A2700150200 Timing chain tensioner cap<br>A0169975045 Cam adjuster o-rings x 2<br>A2700960080 Throttle valve actuator seal x 2<br>N000000006648 Bolt for turbo oil feed/return line, coolant lines x 5<br>N000000007820 Engine mount to timing case bolts x 2<br>Black rtv sealant for cylinder head cover and front cover x 2<br>Pink Coolant<br>Engine oil and filter";
       var M260HeadGasket = "A1770720000 INJECTOR SEAL KIT x 4<br>A0009976511 INTAKE DUCT ADAPTER SEALS x 2<br>A0009976411 INTAKE DUCT ADAPTER SEALS x 1<br>A0219979745 FUEL PUMP O-RING<br>A2700160080 VACUUM PUMP GASKET<br>A2700150200 END COVER FOR CAM AND TIMING TENSIONER x 2<br>A2600181700 FILLER NECK SEAL<br>A2601422300 CAT TO TURBO SEAL<br>A0029903950 CAT TO TURBO NUTS x 3<br>A1774920400 EXHAUST SEAL<br>A0009906803 EXHAUST BOLTS x 2<br>A0009973807 COOLANT LINE AT TURBO SEAL x 2<br>A2740960100 OIL LINE AT TURBO SEAL<br>A0249971045 OIL LINE AT TURBO SEAL x 2<br>A0299971345 THROTTLE VALVE TO CHARGE PIPE SEAL<br>A2700960080 THORTOLE VALVE TO FLANGE SEAL<br>A0000160569 CYLINDER HEAD BOLTS x 10<br>A2600160200 CYLINDER HEAD GASKET<br>A2601420000 EXHAUST MANIFOLD GASKET<br>A2711420072 EXHAUST MANIFOLD NUTS x 8<br>A0019901816 EXHAUST MANIFOLD STUDS x 8<br>A0019905722 CYLINDER HEAD COVER BOLTS x 18<br>A0029902422 CYLINDER HEAD COVER BOLTS x 6<br>A0009975711 COOLANT LINE AT HEAD COVER O-RING<br>N000000004683 LOW PRESSURE LINE AT HIGH PRESSURE PUMP<br>N000000001147 BOLTS FOR HIGH PRESSURE FUEL PUMP x 2<br>BLACK RTV SEALANT FOR UPPER TIMING CASE COVER<br>BLACK RTV SEALANT FOR CYLINDER HEAD COVER<br>COOLANT<br>ENGINE OIL AND FILTER";
       var blank2 = "blank2";
       if (document.getElementById("M270HeadGasket").checked == true) {
@@ -1102,293 +1101,293 @@ Todo:
       }
 
     }//support function for functionPreq
-</script>
-<script>//main page functions
-  function scrollUp(){
-    document.getElementById('onOff').scrollTop = 0;
-    //toggleDiv('bottomDiv'); //hides button when at the top
-  }
-  function scrollDown(){
-    document.getElementById('onOff').scrollTop = 15000;
-  }
-  function scrollMid(){
-    document.getElementById('onOff').scrollTop = 6000;
-  }
-  function scrollFunction(){ //show scroll button
-    var scrollPos = document.getElementById('onOff').scrollTop;
-    show('phoneDiv','phoneDiv'); // hides phone when mainDiv scrolls
-    //if (scrollPos > 500 && scrollPos < 800) {
-    //	show('bottomDiv','');
-    //}
+    </script>
+  <script>//main page functions
+    function scrollUp(){
+      document.getElementById('onOff').scrollTop = 0;
+      //toggleDiv('bottomDiv'); //hides button when at the top
     }
-  function copypasteRO(){
-    var copypasteRONumber = document.getElementById("copypasteROn").value
-    var copypasteROCopy = document.getElementById("copypasteROStory").value
+    function scrollDown(){
+      document.getElementById('onOff').scrollTop = 15000;
+    }
+    function scrollMid(){
+      document.getElementById('onOff').scrollTop = 6000;
+    }
+    function scrollFunction(){ //show scroll button
+      var scrollPos = document.getElementById('onOff').scrollTop;
+      show('phoneDiv','phoneDiv'); // hides phone when mainDiv scrolls
+      //if (scrollPos > 500 && scrollPos < 800) {
+      //	show('bottomDiv','');
+      //}
+      }
+    function copypasteRO(){
+      var copypasteRONumber = document.getElementById("copypasteROn").value
+      var copypasteROCopy = document.getElementById("copypasteROStory").value
 
-    if (document.getElementById("copypasteROn").value != 0){
-      var copypasteROFull = "PREVIOUSLY DIAGNOSED IN RO: " + copypasteRONumber + ": " + "<q>" + copypasteROCopy + "</q>";
-    } else {
-      var copypasteROFull = copypasteROCopy;
+      if (document.getElementById("copypasteROn").value != 0){
+        var copypasteROFull = "PREVIOUSLY DIAGNOSED IN RO: " + copypasteRONumber + ": " + "<q>" + copypasteROCopy + "</q>";
+      } else {
+        var copypasteROFull = copypasteROCopy;
+      }
+      document.getElementById("COPYPASTE").innerHTML = copypasteROFull;
+      CopyToClipboard('COPYPASTE');
     }
-    document.getElementById("COPYPASTE").innerHTML = copypasteROFull;
-    CopyToClipboard('COPYPASTE');
-  }
-  function viewCodes(){
-    var datacardVIN = document.getElementById("dataVIN").value;
-    var datacardLink = "https://xentry.mercedes-benz.com/xhpi/datacard/chassis/" + datacardVIN + "/codes?lang=en";
-    window.open(datacardLink, '_blank');
-  }
-  function viewDatacard(){
-    var datacardVIN = document.getElementById("dataVIN").value;
-    var datacardLink = "https://xentry.mercedes-benz.com/xhpi/datacard/chassis/" + datacardVIN + "/agg?lang=en";
-    window.open(datacardLink, '_blank');
-  }
-  function mecheck(){
-    var checkchecksout = document.getElementById("GN288750").value;
-    var prompts = document.getElementById("WDDSJ4GB1").value + "ss" + document.getElementById("WDDSJ4GB1G").value + "d:";
-    var mecheckInput = prompt(prompts);
-    for (var i = 0; i < 2; i++) {
-      if (mecheckInput === null){
-        var mecheckInput = prompt(prompts);
-      } else if (mecheckInput != checkchecksout){
-        var mecheckInput = prompt(prompts);
+    function viewCodes(){
+      var datacardVIN = document.getElementById("dataVIN").value;
+      var datacardLink = "https://xentry.mercedes-benz.com/xhpi/datacard/chassis/" + datacardVIN + "/codes?lang=en";
+      window.open(datacardLink, '_blank');
+    }
+    function viewDatacard(){
+      var datacardVIN = document.getElementById("dataVIN").value;
+      var datacardLink = "https://xentry.mercedes-benz.com/xhpi/datacard/chassis/" + datacardVIN + "/agg?lang=en";
+      window.open(datacardLink, '_blank');
+    }
+    function mecheck(){
+      var checkchecksout = document.getElementById("GN288750").value;
+      var prompts = document.getElementById("WDDSJ4GB1").value + "ss" + document.getElementById("WDDSJ4GB1G").value + "d:";
+      var mecheckInput = prompt(prompts);
+      for (var i = 0; i < 2; i++) {
+        if (mecheckInput === null){
+          var mecheckInput = prompt(prompts);
+        } else if (mecheckInput != checkchecksout){
+          var mecheckInput = prompt(prompts);
+        } else if (mecheckInput === checkchecksout) {
+          show('onOff','');
+          var i = 5;
+        }
+      }
+      if (mecheckInput != checkchecksout) {
+        show('notMe','');
       } else if (mecheckInput === checkchecksout) {
         show('onOff','');
-        var i = 5;
       }
+      }
+    function toggleDiv(divID){
+      var toggleDiv = document.getElementById(divID).style.display;
+      if (toggleDiv == "block") {
+        document.getElementById(divID).style.display='none';
+      } else {
+        document.getElementById(divID).style.display='block';
+      }
+      return false;
     }
-    if (mecheckInput != checkchecksout) {
-      show('notMe','');
-    } else if (mecheckInput === checkchecksout) {
-      show('onOff','');
+    function recallNumberSelect(recallNumber,idName){
+      document.getElementById(idName).innerHTML = recallNumber.value;
     }
+    function CopyToClipboard(id){
+      var r = document.createRange();
+      r.selectNode(document.getElementById(id));
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(r);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
     }
-  function toggleDiv(divID){
-    var toggleDiv = document.getElementById(divID).style.display;
-    if (toggleDiv == "block") {
-      document.getElementById(divID).style.display='none';
-    } else {
-      document.getElementById(divID).style.display='block';
+    function show(shown, hidden) {
+      document.getElementById(shown).style.display='block';
+      document.getElementById(hidden).style.display='none';
+      return false;
     }
-    return false;
-  }
-  function recallNumberSelect(recallNumber,idName){
-    document.getElementById(idName).innerHTML = recallNumber.value;
-  }
-  function CopyToClipboard(id){
-    var r = document.createRange();
-    r.selectNode(document.getElementById(id));
-    window.getSelection().removeAllRanges();
-    window.getSelection().addRange(r);
-    document.execCommand('copy');
-    window.getSelection().removeAllRanges();
-  }
-  function show(shown, hidden) {
-    document.getElementById(shown).style.display='block';
-    document.getElementById(hidden).style.display='none';
-    return false;
-  }
-  function convert() {
-    var x = 0.73756;
-    var userInput = document.getElementById("inputValue");
-    var unitInput = document.getElementById("unit2");
-    if (unitInput.value==="nm") {
-      var result = parseInt(userInput.value) * x;
-      document.getElementById("outputUnit").innerHTML = "ft-lb";
+    function convert() {
+      var x = 0.73756;
+      var userInput = document.getElementById("inputValue");
+      var unitInput = document.getElementById("unit2");
+      if (unitInput.value==="nm") {
+        var result = parseInt(userInput.value) * x;
+        document.getElementById("outputUnit").innerHTML = "ft-lb";
+      }
+      else {
+        var result = parseInt(userInput.value) / x;
+        document.getElementById("outputUnit").innerHTML = "Nm";
+      }
+        return result.toFixed(1);
     }
-    else {
-      var result = parseInt(userInput.value) / x;
-      document.getElementById("outputUnit").innerHTML = "Nm";
+    function pressure() {
+      var bar = 14.5038;
+      var presNInput = document.getElementById("presN");
+      var presUInput = document.getElementById("unit1");
+      if (presUInput.value==="psi") {
+        var result = parseInt(presNInput.value) / bar;
+        document.getElementById("presUout").innerHTML = "BAR";
+      }
+      else {
+        var result = parseInt(presNInput.value) * bar;
+        document.getElementById("presUout").innerHTML = "PSI";
+      }
+        return result.toFixed(1);
     }
-      return result.toFixed(1);
-  }
-  function pressure() {
-    var bar = 14.5038;
-    var presNInput = document.getElementById("presN");
-    var presUInput = document.getElementById("unit1");
-    if (presUInput.value==="psi") {
-      var result = parseInt(presNInput.value) / bar;
-      document.getElementById("presUout").innerHTML = "BAR";
+    function treadDepth() {
+      var mmToIn = 0.039370;
+      var mmInput = document.getElementById("mmInput");
+      var treadDepthResult = Math.round(mmToIn * mmInput.value * 32);
+      document.getElementById("depthUnit").innerHTML = "inch";
+      return treadDepthResult+"/32";
     }
-    else {
-      var result = parseInt(presNInput.value) * bar;
-      document.getElementById("presUout").innerHTML = "PSI";
+  </script>
+  <script>//function ENGINES
+    function functionEngineTemplate(){
+      var functionTENGINEResult = "";
+      var MENGINEOption1 = "Option 1 story";
+      var MENGINEOption2 = "Option 2 story";
+      var MENGINEOption3 = "Option 3 story";
+      var M270ENGINEAirFilter = "";
+      var M270ENGINETransmissionService = "";
+      var M270ENGINERemove = "";
+      if (document.getElementById("MENGINEOption1").checked == true) {
+        var functionTENGINEResult = MENGINEOption1;
+      }
+      if (document.getElementById("MENGINEOption2").checked == true) {
+        var functionTENGINEResult = MENGINEOption2;
+      }
+      if (document.getElementById("MENGINEOption3").checked == true) {
+        var functionTENGINEResult = MENGINEOption3;
+      }
+      document.getElementById("MENGINEidInMainStory").innerHTML = functionTENGINEResult;
     }
-      return result.toFixed(1);
-  }
-  function treadDepth() {
-    var mmToIn = 0.039370;
-    var mmInput = document.getElementById("mmInput");
-    var treadDepthResult = Math.round(mmToIn * mmInput.value * 32);
-    document.getElementById("depthUnit").innerHTML = "inch";
-    return treadDepthResult+"/32";
-  }
-</script>
-<script>//function ENGINES
-  function functionEngineTemplate(){
-    var functionTENGINEResult = "";
-    var MENGINEOption1 = "Option 1 story";
-    var MENGINEOption2 = "Option 2 story";
-    var MENGINEOption3 = "Option 3 story";
-    var M270ENGINEAirFilter = "";
-    var M270ENGINETransmissionService = "";
-    var M270ENGINERemove = "";
-    if (document.getElementById("MENGINEOption1").checked == true) {
-      var functionTENGINEResult = MENGINEOption1;
+    function functionM276NENGINE(){
+      var functionM276NENGINEResult = "";
+      var M276NENGINEFrontCover = "REMOVED UPPER ENGINE COVER. REMOVED AIR FILTER BOX, INTAKE MANIFOLD, AND OIL FILTER CAP. REMOVED LEFT AND RIGHT FRONT CAM COVERS. REMOVED FOUR CAM ADJUSTER MAGNETS. CLEANED OLD SEALANT. REINSTALLED FRONT CAM COVERS WITH NEW SEALANT. REINSTALLED CAM ADJUSTER MAGNETS WITH NEW O-RINGS. REINSTALLED ALL PARTS IN REVERSE ORDER. CLEANED OIL LEAK. TEST DROVE THE VEHICLE. CHECKED FRONT COVERS FOR LEAKS. CONFIRMED FRONT COVERS NO LONGER LEAKING.";
+      var M276NENGINESpark = "REMOVED UPPER ENGINE COVER, AIR INTAKE MANIFOLD, AND NOISE ISOLATION FOAMS. REMOVED ALL 6 COIL PACKS. CLEANED ENGINE AREA WITH COMPRESSED AIR. REMOVED SPARK PLUGS. INSTALLED AND TORQUE NEW SPARK PLUGS TO 23NM. APPLIED GREASE IN SPARK PLUG ADAPTERS. INSTALLED AND TORQUE COIL PACKS TO 9NM. REASSEMBLED IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
+      var M276NENGINEAirFilter = "REMOVED UPPER ENGINE COVER. REMOVED AIR FILTER BOX. REMOVED AIR FILTER. INSTALLED NEW FILTER AND RE-ASSEMBLED IN REVERSE ORDER.";
+      if (document.getElementById("M276NENGINEFrontCover").checked == true) {
+        var functionM276NENGINEResult = M276NENGINEFrontCover;
+      }
+      if (document.getElementById("M276NENGINESpark").checked == true) {
+        var functionM276NENGINEResult = M276NENGINESpark;
+      }
+      if (document.getElementById("M276NENGINEAirFilter").checked == true) {
+        var functionM276NENGINEResult = M276NENGINEAirFilter;
+      }
+      document.getElementById("M276NENGINE").innerHTML = functionM276NENGINEResult;
+    }//turbocharged M276
+    function functionM276ENGINE(){
+      var M276ENGINEFrontCover = "CLEANED FRONT COVER AREA. REMOVED UPPER ENGINE COVER, LEFT AND RIGHT AIR DUCTS UPSTREAM OF AIR FILTER, LOW TEMPERATURE COOLANT TANK, AND OIL FILTER CAP. REMOVED LEFT AND RIGHT FRONT CAM COVERS. REMOVED CAM ADJUSTER MAGNETS. CLEANED FRONT COVERS. INSTALLED CAM COVERS WITH NEW RTV SEALANT. INSTALLED CAM ADJUSTERS WITH NEW O-RINGS. REINSTALLED ALL PARTS IN REVERSE ORDER. TEST DROVE THE VEHICLE. CHECKED FRONT COVERS FOR LEAKS. CONFIRMED FRONT COVERS ARE NO LONGER LEAKING.";
+      var M276ENGINEAirFilter = "REMOVED UPPER ENGINE COVER. REMOVED LEFT AND RIGHT ENGINE AIR FILTER COVERS. REMOVED FILTERS. INSTALLED NEW AIR FILTERS. RE-ASSEMBLED IN REVERSE ORDER.";
+      var M276ENGINESpark = "REMOVED UPPER ENGINE COVER, LEFT AND RIGHT AIR FILTER BOXES AND AIR DUCTS, AND NOISE ISOLATION FOAMS. REMOVED ALL 6 COIL PACKS. CLEANED ENGINE AREA WITH COMPRESSED AIR. REMOVED SPARK PLUGS. INSTALLED AND TORQUE NEW SPARK PLUGS TO 23NM. APPLIED GREASE IN SPARK PLUG ADAPTERS. INSTALLED AND TORQUE COIL PACKS TO 9NM. REASSEMBLED IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
+      var functionM276ENGINEResult = "";
+      if (document.getElementById("M276ENGINEFrontCover").checked == true) {
+        var functionM276ENGINEResult = M276ENGINEFrontCover;
+      }
+      if (document.getElementById("M276ENGINESpark").checked == true) {
+        var functionM276ENGINEResult = M276ENGINESpark;
+      }
+      if (document.getElementById("M276ENGINEAirFilter").checked == true) {
+        var functionM276ENGINEResult = M276ENGINEAirFilter;
+      }
+      document.getElementById("M276ENGINE").innerHTML = functionM276ENGINEResult;
     }
-    if (document.getElementById("MENGINEOption2").checked == true) {
-      var functionTENGINEResult = MENGINEOption2;
+    function functionM156ENGINE(){
+      var functionM156ENGINEResult = "";
+      var M156ENGINERemove = "LIFTED THE VEHICLE AND REMOVED BOTH FRONT WHEELS, FENDER LINERS, AND FRONT, MID, AND CENTER LOWER COVERS. DRAINED COOLING SYSTEM. CONNECTED AC MACHINE AND RECOVERED AC REFRIGERANT. DISCONNECTED BATTERY GROUND. DISCONNECTED ENGINE CONTROL UNIT AND ENGINE WIRING HARNESS FROM BODY CONNECTIONS. REMOVED UPPER ENGINE COVER, LEFT AND RIGHT AIR FILTER HOUSING WITH INTAKE DUCTS, AND FAN UNIT. DISCONNECTED RELEVANT COOLANT LINES AND HOSES, VACUUM LINES, FUEL LINE, ELECTRICAL CONNECTORS, AND AC LINES FOR ENGINE REMOVAL. DISCONNECTED CROSS STRUTS AND TORQUE STRUT FROM FRONT SUBFRAME. DISCONNECTED OUTER TIE RODS FROM KNUCKLES. DISCONNECTED STEERING SHAFT FROM RACK. DISCONNECTED FRONT EXHAUST SYSTEM FROM THE REAR PIPES. LOWERED THE ENGINE WITH TRANSMISSION. ";
+      var M156ENGINEInstall = "INSTALLED ENGINE IN REVERSE ORDER. PERFORMED VACUUM AND LEAK TEST OF AC SYSTEM. CONFIRMED NO LEAK IS DETECTED. CHARGED AC SYSTEM TO SPEC AND INJECTED OIL. APPLIED VACUUM TO COOLING SYSTEM EXPANSION TANK FOR 5MIN AND CONFIRMED SYSTEMS ARE HOLDING VACUUM—THUS NO LEAKS ARE PRESENT IN THE SYSTEM. FILLED COOLING SYSTEM WITH COOLANT. CONNECTED BATTERY CHARGER AND XENTRY SCANNER. PERFORMED FINAL QUICK TEST AND CONFIRMED NO CONCERNING FAULTS ARE PRESENT. TEST DROVE THE VEHICLE. ";
+      var M156ENGINEHeadBolts = "PLACED THE ENGINE 40 DEG AFTER TDC. REMOVED INTAKE MANIFOLD. REMOVED DRIVE BELT, THE TWO GUIDE PULLEYS BY THE COOLANT PUMP, COOLANT PUMP, BELT TENSIONER, OIL FILTER HOUSING. REMOVED LEFT AND RIGHT FRONT CAM COVERS, CAM COVERS. REMOVED ALTERNATOR AND CHAIN TENSIONER. HAMMERED OUT TIMING CHAIN GUIDE PINS. REMOVED ALL FOUR CAM ADJUSTERS. REMOVED ALL CAMSHAFTS. REMOVED BEARING PIN FOR LEFT AND RIGHT CAMSHAFT GEAR DRIVE. REMOVED LEFT AND RIGHT HEADS. CLEANED SEALING SURFACE AND INSTALLED NEW HEAD GASKETS. INSTALLED HEADS WITH NEW HEAD BOLTS. TORQUED HEAD BOLTS TO SPECIFIED STAGES AND PATTERN. RE-INSTALLED AND LUBRICATED CAMS AND BEARING CAPS IN THEIR ORIGINAL POSITION. INSTALLED NEW TIMING CHAIN TENSIONER. MANUALLY SPUN THE CRANK TO CONFIRM CORRECT ENGINE TIMING. ASSEMBLED IN REVERSE ORDER. INSTALLED COOLANT PUMP, OIL FILTER HOUSING, FRONT CAM COVERS, CAM COVERS, AIR LINES, INTAKE MANIFOLD WITH NEW GASKETS AND SEALS, AND TOQUED TO SPEC. ";
+      var M156ENGINEOilFilterHousing = "DISCONNECTED BATTERY GROUND, DRAINED MAIN COOLANT SYSTEM, AND REMOVED ENGINE FAN UNIT. REMOVED UPPER ENGINE COVER, LEFT AIR INTAKE DUCT, LEFT AIR FILTER HOUSING, AND LEFT TURBO INTAKE AND CHARGE PIPES. UNLOCKED THE BELT TENSIONER AND REMOVED DRIVE BELT. DISCONNECTED UPPER RAD HOSE AND REMOVED THERMOSTAT HOUSING. DISCONNECTED LEFT TURBO COOLANT LINES AT FRONT COVER. LOOSENED OIL FILTER HOUSING CAP AND REMOVED TWO OIL COOLER LINES AT FILTER HOUSING. REMOVED OIL FILTER HOUSING. TAPPED NEW M8X1.25 THREAD ON NEW FILTER HOUSING AND SWAPPED OVER GUIDE PULLEY. INSTALLED NEW OIL FILTER HOUSING AND TORQUED TO SPEC/PATTERN. ASSEMBLED IN REVERSE ORDER. CHECKED AND CONFIRMED CORRECT LEVEL OF ENGINE OIL. APPLIED VACUUM AND CONFIRMED COOLING SYSTEM CAN HOLD VACUUM. FILLED COOLING SYSTEM.";
+      var M156ENGINEThermostat = "DISCONNECTED BATTERY GROUND, DRAINED MAIN COOLANT SYSTEM, AND REMOVED ENGINE FAN UNIT. REMOVED UPPER ENGINE COVER, LEFT AIR INTAKE DUCT, LEFT AIR FILTER HOUSING, AND LEFT TURBO INTAKE AND CHARGE PIPES. UNLOCKED THE BELT TENSIONER AND REMOVED DRIVE BELT. DISCONNECTED UPPER RAD HOSE AND REMOVED THERMOSTAT HOUSING. INSTALLED NEW THERMOSTAT ASSEMBLY AND ASSEMBLED IN REVERSE ORDER. APPLIED VACUUM AND CONFIRMED COOLING SYSTEM CAN HOLD VACUUM. FILLED COOLING SYSTEM.";
+      var M156ENGINECamCovers = "DISCONNECTED BATTERY GROUND, DRAINED MAIN COOLANT SYSTEM, AND REMOVED ENGINE FAN UNIT. REMOVED UPPER ENGINE COVER, AIR INTAKE DUCTS, LEFT AND RIGHT AIR FILTER HOUSING, AND LEFT AND RIGHT TURBO INTAKE AND CHARGE PIPES. UNLOCKED THE BELT TENSIONER AND REMOVED DRIVE BELT. DISCONNECTED UPPER RAD HOSE AND REMOVED THERMOSTAT HOUSING. DISCONNECTED LEFT TURBO COOLANT LINES AT FRONT COVER. LOOSENED OIL FILTER HOUSING CAP AND REMOVED TWO OIL COOLER LINES AT FILTER HOUSING. REMOVED OIL FILTER HOUSING. REMOVED LEFT AND RIGHT FRONT CAM COVERS. CLEANED OLD RTV SEALS. APPLIED NEW SEALANT AND INSTALLED FRONT CAM COVERS. REMOVED CAM ADJUSTERS AND RE-INSTALLED WITH NEW O-RINGS. ASSEMBLED IN REVERSE ORDER. CHECKED AND CONFIRMED CORRECT LEVEL OF ENGINE OIL. APPLIED VACUUM AND CONFIRMED COOLING SYSTEM CAN HOLD VACUUM. FILLED COOLING SYSTEM.";
+      var M156ENGINESparks = "REMOVED UPPER ENGINE COVER, LEFT AND RIGHT AIR FILTER HOUSINGS. REMOVED ALL 8 COIL PACKS. REMOVED SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUED TO SPEC. ADDED DIELECTRIC GREASE ON SPARK PLUG ADAPTERS AND ASSEMBLED IN REVERSE ORDER.";
+      if (document.getElementById("M156ENGINERemove").checked == true) {
+        var functionM156ENGINEResult = M156ENGINERemove;
+      }
+      if (document.getElementById("M156ENGINEInstall").checked == true) {
+        var functionM156ENGINEResult = M156ENGINEInstall;
+      }
+      if (document.getElementById("M156ENGINEHeadBolts").checked == true) {
+        var functionM156ENGINEResult = M156ENGINEHeadBolts;
+      }
+      if (document.getElementById("M156ENGINEOilFilterHousing").checked == true) {
+        var functionM156ENGINEResult = M156ENGINEOilFilterHousing;
+      }
+      if (document.getElementById("M156ENGINEThermostat").checked == true) {
+        var functionM156ENGINEResult = M156ENGINEThermostat;
+      }
+      if (document.getElementById("M156ENGINECamCovers").checked == true) {
+        var functionM156ENGINEResult = M156ENGINECamCovers;
+      }
+      if (document.getElementById("M156ENGINESparks").checked == true) {
+        var functionM156ENGINEResult = M156ENGINESparks;
+      }
+      document.getElementById("M156ENGINE").innerHTML = functionM156ENGINEResult;
     }
-    if (document.getElementById("MENGINEOption3").checked == true) {
-      var functionTENGINEResult = MENGINEOption3;
+    function functionM270ENGINE(){
+      var functionM270ENGINEResult = "";
+      var M270ENGINESpark = "REMOVED UPPER ENGINE COVER, AIR DUCT UPSTREAM OF TURBO, AND FOUR COIL PACKS. REMOVED FOUR SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUE TO 23NM. REINSTALLED ALL PARTS IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
+      var M270ENGINEAirFilter = "REMOVED UPPER ENGINE COVER. REMOVED ENGINE AIR FILTER COVER AND FILTER. INSTALLED NEW FILTER. RE-ASSEMBLED IN REVERSE ORDER.";
+      var M270ENGINETransmissionService = "DISCONNECTED BATTERY GROUND. REMOVED AIR FILTER BOX AND AIR DUCT UPSTREAM OF FILTER. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER. DRAINED TRANSMISSION FLUID. REMOVED TRANSMISSION OIL PUMP FILTER. REMOVED TRANSMISSION OIL PAN AND FILTER. INSTALLED NEW FILTERS, O-RINGS, GASKETS, AND REINSTALLED TRANSMISSION OIL PAN AND DRAIN PLUG. REINSTALLED PARTS IN REVERSE ORDER. TORQUE DRAIN PLUG TO 25NM, OIL PAN BOLTS TO 8NM, FILTER HOUSING TO 25NM. PRE-FILLED TRANSMISSION. CONNECTED SCANNER. PERFORMED TRANSMISSION OIL LEVEL CHECK. ADJUSTED TRANSMISSION FLUID TO CORRECT SPEC. INSTALLED FILLER CAP AND LOCK. TEST DROVE THE VEHICLE.<br><s3>Pre-fill with 4L, check level with xentry and special dipstick</s3>";
+      var M270ENGINERemove = "LIFTED THE VEHICLE AND REMOVED FRONT LEFT AND RIGHT  WHEELS, AND FENDER LINERS. REMOVED FRONT BUMPER, LOWER ENGINE COVER, BOTH HEADLIGHTS, AND BATTERY TRAY. DRAINED COOLING SYSTEM. RECOVERED AC REFRIGERANT. REMOVED FRONT BUMPER CROSSMEMBER AND CHARGE AIR COOLER. REMOVED FRONT RADIATOR WITH CONDENSER AND FAN UNIT. REMOVED TOP CARRIER BAR. DISCONNECTED CENTRE EXHAUST PIPE FROM FRONT PIPE. DISCONNECTED DRIVESHAFT FROM TRANSMISSION. UNFASTENED BOTH FRONT LOWER CONTROL ARMS FROM STEERING KNUCKLE AND REMOVED LEFT AND RIGHT CV AXLES. REMOVED LOWER AND UPPER ENGINE PENDULUM SUPPORT. DISCONNECTED ALL RELEVANT COOLANT HOSES, FUEL LINE, EVAP LINES, VACUUM LINES, ELECTRICAL CONNECTORS FOR ENGINE AND TRANSMISSION. SUPPORTED THE ENGINE WITH ENGINE CRANE. REMOVED FRONT ENGINE MOUNT AND REAR MOUNT. REMOVED THE ENGINE WITH THE TRANSMISSION. <br><br> ASSEMBLED IN REVERSE ORDER. APPLIED VACUUM ON COOLING SYSTEM AND CONFIRMED SYSTEM HELD VACUUM (NO LEAKS). FILLED COOLING SYSTEM. PERFORMED VACUUM AND LEAK TEST ON AC SYSTEM. CONFIRMED NO LEAKS FOUND. CHARGED AC SYSTEM WITH REFRIGERANT AND INJECTED OIL. CONNECTED XENTRY SCANNER AND CLEARED FAULTS. PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE AND RE-TORQUE FRONT WHEELS.";
+      var M270ENGINEOilFilterHousingSeal = "REMOVED UPPER ENGINE COVER. LOOSENED ENGINE OIL FILTER CAP. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER. REMOVED FRONT RIGHT WHEEL AND FRONT RIGHT AXLE. REMOVED 3 BOLTS ON OIL FILTER HOUSING. REMOVED SEAL AND INSTALLED NEW SEAL. TORQUED TO SPEC OF 20NM. ASSEMBLED IN REVERSE ORDER.";
+      if (document.getElementById("M270ENGINESpark").checked == true) {
+        var functionM270ENGINEResult = M270ENGINESpark;
+      }
+      if (document.getElementById("M270ENGINEAirFilter").checked == true) {
+        var functionM270ENGINEResult = M270ENGINEAirFilter;
+      }
+      if (document.getElementById("M270ENGINETransmissionService").checked == true) {
+        var functionM270ENGINEResult = M270ENGINETransmissionService;
+      }
+      if (document.getElementById("M270ENGINEOilFilterHousingSeal").checked == true) {
+        var functionM270ENGINEResult = M270ENGINEOilFilterHousingSeal;
+      }
+      if (document.getElementById("M270ENGINERemove").checked == true) {
+        var functionM270ENGINEResult = M270ENGINERemove;
+      }
+      document.getElementById("M270ENGINE").innerHTML = functionM270ENGINEResult;
     }
-    document.getElementById("MENGINEidInMainStory").innerHTML = functionTENGINEResult;
-  }
-  function functionM276NENGINE(){
-    var functionM276NENGINEResult = "";
-    var M276NENGINEFrontCover = "REMOVED UPPER ENGINE COVER. REMOVED AIR FILTER BOX, INTAKE MANIFOLD, AND OIL FILTER CAP. REMOVED LEFT AND RIGHT FRONT CAM COVERS. REMOVED FOUR CAM ADJUSTER MAGNETS. CLEANED OLD SEALANT. REINSTALLED FRONT CAM COVERS WITH NEW SEALANT. REINSTALLED CAM ADJUSTER MAGNETS WITH NEW O-RINGS. REINSTALLED ALL PARTS IN REVERSE ORDER. CLEANED OIL LEAK. TEST DROVE THE VEHICLE. CHECKED FRONT COVERS FOR LEAKS. CONFIRMED FRONT COVERS NO LONGER LEAKING.";
-    var M276NENGINESpark = "REMOVED UPPER ENGINE COVER, AIR INTAKE MANIFOLD, AND NOISE ISOLATION FOAMS. REMOVED ALL 6 COIL PACKS. CLEANED ENGINE AREA WITH COMPRESSED AIR. REMOVED SPARK PLUGS. INSTALLED AND TORQUE NEW SPARK PLUGS TO 23NM. APPLIED GREASE IN SPARK PLUG ADAPTERS. INSTALLED AND TORQUE COIL PACKS TO 9NM. REASSEMBLED IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
-    var M276NENGINEAirFilter = "REMOVED UPPER ENGINE COVER. REMOVED AIR FILTER BOX. REMOVED AIR FILTER. INSTALLED NEW FILTER AND RE-ASSEMBLED IN REVERSE ORDER.";
-    if (document.getElementById("M276NENGINEFrontCover").checked == true) {
-      var functionM276NENGINEResult = M276NENGINEFrontCover;
+    function functionM133ENGINE(){
+      var functionM133ENGINEResult = "";
+      var M133ENGINERemove = "LIFTED THE VEHICLE AND REMOVED FRONT LEFT AND RIGHT WHEELS, AND FENDER LINERS. REMOVED FRONT BUMPER, LOWER ENGINE COVER, BOTH HEADLIGHTS, AND BATTERY TRAY. DRAINED HIGH AND LOW TEMP COOLING SYSTEMS. RECOVERED AC REFRIGERANT. REMOVED FRONT BUMPER CROSSMEMBER. REMOVED FRONT RADIATOR WITH CONDENSER AND FAN UNIT. REMOVED TOP CARRIER BAR. DISCONNECTED CENTRE EXHAUST PIPE FROM FRONT PIPE. DISCONNECTED DRIVESHAFT FROM TRANSMISSION. UNFASTENED BOTH FRONT LOWER CONTROL ARMS FROM STEERING KNUCKLE AND REMOVED LEFT AND RIGHT CV AXLES. REMOVED LOWER AND UPPER ENGINE PENDULUM SUPPORT. DISCONNECTED ALL RELEVANT COOLANT HOSES, FUEL LINE, EVAP LINES, VACUUM LINES, ELECTRICAL CONNECTORS FOR ENGINE AND TRANSMISSION. SUPPORTED THE ENGINE WITH ENGINE CRANE. REMOVED FRONT ENGINE MOUNT AND REAR MOUNT. REMOVED THE ENGINE WITH THE TRANSMISSION. <br><br> ASSEMBLED IN REVERSE ORDER. APPLIED VACUUM ON BOTH COOLING SYSTEMS AND CONFIRMED SYSTEMS HELD VACUUM (NO LEAKS). FILLED COOLING SYSTEMS. PERFORMED VACUUM AND LEAK TEST ON AC SYSTEM. CONFIRMED NO LEAKS FOUND. CHARGED AC SYSTEM WITH REFRIGERANT AND INJECTED OIL. CONNECTED XENTRY SCANNER AND CLEARED FAULTS. PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE AND RE-TORQUE FRONT WHEELS.";
+      if (document.getElementById("M133ENGINERemove").checked == true) {
+        var functionM133ENGINEResult = M133ENGINERemove;
+      }
+      document.getElementById("M133ENGINE").innerHTML = functionM133ENGINEResult;
     }
-    if (document.getElementById("M276NENGINESpark").checked == true) {
-      var functionM276NENGINEResult = M276NENGINESpark;
+    function functionM260ENGINE(){
+      var functionM260ENGINEResult = "";
+      var M260ENGINESpark = "REMOVED UPPER ENGINE COVER, AIR DUCT UPSTREAM OF TURBO, AND FOUR COIL PACKS. REMOVED FOUR SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUE TO 23NM. REINSTALLED ALL PARTS IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
+      var M260ENGINEHead = "PLACED VEHICLE IN NEUTRAL AND DISCONNECTED BATTERY GROUND. LIFTED THE VEHICLE AND REMOVED UPPER AND LOWER ENGINE COVER. REMOVED FRONT RIGHT WHEEL AND WHEEL WELL LINER. DRAINED COOLANT. DISCONNECTED CHARGE AIR HOSE DOWNSTREAM OF TURBO, TURBO COOLANT LINES AND OIL LINES, ELECTRICAL CONNECTORS FOR MAIN ENGINE HARNESS, AND ALL RELEVANT VACUUM LINES AND COOLANT LINES. REMOVED COOLANT RESERVOIR, INTAKE DUCT DOWNSTREAM OF AIR FILTER, CHARGE AIR PIPE UPSTREAM OF THROTTLE VALVE, FRONT ENGINE MOUNT, THROTTLE VALVE, AND CHARGE AIR DISTRIBUTOR. DETACHED MAIN ENGINE WIRING HARNESS FROM ITS CLIPS AND MOVED HARNESS TO ONE SIDE. REMOVED VACUUM PUMP, HIGH PRESSURE FUEL PUMP, FUEL RAIL WITH INJECTORS ATTACHED, INTAKE CAM ADJUSTER. DETACHED OIL FILLER NECK FROM HEAD COVER. REMOVED TURBO HEAT SHIELDS, TURBOCHARGER WITH EXHAUST MANIFOLD, ENGINE LIFT LUGS, AND TIMING CHAIN TENSIONER. REMOVED HEAD COVER, FRONT TIMING COVER, INTAKE AND EXHAUST VALVES. REMOVED CYLINDER HEAD WITH VALVES. CLEANED SURFACE AND INSTALLED NEW HEAD GASKET. INSTALLED NEW CYLINDER HEAD WITH VALVES. TRANSFERRED OVER PINS FOR TIMING CHAIN GUIDES, DOWELS FOR FRONT COVER ON TO NEW HEAD. TORQUED HEAD BOLTS TO SPEC. INSTALLED CAMS AND CONFIRMED ENGINE TIMING. TRANSFERRED TOP TIMING CHAIN GUIDE ON TO NEW HEAD COVER. APPLIED SILICONE SEALANT TO NEW HEAD COVER AS DETAILED IN WORKSHOP INSTRUCTION. INSTALLED HEAD COVER AND TORQUED TO SPEC. ASSEMBLED IN REVERSE ORDER WITH NEW SEALS/O-RINGS/BOLTS WHERE NEEDED. CONNECTED VACUUM COOLANT FILLER AND CONFIRMED COOLING SYSTEM CAN HOLD VACUUM FOR 5MIN. FILLED COOLING SYSTEM. PERFORMED TWO START UP CRANK CYCLES WITH INJECTORS DISCONNECTED TO CONFIRM ENGINE OIL IS CIRCULATING. CONNECTED ALL INJECTORS AND STARTED THE ENGINE. CONNECTED XENTRY SCANNER AND CLEARED STORED FAULTS. PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE AND CONFIRMED NO OBVIOUS ISSUES/CEL. LIFTED THE VEHICLE AND CHECKED FOR LEAKS, FOUND NONE.";
+      if (document.getElementById("M260ENGINEHead").checked == true) {
+        var functionM260ENGINEResult = M260ENGINEHead;
+      }
+      if (document.getElementById("M260ENGINESpark").checked == true) {
+        var functionM260ENGINEResult = M260ENGINESpark;
+      }
+      document.getElementById("M260ENGINE").innerHTML = functionM260ENGINEResult;
+      }
+    function functionM264ENGINE(){
+      var functionM264ENGINEResult = "";
+      var M264ENGINESpark = "REMOVED UPPER ENGINE COVER. REMOVED ALL FOUR COIL PACKS. REMOVED SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUED TO SPEC. APPLIED DIELECTRIC GREASE AND RE-INSTALLED COIL PACKS. ASSEMBLED IN REVERSE ORDER. STARTED THE ENGINE AND CONFIRMED ENGINE RUNS SMOOTHLY. ";
+      var M264ENGINEFilter = "REMOVED UPPER ENGINE COVER. REMOVED ENGINE AIR FILTER COVER. REMOVED ENGINE AIR FILTER. INSTALLED NEW FILTER AND ASSEMBLED IN REVERSE ORDER.";
+      if (document.getElementById("M264ENGINEFilter").checked == true) {
+        var functionM264ENGINEResult = M264ENGINEFilter;
+      }
+      if (document.getElementById("M264ENGINESpark").checked == true) {
+        var functionM264ENGINEResult = M264ENGINESpark;
+      }
+      document.getElementById("M264ENGINE").innerHTML = functionM264ENGINEResult;
+      }
+    function functionM274ENGINE(){
+      var functionM274ENGINEResult = "";
+      var M274ENGINESpark = "REMOVED UPPER ENGINE COVER, ENGINE AIR FILTER BOX, AND FOUR COIL PACKS. REMOVED FOUR SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUE TO 23NM. ASSEMBLED IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
+      var M274ENGINEAirFilter = "REMOVED ENGINE AIR FILTER COVER AND AIR FILTER. ASSEMBLED IN REVERSE ORDER WITH NEW FILTER.";
+      if (document.getElementById("M274ENGINESpark").checked == true) {
+        var functionM274ENGINEResult = M274ENGINESpark;
+      }
+      if (document.getElementById("M274ENGINEAirFilter").checked == true) {
+        var functionM274ENGINEResult = M274ENGINEAirFilter;
+      }
+      document.getElementById("M274ENGINE").innerHTML = functionM274ENGINEResult;
     }
-    if (document.getElementById("M276NENGINEAirFilter").checked == true) {
-      var functionM276NENGINEResult = M276NENGINEAirFilter;
+    function functionOM642ENGINE(){
+      var functionOM642ENGINEResult = "";
+      var OM642ENGINEOilcooler = "DISCONNECTED BATTERY GROUND AND DRAINED ENGINE COOLANT. REMOVED ENGINE COVERS, WIPER ARMS, WINDSHIELD WIPER COWL, AND WIPER LINKAGE ASSEMBLY. REMOVED AIR INTAKE DUCTS DOWNSTREAM OF FILTERS, LEFT AND RIGHT AIR FILTERS, AND LEFT AIR FILTER HOUSING. REMOVED CHARGE AIR DUCT FROM TURBO AND NOISE DAMPER. REMOVED GLOW OUTPUT STAGE AND MIXING CHAMBER. REMOVED FUEL FILTER, TURBO HEAT SHIELD, EAR VALVE, AND TURBOCHARGER. DISCONNECTED ALL GLOW PLUG CONNECTORS, RIGHT INJECTOR CONNECTORS, AND LEFT FUEL RAIN AT INJECTORS AND HIGH PRESSURE PUMP. DISCONNECTED RELEVANT FUEL LINES AND MOVED ENGINE HARNESS AND FUEL LINES ASIDE. REMOVED CHARGE AIR MANIFOLD. CLEANED AREA OF OIL COOLER. REMOVED OIL COOLER AND INSTALLED NEW SEAL. ASSEMBLED IN REVERSE ORDER. CONNECTED COOLANT AIRLIFT FILLER AND APPLIED VACUUM TO THE COOLING SYSTEM. CONFIRMED COOLING SYSTEM CAN HOLD VACUUM THUS NO LEAKS ARE PRESENT IN THE COOLING SYSTEM. FILLED COOLING SYSTEM. CHECKED ENGINE OIL LEVEL. STARTED THE ENGINE AND TEST DROVE THE VEHICLE. CONFIRMED NO FAULTS ARE PRESENT.";
+      var OM642ENGINEOilFilterHouse = "REMOVED UPPER ENGINE COVER AND CHARGE AIR DAMPER. LOOSENED BELT TENSIONER AND REMOVED GUIDE PULLEY. REMOVED OIL FILTER HOUSING. INSTALLED NEW OIL FILTER HOUSING AND TORQUED TO SPEC. ASSEMBLED IN REVERSE ORDER. CHECKED AND CONFIRMED CORRECT ENGINE  OIL LEVEL.";
+      if (document.getElementById("OM642ENGINEOilcooler").checked == true) {
+        var functionOM642ENGINEResult = OM642ENGINEOilcooler;
+      }
+      if (document.getElementById("OM642ENGINEOilFilterHouse").checked == true) {
+        var functionOM642ENGINEResult = OM642ENGINEOilFilterHouse;
+      }
+      document.getElementById("OM642ENGINE").innerHTML = functionOM642ENGINEResult;
     }
-    document.getElementById("M276NENGINE").innerHTML = functionM276NENGINEResult;
-  }//turbocharged M276
-  function functionM276ENGINE(){
-    var M276ENGINEFrontCover = "CLEANED FRONT COVER AREA. REMOVED UPPER ENGINE COVER, LEFT AND RIGHT AIR DUCTS UPSTREAM OF AIR FILTER, LOW TEMPERATURE COOLANT TANK, AND OIL FILTER CAP. REMOVED LEFT AND RIGHT FRONT CAM COVERS. REMOVED CAM ADJUSTER MAGNETS. CLEANED FRONT COVERS. INSTALLED CAM COVERS WITH NEW RTV SEALANT. INSTALLED CAM ADJUSTERS WITH NEW O-RINGS. REINSTALLED ALL PARTS IN REVERSE ORDER. TEST DROVE THE VEHICLE. CHECKED FRONT COVERS FOR LEAKS. CONFIRMED FRONT COVERS ARE NO LONGER LEAKING.";
-    var M276ENGINEAirFilter = "REMOVED UPPER ENGINE COVER. REMOVED LEFT AND RIGHT ENGINE AIR FILTER COVERS. REMOVED FILTERS. INSTALLED NEW AIR FILTERS. RE-ASSEMBLED IN REVERSE ORDER.";
-    var M276ENGINESpark = "REMOVED UPPER ENGINE COVER, LEFT AND RIGHT AIR FILTER BOXES AND AIR DUCTS, AND NOISE ISOLATION FOAMS. REMOVED ALL 6 COIL PACKS. CLEANED ENGINE AREA WITH COMPRESSED AIR. REMOVED SPARK PLUGS. INSTALLED AND TORQUE NEW SPARK PLUGS TO 23NM. APPLIED GREASE IN SPARK PLUG ADAPTERS. INSTALLED AND TORQUE COIL PACKS TO 9NM. REASSEMBLED IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
-    var functionM276ENGINEResult = "";
-    if (document.getElementById("M276ENGINEFrontCover").checked == true) {
-      var functionM276ENGINEResult = M276ENGINEFrontCover;
-    }
-    if (document.getElementById("M276ENGINESpark").checked == true) {
-      var functionM276ENGINEResult = M276ENGINESpark;
-    }
-    if (document.getElementById("M276ENGINEAirFilter").checked == true) {
-      var functionM276ENGINEResult = M276ENGINEAirFilter;
-    }
-    document.getElementById("M276ENGINE").innerHTML = functionM276ENGINEResult;
-  }
-  function functionM156ENGINE(){
-    var functionM156ENGINEResult = "";
-    var M156ENGINERemove = "LIFTED THE VEHICLE AND REMOVED BOTH FRONT WHEELS, FENDER LINERS, AND FRONT, MID, AND CENTER LOWER COVERS. DRAINED COOLING SYSTEM. CONNECTED AC MACHINE AND RECOVERED AC REFRIGERANT. DISCONNECTED BATTERY GROUND. DISCONNECTED ENGINE CONTROL UNIT AND ENGINE WIRING HARNESS FROM BODY CONNECTIONS. REMOVED UPPER ENGINE COVER, LEFT AND RIGHT AIR FILTER HOUSING WITH INTAKE DUCTS, AND FAN UNIT. DISCONNECTED RELEVANT COOLANT LINES AND HOSES, VACUUM LINES, FUEL LINE, ELECTRICAL CONNECTORS, AND AC LINES FOR ENGINE REMOVAL. DISCONNECTED CROSS STRUTS AND TORQUE STRUT FROM FRONT SUBFRAME. DISCONNECTED OUTER TIE RODS FROM KNUCKLES. DISCONNECTED STEERING SHAFT FROM RACK. DISCONNECTED FRONT EXHAUST SYSTEM FROM THE REAR PIPES. LOWERED THE ENGINE WITH TRANSMISSION. ";
-    var M156ENGINEInstall = "INSTALLED ENGINE IN REVERSE ORDER. PERFORMED VACUUM AND LEAK TEST OF AC SYSTEM. CONFIRMED NO LEAK IS DETECTED. CHARGED AC SYSTEM TO SPEC AND INJECTED OIL. APPLIED VACUUM TO COOLING SYSTEM EXPANSION TANK FOR 5MIN AND CONFIRMED SYSTEMS ARE HOLDING VACUUM—THUS NO LEAKS ARE PRESENT IN THE SYSTEM. FILLED COOLING SYSTEM WITH COOLANT. CONNECTED BATTERY CHARGER AND XENTRY SCANNER. PERFORMED FINAL QUICK TEST AND CONFIRMED NO CONCERNING FAULTS ARE PRESENT. TEST DROVE THE VEHICLE. ";
-    var M156ENGINEHeadBolts = "PLACED THE ENGINE 40 DEG AFTER TDC. REMOVED INTAKE MANIFOLD. REMOVED DRIVE BELT, THE TWO GUIDE PULLEYS BY THE COOLANT PUMP, COOLANT PUMP, BELT TENSIONER, OIL FILTER HOUSING. REMOVED LEFT AND RIGHT FRONT CAM COVERS, CAM COVERS. REMOVED ALTERNATOR AND CHAIN TENSIONER. HAMMERED OUT TIMING CHAIN GUIDE PINS. REMOVED ALL FOUR CAM ADJUSTERS. REMOVED ALL CAMSHAFTS. REMOVED BEARING PIN FOR LEFT AND RIGHT CAMSHAFT GEAR DRIVE. REMOVED LEFT AND RIGHT HEADS. CLEANED SEALING SURFACE AND INSTALLED NEW HEAD GASKETS. INSTALLED HEADS WITH NEW HEAD BOLTS. TORQUED HEAD BOLTS TO SPECIFIED STAGES AND PATTERN. RE-INSTALLED AND LUBRICATED CAMS AND BEARING CAPS IN THEIR ORIGINAL POSITION. INSTALLED NEW TIMING CHAIN TENSIONER. MANUALLY SPUN THE CRANK TO CONFIRM CORRECT ENGINE TIMING. ASSEMBLED IN REVERSE ORDER. INSTALLED COOLANT PUMP, OIL FILTER HOUSING, FRONT CAM COVERS, CAM COVERS, AIR LINES, INTAKE MANIFOLD WITH NEW GASKETS AND SEALS, AND TOQUED TO SPEC. ";
-    var M156ENGINEOilFilterHousing = "DISCONNECTED BATTERY GROUND, DRAINED MAIN COOLANT SYSTEM, AND REMOVED ENGINE FAN UNIT. REMOVED UPPER ENGINE COVER, LEFT AIR INTAKE DUCT, LEFT AIR FILTER HOUSING, AND LEFT TURBO INTAKE AND CHARGE PIPES. UNLOCKED THE BELT TENSIONER AND REMOVED DRIVE BELT. DISCONNECTED UPPER RAD HOSE AND REMOVED THERMOSTAT HOUSING. DISCONNECTED LEFT TURBO COOLANT LINES AT FRONT COVER. LOOSENED OIL FILTER HOUSING CAP AND REMOVED TWO OIL COOLER LINES AT FILTER HOUSING. REMOVED OIL FILTER HOUSING. TAPPED NEW M8X1.25 THREAD ON NEW FILTER HOUSING AND SWAPPED OVER GUIDE PULLEY. INSTALLED NEW OIL FILTER HOUSING AND TORQUED TO SPEC/PATTERN. ASSEMBLED IN REVERSE ORDER. CHECKED AND CONFIRMED CORRECT LEVEL OF ENGINE OIL. APPLIED VACUUM AND CONFIRMED COOLING SYSTEM CAN HOLD VACUUM. FILLED COOLING SYSTEM.";
-    var M156ENGINEThermostat = "DISCONNECTED BATTERY GROUND, DRAINED MAIN COOLANT SYSTEM, AND REMOVED ENGINE FAN UNIT. REMOVED UPPER ENGINE COVER, LEFT AIR INTAKE DUCT, LEFT AIR FILTER HOUSING, AND LEFT TURBO INTAKE AND CHARGE PIPES. UNLOCKED THE BELT TENSIONER AND REMOVED DRIVE BELT. DISCONNECTED UPPER RAD HOSE AND REMOVED THERMOSTAT HOUSING. INSTALLED NEW THERMOSTAT ASSEMBLY AND ASSEMBLED IN REVERSE ORDER. APPLIED VACUUM AND CONFIRMED COOLING SYSTEM CAN HOLD VACUUM. FILLED COOLING SYSTEM.";
-    var M156ENGINECamCovers = "DISCONNECTED BATTERY GROUND, DRAINED MAIN COOLANT SYSTEM, AND REMOVED ENGINE FAN UNIT. REMOVED UPPER ENGINE COVER, AIR INTAKE DUCTS, LEFT AND RIGHT AIR FILTER HOUSING, AND LEFT AND RIGHT TURBO INTAKE AND CHARGE PIPES. UNLOCKED THE BELT TENSIONER AND REMOVED DRIVE BELT. DISCONNECTED UPPER RAD HOSE AND REMOVED THERMOSTAT HOUSING. DISCONNECTED LEFT TURBO COOLANT LINES AT FRONT COVER. LOOSENED OIL FILTER HOUSING CAP AND REMOVED TWO OIL COOLER LINES AT FILTER HOUSING. REMOVED OIL FILTER HOUSING. REMOVED LEFT AND RIGHT FRONT CAM COVERS. CLEANED OLD RTV SEALS. APPLIED NEW SEALANT AND INSTALLED FRONT CAM COVERS. REMOVED CAM ADJUSTERS AND RE-INSTALLED WITH NEW O-RINGS. ASSEMBLED IN REVERSE ORDER. CHECKED AND CONFIRMED CORRECT LEVEL OF ENGINE OIL. APPLIED VACUUM AND CONFIRMED COOLING SYSTEM CAN HOLD VACUUM. FILLED COOLING SYSTEM.";
-    var M156ENGINESparks = "REMOVED UPPER ENGINE COVER, LEFT AND RIGHT AIR FILTER HOUSINGS. REMOVED ALL 8 COIL PACKS. REMOVED SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUED TO SPEC. ADDED DIELECTRIC GREASE ON SPARK PLUG ADAPTERS AND ASSEMBLED IN REVERSE ORDER.";
-    if (document.getElementById("M156ENGINERemove").checked == true) {
-      var functionM156ENGINEResult = M156ENGINERemove;
-    }
-    if (document.getElementById("M156ENGINEInstall").checked == true) {
-      var functionM156ENGINEResult = M156ENGINEInstall;
-    }
-    if (document.getElementById("M156ENGINEHeadBolts").checked == true) {
-      var functionM156ENGINEResult = M156ENGINEHeadBolts;
-    }
-    if (document.getElementById("M156ENGINEOilFilterHousing").checked == true) {
-      var functionM156ENGINEResult = M156ENGINEOilFilterHousing;
-    }
-    if (document.getElementById("M156ENGINEThermostat").checked == true) {
-      var functionM156ENGINEResult = M156ENGINEThermostat;
-    }
-    if (document.getElementById("M156ENGINECamCovers").checked == true) {
-      var functionM156ENGINEResult = M156ENGINECamCovers;
-    }
-    if (document.getElementById("M156ENGINESparks").checked == true) {
-      var functionM156ENGINEResult = M156ENGINESparks;
-    }
-    document.getElementById("M156ENGINE").innerHTML = functionM156ENGINEResult;
-  }
-  function functionM270ENGINE(){
-    var functionM270ENGINEResult = "";
-    var M270ENGINESpark = "REMOVED UPPER ENGINE COVER, AIR DUCT UPSTREAM OF TURBO, AND FOUR COIL PACKS. REMOVED FOUR SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUE TO 23NM. REINSTALLED ALL PARTS IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
-    var M270ENGINEAirFilter = "REMOVED UPPER ENGINE COVER. REMOVED ENGINE AIR FILTER COVER AND FILTER. INSTALLED NEW FILTER. RE-ASSEMBLED IN REVERSE ORDER.";
-    var M270ENGINETransmissionService = "DISCONNECTED BATTERY GROUND. REMOVED AIR FILTER BOX AND AIR DUCT UPSTREAM OF FILTER. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER. DRAINED TRANSMISSION FLUID. REMOVED TRANSMISSION OIL PUMP FILTER. REMOVED TRANSMISSION OIL PAN AND FILTER. INSTALLED NEW FILTERS, O-RINGS, GASKETS, AND REINSTALLED TRANSMISSION OIL PAN AND DRAIN PLUG. REINSTALLED PARTS IN REVERSE ORDER. TORQUE DRAIN PLUG TO 25NM, OIL PAN BOLTS TO 8NM, FILTER HOUSING TO 25NM. PRE-FILLED TRANSMISSION. CONNECTED SCANNER. PERFORMED TRANSMISSION OIL LEVEL CHECK. ADJUSTED TRANSMISSION FLUID TO CORRECT SPEC. INSTALLED FILLER CAP AND LOCK. TEST DROVE THE VEHICLE.<br><s3>Pre-fill with 4L, check level with xentry and special dipstick</s3>";
-    var M270ENGINERemove = "LIFTED THE VEHICLE AND REMOVED FRONT LEFT AND RIGHT  WHEELS, AND FENDER LINERS. REMOVED FRONT BUMPER, LOWER ENGINE COVER, BOTH HEADLIGHTS, AND BATTERY TRAY. DRAINED COOLING SYSTEM. RECOVERED AC REFRIGERANT. REMOVED FRONT BUMPER CROSSMEMBER AND CHARGE AIR COOLER. REMOVED FRONT RADIATOR WITH CONDENSER AND FAN UNIT. REMOVED TOP CARRIER BAR. DISCONNECTED CENTRE EXHAUST PIPE FROM FRONT PIPE. DISCONNECTED DRIVESHAFT FROM TRANSMISSION. UNFASTENED BOTH FRONT LOWER CONTROL ARMS FROM STEERING KNUCKLE AND REMOVED LEFT AND RIGHT CV AXLES. REMOVED LOWER AND UPPER ENGINE PENDULUM SUPPORT. DISCONNECTED ALL RELEVANT COOLANT HOSES, FUEL LINE, EVAP LINES, VACUUM LINES, ELECTRICAL CONNECTORS FOR ENGINE AND TRANSMISSION. SUPPORTED THE ENGINE WITH ENGINE CRANE. REMOVED FRONT ENGINE MOUNT AND REAR MOUNT. REMOVED THE ENGINE WITH THE TRANSMISSION. <br><br> ASSEMBLED IN REVERSE ORDER. APPLIED VACUUM ON COOLING SYSTEM AND CONFIRMED SYSTEM HELD VACUUM (NO LEAKS). FILLED COOLING SYSTEM. PERFORMED VACUUM AND LEAK TEST ON AC SYSTEM. CONFIRMED NO LEAKS FOUND. CHARGED AC SYSTEM WITH REFRIGERANT AND INJECTED OIL. CONNECTED XENTRY SCANNER AND CLEARED FAULTS. PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE AND RE-TORQUE FRONT WHEELS.";
-    var M270ENGINEOilFilterHousingSeal = "REMOVED UPPER ENGINE COVER. LOOSENED ENGINE OIL FILTER CAP. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER. REMOVED FRONT RIGHT WHEEL AND FRONT RIGHT AXLE. REMOVED 3 BOLTS ON OIL FILTER HOUSING. REMOVED SEAL AND INSTALLED NEW SEAL. TORQUED TO SPEC OF 20NM. ASSEMBLED IN REVERSE ORDER.";
-    if (document.getElementById("M270ENGINESpark").checked == true) {
-      var functionM270ENGINEResult = M270ENGINESpark;
-    }
-    if (document.getElementById("M270ENGINEAirFilter").checked == true) {
-      var functionM270ENGINEResult = M270ENGINEAirFilter;
-    }
-    if (document.getElementById("M270ENGINETransmissionService").checked == true) {
-      var functionM270ENGINEResult = M270ENGINETransmissionService;
-    }
-    if (document.getElementById("M270ENGINEOilFilterHousingSeal").checked == true) {
-      var functionM270ENGINEResult = M270ENGINEOilFilterHousingSeal;
-    }
-    if (document.getElementById("M270ENGINERemove").checked == true) {
-      var functionM270ENGINEResult = M270ENGINERemove;
-    }
-    document.getElementById("M270ENGINE").innerHTML = functionM270ENGINEResult;
-  }
-  function functionM133ENGINE(){
-    var functionM133ENGINEResult = "";
-    var M133ENGINERemove = "LIFTED THE VEHICLE AND REMOVED FRONT LEFT AND RIGHT WHEELS, AND FENDER LINERS. REMOVED FRONT BUMPER, LOWER ENGINE COVER, BOTH HEADLIGHTS, AND BATTERY TRAY. DRAINED HIGH AND LOW TEMP COOLING SYSTEMS. RECOVERED AC REFRIGERANT. REMOVED FRONT BUMPER CROSSMEMBER. REMOVED FRONT RADIATOR WITH CONDENSER AND FAN UNIT. REMOVED TOP CARRIER BAR. DISCONNECTED CENTRE EXHAUST PIPE FROM FRONT PIPE. DISCONNECTED DRIVESHAFT FROM TRANSMISSION. UNFASTENED BOTH FRONT LOWER CONTROL ARMS FROM STEERING KNUCKLE AND REMOVED LEFT AND RIGHT CV AXLES. REMOVED LOWER AND UPPER ENGINE PENDULUM SUPPORT. DISCONNECTED ALL RELEVANT COOLANT HOSES, FUEL LINE, EVAP LINES, VACUUM LINES, ELECTRICAL CONNECTORS FOR ENGINE AND TRANSMISSION. SUPPORTED THE ENGINE WITH ENGINE CRANE. REMOVED FRONT ENGINE MOUNT AND REAR MOUNT. REMOVED THE ENGINE WITH THE TRANSMISSION. <br><br> ASSEMBLED IN REVERSE ORDER. APPLIED VACUUM ON BOTH COOLING SYSTEMS AND CONFIRMED SYSTEMS HELD VACUUM (NO LEAKS). FILLED COOLING SYSTEMS. PERFORMED VACUUM AND LEAK TEST ON AC SYSTEM. CONFIRMED NO LEAKS FOUND. CHARGED AC SYSTEM WITH REFRIGERANT AND INJECTED OIL. CONNECTED XENTRY SCANNER AND CLEARED FAULTS. PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE AND RE-TORQUE FRONT WHEELS.";
-    if (document.getElementById("M133ENGINERemove").checked == true) {
-      var functionM133ENGINEResult = M133ENGINERemove;
-    }
-    document.getElementById("M133ENGINE").innerHTML = functionM133ENGINEResult;
-  }
-  function functionM260ENGINE(){
-    var functionM260ENGINEResult = "";
-    var M260ENGINESpark = "REMOVED UPPER ENGINE COVER, AIR DUCT UPSTREAM OF TURBO, AND FOUR COIL PACKS. REMOVED FOUR SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUE TO 23NM. REINSTALLED ALL PARTS IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
-    var M260ENGINEHead = "PLACED VEHICLE IN NEUTRAL AND DISCONNECTED BATTERY GROUND. LIFTED THE VEHICLE AND REMOVED UPPER AND LOWER ENGINE COVER. REMOVED FRONT RIGHT WHEEL AND WHEEL WELL LINER. DRAINED COOLANT. DISCONNECTED CHARGE AIR HOSE DOWNSTREAM OF TURBO, TURBO COOLANT LINES AND OIL LINES, ELECTRICAL CONNECTORS FOR MAIN ENGINE HARNESS, AND ALL RELEVANT VACUUM LINES AND COOLANT LINES. REMOVED COOLANT RESERVOIR, INTAKE DUCT DOWNSTREAM OF AIR FILTER, CHARGE AIR PIPE UPSTREAM OF THROTTLE VALVE, FRONT ENGINE MOUNT, THROTTLE VALVE, AND CHARGE AIR DISTRIBUTOR. DETACHED MAIN ENGINE WIRING HARNESS FROM ITS CLIPS AND MOVED HARNESS TO ONE SIDE. REMOVED VACUUM PUMP, HIGH PRESSURE FUEL PUMP, FUEL RAIL WITH INJECTORS ATTACHED, INTAKE CAM ADJUSTER. DETACHED OIL FILLER NECK FROM HEAD COVER. REMOVED TURBO HEAT SHIELDS, TURBOCHARGER WITH EXHAUST MANIFOLD, ENGINE LIFT LUGS, AND TIMING CHAIN TENSIONER. REMOVED HEAD COVER, FRONT TIMING COVER, INTAKE AND EXHAUST VALVES. REMOVED CYLINDER HEAD WITH VALVES. CLEANED SURFACE AND INSTALLED NEW HEAD GASKET. INSTALLED NEW CYLINDER HEAD WITH VALVES. TRANSFERRED OVER PINS FOR TIMING CHAIN GUIDES, DOWELS FOR FRONT COVER ON TO NEW HEAD. TORQUED HEAD BOLTS TO SPEC. INSTALLED CAMS AND CONFIRMED ENGINE TIMING. TRANSFERRED TOP TIMING CHAIN GUIDE ON TO NEW HEAD COVER. APPLIED SILICONE SEALANT TO NEW HEAD COVER AS DETAILED IN WORKSHOP INSTRUCTION. INSTALLED HEAD COVER AND TORQUED TO SPEC. ASSEMBLED IN REVERSE ORDER WITH NEW SEALS/O-RINGS/BOLTS WHERE NEEDED. CONNECTED VACUUM COOLANT FILLER AND CONFIRMED COOLING SYSTEM CAN HOLD VACUUM FOR 5MIN. FILLED COOLING SYSTEM. PERFORMED TWO START UP CRANK CYCLES WITH INJECTORS DISCONNECTED TO CONFIRM ENGINE OIL IS CIRCULATING. CONNECTED ALL INJECTORS AND STARTED THE ENGINE. CONNECTED XENTRY SCANNER AND CLEARED STORED FAULTS. PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE AND CONFIRMED NO OBVIOUS ISSUES/CEL. LIFTED THE VEHICLE AND CHECKED FOR LEAKS, FOUND NONE.";
-    if (document.getElementById("M260ENGINEHead").checked == true) {
-      var functionM260ENGINEResult = M260ENGINEHead;
-    }
-    if (document.getElementById("M260ENGINESpark").checked == true) {
-      var functionM260ENGINEResult = M260ENGINESpark;
-    }
-    document.getElementById("M260ENGINE").innerHTML = functionM260ENGINEResult;
-    }
-  function functionM264ENGINE(){
-    var functionM264ENGINEResult = "";
-    var M264ENGINESpark = "REMOVED UPPER ENGINE COVER. REMOVED ALL FOUR COIL PACKS. REMOVED SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUED TO SPEC. APPLIED DIELECTRIC GREASE AND RE-INSTALLED COIL PACKS. ASSEMBLED IN REVERSE ORDER. STARTED THE ENGINE AND CONFIRMED ENGINE RUNS SMOOTHLY. ";
-    var M264ENGINEFilter = "REMOVED UPPER ENGINE COVER. REMOVED ENGINE AIR FILTER COVER. REMOVED ENGINE AIR FILTER. INSTALLED NEW FILTER AND ASSEMBLED IN REVERSE ORDER.";
-    if (document.getElementById("M264ENGINEFilter").checked == true) {
-      var functionM264ENGINEResult = M264ENGINEFilter;
-    }
-    if (document.getElementById("M264ENGINESpark").checked == true) {
-      var functionM264ENGINEResult = M264ENGINESpark;
-    }
-    document.getElementById("M264ENGINE").innerHTML = functionM264ENGINEResult;
-    }
-  function functionM274ENGINE(){
-    var functionM274ENGINEResult = "";
-    var M274ENGINESpark = "REMOVED UPPER ENGINE COVER, ENGINE AIR FILTER BOX, AND FOUR COIL PACKS. REMOVED FOUR SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUE TO 23NM. ASSEMBLED IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
-    var M274ENGINEAirFilter = "REMOVED ENGINE AIR FILTER COVER AND AIR FILTER. ASSEMBLED IN REVERSE ORDER WITH NEW FILTER.";
-    if (document.getElementById("M274ENGINESpark").checked == true) {
-      var functionM274ENGINEResult = M274ENGINESpark;
-    }
-    if (document.getElementById("M274ENGINEAirFilter").checked == true) {
-      var functionM274ENGINEResult = M274ENGINEAirFilter;
-    }
-    document.getElementById("M274ENGINE").innerHTML = functionM274ENGINEResult;
-  }
-  function functionOM642ENGINE(){
-    var functionOM642ENGINEResult = "";
-    var OM642ENGINEOilcooler = "DISCONNECTED BATTERY GROUND AND DRAINED ENGINE COOLANT. REMOVED ENGINE COVERS, WIPER ARMS, WINDSHIELD WIPER COWL, AND WIPER LINKAGE ASSEMBLY. REMOVED AIR INTAKE DUCTS DOWNSTREAM OF FILTERS, LEFT AND RIGHT AIR FILTERS, AND LEFT AIR FILTER HOUSING. REMOVED CHARGE AIR DUCT FROM TURBO AND NOISE DAMPER. REMOVED GLOW OUTPUT STAGE AND MIXING CHAMBER. REMOVED FUEL FILTER, TURBO HEAT SHIELD, EAR VALVE, AND TURBOCHARGER. DISCONNECTED ALL GLOW PLUG CONNECTORS, RIGHT INJECTOR CONNECTORS, AND LEFT FUEL RAIN AT INJECTORS AND HIGH PRESSURE PUMP. DISCONNECTED RELEVANT FUEL LINES AND MOVED ENGINE HARNESS AND FUEL LINES ASIDE. REMOVED CHARGE AIR MANIFOLD. CLEANED AREA OF OIL COOLER. REMOVED OIL COOLER AND INSTALLED NEW SEAL. ASSEMBLED IN REVERSE ORDER. CONNECTED COOLANT AIRLIFT FILLER AND APPLIED VACUUM TO THE COOLING SYSTEM. CONFIRMED COOLING SYSTEM CAN HOLD VACUUM THUS NO LEAKS ARE PRESENT IN THE COOLING SYSTEM. FILLED COOLING SYSTEM. CHECKED ENGINE OIL LEVEL. STARTED THE ENGINE AND TEST DROVE THE VEHICLE. CONFIRMED NO FAULTS ARE PRESENT.";
-    var OM642ENGINEOilFilterHouse = "REMOVED UPPER ENGINE COVER AND CHARGE AIR DAMPER. LOOSENED BELT TENSIONER AND REMOVED GUIDE PULLEY. REMOVED OIL FILTER HOUSING. INSTALLED NEW OIL FILTER HOUSING AND TORQUED TO SPEC. ASSEMBLED IN REVERSE ORDER. CHECKED AND CONFIRMED CORRECT ENGINE  OIL LEVEL.";
-    if (document.getElementById("OM642ENGINEOilcooler").checked == true) {
-      var functionOM642ENGINEResult = OM642ENGINEOilcooler;
-    }
-    if (document.getElementById("OM642ENGINEOilFilterHouse").checked == true) {
-      var functionOM642ENGINEResult = OM642ENGINEOilFilterHouse;
-    }
-    document.getElementById("OM642ENGINE").innerHTML = functionOM642ENGINEResult;
-  }
-</script>
+  </script>
   <body class="mainPage">
     <div class="topBanner">
       <span class="topBannerTitle">Jude's Stories</span>
@@ -2137,9 +2136,15 @@ Todo:
 
 				<span class="a"></span>
 
-        <button class="button"; onclick="CopyToClipboard('2022080011')">
+        <button class="button"; onclick="CopyToClipboard('20220800112022080010')">
           CATALYST HEATING ME SOFTWARE UPDATE 0.3H</button><br>
-          <s1 id="2022080011";>AS PER MB SERVICE CAMPAIGN 2022080011, ENGINE CONTROL UNIT SOFTWARE MUST BE UPDATED TO ENSURE CATALYST HEATING IS WORKING CORRECTLY. CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED SOFTWARE UPDATE OF ENGINE ELECTRONICS (ME). DISCONNECTED XENTRY AND CHARGER.</s1>
+          <form oninput=recallNumberSelect(recallNumber,"20220800112022080010a")>
+						<input type="radio" checked value="2022080010" id="2022080010Form" name="recallNumber">
+						<label class="s1" for="2022080010Form">2022080010&nbsp;</label>
+						<input type="radio" value="2022080011" id="2022080011Form" name="recallNumber">
+						<label class="s1" for="2022080011Form">2022080011&nbsp;</label>
+					</form>
+          <s1 id="20220800112022080010";>AS PER MB SERVICE CAMPAIGN <s1 id="20220800112022080010a">2022080010</s1>, ENGINE CONTROL UNIT SOFTWARE MUST BE UPDATED TO ENSURE CATALYST HEATING IS WORKING CORRECTLY. CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED SOFTWARE UPDATE OF ENGINE ELECTRONICS (ME). DISCONNECTED XENTRY AND CHARGER.</s1>
 
         <span class="a"></span>
 
@@ -2148,6 +2153,12 @@ Todo:
 					<s1 id="2019090012";>AS PER MB RECALL CAMPAIGN 2019090012 , THE ELECTRICAL CONNECTOR OF THE ENGINE CONTROL UNIT MUST BE REWORKED. REMOVED UPPER ENGINE COVER AND REWORKED CONNECTORS.</s1>
 
 				<span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('2022080017')">
+          TIGHTENING OF TRANSMISSION WIRING CONNECTOR 0.6H</button><br>
+          <s1 id="2022080017";>PER MBC RECALL CAMPAIGN 2022080017, THE TRANSMISSION WIRING HARNESS MIGHT NOT BE ROUTED ACCORDING TO SPECIFICATIONS. LIFTED THE VEHICLE AND REMOVED UNDERFLOOR PANELING UNDER THE ENGINE AND TRANSMISSION. DISCONNECTED ELECTRICAL CONNECTOR X279. CHECKED THE CONNECTORS FOR CORROSION AND OTHER DAMAGE. REMOVED PINS FROM THE VEHICLE SIDE OF WIRING CONNECTOR AND INSPECTED FOR CORROSION OR OTHER DAMAGES. CHECKED GREEN BLIND PLUGS. FOUND NO CORROSION OR OTHER DAMAGE. INSTALLED NEW WIRING HARNESS BRACKET AND TORQUED TO 8NM. ASSEMBLED AS DETAILED IN THE DOCUMENT WORK PROCEDURE A.</s1>
+
+        <span class="a"></span>
 
 				<button class="button"; onclick="CopyToClipboard('2020050010')">
 					PANORAMIC ROOF BONDING AGENT RECALL 0.1H</button><br>
@@ -2654,7 +2665,7 @@ Todo:
             <label class="s1" for="M270HeadGasket">M270 Head Gasket</label>
             <input type="radio" id="M260HeadGasket" name="PartsList">
             <label class="s1" for="M260HeadGasket">M260 Head Gasket</label>
-            <input type="radio" id="blank2" name="PartsList">
+            <input type="radio" id="blank2" name="PartsList" checked>
             <label class="s1" for="blank2">blank</label>
           </form>
           <s1 id="PartsList";>
@@ -2667,7 +2678,7 @@ Todo:
 
         <span class="c"></span>
         <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
-        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 24 November 2022</s3>                                    <!-- FIXME:  -->
+        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 26 November 2022</s3>                                    <!-- FIXME:  -->
         <input type="text" id="WDDSJ4GB1" value="Pa" hidden>
       </div>
       <span class="c"></span>
@@ -2686,15 +2697,15 @@ Todo:
           <td><s4>Techs</s4></td>
         </tr>
         <tr>
-          <td><s5>Jude</s5></td>
+          <td><s5>Jude 110</s5></td>
           <td><s5>206</s5></td>
         </tr>
         <tr>
-          <td><s5>Eric</s5></td>
+          <td><s5>Eric 39</s5></td>
           <td><s5>204</s5></td>
         </tr>
         <tr>
-          <td><s5>Alex, Mike</s5></td>
+          <td><s5>Alex 13, Mike</s5></td>
           <td><s5>205</s5></td>
         </tr>
         <tr>
@@ -2702,7 +2713,7 @@ Todo:
           <td><s5>205</s5></td>
         </tr>
         <tr>
-          <td><s5>Nik, Abood</s5></td>
+          <td><s5>Nik 108, Abood 145</s5></td>
           <td><s5>201</s5></td>
         </tr>
         <tr>
