@@ -1388,6 +1388,19 @@ Todo:
       document.getElementById("OM642ENGINE").innerHTML = functionOM642ENGINEResult;
     }
   </script>
+  <script>//test area functions
+    function AutoExtractInfo(){
+      var vinInput = document.getElementById("AEIvin").value;
+      document.getElementById("AEITempView").innerHTML = vinInput;
+
+    }
+
+
+
+
+
+
+  </script>
   <body class="mainPage">
     <div class="topBanner">
       <span class="topBannerTitle">Work Stories</span>
@@ -1412,7 +1425,7 @@ Todo:
     </div>
 
     <div class="mainDiv" id="onOff" style="display:none" onscroll="scrollFunction()";> <!-- Main Story Div -->                   <!-- FIXME:  -->
-      <div class="mainStory" id="svcDiv"> <!-- ********************************************* SERVICE STORIES ******************************************** -->
+      <div class="mainStory" id="svcDiv"> <!-- ***************************************** SERVICE STORIES ******************************************* -->
         <s2>Service</s2><br>
         <button class="button"; onclick="CopyToClipboard('SERVICE')">
           SERVICE</button><br>
@@ -2018,7 +2031,7 @@ Todo:
 					<s1 id="FieldMesaure";></s1>
       </div> <!--main story-->
       <span class="c"></span>
-      <div class="mainStory" id="RclDiv"> <!-- ********************************************* RECALL STORIES ********************************************* -->
+      <div class="mainStory" id="RclDiv"> <!-- ***************************************** RECALL STORIES ******************************************** -->
         <s2>Recalls</s2><br>
         <button class="button"; onclick="CopyToClipboard('2020030008A')">
 					X204 DRIVER AND PASSENGER AIRBAG RECALL 1.0H</button><br>
@@ -2585,7 +2598,7 @@ Todo:
 
       </div> <!--Recall story story-->
       <span class="c"></span>
-      <div class="mainStory" id="mscDiv"> <!-- ********************************************* MISCELLANEOUS STORIES ************************************** -->
+      <div class="mainStory" id="mscDiv"> <!-- ***************************************** MISCELLANEOUS STORIES ************************************* -->
         <s2>Miscellaneous</s2><br>
 				<button class="button"; onclick="copypasteRO('COPYPASTE')">
   				COPY-PASTE STORY
@@ -2673,13 +2686,39 @@ Todo:
 
         <span class="a"></span>
 
-
-
-
+      </div>
+      <div class="mainStory" id="othDiv"> <!-- ***************************************** OTHER NON-STORIES ***************************************** -->
         <span class="c"></span>
         <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
-        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 1 December 2022</s3>                                    <!-- FIXME:  -->
+        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 10 December 2022</s3>                                    <!-- FIXME:  -->
         <input type="text" id="WDDSJ4GB1" value="Pa" hidden>
+
+
+
+
+<!--
+
+        <br><br><br>
+        <button class="button"; onclick="CopyToClipboard('PartsList')">
+          Auto Info Extraction Test
+          </button><br>
+          <form>
+            <input type="text" id="AEIvin" placeholder="VIN">
+            <button type="submit" onclick="AutoExtractInfo()">Send it</button>
+            <button type="submit" onclick="testtesttest()">myfuction??</button>
+          </form>
+          <s1 id="AEITempView";></s1>
+
+-->
+
+
+
+
+
+
+
+
+
       </div>
       <span class="c"></span>
 			<div class="bottomDiv" id="bottomDiv" style="display:block">
@@ -2687,8 +2726,8 @@ Todo:
         <a href="#"><i class="fa fa-angle-double-down" onclick="scrollDown()"></i></a>
         <a href="#"><i class="fa fa-angle-double-right" onclick="scrollMid()"></i></a>
 			</div>
-    </div>
-    <div class="mainDiv" id="notMe" style="display:none"> <!-- Not Me Div -->
+    </div><!-- END OF MAIN STORY DIV-->
+    <div class="mainDiv" id="notMe" style="display:block"> <!-- Not Me Div -->
       <s2>You do not have the authorizations required for this page</s2>
     </div>
     <div class="phoneDiv" id="phoneDiv" style="display:none">
@@ -2702,19 +2741,43 @@ Todo:
         </tr>
         <tr>
           <td><s5>Eric 39</s5></td>
-          <td><s5>204</s5></td>
-        </tr>
-        <tr>
-          <td><s5>Alex 13, Mike</s5></td>
           <td><s5>205</s5></td>
         </tr>
         <tr>
-          <td><s5>Cai, Bennen</s5></td>
-          <td><s5>205</s5></td>
+          <td><s5>Alex 13</s5></td>
+          <td><s5></s5></td>
         </tr>
         <tr>
-          <td><s5>Nik 108, Abood 145</s5></td>
+          <td><s5>Mike 139</s5></td>
+          <td><s5></s5></td>
+        </tr>
+        <tr>
+          <td><s5>Cai 120</s5></td>
+          <td><s5>203</s5></td>
+        </tr>
+        <tr>
+          <td><s5>Brennen 124</s5></td>
+          <td><s5>203</s5></td>
+        </tr>
+        <tr>
+          <td><s5>Artem 146</s5></td>
+          <td><s5></s5></td>
+        </tr>
+        <tr>
+          <td><s5>Ali 140</s5></td>
+          <td><s5></s5></td>
+        </tr>
+        <tr>
+          <td><s5>Nik 108</s5></td>
           <td><s5>201</s5></td>
+        </tr>
+        <tr>
+          <td><s5>Abood 145</s5></td>
+          <td><s5></s5></td>
+        </tr>
+        <tr>
+          <td><s5>Jacky 149</s5></td>
+          <td><s5></s5></td>
         </tr>
         <tr>
           <td><s5>Dmitri</s5></td>
