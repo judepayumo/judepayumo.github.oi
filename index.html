@@ -421,7 +421,9 @@ Todo:
       document.getElementById("additionalService").innerHTML = additionalServiceResult;
     }
     function functionFieldMeasure(){
+      var space = "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
       var functionFieldMeasureResult = "";
+      var functionFieldMeasureSpecs = "";
       var fmPreInspection = "CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED QUICK TEST. PERFORMED PRE-INSPECTION. LIFTED THE VEHICLE AND PERFORMED VISUAL INSPECTION OF EMISSION SYSTEM. CONFIRMED ALL EMISSION EQUIPMENT ARE PRESENT AND NO NON-COMPLIANT ALTERATIONS HAVE BEEN PERFORMED. VEHICLE IS READY FOR FIELD MEASURE INSTALLATION.";
       var fm2021120026 = "DISCONNECTED BATTERY GROUND. REMOVED ENGINE COVER. REMOVED AIR FILTER HOUSING. CONNECTED PLUG TO THE ENGINE HARNESS FOR THE O2 SENSOR. PLUGGED THE O2 SENSOR ON THE NEW DOC. REMOVED LOWER ENGINE AND TRANSMISSION COVERS. LOOSENED REAR LEFT AND RIGHT UNDERBODY PANELS. REMOVED NOX SENSORS AND PM SENSOR. DISCONNECTED METERING VALVE. REMOVED DOC, DPF, AND SCR. INSTALLED NEW DOC, DPF, SCR, NOX SENSORS, AND PM SENSOR. RECONNECTED BATTERY GROUND. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED SERVICE MEASURE (EXHAUST AFTER-TREATMENT SYSTEM) UNDER CDI. CLEARED STORED FAULTS AND PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE.";
       var fm2021120024 = ""; //same text as fm2021120026
@@ -430,6 +432,8 @@ Todo:
       var fm2021120027 = "LIFTED THE VEHICLE. DISCONNECTED BATTERY GROUND. REMOVED LOWER ENGINE AND TRANSMISSION COVERS. DRAINED COOLANT. REMOVED UPPER AND FRONT ENGINE COVER. DETACHED CHARGE AIR DAMPER AND REMOVED CHARGE AIR PIPE AFTER TURBO. REMOVED COOLANT THERMOSTAT AND INSTALLED A NEW THERMOSTAT. LOWERED LEFT AND RIGHT UNDERBODY PANELS. REMOVED NOX SENSORS. CUT OFF THE EXHAUST SYSTEM AT MARKED NOTCH. DISCONNECTED METERING VALVE. REMOVED SCR. REMOVED LOWER TRANSMISSION SUPPORT MEMBER AND SUPPORTED TRANSFERCASE. REMOVED REMOVED CAT/DPF UNIT, AND SCR. TRANSFERRED RUBBER DAMPER FROM OLD CAT/DPF TO NEW PART. INSTALLED NEW PARTS IN REVERSE ORDER. CONNECTED COOLANT FILLER AND APPLIED VACUUM TO THE COOLING SYSTEM. CONFIRMED THE COOLING SYSTEM CAN HOLD THE VACUUM FOR 5MIN. FILLED COOLING SYSTEM WITH COOLANT. RECONNECTED BATTERY GROUND. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED SERVICE MEASURE (EXHAUST AFTER-TREATMENT SYSTEM) UNDER CDI SPECIAL PROCEDURES. CLEATED STORED FAULTS AND PERFORMED FINAL QUICK TEST. TEST DROVE THE VEHICLE.";
       var fm2021120028 = "LIFTED THE VEHICLE. DISCONNECTED BATTERY GROUND. REMOVED ENGINE COVER AND CHARGE AIR PIPE AT TURBO. DRAINED COOLANT AT RADIATOR. REMOVED THERMOSTAT HOUSING WITH THERMOSTAT. REMOVED UNDERBODY PANELS. CUT OFF THE EXHAUST AT MARKED NOTCH. REMOVED DOC+DPF, SCR, NOX SENSORS, AND PM SENSOR. TRANSFERRED THE RUBBER DAMPER FROM OLD DPF TO NEW PART. INSTALLED NEW PARTS IN REVERSE ORDER. RECONNECTED BATTERY GROUND. APPLIED VACUUM TO COOLING SYSTEM AND CONFIRMED COOLING SYSTEM HELD VACUUM FOR 5MIN. FILLED COOLING SYSTEM WITH COOLANT. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED SERVICE MEASURE (EXHAUST AFTER-TREATMENT SYSTEM) UNDER CDI SPECIAL PROCEDURES. CLEATED STORED FAULTS AND PERFORMED FINAL QUICK TEST. TEST DROVE THE VEHICLE.";
       var fm2022060006 = "New"; // FIXME:
+      var fm2022030017 = "DISCONNECTED BATTERY GROUND. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER, LOWER FRONT COVER, AND RIGHT UNDERBODY COVER. DISCONNECTED ADBLUE METERING VALVE, NOX SENSORS, PM SENSOR, AND DPF PRESSURE SENSORS. REMOVED SCR CAT, AND DPF/DOC. TRANSFERRED PARTS TO NEW SCR AND DOC/DPF. INSTALLED NEW METERING VALVE, NOX SENSORS 1 AND 2, SCR CAT, DPF/DOC. DRAINED COOLANT. REMOVED UPPER ENGINE COVER, FRONT WIPER ARMS AND BLADES, REMOVED FRONT WIPER MOTOR AND LINKAGES. REMOVED CHARGE AIR CROSS PIPE AND NOISE DAMPER. REMOVED CLEAN AIR PIPE, LEFT AND RIGHT AIR FILTERS, CHARGE AIR PIPE, EGR VALVE, AND FUEL FILTER. REMOVED TURBOCHARGER AND THERMOSTAT. DISCONNECTED BANK 2 INJECTOR LEAK LINES, HIGH PRESSURE FUEL LINES AND RAIL, BANK 2 ENGINE ELECTRICAL CONNECTORS. REMOVED CHARGE AIR MANIFOLD. REMOVED INTAKE PORT SHUT OFF MOTOR AND TRANSFERRED ONTO THE NEW LEFT AND RIGHT CHARGE AIR MANIFOLDS. ASSEMBLED IN REVERSE ORDER FOLLOWING TORQUING PATTERNS AND SPEC, INSTALLING NEW CHARGE AIR MANIFOLDS, EGR COOLER, EGR VALVE, CHARGE AIR CROSS PIPE, AND RELEVANT SEALS AND GASKETS. CHECKED F119. CONNECTED BATTERY GROUND. CONNECTED XENTRY AND BATTERY CHARGER. PERFORMED SERVICE MEASURE UNDER SPECIAL PROCEDURES OF CDI. REPLACED ENGINE CONTROL UNIT. COMPLETED XENTRY PROCEDURE. CLEARED FAULTS AND PRINTED FINAL QUICK TEST. PERFORMED TEST DRIVE.";
+      var fm2022030017Specs = "<br><br>12nm &nbsp EGR cooler to Charge air manifold<br>18nm" + space + "Charge air distributor to CYL head (see pattern BA09.41-P-1009-01J)<br>20nm"+space+"Turbocharger oil supply fitting to crankcase (4)<br>20nm+60deg &nbsp Turbocharger to oil supply fitting (2 T45)<br>20nm"+space+"Exhaust collector pipe support to crankcase (2)<br>9nm "+space+"Turbocharger to charger air manifold (3 E10 front of turbo)<br>20nm+90deg &nbsp Exhaust collector pipe to exhaust (3 x 3)<br>20nm"+space+"Turbocharger main exhaust (3)<br>13nm"+space+"EGR short pipe to intake air manifold (2)<br>10nm+90deg &nbsp EGR short pipe to Exhaust collector (2)<br>12nm"+space+"EGR positioner<br>27nm"+space+"HP fuel line between rails<br>33nm"+space+"HP fuel line on HP pump<br>27nm"+space+"HP fuel line to HP pump to rail<br>27nm"+space+"HP line union nut to rail<br>33nm"+space+"HP line union nut to injectors<br>12nm"+space+"Leak oil line to charge air distributor<br>9nm "+space+"Thermostat housing to charged air distributor";
       if (document.getElementById("FMPREINSPECTION").checked == true) {
         var functionFieldMeasureResult = fmPreInspection;
       }
@@ -438,6 +442,10 @@ Todo:
       }
       if (document.getElementById("FM2021120028").checked == true) {
         var functionFieldMeasureResult = fm2021120028;
+      }
+      if (document.getElementById("FM2022030017").checked == true) {
+        var functionFieldMeasureResult = fm2022030017;
+        var functionFieldMeasureSpecs = fm2022030017Specs;
       }
       if (document.getElementById("FM2021120024").checked == true) {
         var functionFieldMeasureResult = fm2021120026;
@@ -458,6 +466,7 @@ Todo:
         var functionFieldMeasureResult = fm2022060006;
       }
       document.getElementById("FieldMesaure").innerHTML = functionFieldMeasureResult;
+      document.getElementById("FieldMeasureSpecs").innerHTML = functionFieldMeasureSpecs;
     }
     function functionBrakes(){
       var functionBrakesFront = document.getElementById("functionBrakesFront").checked;
@@ -2027,8 +2036,11 @@ Todo:
 							<label class="s1" for="FM2022060006">2022060006 16.5H&emsp;</label>
               <input type="radio" id="FM2021120028" name="CANFM">
 							<label class="s1" for="FM2021120028">2021120028 5.2H&emsp;</label>
+              <input type="radio" id="FM2022030017" name="CANFM">
+							<label class="s1" for="FM2022030017">2022030017 16.5H&emsp;</label>
 						</form>
 					<s1 id="FieldMesaure";></s1>
+          <s3 id="FieldMeasureSpecs";></s3>
       </div> <!--main story-->
       <span class="c"></span>
       <div class="mainStory" id="RclDiv"> <!-- ***************************************** RECALL STORIES ******************************************** -->
@@ -2273,7 +2285,7 @@ Todo:
 
 				<button class="button"; onclick="CopyToClipboard('2020090004')">
 					205 CHARCOAL CANISTER MISBUILD 0.3H</button><br>
-					<form oninput=recallNumberSelect(a,"2020090004Form")>
+					<form oninput=recallNumberSelect(a, "2020090004Form")>
 						<label class="s1" for="a">Part Number: </label>
 						<input type="text" id="a" name="a" placeholder="A 205 470 4000">
 					</form>
@@ -2690,7 +2702,7 @@ Todo:
       <div class="mainStory" id="othDiv"> <!-- ***************************************** OTHER NON-STORIES ***************************************** -->
         <span class="c"></span>
         <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
-        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 10 December 2022</s3>                                    <!-- FIXME:  -->
+        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 13 Febuary 2023</s3>                                    <!-- FIXME:  -->
         <input type="text" id="WDDSJ4GB1" value="Pa" hidden>
 
 
@@ -2764,10 +2776,6 @@ Todo:
           <td><s5></s5></td>
         </tr>
         <tr>
-          <td><s5>Ali 140</s5></td>
-          <td><s5></s5></td>
-        </tr>
-        <tr>
           <td><s5>Nik 108</s5></td>
           <td><s5>201</s5></td>
         </tr>
@@ -2782,10 +2790,6 @@ Todo:
         <tr>
           <td><s5>Dmitri</s5></td>
           <td><s5>207</s5></td>
-        </tr>
-        <tr>
-          <td><s5>Chad</s5></td>
-          <td><s5>208</s5></td>
         </tr>
         <tr>
           <td><s4>Service</s4></td>
