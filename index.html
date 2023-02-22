@@ -392,15 +392,15 @@ Todo:
       var functionPartsListResult = "";
       var M270HeadGasket = "A0049903712 High pressure fuel pump bolts x 2<br>A0219979745 High pressure fuel pump o-ring<br>A1770720000 Fuel injector seals x 4<br>A2700160080 Vacuum pump gasket<br>A2700181800 Oil filler neck seal<br>A0009975711 Head cover coolant line o-ring<br>A0009986590 Cylinder cover cap (cam plug)<br>A0019905722 Cylinder head cover bolts x 18<br>A0009908419 Cylinder head cover bolts x 6<br>A0000160569 Cylinder head bolts x 10<br>A0089906582 Cylinder head bolts spacer discs x 10<br>A2700160020 Cylinder head gasket<br>A0009953033 Exhaust clamp after flex pipe<br>A2711420780 Cat to turbo seal<br>A0029903950 cat to turbo nuts x 3<br>A0019906614 cat to turbo studs x 3<br>A0009973807 seal for turbo coolant feed and return lines x 2<br>A0249971045 seal for turbo oil return and return lines x 2<br>A1199970045 seal for turbo oil return line to crankcase<br>A2740960100 seal for turbo oil return line<br>A2701420480 Exhaust manifold gasket<br>A0019901816 Exhaust manifold studs x 8<br>A2711420072 Exhaust manifold nuts x 8<br>A2700960180 Intake manifold seals x 4<br>A2700150200 Timing chain tensioner cap<br>A0169975045 Cam adjuster o-rings x 2<br>A2700960080 Throttle valve actuator seal x 2<br>N000000006648 Bolt for turbo oil feed/return line, coolant lines x 5<br>N000000007820 Engine mount to timing case bolts x 2<br>Black rtv sealant for cylinder head cover and front cover x 2<br>Pink Coolant<br>Engine oil and filter";
       var M260HeadGasket = "A1770720000 INJECTOR SEAL KIT x 4<br>A0009976511 INTAKE DUCT ADAPTER SEALS x 2<br>A0009976411 INTAKE DUCT ADAPTER SEALS x 1<br>A0219979745 FUEL PUMP O-RING<br>A2700160080 VACUUM PUMP GASKET<br>A2700150200 END COVER FOR CAM AND TIMING TENSIONER x 2<br>A2600181700 FILLER NECK SEAL<br>A2601422300 CAT TO TURBO SEAL<br>A0029903950 CAT TO TURBO NUTS x 3<br>A1774920400 EXHAUST SEAL<br>A0009906803 EXHAUST BOLTS x 2<br>A0009973807 COOLANT LINE AT TURBO SEAL x 2<br>A2740960100 OIL LINE AT TURBO SEAL<br>A0249971045 OIL LINE AT TURBO SEAL x 2<br>A0299971345 THROTTLE VALVE TO CHARGE PIPE SEAL<br>A2700960080 THORTOLE VALVE TO FLANGE SEAL<br>A0000160569 CYLINDER HEAD BOLTS x 10<br>A2600160200 CYLINDER HEAD GASKET<br>A2601420000 EXHAUST MANIFOLD GASKET<br>A2711420072 EXHAUST MANIFOLD NUTS x 8<br>A0019901816 EXHAUST MANIFOLD STUDS x 8<br>A0019905722 CYLINDER HEAD COVER BOLTS x 18<br>A0029902422 CYLINDER HEAD COVER BOLTS x 6<br>A0009975711 COOLANT LINE AT HEAD COVER O-RING<br>N000000004683 LOW PRESSURE LINE AT HIGH PRESSURE PUMP<br>N000000001147 BOLTS FOR HIGH PRESSURE FUEL PUMP x 2<br>BLACK RTV SEALANT FOR UPPER TIMING CASE COVER<br>BLACK RTV SEALANT FOR CYLINDER HEAD COVER<br>COOLANT<br>ENGINE OIL AND FILTER";
-      var blank2 = "blank2";
+      var M274HeadGasket = "A2740162000	Cylinder head gasket<br>A0000160569	Cylinder head bolts x 10<br>A0019905722 	Cylinder head cover bolts x 20<br>A0009908419	Cylinder head cover bolts x 6<br>A0089906582	Cylinder head bolts spacer discs x 10<br>A0009976420 	Chain guide pin caps x 2<br>A2740502600 	Chain tensioner<br>A0009976220 	Chain tensioner cap<br>A0049903712	High pressure fuel pump bolts x 2<br>A0219979745	High pressure fuel pump o-ring<br>A0069971890 	High pressure fuel pump hose clamp<br>A1770720000	Fuel injector seal kits x 4<br>A2700160080	Vacuum pump gasket<br>A0009975711 	Coolant line o-ring at head cover<br>A0009986590	Cylinder cover cap (cam plug)<br>A0229979745	Crankcase bleed line seal<br>A2700960180	Intake manifold seals x 4<br>A2700960080	Throttle valve actuator seal x 2<br>A0249971045 	Turbo oil feed line O-rings x 2<br>A2740960100	Turbo oil return line seal<br>A2711870080		Turbo oil return line seal<br>A2742032502	Turbo coolant return line<br>A0009973807	Turbo coolant feed line o-rings x 2<br>N000000006648 Turbo coolant/oil feed/return lines x 8<br>A2741420080	Exhaust sealing ring turbo to cat<br>A0009953633 	Exhaust clamp cat to turbo<br>A2711420072 	Exhaust manifold nuts x 8<br>A0009903224	Exhaust manifold studs x 8<br>A2741420180		Exhaust manifold seal<br>A0169975045	Cam adjuster o-rings x 2<br>Black rtv sealant for cylinder head cover and front cover x 2<br>Pink Coolant<br>Engine oil and filter<br><b>For oil pan removal:</b><br>A0009951433	Exhaust clamp after cat<br>A0249976345	Coolant pump to crankcase seal<br>A2702030080	Coolant pump to hose seal<br>Black RTV sealant for timing case cover and oil pans x 2";
       if (document.getElementById("M270HeadGasket").checked == true) {
         var functionPartsListResult = M270HeadGasket;
       }
       if (document.getElementById("M260HeadGasket").checked == true) {
         var functionPartsListResult = M260HeadGasket;
       }
-      if (document.getElementById("blank2").checked == true) {
-        var functionPartsListResult = blank2;
+      if (document.getElementById("M274HeadGasket").checked == true) {
+        var functionPartsListResult = M274HeadGasket;
       }
       document.getElementById("PartsList").innerHTML = functionPartsListResult;
     }
@@ -1403,11 +1403,24 @@ Todo:
       document.getElementById("AEITempView").innerHTML = vinInput;
 
     }
-
-
-
-
-
+  </script>
+  <script>// test area 2
+  function functionTorqueSpecs(){
+      var functionTorqueSpecsResult = "";
+      var TS_test1 = "TS_test1";
+      var TS_test2 = "TS_test2";
+      var TS_test3 = "TS_test3";
+      if (document.getElementById("TS_test1").checked == true) {
+        var functionTorqueSpecsResult = TS_test1;
+      }
+      if (document.getElementById("TS_test2").checked == true) {
+        var functionTorqueSpecsResult = TS_test2;
+      }
+      if (document.getElementById("TS_test3").checked == true) {
+        var functionTorqueSpecsResult = TS_test3;
+      }
+      document.getElementById("TorqueSpecs").innerHTML = functionTorqueSpecsResult;
+    }
 
   </script>
   <body class="mainPage">
@@ -2690,10 +2703,26 @@ Todo:
             <label class="s1" for="M270HeadGasket">M270 Head Gasket</label>
             <input type="radio" id="M260HeadGasket" name="PartsList">
             <label class="s1" for="M260HeadGasket">M260 Head Gasket</label>
-            <input type="radio" id="blank2" name="PartsList" checked>
-            <label class="s1" for="blank2">blank</label>
+            <input type="radio" id="M274HeadGasket" name="PartsList">
+            <label class="s1" for="M274HeadGasket">M274 Head Gasket</label>
           </form>
           <s1 id="PartsList";>
+          </s1>
+
+        <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('TorqueSpecs')">
+          TORQUE SPECIFICATIONS
+          </button><br>
+          <form oninput="functionTorqueSpecs()">
+            <input type="radio" id="TS_test1" name="TSpec">
+            <label class="s1" for="TS_test1">TS test 1</label>
+            <input type="radio" id="TS_test2" name="TSpec">
+            <label class="s1" for="TS_test2">TS test 2</label>
+            <input type="radio" id="TS_test3" name="TSpec" checked>
+            <label class="s1" for="TS_test3">TS test 3</label>
+          </form>
+          <s1 id="TorqueSpecs";>
           </s1>
 
         <span class="a"></span>
@@ -2702,7 +2731,7 @@ Todo:
       <div class="mainStory" id="othDiv"> <!-- ***************************************** OTHER NON-STORIES ***************************************** -->
         <span class="c"></span>
         <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
-        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 13 Febuary 2023</s3>                                    <!-- FIXME:  -->
+        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 21 Febuary 2023</s3>                                    <!-- FIXME:  -->
         <input type="text" id="WDDSJ4GB1" value="Pa" hidden>
 
 
