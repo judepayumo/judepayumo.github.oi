@@ -1352,11 +1352,15 @@ Todo:
       var functionM260ENGINEResult = "";
       var M260ENGINESpark = "REMOVED UPPER ENGINE COVER, AIR DUCT UPSTREAM OF TURBO, AND FOUR COIL PACKS. REMOVED FOUR SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUE TO 23NM. REINSTALLED ALL PARTS IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
       var M260ENGINEHead = "PLACED VEHICLE IN NEUTRAL AND DISCONNECTED BATTERY GROUND. LIFTED THE VEHICLE AND REMOVED UPPER AND LOWER ENGINE COVER. REMOVED FRONT RIGHT WHEEL AND WHEEL WELL LINER. DRAINED COOLANT. DISCONNECTED CHARGE AIR HOSE DOWNSTREAM OF TURBO, TURBO COOLANT LINES AND OIL LINES, ELECTRICAL CONNECTORS FOR MAIN ENGINE HARNESS, AND ALL RELEVANT VACUUM LINES AND COOLANT LINES. REMOVED COOLANT RESERVOIR, INTAKE DUCT DOWNSTREAM OF AIR FILTER, CHARGE AIR PIPE UPSTREAM OF THROTTLE VALVE, FRONT ENGINE MOUNT, THROTTLE VALVE, AND CHARGE AIR DISTRIBUTOR. DETACHED MAIN ENGINE WIRING HARNESS FROM ITS CLIPS AND MOVED HARNESS TO ONE SIDE. REMOVED VACUUM PUMP, HIGH PRESSURE FUEL PUMP, FUEL RAIL WITH INJECTORS ATTACHED, INTAKE CAM ADJUSTER. DETACHED OIL FILLER NECK FROM HEAD COVER. REMOVED TURBO HEAT SHIELDS, TURBOCHARGER WITH EXHAUST MANIFOLD, ENGINE LIFT LUGS, AND TIMING CHAIN TENSIONER. REMOVED HEAD COVER, FRONT TIMING COVER, INTAKE AND EXHAUST VALVES. REMOVED CYLINDER HEAD WITH VALVES. CLEANED SURFACE AND INSTALLED NEW HEAD GASKET. INSTALLED NEW CYLINDER HEAD WITH VALVES. TRANSFERRED OVER PINS FOR TIMING CHAIN GUIDES, DOWELS FOR FRONT COVER ON TO NEW HEAD. TORQUED HEAD BOLTS TO SPEC. INSTALLED CAMS AND CONFIRMED ENGINE TIMING. TRANSFERRED TOP TIMING CHAIN GUIDE ON TO NEW HEAD COVER. APPLIED SILICONE SEALANT TO NEW HEAD COVER AS DETAILED IN WORKSHOP INSTRUCTION. INSTALLED HEAD COVER AND TORQUED TO SPEC. ASSEMBLED IN REVERSE ORDER WITH NEW SEALS/O-RINGS/BOLTS WHERE NEEDED. CONNECTED VACUUM COOLANT FILLER AND CONFIRMED COOLING SYSTEM CAN HOLD VACUUM FOR 5MIN. FILLED COOLING SYSTEM. PERFORMED TWO START UP CRANK CYCLES WITH INJECTORS DISCONNECTED TO CONFIRM ENGINE OIL IS CIRCULATING. CONNECTED ALL INJECTORS AND STARTED THE ENGINE. CONNECTED XENTRY SCANNER AND CLEARED STORED FAULTS. PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE AND CONFIRMED NO OBVIOUS ISSUES/CEL. LIFTED THE VEHICLE AND CHECKED FOR LEAKS, FOUND NONE.";
+      var M260ENGINEAirFilter = "REMOVED ENGINE CONTROL UNIT COVER AND MOVED CONTROL UNIT TO THE SIDE. REMOVED ENGINE AIR FILTER. INSTALLED NEW FILTER AND ASSEMBLED IN REVERSE ORDER.";
       if (document.getElementById("M260ENGINEHead").checked == true) {
         var functionM260ENGINEResult = M260ENGINEHead;
       }
       if (document.getElementById("M260ENGINESpark").checked == true) {
         var functionM260ENGINEResult = M260ENGINESpark;
+      }
+      if (document.getElementById("M260ENGINEAirFilter").checked == true) {
+        var functionM260ENGINEResult = M260ENGINEAirFilter;
       }
       document.getElementById("M260ENGINE").innerHTML = functionM260ENGINEResult;
       }
@@ -1376,11 +1380,19 @@ Todo:
       var functionM274ENGINEResult = "";
       var M274ENGINESpark = "REMOVED UPPER ENGINE COVER, ENGINE AIR FILTER BOX, AND FOUR COIL PACKS. REMOVED FOUR SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUE TO 23NM. ASSEMBLED IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
       var M274ENGINEAirFilter = "REMOVED ENGINE AIR FILTER COVER AND AIR FILTER. ASSEMBLED IN REVERSE ORDER WITH NEW FILTER.";
+      var M274ENGINECamshaft = "LIFTED THE VEHICLE AND REMOVED LOWER COVERS. DRAINED COOLING SYSTEM. RELEASED FUEL LINE PRESSURE VIA THE SERVICE PORT. DISCONNECTED BATTERY GROUND. REMOVED UPPER ENGINE COVER, AIR FILTER HOUSING, ENGINE CONTROL UNIT, INTERCOOLER, AND INTERCOOLER BRACKET. PLACED ENGINE CRANK AT 79DEG AFTER TDC. REMOVED HIGH PRESSURE FUEL PUMP. PLACED ENGINE CRANK AT TDC. REMOVED ENGINE OIL FILTER CAP, IGNITION COILS, FUEL RAIL WITH INJECTORS. PLACED ENGINE WIRING HARNESS TO ONE SIDE. REMOVED FRONT CAM COVER, VACUUM PUMP, OIL SEPARATOR, HEAD COVER, TIMING CHAIN TENSIONER.<br>*********<br>REMOVED EXHAUST AND INTAKE CAMSHAFT ADJUSTERS. REMOVED EXHAUST AND INTAKE CAMSHAFTS.<br>*********<br>ASSEMBLED IN REVERSE ORDER. REMOVED BOTH CAM HALL SENSORS, TURNED THE ENGINE CRANK 2 REVS AND CONFIRMED CORRECT BASIC TIMING. FILLED COOLING SYSTEM AND CONFIRMED SYSTEM HAS NO LEAKS. CONNECTED BATTERY CHARGER AND XENTRY. PERFORMED TEACH-IN OF CAMSHAFT POSITION. CLEARED FAULTS AND PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE AND RE-CHECKED FOR LEAKS. CONFIRMED NO ENGINE OIL OR COOLANT LEAKS PRESENT. CONFIRMED CEL IS OFF.";
+      M274ENGINEHead = "FIXME";
       if (document.getElementById("M274ENGINESpark").checked == true) {
         var functionM274ENGINEResult = M274ENGINESpark;
       }
       if (document.getElementById("M274ENGINEAirFilter").checked == true) {
         var functionM274ENGINEResult = M274ENGINEAirFilter;
+      }
+      if (document.getElementById("M274ENGINECamshaft").checked == true) {
+        var functionM274ENGINEResult = M274ENGINECamshaft;
+      }
+      if (document.getElementById("M274ENGINEHead").checked == true) {
+        var functionM274ENGINEResult = M274ENGINEHead;
       }
       document.getElementById("M274ENGINE").innerHTML = functionM274ENGINEResult;
     }
@@ -1430,8 +1442,8 @@ Todo:
       <div class="shortcutDiv">
         <a href="https://xentry.mercedes-benz.com/home/" target="_blank"><i class="fa fa-home"></i>&nbsp&nbsp&nbsp;</a>
         <a href="https://xentry.mercedes-benz.com/workshop/#/order-overview/Local-Content" target="_blank"><i class="fa fa-search"></i>&nbsp&nbsp&nbsp;</a>
-        <a href="https://Google.com/" target="_blank"><i class="fa fa-calculator"></i>&nbsp&nbsp&nbsp;</a>
-        <a href="https://xentry.mercedes-benz.com/xhpi/" target="_blank"><i class="fa fa-wrench"></i>&nbsp&nbsp&nbsp;</a>
+        <a href="https://Google.com/" target="_blank"><i class="fa fa-tint"></i>&nbsp&nbsp&nbsp;</a>
+        <a href="https://xentry.mercedes-benz.com/xhpi/" target="_blank"><i class="fa fa-gear"></i>&nbsp&nbsp&nbsp;</a>
         <a href="https://controlpanel.msoutlookonline.net/portal/aduser/login" target="_blank"><i class="fa fa-envelope"></i>&nbsp&nbsp&nbsp;</a>
         <a href="#"><i class="fa fa-phone" onclick="toggleDiv('phoneDiv')"></i>&nbsp&nbsp&nbsp;</a>
         <a href="#"><i class="fa fa-lock" onclick="show('notMe','onOff');"></i>&nbsp&nbsp&nbsp;</a><!--Lock button -->
@@ -1947,6 +1959,8 @@ Todo:
 						<label class="s1" for="M260ENGINESpark">Spark Plugs&emsp;</label>
 						<input type="radio" id="M260ENGINEHead" name="M260ENGINE">
 						<label class="s1" for="M260ENGINEHead">Cylinder Head&emsp;</label>
+            <input type="radio" id="M260ENGINEAirFilter" name="M260ENGINE">
+						<label class="s1" for="M260ENGINEAirFilter">Air Filter&emsp;</label>
 					</form>
 					<s1 id="M260ENGINE";></s1>
 
@@ -1993,6 +2007,10 @@ Todo:
 						<label class="s1" for="M274ENGINESpark">Spark Plugs&emsp;</label>
 						<input type="radio" id="M274ENGINEAirFilter" name="M274ENGINE">
 						<label class="s1" for="M274ENGINEAirFilter">Air Filters&emsp;</label>
+            <input type="radio" id="M274ENGINECamshaft" name="M274ENGINE">
+						<label class="s1" for="M274ENGINECamshaft">Camshaft&emsp;</label>
+            <input type="radio" id="M274ENGINEHead" name="M274ENGINE">
+						<label class="s1" for="M274ENGINEHead">Head&emsp;</label>
 					</form>
 					<s1 id="M274ENGINE";></s1>
 
@@ -2163,14 +2181,22 @@ Todo:
 						<label class="s1" for="2019030013Form">2019030013&nbsp;</label>
 						<input type="radio" value="2022030005" id="2022030005Form" name="recallNumber">
 						<label class="s1" for="2022030005Form">2022030005&nbsp;</label>
+            <input type="radio" value="2019030023" id="2019030023Form" name="recallNumber">
+						<label class="s1" for="2019030023Form">2019030023&nbsp;</label>
 					</form>
 					<s1 id="2019030013";>AS PER MB RECALL CAMPAIGN <s1 id="20190300132022030005">2019030013</s1> , POWERTRAIN CONTROL UNIT SOFTWARE MUST BE UPDATED. CONNECTED SCANNER AND BATTERY CHARGER. PERFORMED SOFTWARE UPDATE OF POWERTRAIN CONTROL UNIT (PTCU). DISCONNECTED SCANNER AND CHARGER.</s1>
 
 				<span class="a"></span>
 
-				<button class="button"; onclick="CopyToClipboard('2019040004')">
-					204 ME SOFTWARE UPDATE RECALL 0.3H</button><br>
-					<s1 id="2019040004";>AS PER MB RECALL CAMPAIGN 2019040004 , ENGINE ELECTRONICS CONTROL UNIT SOFTWARE MUST BE UPDATED. CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED SOFTWARE UPDATE OF ENGINE ELECTRONICS (ME). DISCONNECTED XENTRY AND CHARGER. TEST DROVE THE VEHICLE.</s1>
+				<button class="button"; onclick="CopyToClipboard('20190400042022120002')">
+					N3/9 ME SOFTWARE UPDATE RECALL 0.3H</button><br>
+          <form oninput=recallNumberSelect(recallNumber,"20190400042022120002a")>
+						<input type="radio" checked value="2019040004" id="2019040004Form" name="recallNumber">
+						<label class="s1" for="2019040004Form">2019040004&nbsp;</label>
+						<input type="radio" value="2022120002" id="2022120002Form" name="recallNumber">
+						<label class="s1" for="2022120002Form">2022120002&nbsp;</label>
+					</form>
+					<s1 id="20190400042022120002";>AS PER MB RECALL CAMPAIGN <s1 id="20190400042022120002a">2019040004</s1>, ENGINE ELECTRONICS CONTROL UNIT SOFTWARE MUST BE UPDATED. CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED <b>SOFTWARE UPDATE OF ENGINE ELECTRONICS (N3/9)</b>. DISCONNECTED XENTRY AND CHARGER. TEST DROVE THE VEHICLE.</s1>
 
 				<span class="a"></span>
 
@@ -2413,6 +2439,14 @@ Todo:
 
 				<span class="a"></span>
 
+				<button class="button"; onclick="CopyToClipboard('2022100010')">
+					INTEGRATED STARTER GENERATOR ISG ISA SOFTWARE 0.3H</button><br>
+					<s1 id="2022100010";>
+            PER MBC CAMPAIGN 2022100010, ON SOME MODELS, THE INTEGRATED STARTER GENERATOR CONTROL UNIT SOFTWARE MAY NOT MEET SPECIFICATIONS. CONNECTED POWER SUPPLY AND XENTRY. PERFORMED <b>SOFTWARE UPDATE OF INTEGRATED STARTER ALTERNATOR (N129)</b>. DISCONNECTED BATTERY CHARGER AND XENTRY. 
+					</s1>
+
+				<span class="a"></span>
+
 				<button class="button"; onclick="CopyToClipboard('2021020006')">
 					CABRIOLET SEAT BELT POSITION 0.1H, 1.3H, 2.2H</button><br>
 					<form oninput="function2021020006()">
@@ -2620,7 +2654,46 @@ Todo:
           <s3>&nbsp; The elastic band should be separated above the barcode label.</s3><br>
           <s3>&nbsp; See Check/test procedure A1 if elastic band is missing.</s3><br>
           <s3>&nbsp; Test: "Main groups – Control units - Chassis – ESP-Electronic Stability Program – Complete list of guided tests – Braking Power".</s3><br>
+        
+        <span class="a"></span>
 
+        <button class="button"; onclick="CopyToClipboard('2022100003')">
+          INTEGRAL CARRIER FRONT AXLE 6.4H + 0.9H ALIGNMENT</button><br>
+          <s1 id="2022100003";>
+            PER MBC RECALL CAMPAIGN 2022100003, THE CORROSION PROTECTION OF THE INTEGRAL CARRIER OF THE FRONT AXLE MIGHT NOT BE SUSTAINED OVER THE LIFETIME OF THE VEHICLE. REMOVED FRONT LEFT AND RIGHT WHEELS, FENDER LINERS, AND LOWER ENGINE COVER. DETACHED LEFT AND RIGHT LOWER CONTROL ARMS AT WHEEL CARRIER, TORSION BAR LINKS FROM TORSION BAR. REMOVED LOWER ENGINE STABILIZER MOUNT. DETACHED EXHAUST BRACKET AT FRONT SUBFRAME. REMOVED COMPONENTS ATTACHED TO FRONT CARRIER. REMOVED FRONT AXLE CARRIER BOLTS BY RATCHET WRENCH. CLEANED THREAD ON THE BODY WITH COMPRESSED AIR. INSTALLED NEW FRONT AXLE CARRIER BY THREADING-IN NEW SCREWS BY HAND AND MANUAL TOOLS AS SPECIFIED IN THE DOCUMENT. APPLIED WAX ON FRONT AXLE CARRIER AS DETAILED IN THE RECALL DOCUMENT. ASSEMBLED IN REVERSE ORDER.<br>**********<br>PERFORMED WHEEL ALIGNMENT. RE-TORQUED FRONT WHEELS.
+          </s1>
+          <s3><br>
+            Confirm fastening parts are available, new subframe bolts
+          </s3>
+
+        <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('2022050012')">
+          FUEL FEED LINE 0.9H</button><br>
+          <s1 id="2022050012";>
+            PER MBC CAMPAIGN 2022050012, A SMALL FUEL HOSE ON THE RIGHT CYLINDER BANK COULD CAUSE A GRADUAL LEAKAGE OF SMALL AMOUNT OF FUEL. REMOVED RIGHT AIR FILTER HOUSING. RELEASED FUEL PRESSURE VIA THE SERVICE CONNECTION. REMOVED BLEED LINE BETWEEN RIGHT CYLINDER HEAD COVER AND OIL SEPARATOR. CUT BRAIDED HOSE AND REMOVED FROM THE FUEL LINE. INSTALLED NEW BRAIDED AND INSTALLED NEW CLIC CLAMPS. INSTALLED HEAT SHIELD. ASSEMBLED IN REVERSE ORDER. 
+          </s1>
+        
+        <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('2022100016')">
+          MOUNTING OF 12V BATTERY 0.2H</button><br>
+          <s1 id="2022100016";>
+            PER MBC RECALL CAMPAIGN 2022100016, THE BATTERY IN THE TRUNK MIGHT NOT WITHSTAND THE LOADS IN THE EVENT OF A CRASH. ADDITIONAL FIXATION OF THE BATTERY IS NEEDED. REMOVED NUT OF BATTERY MOUNT. INSTALLED BATTERY SUPPORT. ASSEMBLED IN REVERSE ORDER (23NM TORQUE).
+          </s1>
+          <s3><br>
+            REMOVE BATTERY IF MODEL S 213.2, REWORK SUPPORT IF THERE IS AN OPENING IN AREA OF SUPPORT
+          </s3>
+
+        <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('2023010004')">
+          TIGHTNESS REAR 0.1H</button><br>
+          <s1 id="2023010004";>
+            PER MB CAMPAIGN 2023010004, WATER MIGHT PERMEATE INTO THE REAR AREA OF THE VEHICLE AND, OVER TIME, ACCUMULATE IN THE SPARE WHEEL WELL. REMOVED SPARE WHEEL. INSPECTED WHEEL WELL AREA, AS DETAILED IN THE RECALL DOCUMENT, FOR HUMIDITY OR WATER DEPOSITS. FOUND NONE. REMOVED EXISTING CLOSING GROMMET AND RETROFITTED WATER DRAIN GROMMET. ASSEMBLED IN REVERSE ORDER.
+          </s1>
+        
+        <span class="a"></span>
       </div> <!--Recall story story-->
       <span class="c"></span>
       <div class="mainStory" id="mscDiv"> <!-- ***************************************** MISCELLANEOUS STORIES ************************************* -->
@@ -2731,7 +2804,7 @@ Todo:
       <div class="mainStory" id="othDiv"> <!-- ***************************************** OTHER NON-STORIES ***************************************** -->
         <span class="c"></span>
         <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
-        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 21 Febuary 2023</s3>                                    <!-- FIXME:  -->
+        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 17 March 2023</s3>                                    <!-- FIXME:  -->
         <input type="text" id="WDDSJ4GB1" value="Pa" hidden>
 
 
@@ -2829,10 +2902,6 @@ Todo:
           <td><s5>242</s5></td>
         </tr>
         <tr>
-          <td><s5>Nick</s5></td>
-          <td><s5>246</s5></td>
-        </tr>
-        <tr>
           <td><s5>Rey</s5></td>
           <td><s5>230</s5></td>
         </tr>
@@ -2855,10 +2924,6 @@ Todo:
         <tr>
           <td><s5>Manager</s5></td>
           <td><s5>248</s5></td>
-        </tr>
-        <tr>
-          <td><s5>Robert</s5></td>
-          <td><s5>262</s5></td>
         </tr>
         <tr>
           <td><s5>Jan</s5></td>
