@@ -5,6 +5,8 @@ Todo:
 	Converter div
   Oil capacity div
   M260 crankcase
+  use local storage for VIN
+  external save from form for flags
 
 
 -->
@@ -390,21 +392,9 @@ Todo:
     }
     function functionPartsList(){
       var functionPartsListResult = "";
-      var M270HeadGasket = "A0049903712 High pressure fuel pump bolts x 2<br>A0219979745 High pressure fuel pump o-ring<br>A1770720000 Fuel injector seals x 4<br>A2700160080 Vacuum pump gasket<br>A2700181800 Oil filler neck seal<br>A0009975711 Head cover coolant line o-ring<br>A0009986590 Cylinder cover cap (cam plug)<br>A0019905722 Cylinder head cover bolts x 18<br>A0009908419 Cylinder head cover bolts x 6<br>A0000160569 Cylinder head bolts x 10<br>A0089906582 Cylinder head bolts spacer discs x 10<br>A2700160020 Cylinder head gasket<br>A0009953033 Exhaust clamp after flex pipe<br>A2711420780 Cat to turbo seal<br>A0029903950 cat to turbo nuts x 3<br>A0019906614 cat to turbo studs x 3<br>A0009973807 seal for turbo coolant feed and return lines x 2<br>A0249971045 seal for turbo oil return and return lines x 2<br>A1199970045 seal for turbo oil return line to crankcase<br>A2740960100 seal for turbo oil return line<br>A2701420480 Exhaust manifold gasket<br>A0019901816 Exhaust manifold studs x 8<br>A2711420072 Exhaust manifold nuts x 8<br>A2700960180 Intake manifold seals x 4<br>A2700150200 Timing chain tensioner cap<br>A0169975045 Cam adjuster o-rings x 2<br>A2700960080 Throttle valve actuator seal x 2<br>N000000006648 Bolt for turbo oil feed/return line, coolant lines x 5<br>N000000007820 Engine mount to timing case bolts x 2<br>Black rtv sealant for cylinder head cover and front cover x 2<br>Pink Coolant<br>Engine oil and filter";
       var M260HeadGasket = "A1770720000 INJECTOR SEAL KIT x 4<br>A0009976511 INTAKE DUCT ADAPTER SEALS x 2<br>A0009976411 INTAKE DUCT ADAPTER SEALS x 1<br>A0219979745 FUEL PUMP O-RING<br>A2700160080 VACUUM PUMP GASKET<br>A2700150200 END COVER FOR CAM AND TIMING TENSIONER x 2<br>A2600181700 FILLER NECK SEAL<br>A2601422300 CAT TO TURBO SEAL<br>A0029903950 CAT TO TURBO NUTS x 3<br>A1774920400 EXHAUST SEAL<br>A0009906803 EXHAUST BOLTS x 2<br>A0009973807 COOLANT LINE AT TURBO SEAL x 2<br>A2740960100 OIL LINE AT TURBO SEAL<br>A0249971045 OIL LINE AT TURBO SEAL x 2<br>A0299971345 THROTTLE VALVE TO CHARGE PIPE SEAL<br>A2700960080 THORTOLE VALVE TO FLANGE SEAL<br>A0000160569 CYLINDER HEAD BOLTS x 10<br>A2600160200 CYLINDER HEAD GASKET<br>A2601420000 EXHAUST MANIFOLD GASKET<br>A2711420072 EXHAUST MANIFOLD NUTS x 8<br>A0019901816 EXHAUST MANIFOLD STUDS x 8<br>A0019905722 CYLINDER HEAD COVER BOLTS x 18<br>A0029902422 CYLINDER HEAD COVER BOLTS x 6<br>A0009975711 COOLANT LINE AT HEAD COVER O-RING<br>N000000004683 LOW PRESSURE LINE AT HIGH PRESSURE PUMP<br>N000000001147 BOLTS FOR HIGH PRESSURE FUEL PUMP x 2<br>BLACK RTV SEALANT FOR UPPER TIMING CASE COVER<br>BLACK RTV SEALANT FOR CYLINDER HEAD COVER<br>COOLANT<br>ENGINE OIL AND FILTER";
-      var M274HeadGasket = "A2740162000	Cylinder head gasket<br>A0000160569	Cylinder head bolts x 10<br>A0019905722 	Cylinder head cover bolts x 20<br>A0009908419	Cylinder head cover bolts x 6<br>A0089906582	Cylinder head bolts spacer discs x 10<br>A0009976420 	Chain guide pin caps x 2<br>A2740502600 	Chain tensioner<br>A0009976220 	Chain tensioner cap<br>A0049903712	High pressure fuel pump bolts x 2<br>A0219979745	High pressure fuel pump o-ring<br>A0069971890 	High pressure fuel pump hose clamp<br>A1770720000	Fuel injector seal kits x 4<br>A2700160080	Vacuum pump gasket<br>A0009975711 	Coolant line o-ring at head cover<br>A0009986590	Cylinder cover cap (cam plug)<br>A0229979745	Crankcase bleed line seal<br>A2700960180	Intake manifold seals x 4<br>A2700960080	Throttle valve actuator seal x 2<br>A0249971045 	Turbo oil feed line O-rings x 2<br>A2740960100	Turbo oil return line seal<br>A2711870080		Turbo oil return line seal<br>A2742032502	Turbo coolant return line<br>A0009973807	Turbo coolant feed line o-rings x 2<br>N000000006648 Turbo coolant/oil feed/return lines x 8<br>A2741420080	Exhaust sealing ring turbo to cat<br>A0009953633 	Exhaust clamp cat to turbo<br>A2711420072 	Exhaust manifold nuts x 8<br>A0009903224	Exhaust manifold studs x 8<br>A2741420180		Exhaust manifold seal<br>A0169975045	Cam adjuster o-rings x 2<br>Black rtv sealant for cylinder head cover and front cover x 2<br>Pink Coolant<br>Engine oil and filter<br><b>For oil pan removal:</b><br>A0009951433	Exhaust clamp after cat<br>A0249976345	Coolant pump to crankcase seal<br>A2702030080	Coolant pump to hose seal<br>Black RTV sealant for timing case cover and oil pans x 2";
-      var M274Camshaft = "Intake camshaft<br>Intake camshaft positioner<br>Intake camshaft positioner central valve<br>Exhaust camshaft<br>Exhaust camshaft positioner<br>Exhaust camshaft positioner central valve<br>A0000160569 Cylinder head bolts x 10<br>A0019905722 Cylinder head cover bolts x 20<br>A0009908419 Cylinder head cover bolts x 6<br>A2740502600 Chain tensioner<br>A0009976220 Chain tensioner cap<br>A0049903712 High pressure fuel pump bolts x 2<br>A0219979745 High pressure fuel pump o-ring<br>A0069971890 High pressure fuel pump hose clamp<br>A1770720000 Fuel injector seal kits x 4<br>A2700160080 Vacuum pump gasket<br>A2740184400 Oil separator seal<br>A0009975711 Coolant line o-ring at head cover<br>A0009986590 Cylinder cover cap (cam plug)<br>A0169975045 Cam adjuster o-rings x 2<br>Black rtv sealant for cylinder head cover and front cover<br>Pink Coolant<br>Engine oil and filter (recommend)";
-      if (document.getElementById("M270HeadGasket").checked == true) {
-        var functionPartsListResult = M270HeadGasket;
-      }
       if (document.getElementById("M260HeadGasket").checked == true) {
         var functionPartsListResult = M260HeadGasket;
-      }
-      if (document.getElementById("M274HeadGasket").checked == true) {
-        var functionPartsListResult = M274HeadGasket;
-      }
-      if (document.getElementById("M274Camshaft").checked == true) {
-        var functionPartsListResult = M274Camshaft;
       }
       document.getElementById("PartsList").innerHTML = functionPartsListResult;
     }
@@ -871,14 +861,8 @@ Todo:
     }
     function functionCrankcase(){
       var crankcaseDiag = document.getElementById("crankcaseDiag").checked;
-      var crankcaseM270 = document.getElementById("crankcaseM270").checked;
-      var crankcaseM274 = document.getElementById("crankcaseM274").checked;
       if (crankcaseDiag) {
         var crankcaseStoryResult = "CONFIRMED CHECK ENGINE LIGHT IS ON. CONNECTED SCANNER AND BATTERY CHARGER. PERFORMED QUICK TEST. FOUND FAULT CODE P052E71 (THE VALVE FOR CRANKCASE VENTILATION HAS A MALFUNCTION. THE ACTUATOR IS BLOCKED.) REMOVED ENGINE UPPER COVER AND INSPECTED THE CRANKCASE VENT SYSTEM HOSES AND ELECTRICAL CONNECTORS. FOUND ALL OKAY. PER FAULT GUIDED TEST, COMPONENT Y58/2 PARTIAL LOAD VALVE WILL HAVE TO BE REPLACED. CHECKED ENGINE OIL LEVEL AND QUALITY, EXHAUST TIPS FOR EXCESSIVE OIL RESIDUE. FOUND ALL OKAY. SENT P/A FOR CRANKCASE VENT SYSTEM.";
-      }else if (crankcaseM270) {
-        var crankcaseStoryResult = "REMOVED UPPER ENGINE COVER. DISCONNECTED BATTERY GROUND. DISCONNECTED HOSES AND ELECTRICAL CONNECTORS ON INTAKE LINE. REMOVED INTAKE LINE. LIFTED THE VEHICLE AND REMOVED RF WHEEL. UNFASTENED RF LOWER CONTROL ARM TO STEERING KNUCKLE. REMOVED RF DRIVE AXLE, LOWER RIGHT ENGINE MOUNT AND BRACKET. REMOVED CRANKCASE OIL SEPARATOR. INSTALLED NEW OIL SEPARATOR AND INTAKE LINE. RE-ASSEMBLED IN REVERSE ORDER. TORQUED WHEEL TO SPEC. CONNECTED XENTRY DIAG TOOL AND PERFORMED QUICK TEST. CLEARED FAULTS AND PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE. CONFIRMED NO CEL.";
-      }else if (crankcaseM274) {
-        var crankcaseStoryResult = "DISCONNECTED BATTERY GROUND. REMOVED UPPER ENGINE COVER, ENGINE AIR FILTER HOUSING, ECU AND BRACKET, INTERCOOLER AND BRACKET. DISCONNECTED AIR INTAKE AND OIL SEPARATOR LINES. LIFTED THE VEHICLE. REMOVED LOWER ENGINE AND TRANSMISSION COVERS. REMOVED LOWER LEFT ENGINE MOUNT. REMOVED OIL SEPARATOR AND LINES. INSTALLED NEW CRANKCASE VENTILATION KIT. ASSEMBLED IN REVERSE ORDER. CONNECTED XENTRY SCANNER. CLEARED FAULTS. PERFORMED FINAL QUICK TEST. CONFIRMED NO ACTIVE FAULTS. TEST DROVE THE VEHICLE. CONFIRMED CEL IS OFF.";
       }
       document.getElementById("CRANKCASE").innerHTML = crankcaseStoryResult;
     }
@@ -1311,11 +1295,15 @@ Todo:
     }
     function functionM270ENGINE(){
       var functionM270ENGINEResult = "";
+      var functionM270ENGINEPartsResult = "";
       var M270ENGINESpark = "REMOVED UPPER ENGINE COVER, AIR DUCT UPSTREAM OF TURBO, AND FOUR COIL PACKS. REMOVED FOUR SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUE TO 23NM. REINSTALLED ALL PARTS IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
       var M270ENGINEAirFilter = "REMOVED UPPER ENGINE COVER. REMOVED ENGINE AIR FILTER COVER AND FILTER. INSTALLED NEW FILTER. RE-ASSEMBLED IN REVERSE ORDER.";
       var M270ENGINETransmissionService = "DISCONNECTED BATTERY GROUND. REMOVED AIR FILTER BOX AND AIR DUCT UPSTREAM OF FILTER. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER. DRAINED TRANSMISSION FLUID. REMOVED TRANSMISSION OIL PUMP FILTER. REMOVED TRANSMISSION OIL PAN AND FILTER. INSTALLED NEW FILTERS, O-RINGS, GASKETS, AND REINSTALLED TRANSMISSION OIL PAN AND DRAIN PLUG. REINSTALLED PARTS IN REVERSE ORDER. TORQUE DRAIN PLUG TO 25NM, OIL PAN BOLTS TO 8NM, FILTER HOUSING TO 25NM. PRE-FILLED TRANSMISSION. CONNECTED SCANNER. PERFORMED TRANSMISSION OIL LEVEL CHECK. ADJUSTED TRANSMISSION FLUID TO CORRECT SPEC. INSTALLED FILLER CAP AND LOCK. TEST DROVE THE VEHICLE.<br><s3>Pre-fill with 4L, check level with xentry and special dipstick</s3>";
       var M270ENGINERemove = "LIFTED THE VEHICLE AND REMOVED FRONT LEFT AND RIGHT  WHEELS, AND FENDER LINERS. REMOVED FRONT BUMPER, LOWER ENGINE COVER, BOTH HEADLIGHTS, AND BATTERY TRAY. DRAINED COOLING SYSTEM. RECOVERED AC REFRIGERANT. REMOVED FRONT BUMPER CROSSMEMBER AND CHARGE AIR COOLER. REMOVED FRONT RADIATOR WITH CONDENSER AND FAN UNIT. REMOVED TOP CARRIER BAR. DISCONNECTED CENTRE EXHAUST PIPE FROM FRONT PIPE. DISCONNECTED DRIVESHAFT FROM TRANSMISSION. UNFASTENED BOTH FRONT LOWER CONTROL ARMS FROM STEERING KNUCKLE AND REMOVED LEFT AND RIGHT CV AXLES. REMOVED LOWER AND UPPER ENGINE PENDULUM SUPPORT. DISCONNECTED ALL RELEVANT COOLANT HOSES, FUEL LINE, EVAP LINES, VACUUM LINES, ELECTRICAL CONNECTORS FOR ENGINE AND TRANSMISSION. SUPPORTED THE ENGINE WITH ENGINE CRANE. REMOVED FRONT ENGINE MOUNT AND REAR MOUNT. REMOVED THE ENGINE WITH THE TRANSMISSION. <br><br> ASSEMBLED IN REVERSE ORDER. APPLIED VACUUM ON COOLING SYSTEM AND CONFIRMED SYSTEM HELD VACUUM (NO LEAKS). FILLED COOLING SYSTEM. PERFORMED VACUUM AND LEAK TEST ON AC SYSTEM. CONFIRMED NO LEAKS FOUND. CHARGED AC SYSTEM WITH REFRIGERANT AND INJECTED OIL. CONNECTED XENTRY SCANNER AND CLEARED FAULTS. PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE AND RE-TORQUE FRONT WHEELS.";
       var M270ENGINEOilFilterHousingSeal = "REMOVED UPPER ENGINE COVER. LOOSENED ENGINE OIL FILTER CAP. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER. REMOVED FRONT RIGHT WHEEL AND FRONT RIGHT AXLE. REMOVED 3 BOLTS ON OIL FILTER HOUSING. REMOVED SEAL AND INSTALLED NEW SEAL. TORQUED TO SPEC OF 20NM. ASSEMBLED IN REVERSE ORDER.";
+      var M270ENGINECrankVent = "REMOVED UPPER ENGINE COVER. DISCONNECTED BATTERY GROUND. DISCONNECTED HOSES AND ELECTRICAL CONNECTORS ON INTAKE LINE. REMOVED INTAKE LINE. LIFTED THE VEHICLE AND REMOVED RF WHEEL. UNFASTENED RF LOWER CONTROL ARM TO STEERING KNUCKLE. REMOVED RF DRIVE AXLE, LOWER RIGHT ENGINE MOUNT AND BRACKET. REMOVED CRANKCASE OIL SEPARATOR. INSTALLED NEW OIL SEPARATOR AND INTAKE LINE. RE-ASSEMBLED IN REVERSE ORDER. TORQUED WHEEL TO SPEC. CONNECTED XENTRY DIAG TOOL AND PERFORMED QUICK TEST. CLEARED FAULTS AND PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE. CONFIRMED NO CEL.";
+      var M270ENGINEHeadGasket = "FIXME";
+      var M270ENGINEHeadGasketP = "<br><br>A0049903712 High pressure fuel pump bolts x 2<br>A0219979745 High pressure fuel pump o-ring<br>A1770720000 Fuel injector seals x 4<br>A2700160080 Vacuum pump gasket<br>A2700181800 Oil filler neck seal<br>A0009975711 Head cover coolant line o-ring<br>A0009986590 Cylinder cover cap (cam plug)<br>A0019905722 Cylinder head cover bolts x 18<br>A0009908419 Cylinder head cover bolts x 6<br>A0000160569 Cylinder head bolts x 10<br>A0089906582 Cylinder head bolts spacer discs x 10<br>A2700160020 Cylinder head gasket<br>A0009953033 Exhaust clamp after flex pipe<br>A2711420780 Cat to turbo seal<br>A0029903950 cat to turbo nuts x 3<br>A0019906614 cat to turbo studs x 3<br>A0009973807 seal for turbo coolant feed and return lines x 2<br>A0249971045 seal for turbo oil return and return lines x 2<br>A1199970045 seal for turbo oil return line to crankcase<br>A2740960100 seal for turbo oil return line<br>A2701420480 Exhaust manifold gasket<br>A0019901816 Exhaust manifold studs x 8<br>A2711420072 Exhaust manifold nuts x 8<br>A2700960180 Intake manifold seals x 4<br>A2700150200 Timing chain tensioner cap<br>A0169975045 Cam adjuster o-rings x 2<br>A2700960080 Throttle valve actuator seal x 2<br>N000000006648 Bolt for turbo oil feed/return line, coolant lines x 5<br>N000000007820 Engine mount to timing case bolts x 2<br>Black rtv sealant for cylinder head cover and front cover x 2<br>Pink Coolant<br>Engine oil and filter";
       if (document.getElementById("M270ENGINESpark").checked == true) {
         var functionM270ENGINEResult = M270ENGINESpark;
       }
@@ -1331,7 +1319,15 @@ Todo:
       if (document.getElementById("M270ENGINERemove").checked == true) {
         var functionM270ENGINEResult = M270ENGINERemove;
       }
+      if (document.getElementById("M270ENGINECrankVent").checked == true) {
+        var functionM270ENGINEResult = M270ENGINECrankVent;
+      }
+      if (document.getElementById("M270ENGINEHeadGasket").checked == true) {
+        var functionM270ENGINEResult = M270ENGINEHeadGasket;
+        var functionM270ENGINEPartsResult = M270ENGINEHeadGasketP;
+      }
       document.getElementById("M270ENGINE").innerHTML = functionM270ENGINEResult;
+      document.getElementById("M270ENGINEParts").innerHTML = functionM270ENGINEPartsResult;
     }
     function functionM133ENGINE(){
       var functionM133ENGINEResult = "";
@@ -1371,10 +1367,19 @@ Todo:
       }
     function functionM274ENGINE(){
       var functionM274ENGINEResult = "";
+      var functionM274ENGINEPartsResult = "";
+      var functionM274ENGINETorqueResult = "";
       var M274ENGINESpark = "REMOVED UPPER ENGINE COVER, ENGINE AIR FILTER BOX, AND FOUR COIL PACKS. REMOVED FOUR SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUE TO 23NM. ASSEMBLED IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
       var M274ENGINEAirFilter = "REMOVED ENGINE AIR FILTER COVER AND AIR FILTER. ASSEMBLED IN REVERSE ORDER WITH NEW FILTER.";
       var M274ENGINECamshaft = "LIFTED THE VEHICLE AND REMOVED LOWER COVERS. DRAINED COOLING SYSTEM. RELEASED FUEL LINE PRESSURE VIA THE SERVICE PORT. DISCONNECTED BATTERY GROUND. REMOVED UPPER ENGINE COVER, AIR FILTER HOUSING, ENGINE CONTROL UNIT, INTERCOOLER, AND INTERCOOLER BRACKET. PLACED ENGINE CRANK AT 79DEG AFTER TDC. REMOVED HIGH PRESSURE FUEL PUMP. PLACED ENGINE CRANK AT TDC. REMOVED ENGINE OIL FILTER CAP, IGNITION COILS, FUEL RAIL WITH INJECTORS. PLACED ENGINE WIRING HARNESS TO ONE SIDE. REMOVED FRONT CAM COVER, VACUUM PUMP, OIL SEPARATOR, HEAD COVER, TIMING CHAIN TENSIONER.<br>*********<br>REMOVED EXHAUST AND INTAKE CAMSHAFT ADJUSTERS. REMOVED EXHAUST AND INTAKE CAMSHAFTS.<br>*********<br>ASSEMBLED IN REVERSE ORDER. REMOVED BOTH CAM HALL SENSORS, TURNED THE ENGINE CRANK 2 REVS AND CONFIRMED CORRECT BASIC TIMING. FILLED COOLING SYSTEM AND CONFIRMED SYSTEM HAS NO LEAKS. CONNECTED BATTERY CHARGER AND XENTRY. PERFORMED TEACH-IN OF CAMSHAFT POSITION. CLEARED FAULTS AND PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE AND RE-CHECKED FOR LEAKS. CONFIRMED NO ENGINE OIL OR COOLANT LEAKS PRESENT. CONFIRMED CEL IS OFF.";
-      M274ENGINEHead = "FIXME";
+      var M274ENGINECamshaftP = "<br><br>Intake camshaft<br>Intake camshaft positioner<br>Intake camshaft positioner central valve<br>Exhaust camshaft<br>Exhaust camshaft positioner<br>Exhaust camshaft positioner central valve<br>A0000160569 Cylinder head bolts x 10<br>A0019905722 Cylinder head cover bolts x 20<br>A0009908419 Cylinder head cover bolts x 6<br>A2740502600 Chain tensioner<br>A0009976220 Chain tensioner cap<br>A0049903712 High pressure fuel pump bolts x 2<br>A0219979745 High pressure fuel pump o-ring<br>A0069971890 High pressure fuel pump hose clamp<br>A1770720000 Fuel injector seal kits x 4<br>A2700160080 Vacuum pump gasket<br>A2740184400 Oil separator seal<br>A0009975711 Coolant line o-ring at head cover<br>A0009986590 Cylinder cover cap (cam plug)<br>A0169975045 Cam adjuster o-rings x 2<br>Black rtv sealant for cylinder head cover and front cover<br>Pink Coolant<br>Engine oil and filter (recommend)";
+      var M274ENGINEHead = "BLANK";
+      var M274ENGINEHeadP = "<br><br>A2740162000	Cylinder head gasket<br>A0000160569	Cylinder head bolts x 10<br>A0019905722 	Cylinder head cover bolts x 20<br>A0009908419	Cylinder head cover bolts x 6<br>A0089906582	Cylinder head bolts spacer discs x 10<br>A0009976420 	Chain guide pin caps x 2<br>A2740502600 	Chain tensioner<br>A0009976220 	Chain tensioner cap<br>A0049903712	High pressure fuel pump bolts x 2<br>A0219979745	High pressure fuel pump o-ring<br>A0069971890 	High pressure fuel pump hose clamp<br>A1770720000	Fuel injector seal kits x 4<br>A2700160080	Vacuum pump gasket<br>A0009975711 	Coolant line o-ring at head cover<br>A0009986590	Cylinder cover cap (cam plug)<br>A0229979745	Crankcase bleed line seal<br>A2700960180	Intake manifold seals x 4<br>A2700960080	Throttle valve actuator seal x 2<br>A0249971045 	Turbo oil feed line O-rings x 2<br>A2740960100	Turbo oil return line seal<br>A2711870080		Turbo oil return line seal<br>A2742032502	Turbo coolant return line<br>A0009973807	Turbo coolant feed line o-rings x 2<br>N000000006648 Turbo coolant/oil feed/return lines x 8<br>A2741420080	Exhaust sealing ring turbo to cat<br>A0009953633 	Exhaust clamp cat to turbo<br>A2711420072 	Exhaust manifold nuts x 8<br>A0009903224	Exhaust manifold studs x 8<br>A2741420180		Exhaust manifold seal<br>A0169975045	Cam adjuster o-rings x 2<br>Black rtv sealant for cylinder head cover and front cover x 2<br>Pink Coolant<br>Engine oil and filter<br><b>For oil pan removal:</b><br>A0009951433	Exhaust clamp after cat<br>A0249976345	Coolant pump to crankcase seal<br>A2702030080	Coolant pump to hose seal<br>Black RTV sealant for timing case cover and oil pans x 2";
+      var M274ENGINEThermostat = "LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER AND LOWER FRONT BUMPER COVER. DRAINED MAIN CIRCUIT COOLANT. REMOVED UPPER ENGINE COVER. DISCONNECTED BATTERY GROUND AND REMOVED ENGINE CONTROL UNIT AND BRACKET. REMOVED CHARGED AIR COOLER AND BRACKET. DISCONNECTED ELECTRICAL CONNECTORS OF THROTTLE VALVE, CRANKCASE VENT, AND CHARGE AIR TEMP AND PRESSURE SENSOR. REMOVED CHARGE AIR DISTRIBUTOR. DISCONNECTED COOLANT HOSES CONNECTED TO THERMOSTAT AND REMOVED COOLANT THERMOSTAT. INSTALLED NEW THERMOSTAT. ASSEMBLED IN REVERSE ORDER. APPLIED VACUUM TO COOLING SYSTEM AND CONFIRMED SYSTEM IS HOLDING GOOD LEVEL OF VACUUM AND IS NOT DROPPING—THUS SYSTEM HAS NO LEAKS. FILLED COOLING SYSTEM WITH COOLANT. STARTED THE ENGINE AND CHECKED FOR LEAKS. CONFIRMED NO LEAKS PRESENT. CONNECTED BATTERY CHARGER AND XENTRY. CLEARED FAULTS AND PRINTED FINAL QUICK TEST. ";
+      var M274ENGINEThermostatP = "<br><br>Coolant<br>A2742003400 x 1 Thermostat<br>A2700960180 x 4 Charge air distributor seals<br>A0209977845 x 1 O-ring<br>A0249978045 x 1 O-ring";
+      var M274ENGINEThermostatT = "<br><br>9  Nm Coolant thermostat to crankcase/head<br>9  Nm Charge air cooler to bracket<br>8  Nm Charge air cooler bracket to cylinder head<br>14 Nm Charge air distributor to cylinder head<br>AR09.41-P-131201MR Charge air distributor tightening procedure";
+      var M274ENGINECrankvent = "DISCONNECTED BATTERY GROUND. REMOVED UPPER ENGINE COVER, ENGINE AIR FILTER HOUSING, ECU AND BRACKET, INTERCOOLER AND BRACKET. DISCONNECTED AIR INTAKE AND OIL SEPARATOR LINES. LIFTED THE VEHICLE. REMOVED LOWER ENGINE AND TRANSMISSION COVERS. REMOVED LOWER LEFT ENGINE MOUNT. REMOVED OIL SEPARATOR AND LINES. INSTALLED NEW CRANKCASE VENTILATION KIT. ASSEMBLED IN REVERSE ORDER. CONNECTED XENTRY SCANNER. CLEARED FAULTS. PERFORMED FINAL QUICK TEST. CONFIRMED NO ACTIVE FAULTS. TEST DROVE THE VEHICLE. CONFIRMED CEL IS OFF.";
+
       if (document.getElementById("M274ENGINESpark").checked == true) {
         var functionM274ENGINEResult = M274ENGINESpark;
       }
@@ -1383,11 +1388,23 @@ Todo:
       }
       if (document.getElementById("M274ENGINECamshaft").checked == true) {
         var functionM274ENGINEResult = M274ENGINECamshaft;
+        var functionM274ENGINEPartsResult = M274ENGINECamshaftP;
       }
       if (document.getElementById("M274ENGINEHead").checked == true) {
         var functionM274ENGINEResult = M274ENGINEHead;
+        var functionM274ENGINEPartsResult = M274ENGINEHeadP;
+      }
+      if (document.getElementById("M274ENGINEThermostat").checked == true) {
+        var functionM274ENGINEResult = M274ENGINEThermostat;
+        var functionM274ENGINEPartsResult = M274ENGINEThermostatP;
+        var functionM274ENGINETorqueResult = M274ENGINEThermostatT;
+      }
+      if (document.getElementById("M274ENGINECrankvent").checked == true) {
+        var functionM274ENGINEResult = M274ENGINECrankvent;
       }
       document.getElementById("M274ENGINE").innerHTML = functionM274ENGINEResult;
+      document.getElementById("M274ENGINEParts").innerHTML = functionM274ENGINEPartsResult;
+      document.getElementById("M274ENGINETorque").innerHTML = functionM274ENGINETorqueResult;
     }
     function functionOM642ENGINE(){
       var functionOM642ENGINEResult = "";
@@ -1426,6 +1443,28 @@ Todo:
       }
       document.getElementById("TorqueSpecs").innerHTML = functionTorqueSpecsResult;
     }
+
+
+
+
+
+function testsavefunction(){
+  alert("in here");
+  event.preventDefault();
+  var infoToSave = document.getElementById("inputtosave").value;
+  alert(infoToSave);
+  localStorage.setItem('ls_info1', infoToSave);
+  alert("Saved");
+  //window.location.href = "Main Test.html";
+}
+
+
+
+
+
+
+
+
 
   </script>
   <body class="mainPage">
@@ -1887,24 +1926,6 @@ Todo:
 
 				<span class="a"></span>
 
-				<button class="button"; onclick="CopyToClipboard('M270ENGINE')">
-					M270 ENGINE</button><br>
-					<form oninput="functionM270ENGINE()">
-						<input type="radio" id="M270ENGINESpark" name="M270ENGINE">
-						<label class="s1" for="M270ENGINESpark">Spark Plugs&emsp;</label>
-						<input type="radio" id="M270ENGINETransmissionService" name="M270ENGINE">
-						<label class="s1" for="M270ENGINETransmissionService">Transmission Service&emsp;</label>
-						<input type="radio" id="M270ENGINEAirFilter" name="M270ENGINE">
-						<label class="s1" for="M270ENGINEAirFilter">Air Filters&emsp;</label>
-						<input type="radio" id="M270ENGINEOilFilterHousingSeal" name="M270ENGINE">
-						<label class="s1" for="M270ENGINEOilFilterHousingSeal">Oil Filter Housing Seal&emsp;</label>
-						<input type="radio" id="M270ENGINERemove" name="M270ENGINE">
-						<label class="s1" for="M270ENGINERemove">Engine Removal/Installation&emsp;</label>
-					</form>
-					<s1 id="M270ENGINE";></s1>
-
-				<span class="a"></span>
-
 				<button class="button"; onclick="CopyToClipboard('M133ENGINE')">
 					M133 ENGINE</button><br>
 					<form oninput="functionM133ENGINE()">
@@ -1993,19 +2014,50 @@ Todo:
 
 				<span class="a"></span>
 
+				<button class="button"; onclick="CopyToClipboard('M270ENGINE')">
+					M270 ENGINE</button>&nbsp&nbsp<button class="button"; onclick="CopyToClipboard('M270ENGINEParts')">
+            COPY PARTS</button><br>
+					<form oninput="functionM270ENGINE()">
+						<input type="radio" id="M270ENGINESpark" name="M270ENGINE">
+						<label class="s1" for="M270ENGINESpark">Spark Plugs&emsp;</label>
+						<input type="radio" id="M270ENGINETransmissionService" name="M270ENGINE">
+						<label class="s1" for="M270ENGINETransmissionService">Transmission Service&emsp;</label>
+						<input type="radio" id="M270ENGINEAirFilter" name="M270ENGINE">
+						<label class="s1" for="M270ENGINEAirFilter">Air Filter&emsp;</label>
+						<input type="radio" id="M270ENGINEOilFilterHousingSeal" name="M270ENGINE">
+						<label class="s1" for="M270ENGINEOilFilterHousingSeal">Oil Filter Housing Seal&emsp;</label>
+						<input type="radio" id="M270ENGINERemove" name="M270ENGINE">
+						<label class="s1" for="M270ENGINERemove">Engine Removal/Installation&emsp;</label>
+            <input type="radio" id="M270ENGINECrankVent" name="M270ENGINE">
+						<label class="s1" for="M270ENGINECrankVent">Crankcase Vent&emsp;</label>
+            <input type="radio" id="M270ENGINEHeadGasket" name="M270ENGINE">
+						<label class="s1" for="M270ENGINEHeadGasket">Head Gasket&emsp;</label>
+					</form>
+					<s1 id="M270ENGINE";></s1>
+          <s3 id="M270ENGINEParts";></s3>
+
+        <span class="a"></span>
+
 				<button class="button"; onclick="CopyToClipboard('M274ENGINE')">
-					M274 ENGINE</button><br>
+					M274 ENGINE</button>&nbsp&nbsp<button class="button"; onclick="CopyToClipboard('M274ENGINEParts')">
+            COPY PARTS</button><br>
 					<form oninput="functionM274ENGINE()">
 						<input type="radio" id="M274ENGINESpark" name="M274ENGINE">
 						<label class="s1" for="M274ENGINESpark">Spark Plugs&emsp;</label>
 						<input type="radio" id="M274ENGINEAirFilter" name="M274ENGINE">
-						<label class="s1" for="M274ENGINEAirFilter">Air Filters&emsp;</label>
+						<label class="s1" for="M274ENGINEAirFilter">Air Filter&emsp;</label>
             <input type="radio" id="M274ENGINECamshaft" name="M274ENGINE">
 						<label class="s1" for="M274ENGINECamshaft">Camshaft&emsp;</label>
             <input type="radio" id="M274ENGINEHead" name="M274ENGINE">
-						<label class="s1" for="M274ENGINEHead">Head&emsp;</label>
+						<label class="s1" for="M274ENGINEHead">Head Gasket&emsp;</label>
+            <input type="radio" id="M274ENGINEThermostat" name="M274ENGINE">
+						<label class="s1" for="M274ENGINEThermostat">Thermostat&emsp;</label>
+            <input type="radio" id="M274ENGINECrankvent" name="M274ENGINE">
+						<label class="s1" for="M274ENGINECrankvent">Crankcase Vent&emsp;</label>
 					</form>
 					<s1 id="M274ENGINE";></s1>
+          <s3 id="M274ENGINEParts";></s3>
+          <s3 id="M274ENGINETorque";></s3>
 
 				<span class="a"></span>
 
@@ -2027,10 +2079,6 @@ Todo:
 				<form oninput="functionCrankcase()">
 					<input type="radio" id="crankcaseDiag" name="crankcaseN">
 					<label class="s1" for="crankcaseDiag">Diagnosis&emsp;</label>
-					<input type="radio" id="crankcaseM270" name="crankcaseN">
-					<label class="s1" for="crankcaseM270">M270&emsp;</label>
-					<input type="radio" id="crankcaseM274" name="crankcaseN">
-					<label class="s1" for="crankcaseM274">M274&emsp;</label>
 				</form>
 
 				<s1 id="CRANKCASE";>
@@ -2753,14 +2801,8 @@ Todo:
         <button class="button"; onclick="CopyToClipboard('PartsList')">
            PARTS SHORTCUT</button><br>
           <form oninput="functionPartsList()">
-            <input type="radio" id="M270HeadGasket" name="PartsList">
-            <label class="s1" for="M270HeadGasket">M270 Head Gasket</label>
             <input type="radio" id="M260HeadGasket" name="PartsList">
             <label class="s1" for="M260HeadGasket">M260 Head Gasket</label>
-            <input type="radio" id="M274HeadGasket" name="PartsList">
-            <label class="s1" for="M274HeadGasket">M274 Head Gasket</label>
-            <input type="radio" id="M274Camshaft" name="PartsList">
-            <label class="s1" for="M274Camshaft">M274 Camshafts</label>
           </form>
         <s1 id="PartsList";>
         </s1>
@@ -2793,7 +2835,7 @@ Todo:
       <div class="mainStory" id="othDiv"> <!-- ***************************************** OTHER NON-STORIES ***************************************** -->
         <span class="c"></span>
         <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
-        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 17 March 2023</s3>                                    <!-- FIXME:  -->
+        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 23 March 2023</s3>                                    <!-- FIXME:  -->
         <input type="text" id="WDDSJ4GB1" value="Pa" hidden>
 
 
@@ -2829,6 +2871,39 @@ Todo:
         <a href="#"><i class="fa fa-angle-double-down" onclick="scrollDown()"></i></a>
         <a href="#"><i class="fa fa-angle-double-right" onclick="scrollMid()"></i></a>
 			</div>
+
+
+
+
+
+
+
+      <button class="button"; onclick="CopyToClipboard('TestSave')">
+        Test Save info</button><br>
+       <form onsubmit="testsavefunction()">
+         <input type="text" id="saveinfoRO" name="saveinfoRO" placeholder="RO" size="6" maxlength="6">
+         <input type="text" id="saveinfoLine" name="saveinfoLine" placeholder="L" size="2" maxlength="2">
+         <input type="text" id="saveinfoDescription" name="saveinfoDescription" size="50">
+         <button>Send</button>
+        </form>
+     <s1 id="SavemeResult";>
+     </s1>
+
+
+
+
+
+     <span class="c"></span>
+     <span class="c"></span>
+
+
+
+
+
+
+
+
+
     </div><!-- END OF MAIN STORY DIV-->
     <div class="mainDiv" id="notMe" style="display:block"> <!-- Not Me Div -->
       <s2>You do not have the authorizations required for this page</s2>
@@ -2865,6 +2940,10 @@ Todo:
         <tr>
           <td><s5>Artem 146</s5></td>
           <td><s5></s5></td>
+        </tr>
+        <tr>
+          <td><s5>Nik 108</s5></td>
+          <td><s5>201</s5></td>
         </tr>
         <tr>
           <td><s5>Abood 145</s5></td>
