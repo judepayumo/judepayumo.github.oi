@@ -390,14 +390,6 @@ Todo:
       }
       document.getElementById("safetyStoryResult").innerHTML = safetyBase;
     }
-    function functionPartsList(){
-      var functionPartsListResult = "";
-      var M260HeadGasket = "A1770720000 INJECTOR SEAL KIT x 4<br>A0009976511 INTAKE DUCT ADAPTER SEALS x 2<br>A0009976411 INTAKE DUCT ADAPTER SEALS x 1<br>A0219979745 FUEL PUMP O-RING<br>A2700160080 VACUUM PUMP GASKET<br>A2700150200 END COVER FOR CAM AND TIMING TENSIONER x 2<br>A2600181700 FILLER NECK SEAL<br>A2601422300 CAT TO TURBO SEAL<br>A0029903950 CAT TO TURBO NUTS x 3<br>A1774920400 EXHAUST SEAL<br>A0009906803 EXHAUST BOLTS x 2<br>A0009973807 COOLANT LINE AT TURBO SEAL x 2<br>A2740960100 OIL LINE AT TURBO SEAL<br>A0249971045 OIL LINE AT TURBO SEAL x 2<br>A0299971345 THROTTLE VALVE TO CHARGE PIPE SEAL<br>A2700960080 THORTOLE VALVE TO FLANGE SEAL<br>A0000160569 CYLINDER HEAD BOLTS x 10<br>A2600160200 CYLINDER HEAD GASKET<br>A2601420000 EXHAUST MANIFOLD GASKET<br>A2711420072 EXHAUST MANIFOLD NUTS x 8<br>A0019901816 EXHAUST MANIFOLD STUDS x 8<br>A0019905722 CYLINDER HEAD COVER BOLTS x 18<br>A0029902422 CYLINDER HEAD COVER BOLTS x 6<br>A0009975711 COOLANT LINE AT HEAD COVER O-RING<br>N000000004683 LOW PRESSURE LINE AT HIGH PRESSURE PUMP<br>N000000001147 BOLTS FOR HIGH PRESSURE FUEL PUMP x 2<br>BLACK RTV SEALANT FOR UPPER TIMING CASE COVER<br>BLACK RTV SEALANT FOR CYLINDER HEAD COVER<br>COOLANT<br>ENGINE OIL AND FILTER";
-      if (document.getElementById("M260HeadGasket").checked == true) {
-        var functionPartsListResult = M260HeadGasket;
-      }
-      document.getElementById("PartsList").innerHTML = functionPartsListResult;
-    }
     function functionAdditionalService(){
       var additionalServiceResult = "";
       var ASpanoramic = "CLEANED AND LUBRICATED PANORAMIC SLIDING SUNROOF MECHANISMS. ACTUATED ROOF AND CONFIRMED SMOOTH OPERATION.";
@@ -1339,11 +1331,14 @@ Todo:
     }
     function functionM260ENGINE(){
       var functionM260ENGINEResult = "";
+      var functionM260ENGINEPResult = "";
       var M260ENGINESpark = "REMOVED UPPER ENGINE COVER, AIR DUCT UPSTREAM OF TURBO, AND FOUR COIL PACKS. REMOVED FOUR SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUE TO 23NM. REINSTALLED ALL PARTS IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
       var M260ENGINEHead = "PLACED VEHICLE IN NEUTRAL AND DISCONNECTED BATTERY GROUND. LIFTED THE VEHICLE AND REMOVED UPPER AND LOWER ENGINE COVER. REMOVED FRONT RIGHT WHEEL AND WHEEL WELL LINER. DRAINED COOLANT. DISCONNECTED CHARGE AIR HOSE DOWNSTREAM OF TURBO, TURBO COOLANT LINES AND OIL LINES, ELECTRICAL CONNECTORS FOR MAIN ENGINE HARNESS, AND ALL RELEVANT VACUUM LINES AND COOLANT LINES. REMOVED COOLANT RESERVOIR, INTAKE DUCT DOWNSTREAM OF AIR FILTER, CHARGE AIR PIPE UPSTREAM OF THROTTLE VALVE, FRONT ENGINE MOUNT, THROTTLE VALVE, AND CHARGE AIR DISTRIBUTOR. DETACHED MAIN ENGINE WIRING HARNESS FROM ITS CLIPS AND MOVED HARNESS TO ONE SIDE. REMOVED VACUUM PUMP, HIGH PRESSURE FUEL PUMP, FUEL RAIL WITH INJECTORS ATTACHED, INTAKE CAM ADJUSTER. DETACHED OIL FILLER NECK FROM HEAD COVER. REMOVED TURBO HEAT SHIELDS, TURBOCHARGER WITH EXHAUST MANIFOLD, ENGINE LIFT LUGS, AND TIMING CHAIN TENSIONER. REMOVED HEAD COVER, FRONT TIMING COVER, INTAKE AND EXHAUST VALVES. REMOVED CYLINDER HEAD WITH VALVES. CLEANED SURFACE AND INSTALLED NEW HEAD GASKET. INSTALLED NEW CYLINDER HEAD WITH VALVES. TRANSFERRED OVER PINS FOR TIMING CHAIN GUIDES, DOWELS FOR FRONT COVER ON TO NEW HEAD. TORQUED HEAD BOLTS TO SPEC. INSTALLED CAMS AND CONFIRMED ENGINE TIMING. TRANSFERRED TOP TIMING CHAIN GUIDE ON TO NEW HEAD COVER. APPLIED SILICONE SEALANT TO NEW HEAD COVER AS DETAILED IN WORKSHOP INSTRUCTION. INSTALLED HEAD COVER AND TORQUED TO SPEC. ASSEMBLED IN REVERSE ORDER WITH NEW SEALS/O-RINGS/BOLTS WHERE NEEDED. CONNECTED VACUUM COOLANT FILLER AND CONFIRMED COOLING SYSTEM CAN HOLD VACUUM FOR 5MIN. FILLED COOLING SYSTEM. PERFORMED TWO START UP CRANK CYCLES WITH INJECTORS DISCONNECTED TO CONFIRM ENGINE OIL IS CIRCULATING. CONNECTED ALL INJECTORS AND STARTED THE ENGINE. CONNECTED XENTRY SCANNER AND CLEARED STORED FAULTS. PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE AND CONFIRMED NO OBVIOUS ISSUES/CEL. LIFTED THE VEHICLE AND CHECKED FOR LEAKS, FOUND NONE.";
+      var M260ENGINEHeadP = "<br><br>A1770720000 INJECTOR SEAL KIT x 4<br>A0009976511 INTAKE DUCT ADAPTER SEALS x 2<br>A0009976411 INTAKE DUCT ADAPTER SEALS x 1<br>A0219979745 FUEL PUMP O-RING<br>A2700160080 VACUUM PUMP GASKET<br>A2700150200 END COVER FOR CAM AND TIMING TENSIONER x 2<br>A2600181700 FILLER NECK SEAL<br>A2601422300 CAT TO TURBO SEAL<br>A0029903950 CAT TO TURBO NUTS x 3<br>A1774920400 EXHAUST SEAL<br>A0009906803 EXHAUST BOLTS x 2<br>A0009973807 COOLANT LINE AT TURBO SEAL x 2<br>A2740960100 OIL LINE AT TURBO SEAL<br>A0249971045 OIL LINE AT TURBO SEAL x 2<br>A0299971345 THROTTLE VALVE TO CHARGE PIPE SEAL<br>A2700960080 THORTOLE VALVE TO FLANGE SEAL<br>A0000160569 CYLINDER HEAD BOLTS x 10<br>A2600160200 CYLINDER HEAD GASKET<br>A2601420000 EXHAUST MANIFOLD GASKET<br>A2711420072 EXHAUST MANIFOLD NUTS x 8<br>A0019901816 EXHAUST MANIFOLD STUDS x 8<br>A0019905722 CYLINDER HEAD COVER BOLTS x 18<br>A0029902422 CYLINDER HEAD COVER BOLTS x 6<br>A0009975711 COOLANT LINE AT HEAD COVER O-RING<br>N000000004683 LOW PRESSURE LINE AT HIGH PRESSURE PUMP<br>N000000001147 BOLTS FOR HIGH PRESSURE FUEL PUMP x 2<br>BLACK RTV SEALANT FOR UPPER TIMING CASE COVER<br>BLACK RTV SEALANT FOR CYLINDER HEAD COVER<br>COOLANT<br>ENGINE OIL AND FILTER";
       var M260ENGINEAirFilter = "REMOVED ENGINE CONTROL UNIT COVER AND MOVED CONTROL UNIT TO THE SIDE. REMOVED ENGINE AIR FILTER. INSTALLED NEW FILTER AND ASSEMBLED IN REVERSE ORDER.";
       if (document.getElementById("M260ENGINEHead").checked == true) {
         var functionM260ENGINEResult = M260ENGINEHead;
+        var functionM260ENGINEPResult = M260ENGINEHeadP;
       }
       if (document.getElementById("M260ENGINESpark").checked == true) {
         var functionM260ENGINEResult = M260ENGINESpark;
@@ -1352,6 +1347,7 @@ Todo:
         var functionM260ENGINEResult = M260ENGINEAirFilter;
       }
       document.getElementById("M260ENGINE").innerHTML = functionM260ENGINEResult;
+      document.getElementById("M260ENGINEP").innerHTML = functionM260ENGINEPResult;
       }
     function functionM264ENGINE(){
       var functionM264ENGINEResult = "";
@@ -1446,17 +1442,112 @@ Todo:
 
 
 
+class RO{ //FIXME
+  constructor(Date, ROnumber, Line, Job, Hours){
+    this.Date = Date;
+    this.ROnumber = ROnumber;
+    this.Line = Line;
+    this.Job = Job;
+    this.Hours = Hours;
+  }
+}
+
+function saveROfunction(){
+  let currentDate = timeAndDate();
+  let FLAG = []; //not being used
+  for (let i = 1; i <= document.getElementById("ROline1a").value; i++){
+    let currentLine = "saveinfoLine" + i;
+    let currentDesc = "saveinfoDescription" + i;
+    let currentHour = "saveinfoEst" + i;
+    let roNum = document.getElementById("saveinfoRO").value;
+    let saveNum = roNum +'-'+ i;
+    let roLine = document.getElementById(currentLine).value;
+    let roInfo = document.getElementById(currentDesc).value;
+    let roEst = document.getElementById(currentHour).value;
+    let newLine = new RO(currentDate, roNum, roLine, roInfo, roEst); 
+    FLAG.push(newLine);
+    const jsonLine = JSON.stringify(newLine);
+    localStorage.setItem(saveNum, jsonLine);
+  }
+  //const json = JSON.stringify(FLAG);
+  //localStorage.setItem("RO", json);
+  console.log(FLAG);
 
 
-function testsavefunction(){
-  alert("in here");
-  event.preventDefault();
-  var infoToSave = document.getElementById("inputtosave").value;
-  alert(infoToSave);
-  localStorage.setItem('ls_info1', infoToSave);
-  alert("Saved");
+
+  //event.preventDefault();
+  //localStorage.setItem('ls_info1', infoToSave);
   //window.location.href = "Main Test.html";
 }
+
+function timeAndDate(){
+  var today = new Date();
+  var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+  var time = today.getHours() + ":" + today.getMinutes();
+  var dateTime = date+' '+time;
+  return date;
+}
+
+
+
+
+function saveROfunctionAdd(){
+  event.preventDefault();
+  if (document.getElementById("ROline1a").value == 1){
+    document.getElementById("ROline1a").hidden = true;
+    document.getElementById("saveinfoLine2").hidden = false;
+    document.getElementById("saveinfoDescription2").hidden = false;
+    document.getElementById("saveinfoEst2").hidden = false;
+    document.getElementById("ROline2a").hidden = false;
+    document.getElementById("ROline1a").value = 2;
+  }else if (document.getElementById("ROline1a").value == 2) {
+    document.getElementById("ROline2a").hidden = true;
+    document.getElementById("saveinfoLine3").hidden = false;
+    document.getElementById("saveinfoDescription3").hidden = false;
+    document.getElementById("saveinfoEst3").hidden = false;
+    document.getElementById("ROline3a").hidden = false;
+    document.getElementById("ROline1a").value = 3;
+  } else if (document.getElementById("ROline1a").value == 3) {
+    document.getElementById("ROline3a").hidden = true;
+    document.getElementById("saveinfoLine4").hidden = false;
+    document.getElementById("saveinfoDescription4").hidden = false;
+    document.getElementById("saveinfoEst4").hidden = false;
+    document.getElementById("ROline4a").hidden = false;
+    document.getElementById("ROline1a").value = 4;
+  } else if (document.getElementById("ROline1a").value == 4) {
+    document.getElementById("ROline4a").hidden = true;
+    document.getElementById("saveinfoLine5").hidden = false;
+    document.getElementById("saveinfoDescription5").hidden = false;
+    document.getElementById("saveinfoEst5").hidden = false;
+    document.getElementById("ROline5a").hidden = false;
+    document.getElementById("ROline1a").value = 5;
+  } else if (document.getElementById("ROline1a").value == 5) {
+    document.getElementById("ROline5a").hidden = true;
+    document.getElementById("saveinfoLine6").hidden = false;
+    document.getElementById("saveinfoDescription6").hidden = false;
+    document.getElementById("saveinfoEst6").hidden = false;
+    document.getElementById("ROline6a").hidden = false;
+    document.getElementById("ROline1a").value = 6;
+  } else if (document.getElementById("ROline1a").value == 6) {
+    document.getElementById("ROline6a").hidden = true;
+    document.getElementById("saveinfoLine7").hidden = false;
+    document.getElementById("saveinfoDescription7").hidden = false;
+    document.getElementById("saveinfoEst7").hidden = false;
+    document.getElementById("ROline1a").value = 7;
+  } else {
+    alert("Something's fucked! Counter is at: " + document.getElementById("ROline1a").value);
+  }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1490,7 +1581,7 @@ function testsavefunction(){
       </div>
     </div>
 
-    <div class="mainDiv" id="onOff" style="display:none" onscroll="mainPageFocus()" onclick="mainPageFocus()";> <!-- Main Story Div -->                   <!-- FIXME:  -->
+    <div class="mainDiv" id="onOff" style="display:block" onscroll="mainPageFocus()" onclick="mainPageFocus()";> <!-- Main Story Div -->                   <!-- FIXME:  -->
       <div class="mainStory" id="svcDiv"> <!-- ***************************************** SERVICE STORIES ******************************************* -->
         <s2>Service</s2><br>
         <button class="button"; onclick="CopyToClipboard('SERVICE')">
@@ -1967,7 +2058,8 @@ function testsavefunction(){
 				<span class="a"></span>
 
 				<button class="button"; onclick="CopyToClipboard('M260ENGINE')">
-					M260 ENGINE</button><br>
+					M260 ENGINE</button>&nbsp&nbsp<button class="button"; onclick="CopyToClipboard('M260ENGINEP')">
+            COPY PARTS</button><br>
 					<form oninput="functionM260ENGINE()">
 						<input type="radio" id="M260ENGINESpark" name="M260ENGINE">
 						<label class="s1" for="M260ENGINESpark">Spark Plugs&emsp;</label>
@@ -1977,6 +2069,7 @@ function testsavefunction(){
 						<label class="s1" for="M260ENGINEAirFilter">Air Filter&emsp;</label>
 					</form>
 					<s1 id="M260ENGINE";></s1>
+          <s3 id="M260ENGINEP"></s3>
 
         <span class="a"></span>
 
@@ -2798,17 +2891,6 @@ function testsavefunction(){
 
         <span class="a"></span>
 
-        <button class="button"; onclick="CopyToClipboard('PartsList')">
-           PARTS SHORTCUT</button><br>
-          <form oninput="functionPartsList()">
-            <input type="radio" id="M260HeadGasket" name="PartsList">
-            <label class="s1" for="M260HeadGasket">M260 Head Gasket</label>
-          </form>
-        <s1 id="PartsList";>
-        </s1>
-
-        <span class="a"></span>
-
         <button class="button"; onclick="CopyToClipboard('TorqueSpecs')">
           TORQUE SPECIFICATIONS</button><br>
           <form oninput="functionTorqueSpecs()">
@@ -2835,7 +2917,7 @@ function testsavefunction(){
       <div class="mainStory" id="othDiv"> <!-- ***************************************** OTHER NON-STORIES ***************************************** -->
         <span class="c"></span>
         <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
-        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 23 March 2023</s3>                                    <!-- FIXME:  -->
+        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 27 March 2023</s3>                                    <!-- FIXME:  -->
         <input type="text" id="WDDSJ4GB1" value="Pa" hidden>
 
 
@@ -2877,16 +2959,47 @@ function testsavefunction(){
 
 
 
-
-      <button class="button"; onclick="CopyToClipboard('TestSave')">
-        Test Save info</button><br>
-       <form onsubmit="testsavefunction()">
-         <input type="text" id="saveinfoRO" name="saveinfoRO" placeholder="RO" size="6" maxlength="6">
-         <input type="text" id="saveinfoLine" name="saveinfoLine" placeholder="L" size="2" maxlength="2">
-         <input type="text" id="saveinfoDescription" name="saveinfoDescription" size="50">
-         <button>Send</button>
+      <button class="button"; onclick="saveROfunction()">
+        Save RO Hours</button><br>
+       <form>
+         <input type="text" id="saveinfoRO" name="saveinfoRO" placeholder="RO" size="10" maxlength="6">&nbsp
+         <button type="submit">Save</button>
+         <br>
+         <input type="text" id="saveinfoLine1" name="ROline1" placeholder="L" size="2" maxlength="2">&nbsp
+         <input type="text" id="saveinfoDescription1" name="ROline1" size="50" placeholder="Description">&nbsp
+         <input type="text" id="saveinfoEst1" name="ROline1" size="5" placeholder="0.0H" maxlength="4">
+         <button onclick="saveROfunctionAdd()" value="1" id="ROline1a">+</button>
+         <br>
+         <input type="text" id="saveinfoLine2" name="ROline2l" placeholder="L" size="2" maxlength="2" hidden>&nbsp
+         <input type="text" id="saveinfoDescription2" name="ROline2d" size="50" placeholder="Description" hidden>&nbsp
+         <input type="text" id="saveinfoEst2" name="ROline2h" size="5" placeholder="0.0H" hidden>
+         <button onclick="saveROfunctionAdd()" id="ROline2a" hidden>+</button>
+         <br>
+         <input type="text" id="saveinfoLine3" name="ROline3" placeholder="L" size="2" maxlength="2" hidden>&nbsp
+         <input type="text" id="saveinfoDescription3" name="ROline3" size="50" placeholder="Description" hidden>&nbsp
+         <input type="text" id="saveinfoEst3" name="ROline3" size="5" placeholder="0.0H" hidden>
+         <button onclick="saveROfunctionAdd()" id="ROline3a" hidden>+</button>
+         <br>
+         <input type="text" id="saveinfoLine4" name="ROline4" placeholder="L" size="2" maxlength="2" hidden>&nbsp
+         <input type="text" id="saveinfoDescription4" name="ROline4" size="50" placeholder="Description" hidden>&nbsp
+         <input type="text" id="saveinfoEst4" name="ROline4" size="5" placeholder="0.0H" hidden>
+         <button onclick="saveROfunctionAdd()" id="ROline4a" hidden>+</button>
+         <br>
+         <input type="text" id="saveinfoLine5" name="ROline5" placeholder="L" size="2" maxlength="2" hidden>&nbsp
+         <input type="text" id="saveinfoDescription5" name="ROline5" size="50" placeholder="Description" hidden>&nbsp
+         <input type="text" id="saveinfoEst5" name="ROline5" size="5" placeholder="0.0H" hidden>
+         <button onclick="saveROfunctionAdd()" id="ROline5a" hidden>+</button>
+         <br>
+         <input type="text" id="saveinfoLine6" name="ROline6" placeholder="L" size="2" maxlength="2" hidden>&nbsp
+         <input type="text" id="saveinfoDescription6" name="ROline6" size="50" placeholder="Description" hidden>&nbsp
+         <input type="text" id="saveinfoEst6" name="ROline6" size="5" placeholder="0.0H" hidden>
+         <button onclick="saveROfunctionAdd()" id="ROline6a" hidden>+</button>
+         <br>
+         <input type="text" id="saveinfoLine7" name="ROline7" placeholder="L" size="2" maxlength="2" hidden>&nbsp
+         <input type="text" id="saveinfoDescription7" name="ROline7" size="50" placeholder="Description" hidden>&nbsp
+         <input type="text" id="saveinfoEst7" name="ROline7" size="5" placeholder="0.0H" hidden>
         </form>
-     <s1 id="SavemeResult";>
+     <s1 id="FlagResult";>
      </s1>
 
 
