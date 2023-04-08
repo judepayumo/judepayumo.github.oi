@@ -25,12 +25,12 @@ Todo:
     s1{/*font format for story*/
       font-size: 12px;
       font-family: "Lucinda Console", "Curier New", monospace;
-      color: white;
+      color: rgb(243, 243, 243);
     }
     s6{/*font format for hidden*/
       font-size: 0px;
       font-family: "Lucinda Console", "Curier New", monospace;
-      color: black;
+      color: rgb(70, 68, 68);
     }
     s2{/*font formal for titles*/
       display: block;
@@ -38,7 +38,7 @@ Todo:
       font-size: 25px;
       font-family: "Lucinda Console", "Curier New", monospace;
       font-variant: small-caps;
-      color: red;
+      color: rgb(203, 66, 66);
       position: sticky;
       top: -25px;
       text-shadow: #000 0px 0 2px;
@@ -46,30 +46,30 @@ Todo:
     s3{/*font formal for titles*/
       font-size: 12px;
       font-family: "Lucinda Console", "Curier New", monospace;
-      color: black;
+      color: rgb(41, 41, 41);
     }
     s4{/*font formal for phone*/
       font-size: 20px;
       font-family: "Lucinda Console", "Curier New", monospace;
       font-variant: small-caps;
-      color: white;
+      color: rgb(243, 243, 243);
       text-shadow: #660000 0px 0 4px;
     }
     s5{/*font formal for phone*/
       font-size: 14px;
       font-family: "Lucinda Console", "Curier New", monospace;
       font-variant: small-caps;
-      color: white;
+      color: rgb(243, 243, 243);
     }
     .s1{/*font format for story*/
         font-size: 12px;
         font-family: "Lucinda Console", "Curier New", monospace;
-        color: white;
+        color: rgb(243, 243, 243);
     }
     .button{
       background-color: black;
       border: black;
-      color: red;
+      color: rgb(203, 66, 66);
       padding: 2px;
       text-align: center;
       font-family: "Lucinda Console", "Curier New", monospace;
@@ -79,13 +79,15 @@ Todo:
       transition: all 0.2s ease;
     }
     .button:hover{
-      background-color: red;
-      color: white;
-      border-color: black;
+      background-color: rgb(203, 66, 66);
+      color: rgb(243, 243, 243);
+      border-color: rgb(70, 68, 68);
     }
     .mainPage{ /* entire page*/
       background-image: linear-gradient(to bottom, #000 20px, rgba(0, 0, 0, .2), rgba(50, 70, 200, .02)), url(https://customerracing.mercedes-amg.com/content/customerracing/en/vehicles/mercedes-amg-gt-track-series/jcr:content/content/mediaslider_19931803/slides/slide/media1/image.media5.responsive_full_viewport_16_9.1648034010867.jpeg);
       position: fixed;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
     .topBanner{
       background-color: rgba(0, 0, 0, 0.5);
@@ -420,6 +422,7 @@ Todo:
       var fm2022060006 = "New"; // FIXME:
       var fm2022030017 = "DISCONNECTED BATTERY GROUND. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER, LOWER FRONT COVER, AND RIGHT UNDERBODY COVER. DISCONNECTED ADBLUE METERING VALVE, NOX SENSORS, PM SENSOR, AND DPF PRESSURE SENSORS. REMOVED SCR CAT, AND DPF/DOC. TRANSFERRED PARTS TO NEW SCR AND DOC/DPF. INSTALLED NEW METERING VALVE, NOX SENSORS 1 AND 2, SCR CAT, DPF/DOC. DRAINED COOLANT. REMOVED UPPER ENGINE COVER, FRONT WIPER ARMS AND BLADES, REMOVED FRONT WIPER MOTOR AND LINKAGES. REMOVED CHARGE AIR CROSS PIPE AND NOISE DAMPER. REMOVED CLEAN AIR PIPE, LEFT AND RIGHT AIR FILTERS, CHARGE AIR PIPE, EGR VALVE, AND FUEL FILTER. REMOVED TURBOCHARGER AND THERMOSTAT. DISCONNECTED BANK 2 INJECTOR LEAK LINES, HIGH PRESSURE FUEL LINES AND RAIL, BANK 2 ENGINE ELECTRICAL CONNECTORS. REMOVED CHARGE AIR MANIFOLD. REMOVED INTAKE PORT SHUT OFF MOTOR AND TRANSFERRED ONTO THE NEW LEFT AND RIGHT CHARGE AIR MANIFOLDS. ASSEMBLED IN REVERSE ORDER FOLLOWING TORQUING PATTERNS AND SPEC, INSTALLING NEW CHARGE AIR MANIFOLDS, EGR COOLER, EGR VALVE, CHARGE AIR CROSS PIPE, AND RELEVANT SEALS AND GASKETS. CHECKED F119. CONNECTED BATTERY GROUND. CONNECTED XENTRY AND BATTERY CHARGER. PERFORMED SERVICE MEASURE UNDER SPECIAL PROCEDURES OF CDI. REPLACED ENGINE CONTROL UNIT. COMPLETED XENTRY PROCEDURE. CLEARED FAULTS AND PRINTED FINAL QUICK TEST. PERFORMED TEST DRIVE.";
       var fm2022030017Specs = "<br><br>12Nm"+space+"Oil cooler to crackcase (if removed)<br>12Nm"+space+"EGR cooler to Charge air manifold<br>18Nm" + space + "Charge air distributor to CYL head (see pattern BA09.41-P-1009-01J)<br>9Nm "+space+"Thermostat housing to charged air distributor<br>27Nm"+space+"HP fuel line between rails<br>33Nm"+space+"HP fuel line on HP pump<br>27Nm"+space+"HP fuel line to HP pump to rail<br>27Nm"+space+"HP line union nut to rail<br>33Nm"+space+"HP line union nut to injectors<br>14Nm"+space+"HP rail to CYL head<br>20Nm"+space+"Turbocharger oil supply fitting to crankcase (4)<br>20Nm+60deg &nbsp Turbocharger to oil supply fitting (2 T45)<br>20Nm"+space+"Exhaust collector pipe support to crankcase (2)<br>9Nm "+space+"Turbocharger to charger air manifold (3 E10 front of turbo)<br>20Nm+90deg &nbsp Exhaust collector pipe to exhaust (3 x 3)<br>20Nm"+space+"Turbocharger main exhaust (3)<br>13Nm"+space+"EGR short pipe to intake air manifold (2)<br>10Nm+90deg &nbsp EGR short pipe to Exhaust collector (2)<br>12Nm"+space+"EGR positioner<br>12Nm"+space+"Leak oil line to charge air distributor<br>20Nm"+space+"Wiper frame to body<br>32Nm"+space+"Wiper arm nuts";
+      var fm2022060007 = "LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER. REMOVED LOWER RIGHT UNDERBODY COVER. REMOVED DOWNSTREAM AND UPSTREAM NOX SENSORS. INSTALLED NEW SENSORS. ASSEMBLED IN REVERSE ORDER. CONNECTED XENTRY AND BATTERY CHARGER. PERFORMED SERVICE MEASURE UNDER SPECIAL PROCEDURES OF CDI. CLEARED FAULTS AND PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE. ";
       if (document.getElementById("FMPREINSPECTION").checked == true) {
         var functionFieldMeasureResult = fmPreInspection;
       }
@@ -450,6 +453,9 @@ Todo:
       }
       if (document.getElementById("FM2022060006").checked == true) {
         var functionFieldMeasureResult = fm2022060006;
+      }
+      if (document.getElementById("FM2022060007").checked == true) {
+        var functionFieldMeasureResult = fm2022060007;
       }
       document.getElementById("FieldMesaure").innerHTML = functionFieldMeasureResult;
       document.getElementById("FieldMeasureSpecs").innerHTML = functionFieldMeasureSpecs;
@@ -2203,6 +2209,8 @@ function saveROfunctionAdd(){
 							<label class="s1" for="FM2021120028">2021120028 5.2H&emsp;</label>
               <input type="radio" id="FM2022030017" name="CANFM">
 							<label class="s1" for="FM2022030017">2022030017 16.5H&emsp;</label>
+              <input type="radio" id="FM2022060007" name="CANFM">
+							<label class="s1" for="FM2022060007">2022060007 1.8H&emsp;</label>
 						</form>
 					<s1 id="FieldMesaure";></s1>
           <s3 id="FieldMeasureSpecs";></s3>
@@ -2358,13 +2366,23 @@ function saveROfunctionAdd(){
 
         <span class="a"></span>
 
-				<button class="button"; onclick="CopyToClipboard('2020050010')">
-					PANORAMIC ROOF BONDING AGENT RECALL 0.1H</button><br>
+				<button class="button"; onclick="CopyToClipboard('2023010012')">
+					PANORAMIC ROOF BONDING AGENT RECALL CHECK 0.1H</button><br>
+					<form oninput=recallNumberSelect(a,"2023010012a")>
+						<label class="s1" for="a">Date: </label>
+						<input type="text" id="a" name="a" placeholder="dd.mm.yyyy" size="10">
+					</form>
+					<s1 id="2023010012";>PER MB RECALL CAMPAIGN 2023010012 , THE BONDING AGENT BETWEEN THE GLASS PANEL AND THE SLIDING ROOF FRAME OF THE PANORAMIC ROOF MUST BE TESTED IF THE SUNROOF PRODUCTION DATE IS ON OR AFTER 30.06.2005. MOVED THE SUNROOF TO TILT POSITION AND CHECKED THE PRODUCTION DATE. PRODUCTION DATE IS <s1 id="2023010012a">dd.mm.yyyy</s1>, THEREFORE NO FURTHER TESTS REQUIRED.</s1>
+
+				<span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('2020050010')">
+					PANORAMIC ROOF BONDING AGENT RECALL CHECK 0.1H</button><br>
 					<form oninput=recallNumberSelect(a,"2020050010a")>
 						<label class="s1" for="a">Date: </label>
 						<input type="text" id="a" name="a" placeholder="dd-mm-yyyy" size="10">
 					</form>
-					<s1 id="2020050010";>AS PER MB RECALL CAMPAIGN 2020050010 , THE BONDING AGENT BETWEEN THE GLASS PANEL AND THE SLIDING ROOF FRAME OF THE PANORAMIC ROOF MUST BE TESTED IF THE SUNROOF PRODUCTION DATE IS BETWEEN 16-01-2006 AND 09-07-2006. MOVED THE SUNROOF TO TILT POSITION AND CHECKED THE PRODUCTION DATE. PRODUCTION DATE IS <s1 id="2020050010a">dd-mm-yyyy</s1> , THEREFORE NO FURTHER TESTS REQUIRED.</s1>
+					<s1 id="2020050010";>PER MB RECALL CAMPAIGN 2020050010 , THE BONDING AGENT BETWEEN THE GLASS PANEL AND THE SLIDING ROOF FRAME OF THE PANORAMIC ROOF MUST BE TESTED IF THE SUNROOF PRODUCTION DATE IS BETWEEN 16-01-2006 AND 09-07-2006. MOVED THE SUNROOF TO TILT POSITION AND CHECKED THE PRODUCTION DATE. PRODUCTION DATE IS <s1 id="2020050010a">dd-mm-yyyy</s1>, THEREFORE NO FURTHER TESTS REQUIRED.</s1>
 
 				<span class="a"></span>
 
@@ -2372,6 +2390,13 @@ function saveROfunctionAdd(){
 					177 A-CLASS REARVIEW CAMERA RESPONSE TIME RECALL 0.3H</button><br>
 					<s1 id="2020030007";>
 						AS PER MB RECALL CAMPAIGN 2020030007 , MBUX MULTIMEDIA SYSTEM (HEAD UNIT) CONTROL UNIT SOFTWARE MUST BE UPDATED. CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED SOFTWARE UPDATE OF MBUX. DISCONNECTED XENTRY AND CHARGER.&nbsp;</s1>
+
+				<span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('2022010005')"> 
+					MBUX CONTROL UNIT SOFTWARE UPDATE 0.3H</button><br>
+					<s1 id="2022010005";>
+						PER MBC RECALL CAMPAIGN 2022010005, MBUX CONTROL UNIT SOFTWARE DOES NOT CORRESPOND WITH THE LATEST SERIES PRODUCTION CONFIGURATION. CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED SOFTWARE UPDATE OF MBUX. DISCONNECTED XENTRY AND CHARGER.</s1>
 
 				<span class="a"></span>
 
@@ -2917,7 +2942,7 @@ function saveROfunctionAdd(){
       <div class="mainStory" id="othDiv"> <!-- ***************************************** OTHER NON-STORIES ***************************************** -->
         <span class="c"></span>
         <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
-        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 27 March 2023</s3>                                    <!-- FIXME:  -->
+        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 8 April 2023</s3>                                    <!-- FIXME:  -->
         <input type="text" id="WDDSJ4GB1" value="Pa" hidden>
 
 
@@ -3028,7 +3053,7 @@ function saveROfunctionAdd(){
         </tr>
         <tr>
           <td><s5>Jude 110</s5></td>
-          <td><s5>206</s5></td>
+          <td><s5>201</s5></td>
         </tr>
         <tr>
           <td><s5>Eric 39</s5></td>
@@ -3056,7 +3081,7 @@ function saveROfunctionAdd(){
         </tr>
         <tr>
           <td><s5>Nik 108</s5></td>
-          <td><s5>201</s5></td>
+          <td><s5>206</s5></td>
         </tr>
         <tr>
           <td><s5>Abood 145</s5></td>
