@@ -879,14 +879,14 @@ Todo:
       document.getElementById("2022030016").innerHTML = base2022030016;
     }
     function functionPDI(){
-      var basePDI = "INSPECTED EXTERIOR AND INTERIOR FOR DAMAGE, SCRATCHES, OR DENTS. REMOVED SEAT AND FLOOR COVERS. INSTALLED SUPPLIED FLOOR MATS. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. TOPPED OFF COOLANT, WASHER FLUID, AND CHECKED BRAKE FLUID AND ENGINE OIL LEVELS. INSPECTED ENGINE BAY. LIFTED THE VEHICLE. CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY FOR DAMAGE. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED QUICK TEST. CONFIRMED NO ACTIVE FAULTS. PRINTED FINAL QUICK TEST. ";
-      var endPDI = "PERFORMED CHECKS AS PER PDI CHECKLIST. PERFORMED HAND-OVER IN WORKSHOP MENU AND RESET TPMS. TEST DROVE THE VEHICLE. ATTACHED FINAL QUICK TEST, FUEL RECEIPT, AND PDI CHECKLIST TO THE WORK ORDER.";
+      var basePDI = "INSPECTED EXTERIOR AND INTERIOR FOR DAMAGE, SCRATCHES, OR DENTS. REMOVED SEAT AND FLOOR COVERS. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. TOPPED OFF COOLANT, WASHER FLUID, AND CHECKED BRAKE FLUID AND ENGINE OIL LEVELS. INSPECTED ENGINE BAY. CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED QUICK TEST. CONFIRMED NO ACTIVE FAULTS. CLEARED TESTS AND PRINTED FINAL QUICK TEST. ";
+      var endPDI = "PERFORMED CHECKS AS PER PDI CHECKLIST. PERFORMED HAND-OVER IN WORKSHOP MENU AND RESET TPMS. TEST DROVE THE VEHICLE. TORQUED ALL FOUR WHEELS TO SPEC. ATTACHED FINAL QUICK TEST AND PDI CHECKLIST TO THE WORK ORDER.";
       var notesPDI = "<br>**********<br>";
       if (document.getElementById("PDIwheellock").checked == true) {
-        var basePDI = basePDI + "INSTALLED WHEEL LOCK BOLT SET AND PLACED KEY IN SPARE COMPARTMENT. ";
+        var basePDI = basePDI + "INSTALLED WHEEL LOCK BOLT SET AND PLACED KEY IN TRUNK COMPARTMENT. ";
       }
       if (document.getElementById("PDIfrontplate").checked == true) {
-        var basePDI = basePDI + "INTALLED FRONT LICENSE PLATE BRACKET. ";
+        var basePDI = basePDI + "INSTALLED FRONT LICENSE PLATE BRACKET. ";
       }
       if (document.getElementById("PDIfPSI").value != 0 && document.getElementById("PDIrPSI").value != 0) {
         var PDItirepressures = "SET TIRE PRESSURES TO " + document.getElementById("PDIfPSI").value + " PSI FRONTS, " + document.getElementById("PDIrPSI").value + " PSI REARS";
@@ -900,7 +900,7 @@ Todo:
       }
       var basePDI = basePDI + PDItirepressures;
       if (document.getElementById("PDIfuel").checked == true) {
-        var basePDI = basePDI + "FUELLED UP THE VEHICLE. ";
+        var basePDI = basePDI + "FUELLED UP THE VEHICLE AND ATTACHED RECEIPT TO THE WORK ORDER. ";
       }
       var basePDI = basePDI + endPDI;
       if (document.getElementById("PDInotes").value != 0) {
@@ -2942,7 +2942,7 @@ function saveROfunctionAdd(){
       <div class="mainStory" id="othDiv"> <!-- ***************************************** OTHER NON-STORIES ***************************************** -->
         <span class="c"></span>
         <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
-        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 8 April 2023</s3>                                    <!-- FIXME:  -->
+        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 12 April 2023</s3>                                    <!-- FIXME:  -->
         <input type="text" id="WDDSJ4GB1" value="Pa" hidden>
 
 
