@@ -220,55 +220,55 @@ Todo:
       var ServiceNotesF = "<BR>**********<br>"
       var storyBase = "TEST DROVE THE VEHICLE. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. TOPPED OFF COOLANT, WASHER FLUID, AND CHECKED BRAKE FLUID LEVEL. INSPECTED ENGINE BAY. LIFTED THE VEHICLE. CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY FOR DAMAGE. REMOVED ENGINE LOWER COVER AND DRAINED ENGINE OIL. ";
       if (document.getElementById("drainPlug").checked == false) {
-        var storyBase = storyBase + "INSTALLED DRAIN PLUG WITH NEW CRUSH WASHER. ";
+        storyBase += "INSTALLED DRAIN PLUG WITH NEW CRUSH WASHER. ";
       }	else {
-        var storyBase = storyBase + "INSTALLED NEW PLASTIC DRAIN PLUG. ";
+        storyBase += "INSTALLED NEW PLASTIC DRAIN PLUG. ";
       }
-      var storyBase = storyBase + " REINSTALLED ENGINE LOWER COVER. ADJUSTED ALL TIRE PRESSURES. INSTALLED NEW ENGINE OIL FILTER. ";
+        storyBase += " REINSTALLED ENGINE LOWER COVER. ADJUSTED ALL TIRE PRESSURES. INSTALLED NEW ENGINE OIL FILTER. ";
       if (document.getElementById("amgOil").checked == true) {
-        var storyBase = storyBase + "ADDED AMG ENGINE OIL TO SPEC. REPLACED ";
+        storyBase += "ADDED AMG ENGINE OIL TO SPEC. REPLACED ";
       } else {
-        var storyBase = storyBase + "ADDED ENGINE OIL TO SPEC. REPLACED ";
+        storyBase += "ADDED ENGINE OIL TO SPEC. REPLACED ";
       }
       if (document.getElementById("predust").checked == true) {
-        var storyBase = storyBase + "PRE-DUST FILTER, ";
-        var count = count + 1;
+        storyBase += "PRE-DUST FILTER, ";
+        count += 1;
       }
       if (document.getElementById("combofilter").checked == true) {
-        var storyBase = storyBase + "COMBO FILTER, ";
-        var count = count + 1;
+        storyBase += "COMBO FILTER, ";
+        count += 1;
       }
       if (document.getElementById("frontWiper").checked == true) {
-        var storyBase = storyBase + "FRONT WIPERS, ";
-        var count = count + 1;
+        storyBase += "FRONT WIPERS, ";
+        count += 1;
       }
       if (document.getElementById("keyBattery").checked == true) {
         if (count==0) {
-          var storyBase = storyBase + "KEY BATTERY. ";
+          storyBase += "KEY BATTERY. ";
         }
         else {
-          var storyBase = storyBase + "AND KEY BATTERY. ";
+          storyBase += "AND KEY BATTERY. ";
         }
       }
       if (document.getElementById("midtronic").checked == true) {
-        var storyBase = storyBase + "TESTED STARTER BATTERY. ";
+        storyBase += "TESTED STARTER BATTERY. ";
       }
       if (document.getElementById("heater").checked == true) {
-        var storyBase = storyBase + "CHECKED BLOCK HEATER. ";
+        storyBase += "CHECKED BLOCK HEATER. ";
       }
       if (document.getElementById("fuel").checked == true) {
-        var storyBase = storyBase + "ADDED FUEL ADDITIVE. ";
+        storyBase += "ADDED FUEL ADDITIVE. ";
       }
       if (document.getElementById("flush").checked == true) {
-        var storyBase = storyBase + "PERFORMED BRAKE FLUSH. ";
+        storyBase += "PERFORMED BRAKE FLUSH. ";
       }
       if (document.getElementById("def").value != 0) {
-        var storyBase = storyBase + "ADDED " + document.getElementById("def").value + "L OF ADBLUE. ";
+        storyBase += "ADDED " + document.getElementById("def").value + "L OF ADBLUE. ";
       }
       if (document.getElementById("oilCheck").checked == true) {
-        var storyBase = storyBase + "CONNECTED XENTRY SCANNER AND CONFIRMED CORRECT LEVEL OF ENGINE OIL. RESET TPMS AND SERVICE REMINDER. ";
+        storyBase += "CONNECTED XENTRY SCANNER AND CONFIRMED CORRECT LEVEL OF ENGINE OIL. RESET TPMS AND SERVICE REMINDER. ";
       } else {
-        var storyBase = storyBase + "STARTED THE ENGINE AND CONFIRMED CORRECT LEVEL OF ENGINE OIL. RESET TPMS AND SERVICE REMINDER.";
+        storyBase += "STARTED THE ENGINE AND CONFIRMED CORRECT LEVEL OF ENGINE OIL. RESET TPMS AND SERVICE REMINDER.";
       }
       var storyBrake = "<br>BRAKE PAD THICKNESS: " + document.getElementById("fBrakes").value + " MM FRONTS, " + document.getElementById("rBrakes").value + " MM REARS. ";
       var storyTires = "<br>TIRE TREAD DEPTHS FROM WEAR INDICATOR: LF= " + document.getElementById("lfTire").value + " MM, RF= " + document.getElementById("rfTire").value + " MM, LR= " + document.getElementById("lrTire").value + " MM, RR= " + document.getElementById("rrTire").value + " MM. ";
@@ -879,14 +879,27 @@ Todo:
       document.getElementById("2022030016").innerHTML = base2022030016;
     }
     function functionPDI(){
-      var basePDI = "INSPECTED EXTERIOR AND INTERIOR FOR DAMAGE, SCRATCHES, OR DENTS. REMOVED SEAT AND FLOOR COVERS. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. TOPPED OFF COOLANT, WASHER FLUID, AND CHECKED BRAKE FLUID AND ENGINE OIL LEVELS. INSPECTED ENGINE BAY. CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED QUICK TEST. CONFIRMED NO ACTIVE FAULTS. CLEARED TESTS AND PRINTED FINAL QUICK TEST. ";
+      var basePDI = "INSPECTED EXTERIOR AND INTERIOR FOR DAMAGE, SCRATCHES, OR DENTS. REMOVED PROTECTIVE SHIPPING COVERS. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. ";
+      var midPDI = "CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED QUICK TEST. " ; 
       var endPDI = "PERFORMED CHECKS AS PER PDI CHECKLIST. PERFORMED HAND-OVER IN WORKSHOP MENU AND RESET TPMS. TEST DROVE THE VEHICLE. TORQUED ALL FOUR WHEELS TO SPEC. ATTACHED FINAL QUICK TEST AND PDI CHECKLIST TO THE WORK ORDER.";
       var notesPDI = "<br>**********<br>";
+      var PDIisEQ = document.getElementById("PDIEQ").checked;
+      if (PDIisEQ) {
+        basePDI +=  "TOPPED OFF WASHER FLUID. ";
+      } else if (PDIisEQ == false){
+        basePDI += "TOPPED OFF COOLANT AND WASHER FLUID. CHECKED BRAKE FLUID AND ENGINE OIL LEVELS. INSPECTED ENGINE BAY. ";
+      }
+      basePDI += midPDI;
+      if (document.getElementById("PDInoFault").checked == true) { 
+        basePDI += "CONFIRMED NO ACTIVE FAULTS. CLEARED FAULT MEMORY AND PRINTED FINAL QUICK TEST. ";
+      } else {
+        basePDI += "CLEARED FAULT MEMORY AND PRINTED FINAL QUICK TEST. ";
+      }
       if (document.getElementById("PDIwheellock").checked == true) {
-        var basePDI = basePDI + "INSTALLED WHEEL LOCK BOLT SET AND PLACED KEY IN TRUNK COMPARTMENT. ";
+        basePDI += "INSTALLED WHEEL LOCK BOLT SET. ";
       }
       if (document.getElementById("PDIfrontplate").checked == true) {
-        var basePDI = basePDI + "INSTALLED FRONT LICENSE PLATE BRACKET. ";
+        basePDI += "INSTALLED FRONT LICENSE PLATE BRACKET. ";
       }
       if (document.getElementById("PDIfPSI").value != 0 && document.getElementById("PDIrPSI").value != 0) {
         var PDItirepressures = "SET TIRE PRESSURES TO " + document.getElementById("PDIfPSI").value + " PSI FRONTS, " + document.getElementById("PDIrPSI").value + " PSI REARS";
@@ -898,13 +911,15 @@ Todo:
       }else {
        var PDItirepressures = "ADJUSTED ALL TIRE PRESSURES TO SPEC. ";
       }
-      var basePDI = basePDI + PDItirepressures;
-      if (document.getElementById("PDIfuel").checked == true) {
-        var basePDI = basePDI + "FUELLED UP THE VEHICLE AND ATTACHED RECEIPT TO THE WORK ORDER. ";
+      basePDI += PDItirepressures;
+      if (document.getElementById("PDIfuel").checked == true && PDIisEQ) {
+        basePDI += "PLUGGED IN EV TO CHARGE OVERNIGHT. ";
+      } else if (document.getElementById("PDIfuel").checked == true) {
+        basePDI += "FUELLED UP THE VEHICLE AND ATTACHED RECEIPT TO THE WORK ORDER. ";
       }
-      var basePDI = basePDI + endPDI;
+      basePDI += endPDI;
       if (document.getElementById("PDInotes").value != 0) {
-        var basePDI = basePDI + notesPDI + document.getElementById("PDInotes").value;
+        basePDI += notesPDI + document.getElementById("PDInotes").value;
       }
       document.getElementById("PDIstory").innerHTML = basePDI;
     }
@@ -1729,13 +1744,17 @@ function saveROfunctionAdd(){
 				<button class="button"; onclick="CopyToClipboard('PDIstory')">
 					PRE-DELIVERY INSPECTION</button><br>
 					<form oninput="functionPDI()">
+            <input type="checkbox" id="PDIEQ" name="PDI">
+						<label class="s1" for="PDIEQ">EQ&emsp;</label>
 						<input type="checkbox" id="PDIwheellock" name="PDI">
 						<label class="s1" for="PDIwheellock">Wheel Lock&emsp;</label>
 						<input type="checkbox" id="PDIfrontplate" name="PDI">
 						<label class="s1" for="PDIfrontplate">Front Plate Bracket&emsp;</label>
 						<input type="checkbox" id="PDIfuel" name="PDI">
 						<label class="s1" for="PDIfuel">Fuel Up&emsp;</label>
-						<label class="s1">Tire Pressures: </label>
+            <input type="checkbox" id="PDInoFault" name="PDI" checked>
+						<label class="s1" for="PDInoFault">No Faults  &emsp;</label>
+						<label class="s1"> Tire Pressures: </label>
 						<input type="text" id="PDIfPSI" name="PDI" size="5" placeholder="Fronts"  maxlength="2">
 						<input type="text" id="PDIrPSI" name="PDI" size="5" placeholder="Rears" maxlength="2">
 						<input type="text" id="PDIsPSI" name="PDI" size="5" placeholder="Spare" maxlength="2">
@@ -1744,7 +1763,9 @@ function saveROfunctionAdd(){
 						&nbsp; &nbsp;
 						<input type="reset" onclick="functionPDI()" value="Reset">
 					</form>
-					<s1 id="PDIstory";>INSPECTED EXTERIOR AND INTERIOR FOR DAMAGE, SCRATCHES, OR DENTS. REMOVED SEAT AND FLOOR COVERS. INSTALLED SUPPLIED FLOOR MATS. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. TOPPED OFF COOLANT, WASHER FLUID, AND CHECKED BRAKE FLUID AND ENGINE OIL LEVELS. INSPECTED ENGINE BAY. LIFTED THE VEHICLE. CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY FOR DAMAGE. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED QUICK TEST. CONFIRMED NO ACTIVE FAULTS. PRINTED FINAL QUICK TEST. ADJUSTED ALL TIRE PRESSURES TO SPEC. PERFORMED CHECKS AS PER PDI CHECKLIST. PERFORMED HAND-OVER IN WORKSHOP MENU AND RESET TPMS. TEST DROVE THE VEHICLE. ATTACHED FINAL QUICK TEST, FUEL RECEIPT, AND PDI CHECKLIST TO THE WORK ORDER.</s1><br><s3>Checklist: AP00.20-P-1100B</s3>
+					<s1 id="PDIstory";>INSPECTED EXTERIOR AND INTERIOR FOR DAMAGE, SCRATCHES, OR DENTS. REMOVED SEAT AND FLOOR COVERS. INSTALLED SUPPLIED FLOOR MATS. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. TOPPED OFF COOLANT, WASHER FLUID, AND CHECKED BRAKE FLUID AND ENGINE OIL LEVELS. INSPECTED ENGINE BAY. LIFTED THE VEHICLE. CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY FOR DAMAGE. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED QUICK TEST. CONFIRMED NO ACTIVE FAULTS. PRINTED FINAL QUICK TEST. ADJUSTED ALL TIRE PRESSURES TO SPEC. PERFORMED CHECKS AS PER PDI CHECKLIST. PERFORMED HAND-OVER IN WORKSHOP MENU AND RESET TPMS. TEST DROVE THE VEHICLE. ATTACHED FINAL QUICK TEST, FUEL RECEIPT, AND PDI CHECKLIST TO THE WORK ORDER.</s1><br>
+          <s3>WIS: AP00.20-P-1100B</s3><br>
+          <s3>WIS: AP00.20-P-1100E for EQ</s3>
 
 				<span class="a"></span>
 
@@ -2916,6 +2937,8 @@ function saveROfunctionAdd(){
 
         <span class="a"></span>
 
+        <!--
+
         <button class="button"; onclick="CopyToClipboard('TorqueSpecs')">
           TORQUE SPECIFICATIONS</button><br>
           <form oninput="functionTorqueSpecs()">
@@ -2928,7 +2951,7 @@ function saveROfunctionAdd(){
           </form>
           <s1 id="TorqueSpecs";>
           </s1>
-
+        -->
         <span class="a"></span>
 
         <button class="button" onclick="CopyToClipboard('COPYPASTE')">
@@ -2942,7 +2965,7 @@ function saveROfunctionAdd(){
       <div class="mainStory" id="othDiv"> <!-- ***************************************** OTHER NON-STORIES ***************************************** -->
         <span class="c"></span>
         <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
-        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 12 April 2023</s3>                                    <!-- FIXME:  -->
+        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 10 May 2023</s3>                                    <!-- FIXME:  -->
         <input type="text" id="WDDSJ4GB1" value="Pa" hidden>
 
 
@@ -2980,7 +3003,7 @@ function saveROfunctionAdd(){
 			</div>
 
 
-
+<!--
 
 
 
@@ -3027,12 +3050,11 @@ function saveROfunctionAdd(){
      <s1 id="FlagResult";>
      </s1>
 
+    -->
 
 
 
-
-     <span class="c"></span>
-     <span class="c"></span>
+    
 
 
 
