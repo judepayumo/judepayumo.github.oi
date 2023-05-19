@@ -218,13 +218,13 @@ Todo:
     function serviceStory(){
       var count = 0;
       var ServiceNotesF = "<BR>**********<br>"
-      var storyBase = "TEST DROVE THE VEHICLE. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. TOPPED OFF COOLANT, WASHER FLUID, AND CHECKED BRAKE FLUID LEVEL. INSPECTED ENGINE BAY. LIFTED THE VEHICLE. CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY FOR DAMAGE. REMOVED ENGINE LOWER COVER AND DRAINED ENGINE OIL. ";
+      var storyBase = "TEST DROVE THE VEHICLE. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. TOPPED OFF COOLANT, WASHER FLUID, AND CHECKED BRAKE FLUID LEVEL. INSPECTED ENGINE BAY. LIFTED THE VEHICLE. CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY FOR DAMAGE. DRAINED ENGINE OIL. ";
       if (document.getElementById("drainPlug").checked == false) {
         storyBase += "INSTALLED DRAIN PLUG WITH NEW CRUSH WASHER. ";
       }	else {
         storyBase += "INSTALLED NEW PLASTIC DRAIN PLUG. ";
       }
-        storyBase += " REINSTALLED ENGINE LOWER COVER. ADJUSTED ALL TIRE PRESSURES. INSTALLED NEW ENGINE OIL FILTER. ";
+        storyBase += " ADJUSTED ALL TIRE PRESSURES. INSTALLED NEW ENGINE OIL FILTER. ";
       if (document.getElementById("amgOil").checked == true) {
         storyBase += "ADDED AMG ENGINE OIL TO SPEC. REPLACED ";
       } else {
@@ -235,7 +235,7 @@ Todo:
         count += 1;
       }
       if (document.getElementById("combofilter").checked == true) {
-        storyBase += "COMBO FILTER, ";
+        storyBase += "DUST FILTER, ";
         count += 1;
       }
       if (document.getElementById("frontWiper").checked == true) {
@@ -280,6 +280,7 @@ Todo:
       }
       if (document.getElementById("ServiceNotesIn").value != 0) {
         var ServiceNotesF = ServiceNotesF + document.getElementById("ServiceNotesIn").value;
+        ServiceNotesF = ServiceNotesF.replace(/\./g, ". <br>");
       }else {
         var ServiceNotesF = "";
       }
@@ -1139,7 +1140,7 @@ Todo:
       window.open(datacardLink, '_blank');
     }
     function mecheck(){
-      var checkchecksout = document.getElementById("GN288750").value;
+      var checkchecksout = document.getElementById("GN288750").value + document.getElementById("technumber").value;
       var prompts = document.getElementById("WDDSJ4GB1").value + "ss" + document.getElementById("WDDSJ4GB1G").value + "d:";
       var mecheckInput = prompt(prompts);
       for (var i = 1; i < 3; i++) {
@@ -1567,7 +1568,12 @@ function saveROfunctionAdd(){
 
 
 
+function testButtonFunction(functionInput){
+  var numberInput = functionInput;
+  alert(numberInput);
+  alert(numberInput.toString());
 
+}
 
 
 
@@ -1605,11 +1611,12 @@ function saveROfunctionAdd(){
     <div class="mainDiv" id="onOff" style="display:none" onscroll="mainPageFocus()" onclick="mainPageFocus()";> <!-- Main Story Div -->                   <!-- FIXME:  -->
       <div class="mainStory" id="svcDiv"> <!-- ***************************************** SERVICE STORIES ******************************************* -->
         <s2>Service</s2><br>
+        <!--<button class="button"; onclick="testButtonFunction(97)">Test Button</button><br> FIXME --> 
         <button class="button"; onclick="CopyToClipboard('SERVICE')">
           SERVICE</button><br>
 					<form oninput="serviceStory()">
 						<input type="checkbox" id="predust" name="predust">
-						<label class="s1" for="predust">Pre-Dust Filter&nbsp;</label>
+						<label class="s1" for="predust">Pre-Dust&nbsp;</label>
 						<input type="checkbox" id="combofilter" name="combofilter">
 						<label class="s1" for="combofilter">Dust Filter&nbsp;</label>
 						<input type="checkbox" id="frontWiper" name="frontWiper">
@@ -2872,6 +2879,17 @@ function saveROfunctionAdd(){
           <s1 id="2023010004";>
             PER MB CAMPAIGN 2023010004, WATER MIGHT PERMEATE INTO THE REAR AREA OF THE VEHICLE AND, OVER TIME, ACCUMULATE IN THE SPARE WHEEL WELL. REMOVED SPARE WHEEL. INSPECTED WHEEL WELL AREA, AS DETAILED IN THE RECALL DOCUMENT, FOR HUMIDITY OR WATER DEPOSITS. FOUND NONE. REMOVED EXISTING CLOSING GROMMET AND RETROFITTED WATER DRAIN GROMMET. ASSEMBLED IN REVERSE ORDER.
           </s1>
+
+        <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('2023030007')">
+          ROUTING FRONT AXLE WIRING HARNESS 0.1H</button><br>
+          <s1 id="2023030007";>
+            AS PER MB RECALL CAMPAIGN 2023030007, THE FRONT AXLE WIRING HARNESS MIGHT COME IN CONTACT WITH THE AUXILIARY OIL COOLER AND BECOME DAMAGED OVER TIME. LIFTED THE VEHICLE AND PARTIALLY REMOVED FRONT RIGHT WHEEL FENDER LINER. DISCONNECTED ELECTRICAL CONNECTOR, REMOVED FABRIC TAPE, AND INSPECTED INDIVIDUAL CABLES FOR DAMAGES. FOUND NO DAMAGES. WRAPPED CALBES WITH NEW FABRIC HARNESS TAPE AND INSTALLED ANTI-CHAFE HOSE AS DETAILED IN THE DOCUMENT. ASSEMBLED IN REVERSE ORDER. 
+          </s1>
+          <s3><br>
+            Additional 0.1 for V8: REMOVED RETAINING CLAMP OF THE CIRCULATION PUMP. <br> Replace harness if any wires are damaged.
+          </s3>
         
         <span class="a"></span>
       </div> <!--Recall story story-->
@@ -2965,9 +2983,8 @@ function saveROfunctionAdd(){
       <div class="mainStory" id="othDiv"> <!-- ***************************************** OTHER NON-STORIES ***************************************** -->
         <span class="c"></span>
         <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
-        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 10 May 2023</s3>                                    <!-- FIXME:  -->
+        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 18 May 2023</s3>                                    <!-- FIXME:  -->
         <input type="text" id="WDDSJ4GB1" value="Pa" hidden>
-
 
 
 
@@ -3001,6 +3018,11 @@ function saveROfunctionAdd(){
         <a href="#"><i class="fa fa-angle-double-down" onclick="scrollDown()"></i></a>
         <a href="#"><i class="fa fa-angle-double-right" onclick="scrollMid()"></i></a>
 			</div>
+
+
+
+
+      
 
 
 <!--
@@ -3076,6 +3098,7 @@ function saveROfunctionAdd(){
         <tr>
           <td><s5>Jude 110</s5></td>
           <td><s5>201</s5></td>
+          <input type="text" id="technumber" value="110" hidden>
         </tr>
         <tr>
           <td><s5>Eric 39</s5></td>
@@ -3138,6 +3161,10 @@ function saveROfunctionAdd(){
           <td><s5>243</s5></td>
         </tr>
         <tr>
+        <tr>
+          <td><s5>Jennifer</s5></td>
+          <td><s5>223</s5></td>
+        </tr>
           <td><s5>Simon</s5></td>
           <td><s5>258</s5></td>
         </tr>
