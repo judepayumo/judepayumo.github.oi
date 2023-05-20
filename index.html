@@ -1,5 +1,18 @@
 </<!DOCTYPE html>
-<!--
+<!-- ***DISCLAIMER***
+The following disclaimer outlines the terms and conditions for accessing and using this Website. By accessing or using the Website, you agree to comply with these terms and conditions. If you do not agree with any part of this disclaimer, please refrain from using the Website.
+
+1. Personal Use Only: The content and information provided on this Website are intended solely for personal use by the Website owner (Jude Payumo). The information shared on this Website is based on personal opinions, experiences, and research. It should not be considered professional advice, guidance, or a substitute for it. The content on this Website is not intended for use by any other person or entity.
+2. No Reliance: Visitors to the Website should not rely on the information provided as a guide or authoritative source. The information may be inaccurate, incomplete, or outdated. Therefore, you should not use the content on this Website as a guide for any purpose. Any actions taken based on the information provided on this Website are at your own risk.
+3. No Liability: The Website owner shall not be held liable for any errors, inaccuracies, or omissions in the content or information provided on this Website. The Website owner disclaims all liability for any damages or losses incurred as a result of using or relying on the information presented.
+4. Third-Party Content: The Website may contain content, links, or references to third-party websites, resources, or services that are not owned or controlled by the Website owner. These third-party contents are provided for convenience and informational purposes only. The inclusion of any third-party content does not imply endorsement or responsibility for the accuracy, reliability, or content of such third-party websites. Your use of these third-party resources is at your own risk.
+5. Changes to Disclaimer: The Website owner reserves the right to modify, amend, or update this disclaimer at any time without prior notice. It is your responsibility to review the disclaimer periodically for any changes. Your continued use of the Website after the modifications signifies your acceptance of the updated disclaimer.
+
+By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
+
+
+
+
 Todo:
 	Countdown timer with alert
 	Converter div
@@ -32,34 +45,56 @@ Todo:
       font-family: "Lucinda Console", "Curier New", monospace;
       color: rgb(70, 68, 68);
     }
-    s2{/*font formal for titles*/
+    s2{/*font format for titles*/
       display: block;
       text-align: center;
       font-size: 25px;
       font-family: "Lucinda Console", "Curier New", monospace;
       font-variant: small-caps;
-      color: rgb(203, 66, 66);
+      color: rgb(41, 41, 41);
       position: sticky;
       top: -25px;
-      text-shadow: #000 0px 0 2px;
+      text-shadow: #000 0px 0 1px;
     }
-    s3{/*font formal for titles*/
+    s2d{/*font format for black titles*/
+      display: block;
+      text-align: center;
+      font-size: 25px;
+      font-family: "Lucinda Console", "Curier New", monospace;
+      font-variant: small-caps;
+      color: rgb(41, 41, 41);
+      top: -25px;
+    }
+    s3{/*font format for titles*/
       font-size: 12px;
       font-family: "Lucinda Console", "Curier New", monospace;
       color: rgb(41, 41, 41);
     }
-    s4{/*font formal for phone*/
+    s4{/*font format for phone*/
       font-size: 20px;
       font-family: "Lucinda Console", "Curier New", monospace;
       font-variant: small-caps;
       color: rgb(243, 243, 243);
       text-shadow: #660000 0px 0 4px;
     }
-    s5{/*font formal for phone*/
+    s5{/*font format for phone*/
       font-size: 14px;
       font-family: "Lucinda Console", "Curier New", monospace;
       font-variant: small-caps;
       color: rgb(243, 243, 243);
+    }
+    s3l{/*font format s3 for lists*/
+      font-size: 12px;
+      font-family: "Lucinda Console", "Curier New", monospace;
+      color: rgb(41, 41, 41);
+      list-style-type: decimal;
+      list-style-position: outside;
+      max-height: 100%;
+      overflow-y: auto;
+    }
+    .l1{
+      padding-left: 20px;
+      padding-right: 20px;
     }
     .s1{/*font format for story*/
         font-size: 12px;
@@ -113,6 +148,24 @@ Todo:
       background-color: rgba(151, 151, 151, 0.7);
     }
     .mainStory{ /*story blocks*/
+    }
+    .newMainDiv{
+      position: static;
+      height: calc(100vh - 170px);
+      max-width: 100%;
+      overflow: auto;
+      margin: 120px 5px 30px 5px; /* top right botton left*/
+      padding: 25px 10px 30px 10px;
+      background-color: rgba(151, 151, 151, 0.7);
+    }
+    .newSecondaryDiv{
+      padding: 5px 10px 20px 10px;
+      margin: 5px 0px 50px 0px; /* top right botton left*/
+      position: static;
+      max-width: 100%;
+      overflow: visible;
+      background-color: rgba(190, 190, 190, 0.4);
+      display: block;
     }
     .shortcutDiv{
       top: 30px;
@@ -205,14 +258,7 @@ Todo:
       border: none;
       background-color: none;
     }
-    span.c{/*For spacing at ends*/
-      display: block;
-      width: 100px;
-      height: 200px;
-      padding: 0px;
-      border: none;
-      background-color: none;
-    }
+
   </style>
   <script>//main story functions
     function serviceStory(){
@@ -1134,8 +1180,10 @@ Todo:
       if (id) { //reset function
         functionFlagTechResult = "";
         document.getElementById("flagRO").hidden = true;
-        document.getElementById("flagDate").hidden = true;
+        document.getElementById("flagDate").hidden = false;
         document.getElementById("flagReset").hidden = true;
+        document.getElementById("flagD").checked = true;
+        document.getElementById("flagR").checked = false;
       }
       document.getElementById("flagCopy").innerHTML = functionFlagTechResult;
     }
@@ -1636,8 +1684,8 @@ function testButtonFunction(functionInput){
       </div>
     </div>
 
-    <div class="mainDiv" id="onOff" style="display:none" onscroll="mainPageFocus()" onclick="mainPageFocus()";> <!-- Main Story Div -->                   <!-- FIXME:  -->
-      <div class="mainStory" id="svcDiv"> <!-- ***************************************** SERVICE STORIES ******************************************* -->
+    <div class="newMainDiv" id="onOff" style="display:none" onscroll="mainPageFocus()" onclick="mainPageFocus()";> <!-- Main Story Div -->                   <!-- FIXME:  -->
+      <div class="newSecondaryDiv" id="svcDiv"> <!-- ***************************************** SERVICE STORIES ******************************************* -->
         <s2>Service</s2><br>
         <!--<button class="button"; onclick="testButtonFunction(97)">Test Button</button><br> FIXME --> 
         <button class="button"; onclick="CopyToClipboard('SERVICE')">
@@ -2068,6 +2116,7 @@ function testButtonFunction(functionInput){
 				<button class="button"; onclick="CopyToClipboard('M276ENGINE')">
 					M276 BITURBO ENGINE</button><br>
 					<form oninput="functionM276ENGINE()">
+            <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
 						<input type="radio" id="M276ENGINESpark" name="M276ENGINE">
 						<label class="s1" for="M276ENGINESpark">Spark Plugs&emsp;</label>
 						<input type="radio" id="M276ENGINEFrontCover" name="M276ENGINE">
@@ -2138,6 +2187,7 @@ function testButtonFunction(functionInput){
         <button class="button"; onclick="CopyToClipboard('M264ENGINE')">
           M264 ENGINE</button><br>
           <form oninput="functionM264ENGINE()">
+            <input type="text" id="WDDSJ4GB1" value="Pa" hidden>
             <input type="radio" id="M264ENGINESpark" name="M264ENGINE">
             <label class="s1" for="M264ENGINESpark">Spark Plugs&emsp;</label>
             <input type="radio" id="M264ENGINEFilter" name="M264ENGINE">
@@ -2271,8 +2321,7 @@ function testButtonFunction(functionInput){
 					<s1 id="FieldMesaure";></s1>
           <s3 id="FieldMeasureSpecs";></s3>
       </div> <!--main story-->
-      <span class="c"></span>
-      <div class="mainStory" id="RclDiv"> <!-- ***************************************** RECALL STORIES ******************************************** -->
+      <div class="newSecondaryDiv" id="RclDiv"> <!-- ***************************************** RECALL STORIES ******************************************** -->
         <s2>Recalls</s2><br>
         <button class="button"; onclick="CopyToClipboard('2020030008A')">
 					X204 DRIVER AND PASSENGER AIRBAG RECALL 1.0H</button><br>
@@ -2921,8 +2970,7 @@ function testButtonFunction(functionInput){
         
         <span class="a"></span>
       </div> <!--Recall story story-->
-      <span class="c"></span>
-      <div class="mainStory" id="mscDiv"> <!-- ***************************************** MISCELLANEOUS STORIES ************************************* -->
+      <div class="newSecondaryDiv" id="mscDiv"> <!-- ***************************************** MISCELLANEOUS STORIES ************************************* -->
         <s2>Miscellaneous</s2><br>
 
         <button class="button"; onclick="CopyToClipboard('partsrequest')">
@@ -2990,13 +3038,14 @@ function testButtonFunction(functionInput){
             <input type="text" id="flagTech" placeholder="110" size="5" maxlength="3">
             <input type="radio" id="flagR" name="flagType">
             <label class="s1" type="text" for="flagR">R </label>
-            <input type="radio" id="flagD" name="flagType">
+            <input type="radio" id="flagD" name="flagType" checked>
             <label class="s1" type="text" for="flagD">D &nbsp;</label>
-            <input type="text" id="flagRO" placeholder="RO" size="10" hidden maxlength="6">
-            <input type="text" id="flagDate" placeholder="Date" size="10" hidden maxlength="2" max="31">
-            <button type="reset" id="flagReset" onclick="functionFlagTech('true')" hidden>Clear</button>
+            <input type="text" id="flagRO" placeholder="RO" size="10" hidden maxlength="6" onsubmit="CopyToClipboard('flagCopy')">
+            <input type="text" id="flagDate" placeholder="Date" size="10" maxlength="2" max="31" onsubmit="CopyToClipboard('flagCopy')">
+            <button type="submit" value="GO" onclick="CopyToClipboard('flagCopy')" hidden>Submit</button>&nbsp;&nbsp;
+            <button type="submit" id="flagReset" onclick="functionFlagTech('true')">Reset</button>
           </form>
-          <s6 id="flagCopy"></s6>
+          <s6 id="flagCopy">FLAG 110<br>D<br><br></s6>
 
         <span class="a"></span>
 
@@ -3026,39 +3075,6 @@ function testButtonFunction(functionInput){
         <span class="a"></span>
 
       </div>
-      <div class="mainStory" id="othDiv"> <!-- ***************************************** OTHER NON-STORIES ***************************************** -->
-        <span class="c"></span>
-        <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
-        <s3>&#169; Jude Payumo &emsp;&emsp; Updated: 18 May 2023</s3>                                    <!-- FIXME:  -->
-        <input type="text" id="WDDSJ4GB1" value="Pa" hidden>
-
-
-
-<!--
-
-        <br><br><br>
-        <button class="button"; onclick="CopyToClipboard('PartsList')">
-          Auto Info Extraction Test
-          </button><br>
-          <form>
-            <input type="text" id="AEIvin" placeholder="VIN">
-            <button type="submit" onclick="AutoExtractInfo()">Send it</button>
-            <button type="submit" onclick="testtesttest()">myfuction??</button>
-          </form>
-          <s1 id="AEITempView";></s1>
-
--->
-
-
-
-
-
-
-
-
-
-      </div>
-      <span class="c"></span>
 			<div class="bottomDiv" id="bottomDiv" style="display:block"> 
         <a href="#"><i class="fa fa-angle-double-up" onclick="scrollUp()"></i></a>
         <a href="#"><i class="fa fa-angle-double-down" onclick="scrollDown()"></i></a>
@@ -3133,8 +3149,38 @@ function testButtonFunction(functionInput){
 
 
     </div><!-- END OF MAIN STORY DIV-->
-    <div class="mainDiv" id="notMe" style="display:block"> <!-- Not Me Div -->
-      <s2>You do not have the authorizations required for this page</s2>
+    <div class="newMainDiv" id="notMe" style="display: block;";>
+      <div class="newSecondaryDiv"> <!-- Not Me Div -->
+        <s2d>You do not have the authorizations required for this page</s2d>
+      </div>
+      <div class="newSecondaryDiv" id="disclaimer">
+      <s2d>DISCLAIMER</s2d>
+      <s3l><p>
+        The following disclaimer outlines the terms and conditions for accessing and using this Website. By accessing or using the Website, you agree to comply with these terms and conditions. If you do not agree with any part of this disclaimer, please refrain from using the Website.
+        </p><br>
+        <p><li class="l1">
+        Personal Use Only: The content and information provided on this Website are intended solely for personal use by the Website owner (Jude Payumo). The information shared on this Website is based on personal opinions, experiences, and research. It should not be considered professional advice, guidance, or a substitute for it. The content on this Website is not intended for use by any other person or entity.
+        </p></li>
+        <p><li class="l1">
+        No Reliance: Visitors to the Website should not rely on the information provided as a guide or authoritative source. The information may be inaccurate, incomplete, or outdated. Therefore, you should not use the content on this Website as a guide for any purpose. Any actions taken based on the information provided on this Website are at your own risk.
+        </p></li>
+        <p><li class="l1">
+        No Liability: The Website owner shall not be held liable for any errors, inaccuracies, or omissions in the content or information provided on this Website. The Website owner disclaims all liability for any damages or losses incurred as a result of using or relying on the information presented.
+        </p></li>
+        <p><li class="l1">
+        Third-Party Content: The Website may contain content, links, or references to third-party websites, resources, or services that are not owned or controlled by the Website owner. These third-party contents are provided for convenience and informational purposes only. The inclusion of any third-party content does not imply endorsement or responsibility for the accuracy, reliability, or content of such third-party websites. Your use of these third-party resources is at your own risk.
+        </p></li>
+        <p><li class="l1">
+        Changes to Disclaimer: The Website owner reserves the right to modify, amend, or update this disclaimer at any time without prior notice. It is your responsibility to review the disclaimer periodically for any changes. Your continued use of the Website after the modifications signifies your acceptance of the updated disclaimer.
+        </p></li>
+        <br><p>
+        By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
+        </p>
+        <br><p>
+        Last updated: 20 May 2023</p></s3l>
+    
+    
+      </div>
     </div>
     <div class="phoneDiv" id="phoneDiv" style="display:none">
       <table style="width:100%">
