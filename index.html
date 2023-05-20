@@ -1112,6 +1112,34 @@ Todo:
       }
 
     }//support function for functionPreq
+    function functionFlagTech(id){
+      var flagTech = 110;
+      var functionFlagTechResult = "FLAG ";
+      var flagEnter = "<br>";
+      if (document.getElementById("flagTech").value != 0){ //sets tech number or leaves it as default
+        var flagTech = document.getElementById("flagTech").value;
+      }
+      functionFlagTechResult += flagTech + flagEnter;
+      if (document.getElementById("flagR").checked == true){ //show or hide date/ro field
+        document.getElementById("flagRO").hidden = false;
+        document.getElementById("flagDate").hidden = true;
+        document.getElementById("flagReset").hidden = false;
+        functionFlagTechResult += "R" + flagEnter + document.getElementById("flagRO").value + flagEnter;
+      } else if (document.getElementById("flagD").checked == true){ //show or hide date/ro field
+        document.getElementById("flagRO").hidden = true;
+        document.getElementById("flagDate").hidden = false;
+        document.getElementById("flagReset").hidden = false;
+        functionFlagTechResult += "D" + flagEnter + document.getElementById("flagDate").value + flagEnter;
+      }
+      if (id) { //reset function
+        functionFlagTechResult = "";
+        document.getElementById("flagRO").hidden = true;
+        document.getElementById("flagDate").hidden = true;
+        document.getElementById("flagReset").hidden = true;
+      }
+      document.getElementById("flagCopy").innerHTML = functionFlagTechResult;
+    }
+    
     </script>
   <script>//main page functions
     function scrollUp(){
@@ -2954,6 +2982,24 @@ function testButtonFunction(functionInput){
           <s6 id="partsrequest"></s6>
 
         <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('flagCopy')">
+          FLAG TECH</button><br>
+          <form oninput="functionFlagTech()">
+            <label class="s1" type="text" for="flagTech">FLAG</label>
+            <input type="text" id="flagTech" placeholder="110" size="5" maxlength="3">
+            <input type="radio" id="flagR" name="flagType">
+            <label class="s1" type="text" for="flagR">R </label>
+            <input type="radio" id="flagD" name="flagType">
+            <label class="s1" type="text" for="flagD">D &nbsp;</label>
+            <input type="text" id="flagRO" placeholder="RO" size="10" hidden maxlength="6">
+            <input type="text" id="flagDate" placeholder="Date" size="10" hidden maxlength="2" max="31">
+            <button type="reset" id="flagReset" onclick="functionFlagTech('true')" hidden>Clear</button>
+          </form>
+          <s6 id="flagCopy"></s6>
+
+        <span class="a"></span>
+
 
         <!--
 
