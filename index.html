@@ -137,18 +137,6 @@ Todo:
     .topBannerLogo{
       width: 290px;
     }
-    .mainDiv{ /* main div*/
-      position: relative;
-      top: 95px;
-      max-height: 750px;
-      max-width: 100%;
-      overflow-y: scroll;
-      margin: 30px 10px 30px 10px; /* top right botton left*/
-      padding: 30px 20px 30px 20px;
-      background-color: rgba(151, 151, 151, 0.7);
-    }
-    .mainStory{ /*story blocks*/
-    }
     .newMainDiv{
       position: static;
       height: calc(100vh - 170px);
@@ -161,11 +149,34 @@ Todo:
     .newSecondaryDiv{
       padding: 5px 10px 20px 10px;
       margin: 5px 0px 50px 0px; /* top right botton left*/
-      position: static;
+      position: relative;
       max-width: 100%;
       overflow: visible;
       background-color: rgba(190, 190, 190, 0.4);
       display: block;
+    }
+    .password{
+      position: absolute;
+      right: 50px;
+      bottom: 10px;
+    }
+    .password input{
+      background-color: rgba(69, 69, 69, 0.69);
+      border-radius: 6px 2px;
+      border: 0.5px solid rgb(110, 12, 0);
+      color: rgb(110, 12, 0);
+      width: 180px;
+      height: 25px;
+      text-indent: 5px;
+    }
+    .password a{
+      position: relative;
+      top: 4px;
+      left: 1px;
+      transition: all 0.2s ease;
+      color: rgb(110,12,0);
+      text-decoration: none;
+      font-size: 23px;
     }
     .shortcutDiv{
       top: 30px;
@@ -189,7 +200,7 @@ Todo:
       font-size: 20px;
     }
     .phoneDiv{
-      background-color: rgba(151, 151, 151, .95);
+      background-color: rgba(0, 0, 0, 0.705);
       border-radius: 6px 2px;
       border: 1px solid red;
       box-shadow: 5px 10px 8px #000;
@@ -203,20 +214,23 @@ Todo:
     }
 		.bottomDiv{
 			position: fixed;
-      bottom: 30px;
-      right: 40px;
-			height: 30;
-			width: 120;
-      font-size: 50px;
+      bottom: 2vh;
+      right: 4vh;
+			height: fit-content;
+			width: fit-content;
+      font-size: 35px;
+      font-family: 'Times New Roman', Times, serif;
+      font-variant: small-caps;
+      text-align: center;
     }
 		.bottomDiv a{
 		 transition: all 0.2s ease;
 		 color: rgb(110,13,0);
 		 text-decoration: none;
-	 }
-	 .bottomDiv a:hover{
+	  }
+    .bottomDiv a:hover{
 		 color: red;
-	 }
+	  }
     table, th, td {
       color: white;
       /*border: .1px dotted black;*/
@@ -231,6 +245,7 @@ Todo:
       color: #ffae80;
       width: 180px;
       height: 25px;
+      text-indent: 5px;
     }
     .vinDiv a{
       transition: all 0.2s ease;
@@ -257,6 +272,46 @@ Todo:
       padding: 0px;
       border: none;
       background-color: none;
+    }
+    .dropDown{
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      display: inline-block;
+      height: 300px;
+      width: fit-content;
+    }
+    .dropDown input{
+      background-color: rgba(61, 61, 61, 0.4);
+      border-radius: 6px 2px;
+      border: 0.5px solid rgb(0, 0, 0);
+      font-size: 12px;
+      font-family: "Lucinda Console", "Curier New", monospace;
+      color: rgb(243, 243, 243);
+      width: 150px;
+      height: 25px;
+    }
+    .dropDownContent{
+      display: none;
+      position: absolute;
+      font-size: 15px;
+      font-family: "Lucinda Console", "Curier New", monospace;
+      min-width: 150px;
+      max-height: 200px;
+      overflow: auto;
+      border: 0.5px solid rgb(0, 0, 0);
+      border-radius: 6px 2px;
+      z-index: 1;
+    }
+    .dropDownContent a {
+      color: black;
+      padding: 3px 6px; /*top r bot l*/
+      display: block;
+      text-decoration: none;
+    }
+
+    .dropdown a:hover {
+      background-color: #ddd;
     }
 
   </style>
@@ -1159,6 +1214,7 @@ Todo:
 
     }//support function for functionPreq
     function functionFlagTech(id){
+      event.preventDefault();
       var flagTech = 110;
       var functionFlagTechResult = "FLAG ";
       var flagEnter = "<br>";
@@ -1190,6 +1246,47 @@ Todo:
     
     </script>
   <script>//main page functions
+    function PwordCheck(data){
+      var input = document.getElementById("passInput").innerHTML.value;
+      if (input != data){
+        alert("Incorrect " + data);
+      }else if (input == data){
+        alert("No.");
+      }
+      const processedData = data.map((item) => {
+        const pWord = {};
+        for (let key in pWord) {
+          if (typeof pWord[key] === 'string') {
+            pWord[key] = pWord[key].toUpperCase();
+          }
+        }
+        return pWord;
+      });
+      const filteredData = processedData.filter((item) => {
+        return Object.keys(item).length > 0;
+      });
+      let result = '';
+      for (let i = filteredData.length - 1; i >= 0; i--) {
+        const item = filteredData[i];
+        for (let key in item) {
+          result += `${key}: ${item[key]}\n`;
+        }
+      }
+      const formattedResult = result.trim();
+      return formattedResult;
+
+
+
+
+
+
+
+
+
+    }
+    function testFunction(){
+      alert("In the function!");
+    }
     function scrollUp(){
       document.getElementById('svcDiv').scrollIntoView();
       //document.getElementById('onOff').scrollTop = 0;
@@ -1201,8 +1298,12 @@ Todo:
     function scrollMid(){
       document.getElementById('RclDiv').scrollIntoView();
     }
+    function scrollToId(id){
+      document.getElementById(id).scrollIntoView();
+    }
     function mainPageFocus(){ //when main page scrolls or is clicked
-      var scrollPos = document.getElementById('onOff').scrollTop;
+      //var scrollPos = document.getElementById('onOff').scrollTop;
+      // show ( show, hide);
       show('phoneDiv','phoneDiv');
       }
     function viewCodes(){
@@ -1261,7 +1362,6 @@ Todo:
     function show(shown, hidden) {
       document.getElementById(shown).style.display='block';
       document.getElementById(hidden).style.display='none';
-      return;
     }
     function convert() {//not used
       var x = 0.73756;
@@ -1514,147 +1614,27 @@ Todo:
     }
   </script>
   <script>//test area functions
-    function AutoExtractInfo(){
-      var vinInput = document.getElementById("AEIvin").value;
-      document.getElementById("AEITempView").innerHTML = vinInput;
-
+    function filterFunction() {
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      div = document.getElementById("dropDownContent");
+      a = div.getElementsByTagName("a");
+      for (i = 0; i < a.length; i++) {
+        txtValue = a[i].textContent || a[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          a[i].style.display = "";
+        } else {
+          a[i].style.display = "none";
+        }
+      }
     }
   </script>
   <script>// test area 2
-  function functionTorqueSpecs(){
-      var functionTorqueSpecsResult = "";
-      var TS_test1 = "TS_test1";
-      var TS_test2 = "TS_test2";
-      var TS_test3 = "TS_test3";
-      if (document.getElementById("TS_test1").checked == true) {
-        var functionTorqueSpecsResult = TS_test1;
-      }
-      if (document.getElementById("TS_test2").checked == true) {
-        var functionTorqueSpecsResult = TS_test2;
-      }
-      if (document.getElementById("TS_test3").checked == true) {
-        var functionTorqueSpecsResult = TS_test3;
-      }
-      document.getElementById("TorqueSpecs").innerHTML = functionTorqueSpecsResult;
-    }
-
-
-
-class RO{ //FIXME
-  constructor(Date, ROnumber, Line, Job, Hours){
-    this.Date = Date;
-    this.ROnumber = ROnumber;
-    this.Line = Line;
-    this.Job = Job;
-    this.Hours = Hours;
-  }
-}
-
-function saveROfunction(){
-  let currentDate = timeAndDate();
-  let FLAG = []; //not being used
-  for (let i = 1; i <= document.getElementById("ROline1a").value; i++){
-    let currentLine = "saveinfoLine" + i;
-    let currentDesc = "saveinfoDescription" + i;
-    let currentHour = "saveinfoEst" + i;
-    let roNum = document.getElementById("saveinfoRO").value;
-    let saveNum = roNum +'-'+ i;
-    let roLine = document.getElementById(currentLine).value;
-    let roInfo = document.getElementById(currentDesc).value;
-    let roEst = document.getElementById(currentHour).value;
-    let newLine = new RO(currentDate, roNum, roLine, roInfo, roEst); 
-    FLAG.push(newLine);
-    const jsonLine = JSON.stringify(newLine);
-    localStorage.setItem(saveNum, jsonLine);
-  }
-  //const json = JSON.stringify(FLAG);
-  //localStorage.setItem("RO", json);
-  console.log(FLAG);
-
-
 
   //event.preventDefault();
   //localStorage.setItem('ls_info1', infoToSave);
   //window.location.href = "Main Test.html";
-}
-
-function timeAndDate(){
-  var today = new Date();
-  var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
-  var time = today.getHours() + ":" + today.getMinutes();
-  var dateTime = date+' '+time;
-  return date;
-}
-
-
-
-
-function saveROfunctionAdd(){
-  event.preventDefault();
-  if (document.getElementById("ROline1a").value == 1){
-    document.getElementById("ROline1a").hidden = true;
-    document.getElementById("saveinfoLine2").hidden = false;
-    document.getElementById("saveinfoDescription2").hidden = false;
-    document.getElementById("saveinfoEst2").hidden = false;
-    document.getElementById("ROline2a").hidden = false;
-    document.getElementById("ROline1a").value = 2;
-  }else if (document.getElementById("ROline1a").value == 2) {
-    document.getElementById("ROline2a").hidden = true;
-    document.getElementById("saveinfoLine3").hidden = false;
-    document.getElementById("saveinfoDescription3").hidden = false;
-    document.getElementById("saveinfoEst3").hidden = false;
-    document.getElementById("ROline3a").hidden = false;
-    document.getElementById("ROline1a").value = 3;
-  } else if (document.getElementById("ROline1a").value == 3) {
-    document.getElementById("ROline3a").hidden = true;
-    document.getElementById("saveinfoLine4").hidden = false;
-    document.getElementById("saveinfoDescription4").hidden = false;
-    document.getElementById("saveinfoEst4").hidden = false;
-    document.getElementById("ROline4a").hidden = false;
-    document.getElementById("ROline1a").value = 4;
-  } else if (document.getElementById("ROline1a").value == 4) {
-    document.getElementById("ROline4a").hidden = true;
-    document.getElementById("saveinfoLine5").hidden = false;
-    document.getElementById("saveinfoDescription5").hidden = false;
-    document.getElementById("saveinfoEst5").hidden = false;
-    document.getElementById("ROline5a").hidden = false;
-    document.getElementById("ROline1a").value = 5;
-  } else if (document.getElementById("ROline1a").value == 5) {
-    document.getElementById("ROline5a").hidden = true;
-    document.getElementById("saveinfoLine6").hidden = false;
-    document.getElementById("saveinfoDescription6").hidden = false;
-    document.getElementById("saveinfoEst6").hidden = false;
-    document.getElementById("ROline6a").hidden = false;
-    document.getElementById("ROline1a").value = 6;
-  } else if (document.getElementById("ROline1a").value == 6) {
-    document.getElementById("ROline6a").hidden = true;
-    document.getElementById("saveinfoLine7").hidden = false;
-    document.getElementById("saveinfoDescription7").hidden = false;
-    document.getElementById("saveinfoEst7").hidden = false;
-    document.getElementById("ROline1a").value = 7;
-  } else {
-    alert("Something's fucked! Counter is at: " + document.getElementById("ROline1a").value);
-  }
-}
-
-
-
-
-
-
-
-
-function testButtonFunction(functionInput){
-  var numberInput = functionInput;
-  alert(numberInput);
-  alert(numberInput.toString());
-
-}
-
-
-
-
-
 
 
 
@@ -1667,10 +1647,10 @@ function testButtonFunction(functionInput){
       <img src="https://www.mercedes-amg.com/etc/clientlibs/amg/amg.base/assets/images/svg/amg-logo.svg" class="topBannerLogo" onclick="mecheck()">
       <div class="shortcutDiv"> <!--SHORTCUTS-->
         <a href="https://xentry.mercedes-benz.com/home/" target="_blank"><i class="fa fa-home"></i>&nbsp&nbsp&nbsp;</a>
-        <a href="https://xentry.mercedes-benz.com/workshop/#/order-overview/Local-Content" target="_blank"><i class="fa fa-search"></i>&nbsp&nbsp&nbsp;</a>
-        <a href="https://retailfactory.mercedes-benz.com/iri-gui/" target="_blank"><i class="fa fa-tint"></i>&nbsp&nbsp&nbsp;</a>
-        <a href="https://xentry.mercedes-benz.com/xhpi/" target="_blank"><i class="fa fa-gear"></i>&nbsp&nbsp&nbsp;</a>
-        <a href="https://controlpanel.msoutlookonline.net/portal/aduser/login" target="_blank"><i class="fa fa-envelope"></i>&nbsp&nbsp&nbsp;</a>
+        <a href="https://xentry.mercedes-benz.com/workshop/#/order-overview/Local-Content" target="_blank"><i class="fa fa-file-pdf-o"></i>&nbsp&nbsp&nbsp;</a>
+        <a href="https://retailfactory.mercedes-benz.com/iri-gui/" target="_blank"><i class="fa fa-diamond"></i>&nbsp&nbsp&nbsp;</a>
+        <a href="https://xentry.mercedes-benz.com/xhpi/" target="_blank"><i class="fa fa-cubes"></i>&nbsp&nbsp&nbsp;</a>
+        <a href="https://controlpanel.msoutlookonline.net/portal/aduser/login" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp&nbsp&nbsp;</a>
         <a href="#"><i class="fa fa-phone" onclick="toggleDiv('phoneDiv')"></i>&nbsp&nbsp&nbsp;</a>
         <a href="#"><i class="fa fa-lock" onclick="show('notMe','onOff');"></i>&nbsp&nbsp&nbsp;</a><!--Lock button -->
       </div>
@@ -1679,13 +1659,12 @@ function testButtonFunction(functionInput){
           <input type="text" id="dataVIN" value="WDDSJ4GB1GN288750" size="18" maxlength="17">&nbsp&nbsp
           <input type="text" id="GN288750" value="Jude" hidden>
           <a href="#"><i class="fa fa-book" onclick="viewCodes();"></i>&nbsp&nbsp</a> <!-- View vedoc codes -->
-  				<a href="#"><i class="fa fa-barcode" onclick="viewDatacard();"></i>&nbsp&nbsp</a> <!-- View major components -->
+  				<a href="#"><i class="fa fa-info-circle" onclick="viewDatacard();"></i>&nbsp&nbsp</a> <!-- View major components -->
         </form>
       </div>
     </div>
-
     <div class="newMainDiv" id="onOff" style="display:none" onscroll="mainPageFocus()" onclick="mainPageFocus()";> <!-- Main Story Div -->                   <!-- FIXME:  -->
-      <div class="newSecondaryDiv" id="svcDiv"> <!-- ***************************************** SERVICE STORIES ******************************************* -->
+      <div class="newSecondaryDiv" id="svcDiv" style="display: block;"> <!-- ***************************************** SERVICE STORIES ******************************************* -->
         <s2>Service</s2><br>
         <!--<button class="button"; onclick="testButtonFunction(97)">Test Button</button><br> FIXME --> 
         <button class="button"; onclick="CopyToClipboard('SERVICE')">
@@ -2323,6 +2302,78 @@ function testButtonFunction(functionInput){
       </div> <!--main story-->
       <div class="newSecondaryDiv" id="RclDiv"> <!-- ***************************************** RECALL STORIES ******************************************** -->
         <s2>Recalls</s2><br>
+        <div class="dropDown">  <!-- DROPDOWN SEARCH BAR FIXME-->
+          <input type="text" placeholder="Search.." id="myInput" size="20" onclick="toggleDiv('dropDownContent')" onkeyup="filterFunction()">
+          <div class="dropDownContent" id="dropDownContent">
+            <a onclick="scrollToId('2023030007')">2023030007</a>
+            <a onclick="scrollToId('2023010012')">2023010012</a>
+            <a onclick="scrollToId('2023010004')">2023010004</a>
+            <a onclick="scrollToId('2022120002')">2022120002</a>
+            <a onclick="scrollToId('2022100016')">2022100016</a>
+            <a onclick="scrollToId('2022100014')">2022100014</a>
+            <a onclick="scrollToId('2022100010')">2022100010</a>
+            <a onclick="scrollToId('2022100006')">2022100006</a>
+            <a onclick="scrollToId('2022100003')">2022100003</a>
+            <a onclick="scrollToId('2022080017')">2022080017</a>
+            <a onclick="scrollToId('2022080011')">2022080011</a>
+            <a onclick="scrollToId('2022080010')">2022080010</a>
+            <a onclick="scrollToId('2022070003')">2022070003</a>
+            <a onclick="scrollToId('2022060017')">2022060017</a>
+            <a onclick="scrollToId('2022060015')">2022060015</a>
+            <a onclick="scrollToId('2022050012')">2022050012</a>
+            <a onclick="scrollToId('2022050008')">2022050008</a>
+            <a onclick="scrollToId('2022050005')">2022050005</a>
+            <a onclick="scrollToId('2022040012')">2022040012</a>
+            <a onclick="scrollToId('2022040008')">2022040008</a>
+            <a onclick="scrollToId('2022030023')">2022030023</a>
+            <a onclick="scrollToId('2022030016')">2022030016</a>
+            <a onclick="scrollToId('2022030005')">2022030005</a>
+            <a onclick="scrollToId('2022010005')">2022010005</a>
+            <a onclick="scrollToId('2022010002')">2022010002</a>
+            <a onclick="scrollToId('2021080008')">2021080008</a>
+            <a onclick="scrollToId('2021070002')">2021070002</a>
+            <a onclick="scrollToId('2021060014')">2021060014</a>
+            <a onclick="scrollToId('2021060007')">2021060007</a>
+            <a onclick="scrollToId('2021050008')">2021050008</a>
+            <a onclick="scrollToId('2021050004')">2021050004</a>
+            <a onclick="scrollToId('2021040013')">2021040013</a>
+            <a onclick="scrollToId('2021040008')">2021040008</a>
+            <a onclick="scrollToId('2021030020')">2021030020</a>
+            <a onclick="scrollToId('2021030006')">2021030006</a>
+            <a onclick="scrollToId('2021030004')">2021030004</a>
+            <a onclick="scrollToId('2021020006')">2021020006</a>
+            <a onclick="scrollToId('2021020005')">2021020005</a>
+            <a onclick="scrollToId('2021020001')">2021020001</a>
+            <a onclick="scrollToId('2021010004')">2021010004</a>
+            <a onclick="scrollToId('2020120005')">2020120005</a>
+            <a onclick="scrollToId('2020120001')">2020120001</a>
+            <a onclick="scrollToId('2020110014')">2020110014</a>
+            <a onclick="scrollToId('2020110007')">2020110007</a>
+            <a onclick="scrollToId('2020110003')">2020110003</a>
+            <a onclick="scrollToId('2020100007')">2020100007</a>
+            <a onclick="scrollToId('2020090004')">2020090004</a>
+            <a onclick="scrollToId('2020080003')">2020080003</a>
+            <a onclick="scrollToId('2020070009')">2020070009</a>
+            <a onclick="scrollToId('2020060019')">2020060019</a>
+            <a onclick="scrollToId('2020050010')">2020050010</a>
+            <a onclick="scrollToId('2020030008')">2020030008</a>
+            <a onclick="scrollToId('2020030007')">2020030007</a>
+            <a onclick="scrollToId('2020030004')">2020030004</a>
+            <a onclick="scrollToId('2020020002')">2020020002</a>
+            <a onclick="scrollToId('2019090012')">2019090012</a>
+            <a onclick="scrollToId('2019090004')">2019090004</a>
+            <a onclick="scrollToId('2019080012')">2019080012</a>
+            <a onclick="scrollToId('2019070002')">2019070002</a>
+            <a onclick="scrollToId('2019040004')">2019040004</a>
+            <a onclick="scrollToId('2019030023')">2019030023</a>
+            <a onclick="scrollToId('2019030013')">2019030013</a>
+            <a onclick="scrollToId('2018100006')">2018100006</a>
+            <a onclick="scrollToId('2018060002')">2018060002</a>
+            <a onclick="scrollToId('2018030001')">2018030001</a>
+            <a onclick="scrollToId('2017120012')">2017120012</a>
+            <a onclick="scrollToId('2017110007')">2017110007</a>
+          </div>
+        </div>
         <button class="button"; onclick="CopyToClipboard('2020030008A')">
 					X204 DRIVER AND PASSENGER AIRBAG RECALL 1.0H</button><br>
 					<form oninput=recallNumberSelect(parsScan,"2020030008Ascan")>
@@ -2969,6 +3020,15 @@ function testButtonFunction(functionInput){
           </s3>
         
         <span class="a"></span>
+
+
+
+        
+
+
+
+
+
       </div> <!--Recall story story-->
       <div class="newSecondaryDiv" id="mscDiv"> <!-- ***************************************** MISCELLANEOUS STORIES ************************************* -->
         <s2>Miscellaneous</s2><br>
@@ -3075,81 +3135,111 @@ function testButtonFunction(functionInput){
         <span class="a"></span>
 
       </div>
-			<div class="bottomDiv" id="bottomDiv" style="display:block"> 
-        <a href="#"><i class="fa fa-angle-double-up" onclick="scrollUp()"></i></a>
-        <a href="#"><i class="fa fa-angle-double-down" onclick="scrollDown()"></i></a>
-        <a href="#"><i class="fa fa-angle-double-right" onclick="scrollMid()"></i></a>
+			<div class="bottomDiv" id="bottomDiv" style="display:block"> <!-- SCROLL BUTTONS -->
+        <a href="#"><i class="fa fa-angle-up" onclick="scrollUp()"></i></a><br>
+        <a href="#" onclick="scrollMid()">R</a><br>
+        <a href="#"><i class="fa fa-angle-down" onclick="scrollDown()"></i></a>
+        <!--<a href="#"><i class="fa fa-angle-double-up" onclick="scrollMid()"></i></a>-->
 			</div>
-
-
-
-
-      
-
-
-<!--
-
-
-
-      <button class="button"; onclick="saveROfunction()">
-        Save RO Hours</button><br>
-       <form>
-         <input type="text" id="saveinfoRO" name="saveinfoRO" placeholder="RO" size="10" maxlength="6">&nbsp
-         <button type="submit">Save</button>
-         <br>
-         <input type="text" id="saveinfoLine1" name="ROline1" placeholder="L" size="2" maxlength="2">&nbsp
-         <input type="text" id="saveinfoDescription1" name="ROline1" size="50" placeholder="Description">&nbsp
-         <input type="text" id="saveinfoEst1" name="ROline1" size="5" placeholder="0.0H" maxlength="4">
-         <button onclick="saveROfunctionAdd()" value="1" id="ROline1a">+</button>
-         <br>
-         <input type="text" id="saveinfoLine2" name="ROline2l" placeholder="L" size="2" maxlength="2" hidden>&nbsp
-         <input type="text" id="saveinfoDescription2" name="ROline2d" size="50" placeholder="Description" hidden>&nbsp
-         <input type="text" id="saveinfoEst2" name="ROline2h" size="5" placeholder="0.0H" hidden>
-         <button onclick="saveROfunctionAdd()" id="ROline2a" hidden>+</button>
-         <br>
-         <input type="text" id="saveinfoLine3" name="ROline3" placeholder="L" size="2" maxlength="2" hidden>&nbsp
-         <input type="text" id="saveinfoDescription3" name="ROline3" size="50" placeholder="Description" hidden>&nbsp
-         <input type="text" id="saveinfoEst3" name="ROline3" size="5" placeholder="0.0H" hidden>
-         <button onclick="saveROfunctionAdd()" id="ROline3a" hidden>+</button>
-         <br>
-         <input type="text" id="saveinfoLine4" name="ROline4" placeholder="L" size="2" maxlength="2" hidden>&nbsp
-         <input type="text" id="saveinfoDescription4" name="ROline4" size="50" placeholder="Description" hidden>&nbsp
-         <input type="text" id="saveinfoEst4" name="ROline4" size="5" placeholder="0.0H" hidden>
-         <button onclick="saveROfunctionAdd()" id="ROline4a" hidden>+</button>
-         <br>
-         <input type="text" id="saveinfoLine5" name="ROline5" placeholder="L" size="2" maxlength="2" hidden>&nbsp
-         <input type="text" id="saveinfoDescription5" name="ROline5" size="50" placeholder="Description" hidden>&nbsp
-         <input type="text" id="saveinfoEst5" name="ROline5" size="5" placeholder="0.0H" hidden>
-         <button onclick="saveROfunctionAdd()" id="ROline5a" hidden>+</button>
-         <br>
-         <input type="text" id="saveinfoLine6" name="ROline6" placeholder="L" size="2" maxlength="2" hidden>&nbsp
-         <input type="text" id="saveinfoDescription6" name="ROline6" size="50" placeholder="Description" hidden>&nbsp
-         <input type="text" id="saveinfoEst6" name="ROline6" size="5" placeholder="0.0H" hidden>
-         <button onclick="saveROfunctionAdd()" id="ROline6a" hidden>+</button>
-         <br>
-         <input type="text" id="saveinfoLine7" name="ROline7" placeholder="L" size="2" maxlength="2" hidden>&nbsp
-         <input type="text" id="saveinfoDescription7" name="ROline7" size="50" placeholder="Description" hidden>&nbsp
-         <input type="text" id="saveinfoEst7" name="ROline7" size="5" placeholder="0.0H" hidden>
-        </form>
-     <s1 id="FlagResult";>
-     </s1>
-
-    -->
-
-
-
-    
-
-
-
-
-
-
-
-
-
+      <div class="phoneDiv" id="phoneDiv" style="display:none"> <!-- PHONE DIV-->
+        <table style="width:100%">
+          <tr>
+            <td><s4>Techs</s4></td>
+          </tr>
+          <tr>
+            <td><s5>Jude 110</s5></td>
+            <td><s5>201</s5></td>
+            <input type="text" id="technumber" value="110" hidden>
+          </tr>
+          <tr>
+            <td><s5>Eric 39</s5></td>
+            <td><s5>205</s5></td>
+          </tr>
+          <tr>
+            <td><s5>Alex 13</s5></td>
+            <td><s5></s5></td>
+          </tr>
+          <tr>
+            <td><s5>Mike 139</s5></td>
+            <td><s5></s5></td>
+          </tr>
+          <tr>
+            <td><s5>Cai 120</s5></td>
+            <td><s5>203</s5></td>
+          </tr>
+          <tr>
+            <td><s5>Brennen 124</s5></td>
+            <td><s5>203</s5></td>
+          </tr>
+          <tr>
+            <td><s5>Artem 146</s5></td>
+            <td><s5></s5></td>
+          </tr>
+          <tr>
+            <td><s5>Nik 108</s5></td>
+            <td><s5>206</s5></td>
+          </tr>
+          <tr>
+            <td><s5>Abood 145</s5></td>
+            <td><s5></s5></td>
+          </tr>
+          <tr>
+            <td><s5>Jacky 149</s5></td>
+            <td><s5></s5></td>
+          </tr>
+          <tr>
+            <td><s5>Dmitri</s5></td>
+            <td><s5>207</s5></td>
+          </tr>
+          <tr>
+            <td><s4>Service</s4></td>
+            <td><s5>333</s5></td>
+          </tr>
+          <tr>
+            <td><s5>Debra</s5></td>
+            <td><s5>242</s5></td>
+          </tr>
+          <tr>
+            <td><s5>Rey</s5></td>
+            <td><s5>230</s5></td>
+          </tr>
+          <tr>
+            <td><s5>Drew</s5></td>
+            <td><s5>221</s5></td>
+          </tr>
+          <tr>
+            <td><s5>Raj</s5></td>
+            <td><s5>243</s5></td>
+          </tr>
+          <tr>
+          <tr>
+            <td><s5>Jennifer</s5></td>
+            <td><s5>223</s5></td>
+          </tr>
+            <td><s5>Simon</s5></td>
+            <td><s5>258</s5></td>
+          </tr>
+          <tr>
+            <td><s4>Parts</s4></td>
+            <td><s5>555</s5></td>
+          </tr>
+          <tr>
+            <td><s5>Manager</s5></td>
+            <td><s5>248</s5></td>
+          </tr>
+          <tr>
+            <td><s5>Jan</s5></td>
+            <td><s5>252</s5></td>
+          </tr>
+          <tr>
+            <td><s5>Hardam</s5></td>
+            <td><s5>251</s5></td>
+          </tr>
+        </table>
+        <button type="button" onclick="toggleDiv('phoneDiv')" style="width: 100%">Close</button>
+      </div>
     </div><!-- END OF MAIN STORY DIV-->
-    <div class="newMainDiv" id="notMe" style="display: block;";>
+    <div class="newMainDiv" id="notMe" style="display: block;"; > <!-- MAIN LOCK SCREEN -->
       <div class="newSecondaryDiv"> <!-- Not Me Div -->
         <s2d>You do not have the authorizations required for this page</s2d>
       </div>
@@ -3178,106 +3268,13 @@ function testButtonFunction(functionInput){
         </p>
         <br><p>
         Last updated: 20 May 2023</p></s3l>
-    
-    
+        <div class="password">
+          <form id="PasswordForm" onsubmit="PwordCheck('Password')">
+          <input type="password" id="passInput" placeholder="Password..." size="18">
+          <a type="reset"><i id="PwordSubmit" class="fa fa-arrow-circle-o-right" onclick="PwordCheck('Password');"></i></a>
+          </form>
+        </div> 
       </div>
-    </div>
-    <div class="phoneDiv" id="phoneDiv" style="display:none">
-      <table style="width:100%">
-        <tr>
-          <td><s4>Techs</s4></td>
-        </tr>
-        <tr>
-          <td><s5>Jude 110</s5></td>
-          <td><s5>201</s5></td>
-          <input type="text" id="technumber" value="110" hidden>
-        </tr>
-        <tr>
-          <td><s5>Eric 39</s5></td>
-          <td><s5>205</s5></td>
-        </tr>
-        <tr>
-          <td><s5>Alex 13</s5></td>
-          <td><s5></s5></td>
-        </tr>
-        <tr>
-          <td><s5>Mike 139</s5></td>
-          <td><s5></s5></td>
-        </tr>
-        <tr>
-          <td><s5>Cai 120</s5></td>
-          <td><s5>203</s5></td>
-        </tr>
-        <tr>
-          <td><s5>Brennen 124</s5></td>
-          <td><s5>203</s5></td>
-        </tr>
-        <tr>
-          <td><s5>Artem 146</s5></td>
-          <td><s5></s5></td>
-        </tr>
-        <tr>
-          <td><s5>Nik 108</s5></td>
-          <td><s5>206</s5></td>
-        </tr>
-        <tr>
-          <td><s5>Abood 145</s5></td>
-          <td><s5></s5></td>
-        </tr>
-        <tr>
-          <td><s5>Jacky 149</s5></td>
-          <td><s5></s5></td>
-        </tr>
-        <tr>
-          <td><s5>Dmitri</s5></td>
-          <td><s5>207</s5></td>
-        </tr>
-        <tr>
-          <td><s4>Service</s4></td>
-          <td><s5>333</s5></td>
-        </tr>
-        <tr>
-          <td><s5>Debra</s5></td>
-          <td><s5>242</s5></td>
-        </tr>
-        <tr>
-          <td><s5>Rey</s5></td>
-          <td><s5>230</s5></td>
-        </tr>
-        <tr>
-          <td><s5>Drew</s5></td>
-          <td><s5>221</s5></td>
-        </tr>
-        <tr>
-          <td><s5>Raj</s5></td>
-          <td><s5>243</s5></td>
-        </tr>
-        <tr>
-        <tr>
-          <td><s5>Jennifer</s5></td>
-          <td><s5>223</s5></td>
-        </tr>
-          <td><s5>Simon</s5></td>
-          <td><s5>258</s5></td>
-        </tr>
-        <tr>
-          <td><s4>Parts</s4></td>
-          <td><s5>555</s5></td>
-        </tr>
-        <tr>
-          <td><s5>Manager</s5></td>
-          <td><s5>248</s5></td>
-        </tr>
-        <tr>
-          <td><s5>Jan</s5></td>
-          <td><s5>252</s5></td>
-        </tr>
-        <tr>
-          <td><s5>Hardam</s5></td>
-          <td><s5>251</s5></td>
-        </tr>
-      </table>
-      <button type="button" onclick="toggleDiv('phoneDiv')" style="width: 100%">Close</button>
     </div>
   </body>
 </html>
