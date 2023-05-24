@@ -1219,14 +1219,14 @@ Todo:
       var functionFlagTechResult = "FLAG ";
       var flagEnter = "<br>";
       if (document.getElementById("flagTech").value != 0){ //sets tech number or leaves it as default
-        var flagTech = document.getElementById("flagTech").value;
+        flagTech = document.getElementById("flagTech").value;
       }
       functionFlagTechResult += flagTech + flagEnter;
       if (document.getElementById("flagR").checked == true){ //show or hide date/ro field
         document.getElementById("flagRO").hidden = false;
         document.getElementById("flagDate").hidden = true;
         document.getElementById("flagReset").hidden = false;
-        functionFlagTechResult += "R" + flagEnter + document.getElementById("flagRO").value + flagEnter;
+        functionFlagTechResult += "R" + flagEnter +flagEnter+ document.getElementById("flagRO").value + flagEnter;
       } else if (document.getElementById("flagD").checked == true){ //show or hide date/ro field
         document.getElementById("flagRO").hidden = true;
         document.getElementById("flagDate").hidden = false;
