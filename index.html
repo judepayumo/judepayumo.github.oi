@@ -1219,14 +1219,14 @@ Todo:
       var functionFlagTechResult = "FLAG ";
       var flagEnter = "<br>";
       if (document.getElementById("flagTech").value != 0){ //sets tech number or leaves it as default
-        flagTech = document.getElementById("flagTech").value;
+        var flagTech = document.getElementById("flagTech").value;
       }
       functionFlagTechResult += flagTech + flagEnter;
       if (document.getElementById("flagR").checked == true){ //show or hide date/ro field
         document.getElementById("flagRO").hidden = false;
         document.getElementById("flagDate").hidden = true;
         document.getElementById("flagReset").hidden = false;
-        functionFlagTechResult += "R" + flagEnter +flagEnter+ document.getElementById("flagRO").value + flagEnter;
+        functionFlagTechResult += "R" + flagEnter + document.getElementById("flagRO").value + flagEnter;
       } else if (document.getElementById("flagD").checked == true){ //show or hide date/ro field
         document.getElementById("flagRO").hidden = true;
         document.getElementById("flagDate").hidden = false;
@@ -2575,6 +2575,13 @@ Todo:
 
 				<span class="a"></span>
 
+        <button class="button"; onclick="CopyToClipboard('2023030015')">
+          INSTALLATION OF AC DRAIN HOSES 0.1H (CHECK) </button><br>
+          <s1 id="2023030015"> PER MB RECALL CAMPAIGN 2023030015, INSTALLATION OF AC DRAIN HOSES MUST BE CHECKED AND CORRECTED IF NECESSARY. RELEASED FLOOR COVERING IN FOOTWELL ON DRIVERS AND FRONT PASSENGER SIDE. CHECKED CONDENSATION DRAIN HOSE AT LEFT AND RIGHT OF AIR CONDITIONING SYSTEM. CONFIRMED DRAIN HOSES ARE INSTALLED WITHOUT CREASES, IN PROPER CONTACT, AND INSERTED CORRECTLY ON THE HEATER BOX AND TUNNEL. CONFIRMED THERE ARE NO NOTICEABLE TRACES OF WATER. ASSEMBLED IN REVERSE ORDER. 
+          </s1>
+
+        <span class="a"></span>
+
 				<button class="button"; onclick="CopyToClipboard('2020110007')">
 					205, 253 ISOLATION OF POWER STEERING WIRE HARNESS 0.6H</button><br>
 					<s1 id="2020110007";>AS PER MB RECALL CAMPAIGN 2020110007 , WIRES AND CONNECTORS FOR ELECTRIC STEERING MUST BE CHECKED FOR MOISTURE OR DAMAGE. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER. RELEASED AND REMOVED BOTH CONNECTORS AT STEERING CONTROL UNIT. CHECKED CONNECTORS FOR MOISTURE/DAMAGE. FOUND NO MOISTURE/DAMAGE. EXPOSED WIRING HARNESS UP TO 300MM FROM CONNECTOR. CHECKED WIRES FOR CUTS IN INSULATION. FOUND NO CUTS IN INSULATION. NO FURTHER STEPS REQUIRED. REINSTALLED PARTS IN REVERSE ORDER.
@@ -3021,6 +3028,22 @@ Todo:
         
         <span class="a"></span>
 
+        <button class="button"; onclick="CopyToClipboard('2022060012')">
+          CONTROL OF THE REVERSING LIGHT 0.8H</button><br>
+          <s1 id="2022060012";>
+            PER MBC CAMPAIGN 2022060012, THE EXTERIOR REVERSE LAMP MAY REMAIN ILLUMINATED EVEN IF VEHICLE IS NOT IN REVERSE DUE TO A MALFUNCTION CAUSE BY VIBRATIONS. CONNECTED XENTRY AND BATTERY CHARGER. PERFORMED CONTROL UNIT SOFTWARE UPDATE OF REAR SAM (N10/8). DISCONNECTED BATTERY GROUND. REMOVED SERVICE FLAP IN THE REAR RIGHT TRUNK. REMOVED REAR FUSE AND RELAY MODULE. WIGGLED REAR L PLUG AND CYCLED THE CONNECTION. CONNECTED BATTERY GROUND. SWITCHED ON IGNITION AND ENGAGED REVERSE. CHECKED REVERSE LAMPS. CONFIRMED REVERSE LAMPS ARE WORKING NORMALLY. PERFORMED QUICK TEST AND CLEARED FAULTS. ASSEMBLED IN REVERSE ORDER. 
+          </s1>
+          <s3><br>The control unit should have the software with part number <b>A1679027813</b> after the update.
+            <br>In the case of a permanently lit up reverse light without reverse engaged, replace rear SAM.
+          </s3>
+
+        <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('2022020002')">
+          EMERGENCY SPARE WHEEL 0.4H</button><br>
+          <s1 id="2022020002";>
+            PER MBC CAMPAIGN 2022020002, IT MAY NOT BE POSSIBLE TO MOUNT THE 19IN SPARE WHEEL ON THE FRONT AXLE. CONFIRMED CODE 690 IS NOT IN THE VEHICLE DATA CARD AND CODE 669 IS. REMOVED SPARE WHEEL. INSTALLED NEW SPARE WHEEL, HOLDER, AND INFLATOR IN THE TRUNK. REPLACED ADDITIONAL TIRE PRESSURE INFORMATION LABEL ON THE LEFT B-PILLAR. ASSEMBLED IN REVERSE ORDER.</s1>
+
 
 
         
@@ -3133,6 +3156,11 @@ Todo:
   				<textarea id="COPYPASTE" rows="30" cols="110"></textarea>
 
         <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('teststory1')">
+          TEMP STORY M264 CYLINDER HEAD</button><br>
+          <s1 id="teststory1";>
+            Test drove the vehicle. confirmed cel is on. Connected xentry and battery charger. Performed quick test. Found stored faults ******************. <br>Checked smooth operation actual values of injectors. Found cylinders 1 and 2 are intermittently higher than spec. Removed engine cover and visually inspected engine.Checked tips for relevant documents. Found tips LI01.30-P-074497. per tips, possible cause is leaking valve seats in the cylinder head. Following tips document, removed all injectors and performed mechanical compression test. Found cylinder compression values are 195, 120, 210, 210 psi. Cylinder 2 has low compression. allowable spec is less than 25%. Partially removed charge air cooler to manually turn the crankshaft. performed cylinder leakage test. .</s1>
 
       </div>
 			<div class="bottomDiv" id="bottomDiv" style="display:block"> <!-- SCROLL BUTTONS -->
@@ -3267,7 +3295,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-        Last updated: 20 May 2023</p></s3l>
+        Last updated: 01 Jun 2023</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
