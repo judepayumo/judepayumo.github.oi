@@ -381,7 +381,7 @@ Todo:
       }
       if (document.getElementById("ServiceNotesIn").value != 0) {
         var ServiceNotesF = ServiceNotesF + document.getElementById("ServiceNotesIn").value;
-        ServiceNotesF = ServiceNotesF.replace(/\./g, ". <br>");
+        ServiceNotesF = ServiceNotesF.replace(/\;/g, "<br>");
       }else {
         var ServiceNotesF = "";
       }
@@ -499,6 +499,7 @@ Todo:
       var ASpanoramic = "CLEANED AND LUBRICATED PANORAMIC SLIDING SUNROOF MECHANISMS. ACTUATED ROOF AND CONFIRMED SMOOTH OPERATION.";
       var ASbrakeFlush = "CONNECTED BRAKE PRESSURE BLEEDER. LIFTED THE VEHICLE. DRAINED 1L OF BRAKE FLUID FROM THE SYSTEM FROM ALL FOUR BRAKE CALIPERS. ";
       var AScombination = "REMOVED COMBINATION FILTER AND INSTALLED NEW FILTER."
+      var ASpredust = "REMOVED PRE-DUST FILTER AND INTALLED NEW FILTER.";
       if (document.getElementById("ASpanoramic").checked == true) {
         var additionalServiceResult = ASpanoramic;
       }
@@ -507,6 +508,9 @@ Todo:
       }
       if (document.getElementById("ASbrakeFlush").checked == true) {
         var additionalServiceResult = ASbrakeFlush;
+      }
+      if (document.getElementById("ASpredust").checked == true) {
+        var additionalServiceResult = ASpredust;
       }
       document.getElementById("additionalService").innerHTML = additionalServiceResult;
     }
@@ -983,7 +987,7 @@ Todo:
     function functionPDI(){
       var basePDI = "INSPECTED EXTERIOR AND INTERIOR FOR DAMAGE, SCRATCHES, OR DENTS. REMOVED PROTECTIVE SHIPPING COVERS. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. ";
       var midPDI = "CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED QUICK TEST. " ; 
-      var endPDI = "PERFORMED CHECKS AS PER PDI CHECKLIST. PERFORMED HAND-OVER IN WORKSHOP MENU AND RESET TPMS. TEST DROVE THE VEHICLE. TORQUED ALL FOUR WHEELS TO SPEC. ATTACHED FINAL QUICK TEST AND PDI CHECKLIST TO THE WORK ORDER.";
+      var endPDI = "PERFORMED CHECKS PER PDI CHECKLIST. PERFORMED HAND-OVER IN WORKSHOP MENU AND RESET TPMS. TEST DROVE THE VEHICLE. TORQUED ALL FOUR WHEELS TO SPEC. ATTACHED FINAL QUICK TEST AND PDI CHECKLIST TO THE WORK ORDER.";
       var notesPDI = "<br>**********<br>";
       var PDIisEQ = document.getElementById("PDIEQ").checked;
       if (PDIisEQ) {
@@ -1025,80 +1029,6 @@ Todo:
       }
       document.getElementById("PDIstory").innerHTML = basePDI;
     }
-    function diagnosisStory(){
-      var diagStoryBase = "";
-      if (document.getElementById("diagdrive").checked == true) {
-        var diagStoryBase = diagStoryBase + "TEST DROVE THE VEHICLE. ";
-      }
-      if (document.getElementById("diagpos").checked == true) {
-        var diagStoryBase = diagStoryBase + "CONFIRMED CUSTOMER'S CONCERN: ";
-      }else if (document.getElementById("diagneg").checked == true) {
-        var diagStoryBase = diagStoryBase + "COULD NOT CONFIRM CUSTOMER'S CONCERN: ";
-      }
-      var diagStoryBase = diagStoryBase +  document.getElementById("diagcomplaint").value;
-      if (document.getElementById("diagscan").checked == true && document.getElementById("diagcharge").checked == true) {
-        var diagStoryBase = diagStoryBase + " CONNECTED BATTERY CHARGER AND XENTRY DIAGNOSIS. ";
-      }else if (document.getElementById("diagscan").checked == true) {
-        var diagStoryBase = diagStoryBase + " CONNECTED XENTRY DIAGNOSIS. ";
-      }
-      if (document.getElementById("diagiqt").checked == true) {
-        var diagStoryBase = diagStoryBase + "PERFORMED INITIAL QUICK TEST. ";
-      }
-      if (document.getElementById("diagfaultsn").value != 0 && document.getElementById("diagfaultsn").value <= 5) {
-        var diagStoryBase = diagStoryBase + "FOUND " + document.getElementById("diagfaultsn").value + " FAULTS REGARDING CUSTOMER'S CONCERN. ";
-      }
-      if (document.getElementById("diagfaultsn").value >= 6) {
-        var diagStoryBase = diagStoryBase + "FOUND MULTIPLE FAULTS REGARDING CUSTOMER'S CONCERN. ";
-      }
-      if (document.getElementById("diagfaultsn").value == 0 && document.getElementById("diagiqt").checked == true) {
-        var diagStoryBase = diagStoryBase + "FOUND NO FAULTS REGARDING CUSTOMER'S CONCERN. ";
-      }
-      if (document.getElementById("diagnote").value != 0) {
-        var diagStoryBase = diagStoryBase + document.getElementById("diagnote").value;
-      }
-
-      //ADD FAULT DESCRIPTIONS HERE
-      //ADD FAULTS HERE
-
-      if (document.getElementById("diagtips").checked == true) {
-        var diagStoryBase = diagStoryBase + " CHECKED TIPS FOR RELEVANT DOCUMENTS. ";
-        if (document.getElementById("diagtipsd").value == 0) {
-          var diagStoryBase = diagStoryBase + "FOUND NONE. ";
-        }
-      }
-      if (document.getElementById("diagtipsd").value != 0) {
-        var diagStoryBase = diagStoryBase + "FOUND TIPS DOCUMENT " + document.getElementById("diagtipsd").value + ". ";
-        if (document.getElementById("diagtipsr").value != 0) {
-          var diagStoryBase = diagStoryBase + "PER TIPS, " + document.getElementById("diagtipsr").value;
-        }
-      }
-      if (document.getElementById("diagupdate").checked == true) {
-        if (document.getElementById("diagcu").value != 0) {
-          var diagStoryBase = diagStoryBase + "CHECKED " + document.getElementById("diagcu").value + " FOR SOFTWARE UPDATES. ";
-        } else if (document.getElementById("diagcu").value == 0) {
-          var diagStoryBase = diagStoryBase + "CHECKED RELEVANT CONTROL UNITS FOR SOFTWARE UPDATES. ";
-        }
-      }
-      if (document.getElementById("diagupdatel").value != 0) {
-        var diagStoryBase = diagStoryBase + "FOUND A " + document.getElementById("diagupdatel").value + "MIN UPDATE IS AVAILABLE. ";
-      }
-      if (document.getElementById("diagupdated").checked == true) {
-        var diagStoryBase = diagStoryBase + "PERFORMED SOFTWARE UPDATE. ";
-      }
-      if (document.getElementById("diageqt").checked == true) {
-        var diagStoryBase = diagStoryBase + " ERASED FAULT MEMORY. ";
-      }
-      if (document.getElementById("diagfqt").checked == true) {
-        var diagStoryBase = diagStoryBase + " PERFORMED FINAL QUICK TEST. ";
-      }
-      if (document.getElementById("diagfdrive").checked == true) {
-        var diagStoryBase = diagStoryBase + "PERFORMED FINAL TEST DRIVE. ";
-      }
-      if (document.getElementById("diagnotefinal").value != 0) {
-        var diagStoryBase = diagStoryBase + document.getElementById("diagnotefinal").value;
-      }
-      document.getElementById("diagStory").innerHTML = diagStoryBase;
-    }//add fault descriptions & auto add lines
     function function2022050005(){
       var bbrResult = "AS PER MB RECALL CAMPAIGN 2022050005, FUNCTION OF THE BRAKE BOOSTER MIGHT BE IMPAIRED DUE TO ADVANCED CORROSION. REMOVED ELASTIC BAND AROUND THE BRAKE BOOSTER. TOOK A PHOTO OF THE BAND ON THE VIN LABEL OF THE B-PILLAR AND SENT VIA EMAIL TO THE SERVICE MANAGER. CHECKED CORROSION OF THE BRAKE BOOSTER USING THE REMOVED ELASTIC BAND. ";
       if (document.getElementById("bbr1").checked == true) {
@@ -1150,7 +1080,10 @@ Todo:
       if (document.getElementById("preqadblue").value != 0) {                                                   // if AdBlue
         preqFunctionResult = preqFunctionResult + preqDesctoDesc + document.getElementById("preqadblue").value + "L ADBLUE";
       }
-      if (document.getElementById("preqPredust").checked == true) {                                             // if PRE-DUST
+      if (document.getElementById("preqL0").value != 0) {                                                       // if combo has a line
+        preqFunctionResult = preqFunctionResult + preqDesctoLine + document.getElementById("preqL0").value + preqLinetoDesc + "PRE-DUST FILTER";
+        document.getElementById("preqPredust").checked = true;
+      }else if (document.getElementById("preqL0").value == 0 && document.getElementById("preqPredust").checked) { // if predust has no line but checked
         preqFunctionResult = preqFunctionResult + preqDesctoDesc + "PRE-DUST FILTER";
       }
       if (document.getElementById("preqL2").value != 0) {                                                       // if combo has a line
@@ -1213,37 +1146,6 @@ Todo:
       }
 
     }//support function for functionPreq
-    function functionFlagTech(id){
-      event.preventDefault();
-      var flagTech = 110;
-      var functionFlagTechResult = "FLAG ";
-      var flagEnter = "<br>";
-      if (document.getElementById("flagTech").value != 0){ //sets tech number or leaves it as default
-        var flagTech = document.getElementById("flagTech").value;
-      }
-      functionFlagTechResult += flagTech + flagEnter;
-      if (document.getElementById("flagR").checked == true){ //show or hide date/ro field
-        document.getElementById("flagRO").hidden = false;
-        document.getElementById("flagDate").hidden = true;
-        document.getElementById("flagReset").hidden = false;
-        functionFlagTechResult += "R" + flagEnter + document.getElementById("flagRO").value + flagEnter;
-      } else if (document.getElementById("flagD").checked == true){ //show or hide date/ro field
-        document.getElementById("flagRO").hidden = true;
-        document.getElementById("flagDate").hidden = false;
-        document.getElementById("flagReset").hidden = false;
-        functionFlagTechResult += "D" + flagEnter + document.getElementById("flagDate").value + flagEnter;
-      }
-      if (id) { //reset function
-        functionFlagTechResult = "";
-        document.getElementById("flagRO").hidden = true;
-        document.getElementById("flagDate").hidden = false;
-        document.getElementById("flagReset").hidden = true;
-        document.getElementById("flagD").checked = true;
-        document.getElementById("flagR").checked = false;
-      }
-      document.getElementById("flagCopy").innerHTML = functionFlagTechResult;
-    }
-    
     </script>
   <script>//main page functions
     function PwordCheck(data){
@@ -1676,7 +1578,8 @@ Todo:
         <s2>Service</s2><br>
         <!--<button class="button"; onclick="testButtonFunction(97)">Test Button</button><br> FIXME --> 
         <button class="button"; onclick="CopyToClipboard('SERVICE')">
-          SERVICE</button><br>
+          SERVICE</button>&nbsp&nbsp<button class="button"; onclick="CopyToClipboard('SERVICEvalues')">
+            VALUES & NOTES</button>&nbsp&nbsp<button class="button"; onclick="CopyToClipboard('ServiceNotesOut')">NOTES</button><br>
 					<form oninput="serviceStory()">
 						<input type="checkbox" id="predust" name="predust">
 						<label class="s1" for="predust">Pre-Dust&nbsp;</label>
@@ -1725,60 +1628,12 @@ Todo:
 					</form>
 					<s1 id="SERVICE">
 						<s1 id="storyResult">TEST DROVE THE VEHICLE. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. TOPPED OFF COOLANT, WASHER FLUID, AND CHECKED BRAKE FLUID LEVEL. INSPECTED ENGINE BAY. LIFTED THE VEHICLE. CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY FOR DAMAGE. REMOVED ENGINE LOWER COVER AND DRAINED ENGINE OIL. INSTALLED DRAIN PLUG WITH NEW CRUSH WASHER. REINSTALLED ENGINE LOWER COVER. ADJUSTED ALL TIRE PRESSURES. INSTALLED NEW ENGINE OIL FILTER. ADDED ENGINE OIL TO SPEC. REPLACED KEY BATTERY. STARTED THE ENGINE AND CONFIRMED CORRECT LEVEL OF ENGINE OIL. RESET TPMS AND SERVICE REMINDER. </s1>
+            <s1 id="SERVICEvalues">
 						<s1 id="storyBrake"></s1>
 						<s1 id="storyTires"></s1>
 						<s1 id="storyPSI"></s1>
-						<s1 id="ServiceNotesOut"></s1>
+						<s1 id="ServiceNotesOut"></s1></s1>
 					</s1>
-
-					<span class="a"></span>
-
-				<button class="button"; onclick="CopyToClipboard('diagStory')">
-					XENTRY DIAGNOSIS</button><br>
-					<form id="diagnosisForm" oninput="diagnosisStory()">
-						<input type="checkbox" id="diagdrive" name="diag">
-						<label class="s1" for="diagdrive">Test Drive</label>
-						<input type="radio" id="diagpos" name="diag">
-						<label class="s1" for="diagpos">C</label>
-						<input type="radio" id="diagneg" name="diag">
-						<label class="s1" for="diagneg">NC</label>
-						<input type="text" id="diagcomplaint" name="diag" size="40" placeholder="Complaint">
-						&nbsp; &nbsp;
-						<input type="checkbox" id="diagscan" name="diag" checked>
-						<label class="s1" for="diagscan">Xentry&nbsp;</label>
-						<input type="checkbox" id="diagcharge" name="diag" checked>
-						<label class="s1" for="diagcharge">Charger&nbsp;</label>
-						&nbsp; &nbsp;
-						<input type="checkbox" id="diagiqt" name="diag" checked>
-						<label class="s1" for="diagiqt">IQT&nbsp;</label>
-						<input type="checkbox" id="diageqt" name="diag">
-						<label class="s1" for="diageqt">EFM&nbsp;</label>
-						<input type="checkbox" id="diagfqt" name="diag">
-						<label class="s1" for="diagfqt">FQT&nbsp;</label>
-						<br>
-						<input type="checkbox" id="diagupdate" name="diag">
-						<label class="s1" for="diagupdate">Software</label>
-						<input type="text" id="diagcu" name="diag" size="5" placeholder="CU">
-						<input type="text" id="diagupdatel" name="diag" size="5" placeholder="min">
-						<input type="checkbox" id="diagupdated" name="diag">
-						&nbsp; &nbsp;
-						<input type="checkbox" id="diagtips" name="diag">
-						<label class="s1" for="diagtips">Tips</label>
-						<input type="text" id="diagtipsd" name="diag" size="15" placeholder="GI20.10-P-059075">
-						<input type="text" id="diagtipsr" name="diag" size="15" placeholder="Cause/Remedy">
-						&nbsp; &nbsp;
-						<label class="s1">Faults: </label>
-						<input type="text" id="diagfaultsn" name="diag" size="3" placeholder="0" value="0" maxlength="2">
-						<input type="text" id="diagnote" name="diag" size="15" placeholder="Note">
-						&nbsp; &nbsp;
-						<input type="checkbox" id="diagfdrive" name="diag">
-						<label class="s1" for="diagfdrive">Test Drive</label>
-						<input type="text" id="diagnotefinal" name="diag" size="15" placeholder="Final Note">
-						&nbsp; &nbsp;
-						<input type="reset" onclick="diagnosisStory()" value="Reset">
-
-					</form>
-					<s1 id="diagStory">CONFIRMED CUSTOMER'S CONCERN: CHECK ENGINE LIGHT IS ON. CONNECTED BATTERY CHARGER AND XENTRY DIAGNOSIS. PERFORMED INITIAL QUICK TEST. FOUND MULTIPLE FAULTS REGARDING CUSTOMER'S CONCERN. ******** ERASED FAULT MEMORY. PERFORMED FINAL QUICK TEST. PERFORMED FINAL TEST DRIVE. CONFIRMED CEL IS NO LONGER ON.</s1>
 
 				<span class="a"></span>
 
@@ -1801,11 +1656,13 @@ Todo:
 					ADDITIONAL SERVICE</button><br>
 					<form oninput="functionAdditionalService()">
 						<input type="radio" id="ASpanoramic" name="additionalService">
-						<label class="s1" for="ASpanoramic">Clean / Lube Panoramic Roof&emsp;</label>
+						<label class="s1" for="ASpanoramic">Pano-Roof Service&emsp;</label>
 						<input type="radio" id="ASbrakeFlush" name="additionalService">
 						<label class="s1" for="ASbrakeFlush">Brake Flush&emsp;</label>
             <input type="radio" id="AScombination" name="additionalService">
 						<label class="s1" for="AScombination">Combination Filter&emsp;</label>
+            <input type="radio" id="ASpredust" name="additionalService">
+						<label class="s1" for="ASpredust">Pre-dust Filter&emsp;</label>
 					</form>
 					<s1 id="additionalService";></s1>
 
@@ -1834,8 +1691,9 @@ Todo:
 						<input type="reset" onclick="functionPDI()" value="Reset">
 					</form>
 					<s1 id="PDIstory";>INSPECTED EXTERIOR AND INTERIOR FOR DAMAGE, SCRATCHES, OR DENTS. REMOVED SEAT AND FLOOR COVERS. INSTALLED SUPPLIED FLOOR MATS. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. TOPPED OFF COOLANT, WASHER FLUID, AND CHECKED BRAKE FLUID AND ENGINE OIL LEVELS. INSPECTED ENGINE BAY. LIFTED THE VEHICLE. CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY FOR DAMAGE. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED QUICK TEST. CONFIRMED NO ACTIVE FAULTS. PRINTED FINAL QUICK TEST. ADJUSTED ALL TIRE PRESSURES TO SPEC. PERFORMED CHECKS AS PER PDI CHECKLIST. PERFORMED HAND-OVER IN WORKSHOP MENU AND RESET TPMS. TEST DROVE THE VEHICLE. ATTACHED FINAL QUICK TEST, FUEL RECEIPT, AND PDI CHECKLIST TO THE WORK ORDER.</s1><br>
-          <s3>WIS: AP00.20-P-1100B</s3><br>
-          <s3>WIS: AP00.20-P-1100E for EQ</s3>
+          <s3>WIS: AP00.20-P-1100B for Most Models</s3><br>
+          <s3>WIS: AP00.20-P-1100E for EQ 294, 295, 296, 297</s3><br>
+          <s3>WIS: AP00.20-P-1100D for 206, 214, 223, 232, 243, 254</s3>
 
 				<span class="a"></span>
 
@@ -2172,7 +2030,8 @@ Todo:
         <span class="a"></span>
 
         <button class="button"; onclick="CopyToClipboard('M264ENGINE')">
-          M264 ENGINE</button><br>
+          M264 ENGINE</button>&nbsp&nbsp<button class="button"; onclick="CopyToClipboard('M264ENGINEP')">
+            COPY PARTS</button><br>
           <form oninput="functionM264ENGINE()">
             <input type="text" id="WDDSJ4GB1" value="Pa" hidden>
             <input type="radio" id="M264ENGINESpark" name="M264ENGINE">
@@ -3028,8 +2887,14 @@ Todo:
 
         <button class="button"; onclick="CopyToClipboard('2023010004')">
           TIGHTNESS REAR 0.1H</button><br>
+          <form oninput="recallNumberSelect(recallNumber,'20230100042023010003')">
+            <input type="radio" checked value="2023010004" id="2023010004Form" name="recallNumber">
+            <label class="s1" for="2023010004Form">2023010004&nbsp;</label>
+            <input type="radio" value="2023010003" id="2023010003Form" name="recallNumber">
+            <label class="s1" for="2023010003Form">2023010003&nbsp;</label>
+          </form>
           <s1 id="2023010004";>
-            PER MB CAMPAIGN 2023010004, WATER MIGHT PERMEATE INTO THE REAR AREA OF THE VEHICLE AND, OVER TIME, ACCUMULATE IN THE SPARE WHEEL WELL. REMOVED SPARE WHEEL. INSPECTED WHEEL WELL AREA, AS DETAILED IN THE RECALL DOCUMENT, FOR HUMIDITY OR WATER DEPOSITS. FOUND NONE. REMOVED EXISTING CLOSING GROMMET AND RETROFITTED WATER DRAIN GROMMET. ASSEMBLED IN REVERSE ORDER.
+            PER MB CAMPAIGN <s1 id="20230100042023010003">2023010004</s1>, WATER MIGHT PERMEATE INTO THE REAR AREA OF THE VEHICLE AND, OVER TIME, ACCUMULATE IN THE SPARE WHEEL WELL. REMOVED SPARE WHEEL. INSPECTED WHEEL WELL AREA, AS DETAILED IN THE RECALL DOCUMENT, FOR HUMIDITY OR WATER DEPOSITS. FOUND NONE. REMOVED EXISTING CLOSING GROMMET AND RETROFITTED WATER DRAIN GROMMET. ASSEMBLED IN REVERSE ORDER.
           </s1>
 
         <span class="a"></span>
@@ -3088,6 +2953,7 @@ Todo:
             <input type="number" id="preqBattn" value="1" size="1" maxlength="1" min="1" max="4">                 <!-- num of Key Battery:  -->
             <input type="checkbox" id="preqBatt" name="preqq">
             <label class="s1" for="preqBatt">Key Battery&nbsp;</label>
+            <input type="text" id="preqL0" placeholder="Line" size="1" maxlength="1">
             <input type="checkbox" id="preqPredust" name="preqq">
             <label class="s1" for="preqPredust">Pre-Dust Filter&nbsp;</label>
             <br>
@@ -3128,44 +2994,6 @@ Todo:
             <input type="text" id="preqL12D" placeholder="Description" size="50" hidden>
           </form>
           <s6 id="partsrequest"></s6>
-
-        <span class="a"></span>
-
-        <button class="button"; onclick="CopyToClipboard('flagCopy')">
-          FLAG TECH</button><br>
-          <form oninput="functionFlagTech()">
-            <label class="s1" type="text" for="flagTech">FLAG</label>
-            <input type="text" id="flagTech" placeholder="110" size="5" maxlength="3">
-            <input type="radio" id="flagR" name="flagType">
-            <label class="s1" type="text" for="flagR">R </label>
-            <input type="radio" id="flagD" name="flagType" checked>
-            <label class="s1" type="text" for="flagD">D &nbsp;</label>
-            <input type="text" id="flagRO" placeholder="RO" size="10" hidden maxlength="6" onsubmit="CopyToClipboard('flagCopy')">
-            <input type="text" id="flagDate" placeholder="Date" size="10" maxlength="2" max="31" onsubmit="CopyToClipboard('flagCopy')">
-            <button type="submit" value="GO" onclick="CopyToClipboard('flagCopy')" hidden>Submit</button>&nbsp;&nbsp;
-            <button type="submit" id="flagReset" onclick="functionFlagTech('true')">Reset</button>
-          </form>
-          <s6 id="flagCopy">FLAG 110<br>D<br><br></s6>
-
-        <span class="a"></span>
-
-
-        <!--
-
-        <button class="button"; onclick="CopyToClipboard('TorqueSpecs')">
-          TORQUE SPECIFICATIONS</button><br>
-          <form oninput="functionTorqueSpecs()">
-            <input type="radio" id="TS_test1" name="TSpec">
-            <label class="s1" for="TS_test1">TS test 1</label>
-            <input type="radio" id="TS_test2" name="TSpec">
-            <label class="s1" for="TS_test2">TS test 2</label>
-            <input type="radio" id="TS_test3" name="TSpec" checked>
-            <label class="s1" for="TS_test3">TS test 3</label>
-          </form>
-          <s1 id="TorqueSpecs";>
-          </s1>
-        -->
-        <span class="a"></span>
 
         <button class="button" onclick="CopyToClipboard('COPYPASTE')">
   				COPY-PASTE STORY
@@ -3303,7 +3131,7 @@ Todo:
         The following disclaimer outlines the terms and conditions for accessing and using this Website. By accessing or using the Website, you agree to comply with these terms and conditions. If you do not agree with any part of this disclaimer, please refrain from using the Website.
         </p><br>
         <p><li class="l1">
-        Personal Use Only: The content and information provided on this Website are intended solely for personal use by the Website owner (Jude Payumo). The information shared on this Website is based on personal opinions, experiences, and research. It should not be considered professional advice, guidance, or a substitute for it. The content on this Website is not intended for use by any other person or entity.
+        Personal Use Only: The content and information provided on this Website are intended solely for personal use by the Website owner. The information shared on this Website is based on personal opinions, experiences, and research. It should not be considered professional advice, guidance, or a substitute for it. The content on this Website is not intended for use by any other person or entity.
         </p></li>
         <p><li class="l1">
         No Reliance: Visitors to the Website should not rely on the information provided as a guide or authoritative source. The information may be inaccurate, incomplete, or outdated. Therefore, you should not use the content on this Website as a guide for any purpose. Any actions taken based on the information provided on this Website are at your own risk.
@@ -3321,7 +3149,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-        Last updated: 02 Jun 2023</p></s3l>
+        Last updated: 07 Jun 2023</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
