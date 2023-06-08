@@ -389,7 +389,7 @@ Todo:
       document.getElementById("storyBrake").innerHTML = storyBrake;
       document.getElementById("storyTires").innerHTML = storyTires;
       document.getElementById("storyPSI").innerHTML = storyPSI;
-      document.getElementById("ServiceNotesOut").innerHTML = ServiceNotesF;
+      document.getElementById("ServiceNotesOut").innerHTML = ServiceNotesF.toUpperCase();
 
     }
     function form2021010004(){
@@ -1025,7 +1025,9 @@ Todo:
       }
       basePDI += endPDI;
       if (document.getElementById("PDInotes").value != 0) {
-        basePDI += notesPDI + document.getElementById("PDInotes").value;
+        notesPDI += document.getElementById("PDInotes").value;
+        notesPDI = notesPDI.replace(/\;/g, "<br>");
+        basePDI += notesPDI.toUpperCase();
       }
       document.getElementById("PDIstory").innerHTML = basePDI;
     }
@@ -1574,7 +1576,7 @@ Todo:
       </div>
     </div>
     <div class="newMainDiv" id="onOff" style="display:none" onscroll="mainPageFocus()" onclick="mainPageFocus()";> <!-- Main Story Div -->                   <!-- FIXME:  -->
-      <div class="newSecondaryDiv" id="svcDiv" style="display: block;"> <!-- ***************************************** SERVICE STORIES ******************************************* -->
+      <div class="newSecondaryDiv" id="svcDiv" style="display:block;"> <!-- ***************************************** SERVICE STORIES ******************************************* -->
         <s2>Service</s2><br>
         <!--<button class="button"; onclick="testButtonFunction(97)">Test Button</button><br> FIXME --> 
         <button class="button"; onclick="CopyToClipboard('SERVICE')">
@@ -3149,7 +3151,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-        Last updated: 07 Jun 2023</p></s3l>
+        Last updated: 08 Jun 2023</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
