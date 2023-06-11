@@ -273,46 +273,6 @@ Todo:
       border: none;
       background-color: none;
     }
-    .dropDown{
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      display: inline-block;
-      height: 300px;
-      width: fit-content;
-    }
-    .dropDown input{
-      background-color: rgba(61, 61, 61, 0.4);
-      border-radius: 6px 2px;
-      border: 0.5px solid rgb(0, 0, 0);
-      font-size: 12px;
-      font-family: "Lucinda Console", "Curier New", monospace;
-      color: rgb(243, 243, 243);
-      width: 150px;
-      height: 25px;
-    }
-    .dropDownContent{
-      display: none;
-      position: absolute;
-      font-size: 15px;
-      font-family: "Lucinda Console", "Curier New", monospace;
-      min-width: 150px;
-      max-height: 200px;
-      overflow: auto;
-      border: 0.5px solid rgb(0, 0, 0);
-      border-radius: 6px 2px;
-      z-index: 1;
-    }
-    .dropDownContent a {
-      color: black;
-      padding: 3px 6px; /*top r bot l*/
-      display: block;
-      text-decoration: none;
-    }
-
-    .dropdown a:hover {
-      background-color: #ddd;
-    }
 
   </style>
   <script>//main story functions
@@ -499,7 +459,7 @@ Todo:
       var ASpanoramic = "CLEANED AND LUBRICATED PANORAMIC SLIDING SUNROOF MECHANISMS. ACTUATED ROOF AND CONFIRMED SMOOTH OPERATION.";
       var ASbrakeFlush = "CONNECTED BRAKE PRESSURE BLEEDER. LIFTED THE VEHICLE. DRAINED 1L OF BRAKE FLUID FROM THE SYSTEM FROM ALL FOUR BRAKE CALIPERS. ";
       var AScombination = "REMOVED COMBINATION FILTER AND INSTALLED NEW FILTER."
-      var ASpredust = "REMOVED PRE-DUST FILTER AND INTALLED NEW FILTER.";
+      var ASpredust = "REMOVED PRE-DUST FILTER AND INSTALLED NEW FILTER.";
       if (document.getElementById("ASpanoramic").checked == true) {
         var additionalServiceResult = ASpanoramic;
       }
@@ -1431,6 +1391,22 @@ Todo:
       }
       document.getElementById("M133ENGINE").innerHTML = functionM133ENGINEResult;
     }
+
+    function functionM256ENGINE(){
+      var functionM256ENGINEResult = "";
+      var functionM256ENGINEPResult = "";
+      var M256ENGINESpark = "REMOVED UPPER ENGINE COVER AND UPPER ENGINE NOISE DAMPER. REMOVED IGNITION COILS. CLEANED AREA WITH COMPRESSED AIR. REMOVED ALL SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND <b>TORQUED TO 15NM</b>. APPLIED SPARK PLUGS GREASE. INSTALLED IGNITION COILS AND TORQUED TO 8NM. ASSEMBLED IN REVERSE ORDER. ";
+      var M256ENGINEFilter = "REMOVED UPPER ENGINE COVER. REMOVED ENGINE AIR FILTER HOUSING COVER. REMOVED AIR FILTER. INSTALLED NEW FILTER AND ASSEMBLED IN REVERSE ORDER. ";
+      if (document.getElementById("M256ENGINESpark").checked == true) {
+        var functionM256ENGINEResult = M256ENGINESpark;
+      }
+      if (document.getElementById("M256ENGINEFilter").checked == true) {
+        var functionM256ENGINEResult = M256ENGINEFilter;
+      }
+      document.getElementById("M256ENGINE").innerHTML = functionM256ENGINEResult;
+      document.getElementById("M256ENGINEP").innerHTML = functionM256ENGINEPResult;
+    }
+
     function functionM260ENGINE(){
       var functionM260ENGINEResult = "";
       var functionM260ENGINEPResult = "";
@@ -1523,23 +1499,6 @@ Todo:
         var functionOM642ENGINEResult = OM642ENGINEOilFilterHouse;
       }
       document.getElementById("OM642ENGINE").innerHTML = functionOM642ENGINEResult;
-    }
-  </script>
-  <script>//test area functions
-    function filterFunction() {
-      var input, filter, ul, li, a, i;
-      input = document.getElementById("myInput");
-      filter = input.value.toUpperCase();
-      div = document.getElementById("dropDownContent");
-      a = div.getElementsByTagName("a");
-      for (i = 0; i < a.length; i++) {
-        txtValue = a[i].textContent || a[i].innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          a[i].style.display = "";
-        } else {
-          a[i].style.display = "none";
-        }
-      }
     }
   </script>
   <script>// test area 2
@@ -1945,37 +1904,7 @@ Todo:
 
 				<span class="a"></span>
 
-				<button class="button"; onclick="CopyToClipboard('M276NENGINE')">
-					M276 NA ENGINE</button><br>
-					<form oninput="functionM276NENGINE()">
-						<input type="radio" id="M276NENGINESpark" name="M276NENGINE">
-						<label class="s1" for="M276NENGINESpark">Spark Plugs&emsp;</label>
-						<input type="radio" id="M276NENGINEFrontCover" name="M276NENGINE">
-						<label class="s1" for="M276NENGINEFrontCover">Front Cover Seal&emsp;</label>
-						<input type="radio" id="M276NENGINEAirFilter" name="M276NENGINE">
-						<label class="s1" for="M276NENGINEAirFilter">Air Filters&emsp;</label>
-					</form>
-					<s1 id="M276NENGINE";></s1>
-
-				<span class="a"></span>
-
-
-				<button class="button"; onclick="CopyToClipboard('M276ENGINE')">
-					M276 BITURBO ENGINE</button><br>
-					<form oninput="functionM276ENGINE()">
-            <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
-						<input type="radio" id="M276ENGINESpark" name="M276ENGINE">
-						<label class="s1" for="M276ENGINESpark">Spark Plugs&emsp;</label>
-						<input type="radio" id="M276ENGINEFrontCover" name="M276ENGINE">
-						<label class="s1" for="M276ENGINEFrontCover">Front Cover Seal&emsp;</label>
-						<input type="radio" id="M276ENGINEAirFilter" name="M276ENGINE">
-						<label class="s1" for="M276ENGINEAirFilter">Air Filters&emsp;</label>
-					</form>
-					<s1 id="M276ENGINE";></s1>
-
-				<span class="a"></span>
-
-				<button class="button"; onclick="CopyToClipboard('M133ENGINE')">
+        <button class="button"; onclick="CopyToClipboard('M133ENGINE')">
 					M133 ENGINE</button><br>
 					<form oninput="functionM133ENGINE()">
 						<input type="radio" id="M133ENGINERemove" name="M133ENGINE">
@@ -1983,9 +1912,31 @@ Todo:
 					</form>
 					<s1 id="M133ENGINE";></s1>
 
+        <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('M156ENGINE')">
+					M156 ENGINE</button><br>
+					<form oninput="functionM156ENGINE()">
+						<input type="radio" id="M156ENGINERemove" name="M156ENGINE">
+						<label class="s1" for="M156ENGINERemove">Remove Engine&emsp;</label>
+						<input type="radio" id="M156ENGINEInstall" name="M156ENGINE">
+						<label class="s1" for="M156ENGINEInstall">Install Engine&emsp;</label>
+						<input type="radio" id="M156ENGINEHeadBolts" name="M156ENGINE">
+						<label class="s1" for="M156ENGINEHeadBolts">Head Bolts and Gasket&emsp;</label>
+						<input type="radio" id="M156ENGINECamCovers" name="M156ENGINE">
+						<label class="s1" for="M156ENGINECamCovers">Front Cam Cover Re-seal&emsp;</label>
+						<input type="radio" id="M156ENGINEThermostat" name="M156ENGINE">
+						<label class="s1" for="M156ENGINEThermostat">Thermostat&emsp;</label>
+						<input type="radio" id="M156ENGINEOilFilterHousing" name="M156ENGINE">
+						<label class="s1" for="M156ENGINEOilFilterHousing">Oil Filter Housing&emsp;</label>
+						<input type="radio" id="M156ENGINESparks" name="M156ENGINE">
+						<label class="s1" for="M156ENGINESparks">Spark Plugs&emsp;</label>
+					</form>
+					<s1 id="M156ENGINE";></s1>
+
 				<span class="a"></span>
 
-				<button class="button"; onclick="CopyToClipboard('C63S')">
+        <button class="button"; onclick="CopyToClipboard('C63S')">
 					M177 C63S ENGINE SWAP</button><br>
 					<s1 id="C63S";>
 						LIFTED THE VEHICLE AND REMOVED BOTH FRONT WHEELS AND FENDER LINERS. REMOVED FRONT LOWER COVER, LOWER ENGINE COVER, LOWER TRANSMISSION COVER. DISCONNECTED BATTERY GROUND. REMOVED FRONT BUMPER. EXTRACTED AC REFRIGERANT AND DRAINED COOLANT FROM HIGH AND LOW TEMP COOLING SYSTEMS. DISCONNECTED RELEVANT ELECTRICAL CONNECTORS, FUEL LINE, AND COOLANT HOSES PRIOR TO ENGINE AND TRANSMISSION REMOVAL. REMOVED RADIATOR FAN, RADIATOR AND CONDENSER ASSEMBLY. REMOVED LEFT AND RIGHT LOW TEMP COOLANT PUMPS, OIL COOLER. DISCONNECTED DRIVE SHAFT FROM TRANSMISSION OUTPUT FLANGE. DISCONNECTED LEFT AND RIGHT CAT FROM MID EXHAUST PIPES. DISCONNECTED SPRING LINKS AND TORQUE STRUTS FROM FRONT SUBFRAME, LEFT AND RIGHT OUTER TIE RODS FROM KNUCKLES, SWAY BAR LINKS FROM SPRING LINKS, SWAY BAR MOUNT FROM BODY.  LOWERED THE ENGINE AND TRANSMISSION ASSEMBLY. DETACHED TRANSMISSION FROM THE ENGINE. PLACED ENGINE ON ENGINE STAND. INSTALLED NEW ENGINE ON FRONT SUBFRAME AND TORQUED ENGINE MOUNT BOLT TO SPEC. INSTALLED TRANSMISSION, TRANSMISSION COOLER LINES AND BRACKETS. TRANSFERRED AC COMPRESSOR, LEFT AND RIGHT CATS, MOUNTS AND CLIPS FOR EXHAUSTS AND WIRINGS TO NEW ENGINE. RE-INSTALLED SUBFRAME WITH NEW ENGINE AND TRANSMISSION ASSEMBLED. ASSEMBLED IN REVERSE ORDER.
@@ -2015,6 +1966,20 @@ Todo:
 
 				<span class="a"></span>
 
+        <button class="button"; onclick="CopyToClipboard('M256ENGINE')">
+					M256 ENGINE</button>&nbsp&nbsp<button class="button"; onclick="CopyToClipboard('M256ENGINEP')">
+            COPY PARTS</button><br>
+          <form oninput="functionM256ENGINE()">
+            <input type="radio" id="M256ENGINESpark" name="M256ENGINE">
+            <label class="s1" for="M256ENGINESpark">Spark Plugs&emsp;</label>
+            <input type="radio" id="M256ENGINEFilter" name="M256ENGINE">
+            <label class="s1" for="M256ENGINEFilter">Air Filter&emsp;</label>
+          </form>
+          <s1 id="M256ENGINE";></s1>
+          <s3 id="M256ENGINEP"></s3>
+
+        <span class="a"></span>
+      
 				<button class="button"; onclick="CopyToClipboard('M260ENGINE')">
 					M260 ENGINE</button>&nbsp&nbsp<button class="button"; onclick="CopyToClipboard('M260ENGINEP')">
             COPY PARTS</button><br>
@@ -2045,28 +2010,6 @@ Todo:
           </form>
           <s1 id="M264ENGINE";></s1>
           <s3 id="M264ENGINEP";></s3>
-
-				<span class="a"></span>
-
-				<button class="button"; onclick="CopyToClipboard('M156ENGINE')">
-					M156 ENGINE</button><br>
-					<form oninput="functionM156ENGINE()">
-						<input type="radio" id="M156ENGINERemove" name="M156ENGINE">
-						<label class="s1" for="M156ENGINERemove">Remove Engine&emsp;</label>
-						<input type="radio" id="M156ENGINEInstall" name="M156ENGINE">
-						<label class="s1" for="M156ENGINEInstall">Install Engine&emsp;</label>
-						<input type="radio" id="M156ENGINEHeadBolts" name="M156ENGINE">
-						<label class="s1" for="M156ENGINEHeadBolts">Head Bolts and Gasket&emsp;</label>
-						<input type="radio" id="M156ENGINECamCovers" name="M156ENGINE">
-						<label class="s1" for="M156ENGINECamCovers">Front Cam Cover Re-seal&emsp;</label>
-						<input type="radio" id="M156ENGINEThermostat" name="M156ENGINE">
-						<label class="s1" for="M156ENGINEThermostat">Thermostat&emsp;</label>
-						<input type="radio" id="M156ENGINEOilFilterHousing" name="M156ENGINE">
-						<label class="s1" for="M156ENGINEOilFilterHousing">Oil Filter Housing&emsp;</label>
-						<input type="radio" id="M156ENGINESparks" name="M156ENGINE">
-						<label class="s1" for="M156ENGINESparks">Spark Plugs&emsp;</label>
-					</form>
-					<s1 id="M156ENGINE";></s1>
 
 				<span class="a"></span>
 
@@ -2114,6 +2057,36 @@ Todo:
 					<s1 id="M274ENGINE";></s1>
           <s3 id="M274ENGINEParts";></s3>
           <s3 id="M274ENGINETorque";></s3>
+
+				<span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('M276NENGINE')">
+					M276 NA ENGINE</button><br>
+					<form oninput="functionM276NENGINE()">
+						<input type="radio" id="M276NENGINESpark" name="M276NENGINE">
+						<label class="s1" for="M276NENGINESpark">Spark Plugs&emsp;</label>
+						<input type="radio" id="M276NENGINEFrontCover" name="M276NENGINE">
+						<label class="s1" for="M276NENGINEFrontCover">Front Cover Seal&emsp;</label>
+						<input type="radio" id="M276NENGINEAirFilter" name="M276NENGINE">
+						<label class="s1" for="M276NENGINEAirFilter">Air Filters&emsp;</label>
+					</form>
+					<s1 id="M276NENGINE";></s1>
+
+				<span class="a"></span>
+
+
+				<button class="button"; onclick="CopyToClipboard('M276ENGINE')">
+					M276 BITURBO ENGINE</button><br>
+					<form oninput="functionM276ENGINE()">
+            <input type="text" id="WDDSJ4GB1G" value="wor" hidden>
+						<input type="radio" id="M276ENGINESpark" name="M276ENGINE">
+						<label class="s1" for="M276ENGINESpark">Spark Plugs&emsp;</label>
+						<input type="radio" id="M276ENGINEFrontCover" name="M276ENGINE">
+						<label class="s1" for="M276ENGINEFrontCover">Front Cover Seal&emsp;</label>
+						<input type="radio" id="M276ENGINEAirFilter" name="M276ENGINE">
+						<label class="s1" for="M276ENGINEAirFilter">Air Filters&emsp;</label>
+					</form>
+					<s1 id="M276ENGINE";></s1>
 
 				<span class="a"></span>
 
@@ -2174,78 +2147,6 @@ Todo:
       </div> <!--main story-->
       <div class="newSecondaryDiv" id="RclDiv"> <!-- ***************************************** RECALL STORIES ******************************************** -->
         <s2>Recalls</s2><br>
-        <div class="dropDown">  <!-- DROPDOWN SEARCH BAR FIXME-->
-          <input type="text" placeholder="Search.." id="myInput" size="20" onclick="toggleDiv('dropDownContent')" onkeyup="filterFunction()">
-          <div class="dropDownContent" id="dropDownContent">
-            <a onclick="scrollToId('2023030007')">2023030007</a>
-            <a onclick="scrollToId('2023010012')">2023010012</a>
-            <a onclick="scrollToId('2023010004')">2023010004</a>
-            <a onclick="scrollToId('2022120002')">2022120002</a>
-            <a onclick="scrollToId('2022100016')">2022100016</a>
-            <a onclick="scrollToId('2022100014')">2022100014</a>
-            <a onclick="scrollToId('2022100010')">2022100010</a>
-            <a onclick="scrollToId('2022100006')">2022100006</a>
-            <a onclick="scrollToId('2022100003')">2022100003</a>
-            <a onclick="scrollToId('2022080017')">2022080017</a>
-            <a onclick="scrollToId('2022080011')">2022080011</a>
-            <a onclick="scrollToId('2022080010')">2022080010</a>
-            <a onclick="scrollToId('2022070003')">2022070003</a>
-            <a onclick="scrollToId('2022060017')">2022060017</a>
-            <a onclick="scrollToId('2022060015')">2022060015</a>
-            <a onclick="scrollToId('2022050012')">2022050012</a>
-            <a onclick="scrollToId('2022050008')">2022050008</a>
-            <a onclick="scrollToId('2022050005')">2022050005</a>
-            <a onclick="scrollToId('2022040012')">2022040012</a>
-            <a onclick="scrollToId('2022040008')">2022040008</a>
-            <a onclick="scrollToId('2022030023')">2022030023</a>
-            <a onclick="scrollToId('2022030016')">2022030016</a>
-            <a onclick="scrollToId('2022030005')">2022030005</a>
-            <a onclick="scrollToId('2022010005')">2022010005</a>
-            <a onclick="scrollToId('2022010002')">2022010002</a>
-            <a onclick="scrollToId('2021080008')">2021080008</a>
-            <a onclick="scrollToId('2021070002')">2021070002</a>
-            <a onclick="scrollToId('2021060014')">2021060014</a>
-            <a onclick="scrollToId('2021060007')">2021060007</a>
-            <a onclick="scrollToId('2021050008')">2021050008</a>
-            <a onclick="scrollToId('2021050004')">2021050004</a>
-            <a onclick="scrollToId('2021040013')">2021040013</a>
-            <a onclick="scrollToId('2021040008')">2021040008</a>
-            <a onclick="scrollToId('2021030020')">2021030020</a>
-            <a onclick="scrollToId('2021030006')">2021030006</a>
-            <a onclick="scrollToId('2021030004')">2021030004</a>
-            <a onclick="scrollToId('2021020006')">2021020006</a>
-            <a onclick="scrollToId('2021020005')">2021020005</a>
-            <a onclick="scrollToId('2021020001')">2021020001</a>
-            <a onclick="scrollToId('2021010004')">2021010004</a>
-            <a onclick="scrollToId('2020120005')">2020120005</a>
-            <a onclick="scrollToId('2020120001')">2020120001</a>
-            <a onclick="scrollToId('2020110014')">2020110014</a>
-            <a onclick="scrollToId('2020110007')">2020110007</a>
-            <a onclick="scrollToId('2020110003')">2020110003</a>
-            <a onclick="scrollToId('2020100007')">2020100007</a>
-            <a onclick="scrollToId('2020090004')">2020090004</a>
-            <a onclick="scrollToId('2020080003')">2020080003</a>
-            <a onclick="scrollToId('2020070009')">2020070009</a>
-            <a onclick="scrollToId('2020060019')">2020060019</a>
-            <a onclick="scrollToId('2020050010')">2020050010</a>
-            <a onclick="scrollToId('2020030008')">2020030008</a>
-            <a onclick="scrollToId('2020030007')">2020030007</a>
-            <a onclick="scrollToId('2020030004')">2020030004</a>
-            <a onclick="scrollToId('2020020002')">2020020002</a>
-            <a onclick="scrollToId('2019090012')">2019090012</a>
-            <a onclick="scrollToId('2019090004')">2019090004</a>
-            <a onclick="scrollToId('2019080012')">2019080012</a>
-            <a onclick="scrollToId('2019070002')">2019070002</a>
-            <a onclick="scrollToId('2019040004')">2019040004</a>
-            <a onclick="scrollToId('2019030023')">2019030023</a>
-            <a onclick="scrollToId('2019030013')">2019030013</a>
-            <a onclick="scrollToId('2018100006')">2018100006</a>
-            <a onclick="scrollToId('2018060002')">2018060002</a>
-            <a onclick="scrollToId('2018030001')">2018030001</a>
-            <a onclick="scrollToId('2017120012')">2017120012</a>
-            <a onclick="scrollToId('2017110007')">2017110007</a>
-          </div>
-        </div>
         <button class="button"; onclick="CopyToClipboard('2020030008A')">
 					X204 DRIVER AND PASSENGER AIRBAG RECALL 1.0H</button><br>
 					<form oninput=recallNumberSelect(parsScan,"2020030008Ascan")>
@@ -3150,7 +3051,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-        Last updated: 07 Jun 2023</p></s3l>
+        Last updated: 11 Jun 2023</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
