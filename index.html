@@ -1391,7 +1391,6 @@ Todo:
       }
       document.getElementById("M133ENGINE").innerHTML = functionM133ENGINEResult;
     }
-
     function functionM256ENGINE(){
       var functionM256ENGINEResult = "";
       var functionM256ENGINEPResult = "";
@@ -1406,7 +1405,6 @@ Todo:
       document.getElementById("M256ENGINE").innerHTML = functionM256ENGINEResult;
       document.getElementById("M256ENGINEP").innerHTML = functionM256ENGINEPResult;
     }
-
     function functionM260ENGINE(){
       var functionM260ENGINEResult = "";
       var functionM260ENGINEPResult = "";
@@ -1499,6 +1497,28 @@ Todo:
         var functionOM642ENGINEResult = OM642ENGINEOilFilterHouse;
       }
       document.getElementById("OM642ENGINE").innerHTML = functionOM642ENGINEResult;
+    }
+    function functionTransmission724(){
+      var Transmission724Result = "";
+      var Transmission724Torques = "";
+      var Transmission724Service = "REMOVED AIR FILTER HOUSING. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER. DRAINED TRANSMISSION FLUID. REMOVED TRANSMISSION OIL PAN AND FILTERS. INSTALLED NEW FILTERS. RE-INSTALLED PAN AND DRAIN BOLTS WITH NEW GASKETS. TORQUED BOLTS TO SPEC. PRE-FILLED TRANSMISSION FLUID. PERFORMED FLUID LEVEL CHECK AND CONFIRMED TRANSMISSION FLUID LEVEL IS GOOD. INSTALLED DIPSTICK TUBE CAP WITH NEW LOCK.";
+      var Transmission724ServiceT = "Pre-fill with 4L, check level with xentry and special dipstick<br>Drain Plug 30Nm";
+      var Transmission724AuxPump = "REMOVED AIR FILTER HOUSING. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER. DRAINED TRANSMISSION FLUID. REMOVED TRANSMISSION OIL PAN AND FILTERS. REMOVED HYDRAULIC UNIT ASSEMBLY. REMOVED AUXILIARY OIL PUMP. INSTALLED NEW AUX PUMP. ASSEMBLED IN REVERSE ORDER. PRE-FILLED TRANSMISSION FLUID. CONNECTED XENTRY AND BATTERY CHARGER. PERFORMED FLUID LEVEL CHECK AND CONFIRMED TRANSMISSION FLUID LEVEL IS GOOD. INSTALLED DIPSTICK TUBE CAP WITH NEW LOCK. ";
+      var Transmission724CU = "REMOVED AIR FILTER HOUSING. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER. DRAINED TRANSMISSION FLUID. REMOVED TRANSMISSION OIL PAN AND FILTERS. REMOVED HYDRAULIC UNIT ASSEMBLY. REMOVED AUXILIARY OIL PUMP. REMOVED TRANSMISSION CONTROL UNIT. INSTALLED NEW CONTROL UNIT. ASSEMBLED IN REVERSE ORDER. PRE-FILLED TRANSMISSION FLUID. CONNECTED XENTRY AND BATTERY CHARGER. PERFORMED INITIAL START UP OF NEW DKG CONTROL UNIT. PERFORMED FLUID LEVEL CHECK AND CONFIRMED TRANSMISSION FLUID LEVEL IS GOOD. PERFORMED ADAPTATION TEACH IN OF TRANSMISSION. INSTALLED DIPSTICK TUBE CAP WITH NEW LOCK. ";
+      if (document.getElementById("Transmission724Service").checked == true) {
+        var Transmission724Result = Transmission724Service;
+        var Transmission724Torques = Transmission724ServiceT;
+      }
+      if (document.getElementById("Transmission724AuxPump").checked == true) {
+        var Transmission724Result = Transmission724AuxPump;
+        var Transmission724Torques = Transmission724ServiceT;
+      }
+      if (document.getElementById("Transmission724CU").checked == true) {
+        var Transmission724Result = Transmission724CU;
+        var Transmission724Torques = Transmission724ServiceT;
+      }
+      document.getElementById("724Transmission").innerHTML = Transmission724Result;
+      document.getElementById("724TransmissionT").innerHTML = Transmission724Torques;
     }
   </script>
   <script>// test area 2
@@ -1839,6 +1859,21 @@ Todo:
 						<br>Prefill w/ 7.5L - drained from oil pan + torque converter</s3>
 
 				<span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('724Transmission')">
+          TRANSMISSION 724 7-Speed DCT DKG</button><br>
+          <form oninput="functionTransmission724()">
+						<input type="Radio" id="Transmission724Service" name="Transmission724">
+						<label class="s1" for="Transmission724Service">Transmission Service&emsp;</label>
+						<input type="Radio" id="Transmission724AuxPump" name="Transmission724">
+						<label class="s1" for="Transmission724AuxPump">Auxiliary Pump&emsp;</label>
+						<input type="Radio" id="Transmission724CU" name="Transmission724">
+						<label class="s1" for="Transmission724CU">DKG Control Unit&emsp;</label>
+					</form>
+					<s1 id="724Transmission"></s1><br>
+          <s3 id="724TransmissionT"></s3>
+
+          <span class="a"></span>
 
 				<button class="button"; onclick="CopyToClipboard('SPARK3')">
 					REPLACE SPARK PLUGS M157</button><br>
@@ -3051,7 +3086,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-        Last updated: 11 Jun 2023</p></s3l>
+        Last updated: 21 Jun 2023</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
