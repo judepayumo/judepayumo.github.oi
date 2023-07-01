@@ -278,8 +278,14 @@ Todo:
   <script>//main story functions
     function serviceStory(){
       var count = 0;
-      var ServiceNotesF = "<BR>**********<br>"
-      var storyBase = "TEST DROVE THE VEHICLE. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. TOPPED OFF COOLANT, WASHER FLUID, AND CHECKED BRAKE FLUID LEVEL. INSPECTED ENGINE BAY. LIFTED THE VEHICLE. CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY FOR DAMAGE. DRAINED ENGINE OIL. ";
+      var ServiceNotesF = "<BR>**********<br>";
+      var storyBase = "";
+      var storyBase2 = "CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. TOPPED OFF COOLANT, WASHER FLUID, AND CHECKED BRAKE FLUID LEVEL. INSPECTED ENGINE BAY. LIFTED THE VEHICLE. CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY FOR DAMAGE. DRAINED ENGINE OIL. ";
+      if (document.getElementById("testdrive").checked == true){
+        storyBase += "TEST DROVE THE VEHICLE. " + storyBase2;
+      } else {
+        storyBase += storyBase2;
+      }
       if (document.getElementById("drainPlug").checked == false) {
         storyBase += "INSTALLED DRAIN PLUG WITH NEW CRUSH WASHER. ";
       }	else {
@@ -945,9 +951,9 @@ Todo:
       document.getElementById("2022030016").innerHTML = base2022030016;
     }
     function functionPDI(){
-      var basePDI = "INSPECTED EXTERIOR AND INTERIOR FOR DAMAGE, SCRATCHES, OR DENTS. REMOVED PROTECTIVE COVERS. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. ";
-      var midPDI = "CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED QUICK TEST. " ; 
-      var endPDI = "PERFORMED CHECKS PER PDI CHECKLIST. PERFORMED HAND-OVER IN WORKSHOP MENU AND RESET TPMS. TEST DROVE THE VEHICLE. TORQUED ALL FOUR WHEELS TO SPEC. ATTACHED FINAL QUICK TEST AND PDI CHECKLIST TO THE WORK ORDER.";
+      var basePDI = "INSPECTED EXTERIOR AND INTERIOR FOR DAMAGES, SCRATCHES, OR DENTS. REMOVED PROTECTIVE COVERS. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. ";
+      var midPDI = "CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY. CONNECTED XENTRY SCANNER AND PERFORMED QUICK TEST. " ; 
+      var endPDI = "PERFORMED CHECKS PER PDI CHECKLIST. CONFIRMED VEHICLE HAND-OVER IN WORKSHOP MENU AND RESET TPMS. TEST DROVE THE VEHICLE. TORQUED ALL FOUR WHEELS TO SPEC. ATTACHED FINAL QUICK TEST AND PDI CHECKLIST TO THE WORK ORDER.";
       var notesPDI = "<br>**********<br>";
       var PDIisEQ = document.getElementById("PDIEQ").checked;
       if (PDIisEQ) {
@@ -965,7 +971,7 @@ Todo:
         basePDI += "INSTALLED WHEEL LOCK BOLT SET. ";
       }
       if (document.getElementById("PDIfrontplate").checked == true) {
-        basePDI += "INSTALLED FRONT LICENSE PLATE BRACKET. ";
+        basePDI += "INSTALLED FRONT LICENCE PLATE BRACKET. ";
       }
       if (document.getElementById("PDIfPSI").value != 0 && document.getElementById("PDIrPSI").value != 0) {
         var PDItirepressures = "SET TIRE PRESSURES TO " + document.getElementById("PDIfPSI").value + " PSI FRONTS, " + document.getElementById("PDIrPSI").value + " PSI REARS";
@@ -980,8 +986,11 @@ Todo:
       basePDI += PDItirepressures;
       if (document.getElementById("PDIfuel").checked == true && PDIisEQ) {
         basePDI += "PLUGGED IN EV TO CHARGE OVERNIGHT. ";
+        document.getElementById("PDIfuelR").hidden = true;
       } else if (document.getElementById("PDIfuel").checked == true) {
         basePDI += "FUELLED UP THE VEHICLE AND ATTACHED RECEIPT TO THE WORK ORDER. ";
+        document.getElementById("PDIfuelR").hidden = false;
+        basePDI += "FUEL RECEIPT NUMBER IS " + document.getElementById("PDIfuelR").value + ". ";
       }
       basePDI += endPDI;
       if (document.getElementById("PDInotes").value != 0) {
@@ -1562,12 +1571,14 @@ Todo:
           SERVICE</button>&nbsp&nbsp<button class="button"; onclick="CopyToClipboard('SERVICEvalues')">
             VALUES & NOTES</button>&nbsp&nbsp<button class="button"; onclick="CopyToClipboard('ServiceNotesOut')">NOTES</button><br>
 					<form oninput="serviceStory()">
+            <input type="checkbox" id="testdrive" name="testdrive" checked>
+						<label class="s1" for="testdrive">Drive&nbsp;</label>
 						<input type="checkbox" id="predust" name="predust">
 						<label class="s1" for="predust">Pre-Dust&nbsp;</label>
 						<input type="checkbox" id="combofilter" name="combofilter">
 						<label class="s1" for="combofilter">Dust Filter&nbsp;</label>
 						<input type="checkbox" id="frontWiper" name="frontWiper">
-						<label class="s1" for="frontWiper">Front Wipers&nbsp;</label>
+						<label class="s1" for="frontWiper">F Wipers&nbsp;</label>
 						<input type="checkbox" id="keyBattery" name="keyBattery" checked>
 						<label class="s1" for="keyBattery">Key Battery&nbsp;</label>
 						<input type="checkbox" id="midtronic" name="midtronic">
@@ -1644,7 +1655,8 @@ Todo:
 						<input type="checkbox" id="PDIfrontplate" name="PDI">
 						<label class="s1" for="PDIfrontplate">Front Plate Bracket&emsp;</label>
 						<input type="checkbox" id="PDIfuel" name="PDI">
-						<label class="s1" for="PDIfuel">Fuel Up&emsp;</label>
+						<label class="s1" for="PDIfuel">Fuel Up</label>
+            <input type="text" id="PDIfuelR" size="13" placeholder="Fuel Receipt #" hidden maxlength="10">&emsp;
             <input type="checkbox" id="PDInoFault" name="PDI" checked>
 						<label class="s1" for="PDInoFault">No Faults  &emsp;</label>
 						<label class="s1"> Tire Pressures: </label>
@@ -1656,7 +1668,7 @@ Todo:
 						&nbsp; &nbsp;
 						<input type="reset" onclick="functionPDI()" value="Reset">
 					</form>
-					<s1 id="PDIstory";>INSPECTED EXTERIOR AND INTERIOR FOR DAMAGE, SCRATCHES, OR DENTS. REMOVED SEAT AND FLOOR COVERS. INSTALLED SUPPLIED FLOOR MATS. CHECKED ALL EXTERIOR LIGHTS, HORN, HAZARDS, WIPERS AND WASHERS. TOPPED OFF COOLANT, WASHER FLUID, AND CHECKED BRAKE FLUID AND ENGINE OIL LEVELS. INSPECTED ENGINE BAY. LIFTED THE VEHICLE. CHECKED ALL FOUR WHEELS, TIRES, AND BRAKES. CHECKED STEERING AND SUSPENSION COMPONENTS. INSPECTED UNDERBODY FOR DAMAGE. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED QUICK TEST. CONFIRMED NO ACTIVE FAULTS. PRINTED FINAL QUICK TEST. ADJUSTED ALL TIRE PRESSURES TO SPEC. PERFORMED CHECKS AS PER PDI CHECKLIST. PERFORMED HAND-OVER IN WORKSHOP MENU AND RESET TPMS. TEST DROVE THE VEHICLE. ATTACHED FINAL QUICK TEST, FUEL RECEIPT, AND PDI CHECKLIST TO THE WORK ORDER.</s1><br>
+					<s1 id="PDIstory";>PDI, PRE DELIVERY INSPECTION</s1><br>
           <s3>WIS: AP00.20-P-1100B for Most Models</s3><br>
           <s3>WIS: AP00.20-P-1100E for EQ 294, 295, 296, 297</s3><br>
           <s3>WIS: AP00.20-P-1100D for 206, 214, 223, 232, 243, 254</s3>
@@ -2144,9 +2156,8 @@ Todo:
 					<input type="radio" id="crankcaseDiag" name="crankcaseN">
 					<label class="s1" for="crankcaseDiag">Diagnosis&emsp;</label>
 				</form>
-
 				<s1 id="CRANKCASE";>
-				P052E71
+				P052E71, PCV, CRANKCASE
 				</s1>
 
 				<span class="a"></span>
@@ -2983,10 +2994,6 @@ Todo:
             <td><s5>205</s5></td>
           </tr>
           <tr>
-            <td><s5>Alex 13</s5></td>
-            <td><s5></s5></td>
-          </tr>
-          <tr>
             <td><s5>Mike 139</s5></td>
             <td><s5></s5></td>
           </tr>
@@ -3086,7 +3093,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-        Last updated: 21 Jun 2023</p></s3l>
+        Last updated: 01 Jul 2023</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
