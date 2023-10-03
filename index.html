@@ -425,16 +425,17 @@ Todo:
       document.getElementById("2020120005").innerHTML = base2020120005;
     }
     function safetyStory(){
-      var safetyBase = "TEST DROVE THE VEHICLE. LIFTED THE VEHICLE AND REMOVED FRONT AND REAR RIGHT WHEELS. REMOVED LOWER ENGINE COVER. CHECKED AND ADJUSTED TIRE PRESSURES AND RESET TPMS. INSPECTED BRAKES, SUSPENSION, TIRES, LIGHTS, EXHAUST SYSTEM, SEATBELTS, STEERING COMPONENTS, AND OTHER COMPONENTS OUTLINED IN CERTIFICATE OF INSPECTION (COI) FORM. RE-ASSEMBLED IN REVERSE ORDER. TORQUED ALL FOUR WHEELS. DROVE THE VHEILCE OUT AND RE-TORQUED WHEELS.";
+      var safetyNotesF = "<br>********************** NOTES **********************<br>";
+      var safetyBase = "TEST DROVE VEHICLE. LIFTED THE VEHICLE AND REMOVED FRONT AND REAR WHEELS. CHECKED AND ADJUSTED TIRE PRESSURES. INSPECTED VEHICLE'S UNDERCARRIAGE, ENGINE COMPARTMENT, WHEELS AND TIRES, BRAKE SYSTEMS, BODY EXTERIOR, AND DRIVER'S CONTROLS PER MANITOBA CERTIFICATION OF INSPECTION FORM. ASSEMBLED IN REVERSE ORDER. TORQUED ALL FOUR WHEELS TO SPEC.";
       var safetyBase = safetyBase
-      + "<br>TIRE TREAD DEPTHS: RF= "
+      + "<br>TIRE TREAD DEPTHS: FL= "
+      + document.getElementById("safetylfTire").value
+      + " MM, FR= "
       + document.getElementById("safetyrfTire").value
+      + " MM, RL= "
+      + document.getElementById("safetylrTire").value
       + " MM, RR= "
       + document.getElementById("safetyrrTire").value
-      + " MM, LF= "
-      + document.getElementById("safetylfTire").value
-      + " MM, LR= "
-      + document.getElementById("safetylrTire").value
       + " MM. "
       + "<br> BRAKE PAD THICKNESS: FRONT= "
       + document.getElementById("safetyfPad").value
@@ -458,7 +459,14 @@ Todo:
       } else {
         var safetyBase = safetyBase + "<br> VEHICLE DOES NOT MEET THE SAFETY STANDARD.";
       }
+      if (document.getElementById("safetyNotesIn").value != 0) {
+        safetyNotesF += document.getElementById("safetyNotesIn").value;
+        safetyNotesF = safetyNotesF.replace(/\;/g, "<br>");
+      }else {
+        var safetyNotesF = "";
+      }
       document.getElementById("safetyStoryResult").innerHTML = safetyBase;
+      document.getElementById("safetyNotesResult").innerHTML = safetyNotesF.toUpperCase();
     }
     function functionAdditionalService(){
       var additionalServiceResult = "";
@@ -1560,7 +1568,7 @@ Todo:
         <a href="https://xentry.mercedes-benz.com/workshop/#/order-overview/Local-Content" target="_blank"><i class="fa fa-file-pdf-o"></i>&nbsp&nbsp&nbsp;</a>
         <a href="https://retailfactory.mercedes-benz.com/iri-gui/" target="_blank"><i class="fa fa-diamond"></i>&nbsp&nbsp&nbsp;</a>
         <a href="https://xentry.mercedes-benz.com/xhpi/" target="_blank"><i class="fa fa-cubes"></i>&nbsp&nbsp&nbsp;</a>
-        <a href="https://controlpanel.msoutlookonline.net/portal/aduser/login" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp&nbsp&nbsp;</a>
+        <a href="https://outlook.live.com/mail/0/inbox?nlp=1" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp&nbsp&nbsp;</a>
         <a href="#"><i class="fa fa-phone" onclick="toggleDiv('phoneDiv')"></i>&nbsp&nbsp&nbsp;</a>
         <a href="#"><i class="fa fa-lock" onclick="show('notMe','onOff');"></i>&nbsp&nbsp&nbsp;</a><!--Lock button -->
       </div>
@@ -1728,16 +1736,18 @@ Todo:
 						<label class="s1">Rotor Limit: </label>
 						<input type="text" id="safetyfDiscLim" name="fDiscLim" size="5" placeholder="Fronts" maxlength="4">
 						<input type="text" id="safetyrDiscLim" name="rDiscLim" size="5" placeholder="Rears" maxlength="4">
+            &nbsp; &nbsp;
+						<input type="text" id="safetyNotesIn" size="40" placeholder="Notes">
+						&nbsp; &nbsp;
+						<input type="reset" onclick="safetyStory()" value="Reset">
 					</form>
 					<s1 id="SAFETY">
-						<s1 id="safetyStoryResult">TEST DROVE THE VEHICLE. INSPECTED BRAKES, SUSPENSION, TIRES, LIGHTS, EXHAUST SYSTEM, SEATBELTS, STEERING COMPONENTS, AND OTHER COMPONENTS OUTLINED IN CERTIFICATE OF INSPECTION (COI) FORM.</s1>
+						<s1 id="safetyStoryResult">TEST DROVE VEHICLE. LIFTED THE VEHICLE AND REMOVED FRONT AND REAR WHEELS. CHECKED AND ADJUSTED TIRE PRESSURES. INSPECTED VEHICLE'S UNDERCARRIAGE, ENGINE COMPARTMENT, WHEELS AND TIRES, BRAKE SYSTEMS, BODY EXTERIOR, AND DRIVER'S CONTROLS PER MANITOBA CERTIFICATION OF INSPECTION FORM. ASSEMBLED IN REVERSE ORDER. TORQUED ALL FOUR WHEELS TO SPEC.</s1>
+            <s1 id="safetyNotesResult"></s1>
 						</s1>
 					<s3>
 						<br>Tire tread depths minimum of 1.6mm
-						<!--<br>Rotor < 15" run-out exceeds 0.127 mm or 0.005"
-						<br>Rotor > 15" run-out exceeds 0.250 mm or 0.010"
-						<br>Windshield cracks > 12"
-						<br>Front windows < 50% tint -->
+            <br>WIS: BE42.00-Z-9999AZ Brake Discard Limits
           </s3>
 
 				<span class="a"></span>
@@ -3040,7 +3050,7 @@ Todo:
             <td><s5>203</s5></td>
           </tr>
           <tr>
-            <td><s5>Brennen 124</s5></td>
+            <td><s5>Brennen 127</s5></td>
             <td><s5>203</s5></td>
           </tr>
           <tr>
@@ -3053,6 +3063,14 @@ Todo:
           </tr>
           <tr>
             <td><s5>Jacky 149</s5></td>
+            <td><s5></s5></td>
+          </tr>
+          <tr>
+            <td><s5>Mohamad 160</s5></td>
+            <td><s5></s5></td>
+          </tr>
+          <tr>
+            <td><s5>Tyler 18</s5></td>
             <td><s5></s5></td>
           </tr>
           <tr>
@@ -3080,11 +3098,7 @@ Todo:
             <td><s5>243</s5></td>
           </tr>
           <tr>
-            <td><s5>Jennifer</s5></td>
-            <td><s5>223</s5></td>
-          </tr>
-          <tr>
-            <td><s5>Simon</s5></td>
+            <td><s5>Simon 136</s5></td>
             <td><s5>258</s5></td>
           </tr>
           <tr>
@@ -3131,7 +3145,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-        Last updated: 19 Sep 2023</p></s3l>
+        Last updated: 02 Oct 2023</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
