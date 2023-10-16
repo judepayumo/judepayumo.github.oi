@@ -318,7 +318,7 @@ Todo:
         }
       }
       if (document.getElementById("midtronic").checked == true) {
-        storyBase += "TESTED STARTER BATTERY. ";
+        storyBase += "TESTED THE PRIMARY 12V BATTERY. ";
       }
       if (document.getElementById("heater").checked == true) {
         storyBase += "CHECKED BLOCK HEATER. ";
@@ -338,7 +338,7 @@ Todo:
         storyBase += "STARTED THE ENGINE AND CONFIRMED CORRECT LEVEL OF ENGINE OIL. RESET TPMS AND SERVICE REMINDER.";
       }
       var storyBrake = "<br>BRAKE PAD THICKNESS: " + document.getElementById("fBrakes").value + " MM FRONTS, " + document.getElementById("rBrakes").value + " MM REARS. ";
-      var storyTires = "<br>TIRE TREAD DEPTHS FROM WEAR INDICATOR: LF= " + document.getElementById("lfTire").value + " MM, RF= " + document.getElementById("rfTire").value + " MM, LR= " + document.getElementById("lrTire").value + " MM, RR= " + document.getElementById("rrTire").value + " MM. ";
+      var storyTires = "<br>OVERALL TIRE TREAD DEPTHS: LF= " + document.getElementById("lfTire").value + " MM, RF= " + document.getElementById("rfTire").value + " MM, LR= " + document.getElementById("lrTire").value + " MM, RR= " + document.getElementById("rrTire").value + " MM. ";
       var storyPSI = "<br>SET TIRE PRESSURES TO " + document.getElementById("fPSI").value + " PSI FRONTS, " + document.getElementById("rPSI").value + " PSI REARS";
       if (document.getElementById("sPSI").value != 0) {
         var storyPSI = storyPSI + ", " + document.getElementById("sPSI").value + " PSI SPARE.";
@@ -1550,6 +1550,36 @@ Todo:
   </script>
   <script>// test area 2
 
+
+
+    function ASSYSTPlus(){
+      var asp1 = "service 1: A service <br>";
+      var asp2 = "service 2: B service <br>";
+      var asp3 = "service 3: engine oil and filter <br>";
+      var asp4 = "service 4: brake fluid flush <br>";
+      var asp8 = "service 8: engine air filter <br>";
+      var asp10 = "service 10: sunroof clean / lubricate <br>";
+      var asp11 = "service 11: fuel filter <br>";
+      var asp12 = "service 12: spark plugs <br>";
+      var asp13 = "service 13: engine coolant flush <br>";
+      var asp15 = "service 15: tow hitch clean / lubricate <br>";
+      var asp20 = "service 20: transmission service <br>";
+      var asp24 = "service 24: drive belt <br>";
+      var asp25 = "service 25: rear differential <br>";
+      var asp34 = "service 34: timing belt <br>";
+      var ASSYSTPlusResult = "<br><br>";
+      let assystCode = prompt("ASSYST Plus Code: ");
+      if (assystCode != null) {
+        ASSYSTPlusResult += asp1 + asp2 + asp3 + asp4 + asp8 + asp10 + asp11 + asp12 + asp13 + asp15 + asp20 + asp24 + asp25 + asp34;
+      document.getElementById("AssystPlusR").innerHTML = ASSYSTPlusResult.toUpperCase();
+    }
+    }
+
+
+
+
+
+
   //event.preventDefault();
   //localStorage.setItem('ls_info1', infoToSave);
   //window.location.href = "Main Test.html";
@@ -1587,7 +1617,7 @@ Todo:
         <!--<button class="button"; onclick="testButtonFunction(97)">Test Button</button><br> FIXME --> 
         <button class="button"; onclick="CopyToClipboard('SERVICE')">
           SERVICE</button>&nbsp&nbsp<button class="button"; onclick="CopyToClipboard('SERVICEvalues')">
-            VALUES & NOTES</button>&nbsp&nbsp<button class="button"; onclick="CopyToClipboard('ServiceNotesOut')">NOTES</button><br>
+            VALUES & NOTES</button>&nbsp&nbsp<button class="button"; onclick="CopyToClipboard('ServiceNotesOut')">NOTES</button>&nbsp&nbsp<button class="button"; onclick="ASSYSTPlus()">ASSYST PLUS</button><br>
 					<form oninput="serviceStory()">
             <input type="checkbox" id="testdrive" name="testdrive" checked>
 						<label class="s1" for="testdrive">Drive&nbsp;</label>
@@ -1644,6 +1674,7 @@ Todo:
 						<s1 id="storyPSI"></s1>
 						<s1 id="ServiceNotesOut"></s1></s1>
 					</s1>
+          <s3 id="AssystPlusR"></s3>
 
 				<span class="a"></span>
 
@@ -3013,10 +3044,6 @@ Todo:
 
         <span class="a"></span>
 
-        <button class="button"; onclick="CopyToClipboard('teststory1')">
-          TEMP Smart Electric Drive WMEFK9BA7JK311463</button><br>
-          <s3 id="teststory1";><b>Coolant<br>Transmission Oil<br>Transmission Drain plug gasket<br>Transmission Fill plug<br>1 x A4158300600 AC Line Seals<br>2 x A4159970246 Axle shaft seals at transmission<br>1 x A4533405000 Electric Drive Unit<br>1 x A4535421700 Seal<br>1 x A4539970100 Seal<br>1 x A4535280300 Seal<br>1 x A4535280400 Seal.</b><br><br>602 589 00 33 00 Impact extractor (rear axle shafts)<br>221 589 04 33 00 Extractor Tool (rear axle shafts)</s3>
-
 
     
 
@@ -3042,8 +3069,32 @@ Todo:
             <td><s5>205</s5></td>
           </tr>
           <tr>
-            <td><s5>Mike 139</s5></td>
+            <td><s5>Tyler 18</s5></td>
             <td><s5></s5></td>
+          </tr>
+          <tr>
+            <td><s5>Auckland 40</s5></td>
+            <td><s5></s5></td>
+          </tr>
+          <tr>
+            <td><s5>Suhaeb 70</s5></td>
+            <td><s5></s5></td>
+          </tr>
+          <tr>
+            <td><s5>Ismail 76</s5></td>
+            <td><s5></s5></td>
+          </tr>
+          <tr>
+            <td><s5>Max 80</s5></td>
+            <td><s5></s5></td>
+          </tr>
+          <tr>
+            <td><s5>Valon 86</s5></td>
+            <td><s5></s5></td>
+          </tr>
+          <tr>
+            <td><s5>Nik 108</s5></td>
+            <td><s5>206</s5></td>
           </tr>
           <tr>
             <td><s5>Cai 120</s5></td>
@@ -3054,12 +3105,16 @@ Todo:
             <td><s5>203</s5></td>
           </tr>
           <tr>
-            <td><s5>Artem 146</s5></td>
+            <td><s5>Dmitri 134</s5></td>
+            <td><s5>207</s5></td>
+          </tr>
+          <tr>
+            <td><s5>Mike 139</s5></td>
             <td><s5></s5></td>
           </tr>
           <tr>
-            <td><s5>Nik 108</s5></td>
-            <td><s5>206</s5></td>
+            <td><s5>Artem 146</s5></td>
+            <td><s5></s5></td>
           </tr>
           <tr>
             <td><s5>Jacky 149</s5></td>
@@ -3070,31 +3125,19 @@ Todo:
             <td><s5></s5></td>
           </tr>
           <tr>
-            <td><s5>Tyler 18</s5></td>
-            <td><s5></s5></td>
-          </tr>
-          <tr>
-            <td><s5>Dmitri</s5></td>
-            <td><s5>207</s5></td>
-          </tr>
-          <tr>
             <td><s4>Service</s4></td>
             <td><s5>333</s5></td>
           </tr>
           <tr>
-            <td><s5>Debra</s5></td>
-            <td><s5>242</s5></td>
-          </tr>
-          <tr>
-            <td><s5>Rey</s5></td>
+            <td><s5>Rey 153</s5></td>
             <td><s5>230</s5></td>
           </tr>
           <tr>
-            <td><s5>Drew</s5></td>
+            <td><s5>Drew 155</s5></td>
             <td><s5>221</s5></td>
           </tr>
           <tr>
-            <td><s5>Raj</s5></td>
+            <td><s5>Raj 105</s5></td>
             <td><s5>243</s5></td>
           </tr>
           <tr>
@@ -3145,7 +3188,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-        Last updated: 02 Oct 2023</p></s3l>
+        Last updated: 15 Oct 2023</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
