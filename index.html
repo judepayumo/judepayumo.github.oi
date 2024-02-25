@@ -1282,7 +1282,9 @@ Todo:
   </script>
   <script>//function ENGINES
     function functionEngineTemplate(){
-      var functionTENGINEResult = "";
+      var functionTENGINEResult = "";  //leave blank
+      var functionTENGINETorqueResult = ""; //leave blank
+      var functionTENGINEPartsResult = ""; //leave blank
       var MENGINEOption1 = "Option 1 story";
       var MENGINEOption2 = "Option 2 story";
       var MENGINEOption3 = "Option 3 story";
@@ -1299,6 +1301,8 @@ Todo:
         var functionTENGINEResult = MENGINEOption3;
       }
       document.getElementById("MENGINEidInMainStory").innerHTML = functionTENGINEResult;
+      document.getElementById("MENGINEidInMainStoryParts").innerHTML = functionTENGINEPartsResult;
+      document.getElementById("MENGINEidInMainStoryTorque").innerHTML = functionTENGINETorqueResult;
     }
     function functionM276NENGINE(){
       var functionM276NENGINEResult = "";
@@ -1320,7 +1324,12 @@ Todo:
       var M276ENGINEFrontCover = "CLEANED FRONT COVER AREA. REMOVED UPPER ENGINE COVER, LEFT AND RIGHT AIR DUCTS UPSTREAM OF AIR FILTER, LOW TEMPERATURE COOLANT TANK, AND OIL FILTER CAP. REMOVED LEFT AND RIGHT FRONT CAM COVERS. REMOVED CAM ADJUSTER MAGNETS. CLEANED FRONT COVERS. INSTALLED CAM COVERS WITH NEW RTV SEALANT. INSTALLED CAM ADJUSTERS WITH NEW O-RINGS. REINSTALLED ALL PARTS IN REVERSE ORDER. TEST DROVE THE VEHICLE. CHECKED FRONT COVERS FOR LEAKS. CONFIRMED FRONT COVERS ARE NO LONGER LEAKING.";
       var M276ENGINEAirFilter = "REMOVED UPPER ENGINE COVER. REMOVED LEFT AND RIGHT ENGINE AIR FILTER COVERS. REMOVED FILTERS. INSTALLED NEW AIR FILTERS. RE-ASSEMBLED IN REVERSE ORDER.";
       var M276ENGINESpark = "REMOVED UPPER ENGINE COVER, LEFT AND RIGHT AIR FILTER BOXES AND AIR DUCTS, AND NOISE ISOLATION FOAMS. REMOVED ALL 6 COIL PACKS. CLEANED ENGINE AREA WITH COMPRESSED AIR. REMOVED SPARK PLUGS. INSTALLED AND TORQUE NEW SPARK PLUGS TO 23NM. APPLIED GREASE IN SPARK PLUG ADAPTERS. INSTALLED AND TORQUE COIL PACKS TO 9NM. REASSEMBLED IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
+      var M276ENGINE43OilPan = "LIFTED THE VEHICLE AND REMOVED FRONT BUMPER LOWER COVER, LOWER ENGINE COVER, AND LOWER TRANSMISSION COVER. REMOVED FRONT LEFT AND RIGHT WHEELS. REMOVED LEFT AND RIGHT ENGINE AIR FILTER HOUSING WITH CLEAN AIR LINES. LOOSENED OIL FILLER CAP, OIL FILTER CAP, AND DRAINED ENGINE OIL. DISCONNECTED RIGHT UPSTREAM AND DOWNSTREAM O2 SENSORS. REMOVED RIGHT CATALYTIC CONVERTER WITH TRANSMISSION BRACKET. REMOVED HEAT SHIELD AND BRACKET UNDER RIGHT THE RIGHT CAT. UNFASTENED AND REMOVED FRONT DRIVESHAFT FROM THE FRONT DIFFERENTIAL PINION. DETACHED LEFT AND RIGHT STEERING KNUCKLE FROM UPPER CONTROL ARMS. REMOVED INTERMEDIATE AXLE SHAFT RETAINING CLIP FROM THE UPPER OIL PAN AND REMOVED LEFT AXLE SHAFT WITH INTERMEDIATE SHAFT. DETACHED LEFT AND RIGHT STEERING TIE RODS FROM KNUCKLES. REMOVED RACK AND PINION STEERING ASSEMBLY. REMOVED FRONT AXLE DIFFERENTIAL AND DIFFERENTIAL SUPPORT. REMOVED ENGINE OIL DIPSTICK GUIDE TUBE FROM THE OIL PAN. INSTALLED ENGINE SUPPORT FIXTURE AND SLIGHTLY LIFTED THE ENGINE. REMOVED OIL PAN BOTTOM SECTION AND OIL SUCTION PIPE. REMOVED SCREW PLUG ON THE OIL PAN. REMOVED UPPER OIL PAN. CLEANED MATING SURFACES.<br>APPLIED BLACK RTV SEALANT PER APPLICATION DIAGRAM. RE-INSTALLED UPPER OIL PAN AND TORQUED TO SPEC. ASSEMBLED IN REVERSE ORDER. <br>ADDED ENGINE OIL TO SPEC. STARTED THE ENGINE AND ALLOWED ENGINE TO GET UP TO OPERATING TEMPERATURE. CHECKED AND CONFIRMED NO ENGINE OIL LEAKS. TEST DROVE THE VEHICLE. CONNECTED XENTRY. READ AND CLEARED FAULT MEMORY. RE-TORQUED ALL FOUR WHEELS.";
+      var M276ENGINE43OilPanT = "<br><br><b>Torque Specs</b><br><b>20 Nm </b>Oil pan to crankcase bolts<br><b>09 Nm </b>Oil pan to crankcase/ timing case cover/rear end cover<br><b>14 Nm </b>Oil pan bottom section to oil pan<br><b>38 Nm </b>Transmission to engine <br><b>14 Nm </b>Oil suction pipe to oil pan shaft channel<br><b>14 Nm </b>Bracket for charge air cooler to oil pan<br><b>20 Nm </b>Screw plug to oil pan<br><b>60 Nm </b>Front differential support to oil pan<br><b>5 Nm, 50 Nm, 95 Degrees </b>Front differential to engine support <br><b>65 Nm </b>Front axle differential to support/oil pan<br><b>45 Nm, 95 Degrees </b>Propeller shaft to front axle gear<br><b>22 Nm </b>Flange connection for catalytic converter to exhaust line<br><b>22 Nm </b>Bracket for catalytic converter to bracket for torque converter housing<br><b>50 Nm </b>Front diagonal strut to front axle carrier<br><br><b>AH01.45-P-0001-01MMA </b>Oil pan sealant path ";
+      var M276ENGINE43OilPanP = "<b><br><br>Parts</b><br>Clamp and seal downstream of right cat<br>2 bolts upstream of right cat<br>Engine oil dipstick tube o-ring<br>Engine oil drain plug<br>Engine oil and filter (recommend)";
       var functionM276ENGINEResult = "";
+      var functionM276ENGINEResultT = "";
+      var functionM276ENGINEResultP = "";
       if (document.getElementById("M276ENGINEFrontCover").checked == true) {
         var functionM276ENGINEResult = M276ENGINEFrontCover;
       }
@@ -1330,7 +1339,14 @@ Todo:
       if (document.getElementById("M276ENGINEAirFilter").checked == true) {
         var functionM276ENGINEResult = M276ENGINEAirFilter;
       }
+      if (document.getElementById("M276ENGINE43OilPan").checked == true) {
+        var functionM276ENGINEResult = M276ENGINE43OilPan;
+        var functionM276ENGINEResultT = M276ENGINE43OilPanT;
+        var functionM276ENGINEResultP = M276ENGINE43OilPanP;
+      }
       document.getElementById("M276ENGINE").innerHTML = functionM276ENGINEResult;
+      document.getElementById("M276ENGINET").innerHTML = functionM276ENGINEResultT;
+      document.getElementById("M276ENGINEP").innerHTML = functionM276ENGINEResultP;
     }
     function functionM156ENGINE(){
       var functionM156ENGINEResult = "";
@@ -1559,7 +1575,29 @@ Todo:
       document.getElementById("724Transmission").innerHTML = Transmission724Result;
       document.getElementById("724TransmissionT").innerHTML = Transmission724Torques;
     }
-  </script>
+    function functionM177LS2ENGINE(){
+      var functionM177ls2ENGINE = ""; //leave blank
+      var functionM177ls2ENGINEP = ""; //leave blank
+      var functionM177ls2ENGINET = ""; //leave blank
+      var M177ls2ENGINEspark = "REMOVED UPPER ENGINE COVER. DISCONNECTED 12V BATTERY. UNPLUGGED ENGINE CONTROL UNIT AND MOVED TO ONE SIDE. UNFASTENED BRACKET UNDER THE ENGINE CONTROL UNIT. REMOVED VACUUM HOSE FROM THE VACUUM PUMP AND MOVED HOSE TO ONE SIDE. UNPLUGGED AND REMOVED CYLINDER 1-2 AND 3-4 IGNITION COILS. CLEANED SPARK PLUG WELLS WITH COMPRESSED AIR. DISCONNECTED LOW TEMP COOLANT RESERVOIR RETURN LINE. MOVED RESERVOIR TO ONE SIDE. REMOVED BRACKET FOR THE RESERVOIR. UNPLUGGED AND REMOVED CYLINDER 5-6 AND 7-8 IGNITION COILS. CLEANED SPARK PLUGS AREA WITH COMPRESSED AIR. REMOVED BANK 1 AND 2 SPARK PLUGS. APPLIED SPARK PLUG CONNECTOR GREASE. INSTALLED NEW SPARK PLUGS AND TORQUED TO SPEC. ASSEMBLED IN REVERSE ORDER. CONNECTED BATTERY AND STARTED THE ENGINE. CONFIRMED ENGINE RUNS SMOOTHLY. CONNECTED XENTRY. READ OUT AND DELETED FAULT MEMORY.";
+      var M177ls2ENGINEsparkT = "<br><br><b>Spark Plugs:</b> 22 Nm";
+      var M177ls2ENGINEThermostat = "LIFTED THE VEHICLE AND REMOVED UPPER ENGINE COVER, LOWER ENGINE COVER, LOWER FRONT BUMPER COVER. DRAINED HIGH TEMP COOLING SYSTEM THROUGH THE DRAIN PORT. DRAINED LOW TEMP COOLANT CIRCUIT. REMOVED LOW TEMP COOLANT MOUNTING SUPPORT. DISCONNECTED LOW TEMP COOLANT HOSES AND REMOVED THE TWO LOW TEMP CIRCULATION PUMPS AND THE LOW TEMP SWITCHOVER VALVE.  DISCONNECTED LEFT AND RIGHT AIR BYPASS VALVES ELECTRICAL CONNECTORS AND HOSES, LEFT AND RIGHT AIR FILTER PRESSURE SENSORS ELECTRICAL CONNECTORS. REMOVED LEFT AND RIGHT AIR FILTER HOUSING AND AIR INTAKE DUCTS. REMOVED COLD AIR INTAKE AND FAN UNIT. UNCLIPPED ENGINE WIRING FROM CHARGE AIR COOLERS. REMOVED LEFT AND RIGHT BRACKETS OF CHARGE AIR COOLERS. DISCONNECTED LEFT AND RIGHT THROTTLE VALVE ACTUATOR ELECTRICAL CONNECTORS AND PRESSURE SENSOR CONNECTORS. DISCONNECTED COOLANT HOSES FROM BOTH CHARGE AIR COOLERS. REMOVED LOWER BRACKET FOR CHARGE AIR COOLERS. REMOVED CHARGE AIR COOLERS WITH THROTTLE BODIES. DISCONNECTED THERMOSTAT HEATING ELEMENT. REMOVED COOLANT INLET FITTING. REMOVED COOLANT THERMOSTAT. INSTALLED NEW THERMOSTAT WITH NEW SEAL AND TORQUED TO SPEC. <br>ASSEMBLED IN REVERSE ORDER. <br>CONNECTED COOLANT VACUUM FILLER. CONFIRMED BOTH COOLING SYSTEM CAN HOLD GOOD VACUUM. FILLED BOTH LOW TEMP AND HIGH TEMP COOLANT SYSTEMS. <br>CONNECTED XENTRY AND BATTERY CHARGER. PERFORMED LOW TEMP COOLANT BLEEDING PROCEDURE. <br>PRESSURIZED BOTH COOLING SYSTEM AND INSPECTED VEHICLE FOR LEAKS. CONFIRMED NO LEAKS. RE-INSTALLED UPPER ENGINE COVER, LOWER ENGINE COVER, AND LOWER FRONT BUMPER COVER. TEST DROVE THE VEHICLE.";
+      var M177ls2ENGINEThermostatT = "<br><br><b>Torque Specs: <br></b>8 Nm Coolant inlet fitting to thermostat housing <br> 8 Nm Coolant thermostat to crankcase (x11)";
+      var M177ls2ENGINEThermostatP = "<br><br><b>Parts:<br></b>A1772010900 Coolant inlet fitting seal<br>A1772010200 Thermostat connection seal<br>A1772010300 Thermostat connection seal<br>A1772010780 Thermostat housing to crankcase seal<br>A0009970224 Coolant drain plug<br>Coolant";
+      if (document.getElementById("M177ls2ENGINEspark").checked == true) {
+        var functionM177ls2ENGINE = M177ls2ENGINEspark;
+        var functionM177ls2ENGINET = M177ls2ENGINEsparkT;
+      }
+      if (document.getElementById("M177ls2ENGINEthermostat").checked == true) {
+        var functionM177ls2ENGINE = M177ls2ENGINEThermostat;
+        var functionM177ls2ENGINET = M177ls2ENGINEThermostatT;
+        var functionM177ls2ENGINEP = M177ls2ENGINEThermostatP;
+      }
+      document.getElementById("M177ls2ENGINE").innerHTML = functionM177ls2ENGINE;
+      document.getElementById("M177ls2ENGINEP").innerHTML = functionM177ls2ENGINEP;
+      document.getElementById("M177ls2ENGINET").innerHTML = functionM177ls2ENGINET;
+    }
+</script>
   <script>// test area 2
 
 
@@ -2059,6 +2097,21 @@ Todo:
 
 				<span class="a"></span>
 
+        <button class="button"; onclick="CopyToClipboard('M177ls2ENGINE')">
+					M177 LS2 ENGINE</button>&nbsp&nbsp<button class="button"; onclick="CopyToClipboard('M177ls2ENGINEP')">
+            COPY PARTS</button><br><br>
+					<form oninput="functionM177LS2ENGINE()">
+						<input type="radio" id="M177ls2ENGINEspark" name="M177ls2ENGINE">
+						<label class="s1" for="M177ls2ENGINEspark">Spark Plugs&emsp;</label>
+            <input type="radio" id="M177ls2ENGINEthermostat" name="M177ls2ENGINE">
+						<label class="s1" for="M177ls2ENGINEthermostat">Thermostat G63&emsp;</label>
+					</form>
+					<s1 id="M177ls2ENGINE";></s1>
+          <s3 id="M177ls2ENGINET";></s3>
+          <s3 id="M177ls2ENGINEP";></s3>
+
+        <span class="a"></span>
+
         <button class="button"; onclick="CopyToClipboard('C63S')">
 					M177 C63S ENGINE SWAP</button><br>
 					<s1 id="C63S";>
@@ -2210,8 +2263,13 @@ Todo:
 						<label class="s1" for="M276ENGINEFrontCover">Front Cover Seal&emsp;</label>
 						<input type="radio" id="M276ENGINEAirFilter" name="M276ENGINE">
 						<label class="s1" for="M276ENGINEAirFilter">Air Filters&emsp;</label>
+            <input type="radio" id="M276ENGINE43OilPan" name="M276ENGINE">
+						<label class="s1" for="M276ENGINE43OilPan">GLC43 Oil Pan&emsp;</label>
+
 					</form>
 					<s1 id="M276ENGINE";></s1>
+          <s3 id="M276ENGINET";></s3>
+					<s3 id="M276ENGINEP";></s3>
 
 				<span class="a"></span>
 
@@ -3152,10 +3210,6 @@ Todo:
             <td><s5></s5></td>
           </tr>
           <tr>
-            <td><s5>Mohamad 160</s5></td>
-            <td><s5></s5></td>
-          </tr>
-          <tr>
             <td><s4>Service</s4></td>
             <td><s5>333</s5></td>
           </tr>
@@ -3219,7 +3273,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-        Last updated: 05 Nov 2023</p></s3l>
+        Last updated: 25 Feb 2024</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
