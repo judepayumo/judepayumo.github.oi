@@ -425,9 +425,8 @@ Todo:
       document.getElementById("2020120005").innerHTML = base2020120005;
     }
     function safetyStory(){
-      var safetyNotesF = "<br>********************** REMARKS **********************<br>";
-      var safetyDefectsF = "<br>********************** DEFECTS **********************<br>";
-      var safetyBase = "TEST DROVE VEHICLE. LIFTED THE VEHICLE AND REMOVED FRONT AND REAR WHEELS. INSPECTED BRAKING SYSTEM, SUSPENSION, TIRES, LIGHTS, EXHAUST SYSTEM, SEAT BELTS, STEERING, AND OTHER VEHICLE COMPONENTS AND SYSTEMS AS PER MANITOBA VEHICLE EQUIPMENT, SAFETY AND INSPECTION REGULATION FOR VEHICLES UNDER 4,500KG. ASSEMBLED IN REVERSE ORDER. TORQUED ALL FOUR WHEELS TO SPEC.";
+      var safetyNotesF = "<br><br>********************** REMARKS **********************<br>";
+      var safetyBase = "TEST DROVE VEHICLE. LIFTED THE VEHICLE AND REMOVED FRONT AND REAR WHEELS. INSPECTED BRAKING SYSTEM, SUSPENSION, TIRES, LIGHTS, EXHAUST SYSTEM, SEAT BELTS, STEERING, AND OTHER VEHICLE COMPONENTS AND SYSTEMS AS PER MANITOBA VEHICLE EQUIPMENT, SAFETY AND INSPECTION REGULATION FOR VEHICLES UNDER 4,500KG. ASSEMBLED IN REVERSE ORDER. TORQUED ALL FOUR WHEELS TO SPEC. ";
       var safetyBase = safetyBase
       + "<br>TIRE TREAD DEPTHS: FR= " //******************** Tire Measurements
       + document.getElementById("safetyrfTire").value
@@ -478,33 +477,69 @@ Todo:
         safetyNotesF += document.getElementById("safetyNotesIn").value;
         safetyNotesF = safetyNotesF.replace(/\;/g, "<br>");
       }else {
-        var safetyNotesF = "";
+        var safetyNotesF = "<br>";
       }
-      
-
-      if (document.getElementById("mpid1d").value != 0){
-        alert("yes");
-        var safetyDefectsF = safetyDefectsF += "TEST Defect";
-      }else{
-        var safetyDefectsF = "";
-      }
-
-
-//      var defectCount = "1";
-//      while (document.getElementById("mpid1d").value != 0){
-
-  //    }
-
-
-
-
-
-
-
-
       document.getElementById("safetyStoryResult").innerHTML = safetyBase;
       document.getElementById("safetyNotesResult").innerHTML = safetyNotesF.toUpperCase();
-      document.getElementById("safetyDefectResult").innerHTML = safetyDefectsF.toUpperCase();
+    }
+    function MPIsafetyDefects(mpidNum){
+      var safetyDefectsF = "<br><br>********************** DEFECTS **********************<br>";
+      var defectCounter = 1;
+      for (defectCounter; defectCounter <= 10; defectCounter++ ){// ----- Hides fields
+        var defectID = "mpid" + defectCounter + "";
+        document.getElementById(defectID).hidden = true
+        var defectID = "mpid" + defectCounter + "e";
+        document.getElementById(defectID).hidden = true
+        var defectID = "mpid" + defectCounter + "a";
+        document.getElementById(defectID).hidden = true
+        var defectID = "mpid" + defectCounter + "b";
+        document.getElementById(defectID).hidden = true
+        var defectID = "mpid" + defectCounter + "c";
+        document.getElementById(defectID).hidden = true
+        var defectID = "mpid" + defectCounter + "d";
+        document.getElementById(defectID).hidden = true
+        var defectID = "mpid" + defectCounter + "f";
+        document.getElementById(defectID).hidden = true
+      }
+      var defectCounter = 1;
+      for (defectCounter; defectCounter <= mpidNum.value; defectCounter++){// ----- Shows fields
+        var defectID = "mpid" + defectCounter + "";
+        document.getElementById(defectID).hidden = false
+        var defectID = "mpid" + defectCounter + "e";
+        document.getElementById(defectID).hidden = false
+        var defectID = "mpid" + defectCounter + "a";
+        document.getElementById(defectID).hidden = false
+        var defectID = "mpid" + defectCounter + "b";
+        document.getElementById(defectID).hidden = false
+        var defectID = "mpid" + defectCounter + "c";
+        document.getElementById(defectID).hidden = false
+        var defectID = "mpid" + defectCounter + "d";
+        document.getElementById(defectID).hidden = false
+        var defectID = "mpid" + defectCounter + "f";
+        document.getElementById(defectID).hidden = false
+      }
+      var defectCounter = 1;
+      for (defectCounter; defectCounter <= mpidNum.value; defectCounter++){
+        var defectID = "mpid" + defectCounter + "";
+        if(document.getElementById(defectID).checked == true){
+          safetyDefectsF += "XX : ";
+        } else{
+          safetyDefectsF += "X. : ";
+        }
+        var defectID = "mpid" + defectCounter + "a";
+        safetyDefectsF += "Item " + document.getElementById(defectID).value + ", ";
+        var defectID = "mpid" + defectCounter + "b";
+        safetyDefectsF += "Section " + document.getElementById(defectID).value;
+        var defectID = "mpid" + defectCounter + "c";
+        if(document.getElementById(defectID).value != ""){
+          safetyDefectsF += "(" + document.getElementById(defectID).value + "), ";
+        } else {
+          safetyDefectsF += ", ";
+        }
+        var defectID = "mpid" + defectCounter + "d";
+        safetyDefectsF += document.getElementById(defectID).value.toUpperCase() + "<br>";
+      }
+      document.getElementById("safetyDefectResult").innerHTML = safetyDefectsF;
     }
     function functionAdditionalService(){
       var additionalServiceResult = "";
@@ -1719,7 +1754,7 @@ Todo:
         </form>
       </div>
     </div>
-    <div class="newMainDiv" id="onOff" style="display:block" onscroll="mainPageFocus()" onclick="mainPageFocus()";> <!-- Main Story Div -->                   <!-- FIXME:  -->
+    <div class="newMainDiv" id="onOff" style="display:none" onscroll="mainPageFocus()" onclick="mainPageFocus()";> <!-- Main Story Div -->                   <!-- FIXME:  -->
       <div class="newSecondaryDiv" id="svcDiv" style="display: block;"> <!-- ***************************************** SERVICE STORIES ******************************************* -->
         <s2>Service</s2><br>
         <!--<button class="button"; onclick="testButtonFunction(97)">Test Button</button><br> FIXME --> 
@@ -1832,39 +1867,14 @@ Todo:
 
 				<span class="a"></span>
 
-        <button class="button"; onclick="CopyToClipboard('quickLube')">
-					QUICK LUBE</button><br>
-					<form oninput="quickLubeStory()">
-						<input type="checkbox" id="quickLubeAMG" name="quickLube">
-						<label class="s1" for="quickLubeAMG">AMG Oil&nbsp;</label>
-						<input type="checkbox" id="quickLubePlug" name="quickLube">
-						<label class="s1" for="quickLubePlug">Plastic Drain Plug&nbsp;</label>
-						<input type="checkbox" id="quickLubeXentry" name="quickLube">
-						<label class="s1" for="quickLubeXentry">Xentry Oil Check&nbsp;</label>
-						<input type="reset" onclick="quickLubeStory()" value="Reset">
-					</form>
-					<s1 id="quickLube";>TOPPED OFF COOLANT AND WASHER FLUID. REMOVED UPPER AND LOWER ENGINE COVERS. DRAINED ENGINE OIL. INSTALLED DRAIN PLUG WITH NEW CRUSH WASHER. INSTALLED NEW OIL FILTER. ADDED ENGINE OIL TO SPEC. STARTED THE ENGINE AND CONFIRMED CORRECT LEVEL OF ENGINE OIL. ADJUSTED FOUR TIRE PRESSURES AND RESET TPMS.</s1>
-
-				<span class="a"></span>
-
-
-
-
-
-
-
-
-
-
-
 				<button class="button"; onclick="CopyToClipboard('SAFETY')">
-					MB GOVERNMENT SAFETY INSPECTION</button><br>
+					MPI MB GOVERNMENT SAFETY INSPECTION</button><br>
 					<form oninput="safetyStory()">
 						<label class="s1">Result:&nbsp;</label>
 						<input type="radio" id="safetyPass" name="safetyResult">
 						<label class="s1" for="safetyPass">P&nbsp;&nbsp;</label>
 						<input type="radio" id="safetyAdvice" name="safetyResult">
-						<label class="s1" for="safetyAdvice">PP&nbsp;&nbsp;</label>
+						<label class="s1" for="safetyAdvice">PA&nbsp;&nbsp;</label>
 						<input type="radio" id="safetyFail" name="safetyResult">
 						<label class="s1" for="safetyFail">X&nbsp;&nbsp;</label>
             <input type="radio" id="safetyFail2" name="safetyResult">
@@ -1896,75 +1906,107 @@ Todo:
 						&nbsp; &nbsp;
 						<input type="reset" onclick="safetyStory()" value="Reset">
 					</form>
-          <form id="MPI-defects" hidden>
+          <form oninput="MPIsafetyDefects(mpidnum)" id="MPI-defects" hidden>
+            <label class="s1" for="mpidnum">Number of defects: &nbsp;</label>
+            <input type="number" id="mpidnum" value="01" size="1" maxlength="2" min="1" max="10">                 <!-- num of defects:  -->
+            <br>
             <input type="checkbox" id="mpid1" name="MPIdefect1">
-						<label class="s1" for="mpid1">XX</label>
+						<label class="s1" id="mpid1e" for="mpid1">XX</label>
             <input type="text" id="mpid1a" name="MPIdefect1" size="3" placeholder="No." maxlength="2">
             <input type="text" id="mpid1b" name="MPIdefect1" size="4" placeholder="Sec." maxlength="4">
             <input type="text" id="mpid1c" name="MPIdefect1" size="3" placeholder="(a)" maxlength="1">
             <input type="text" id="mpid1d" name="MPIdefect1" size="120" placeholder="Defect">
-            <br>
-            <input type="checkbox" id="mpid2" name="MPIdefect2">
-						<label class="s1" for="mpid2">XX</label>
-            <input type="text" id="mpid2a" name="MPIdefect2" size="3" placeholder="No." maxlength="2">
-            <input type="text" id="mpid2b" name="MPIdefect2" size="4" placeholder="Sec." maxlength="4">
-            <input type="text" id="mpid2c" name="MPIdefect2" size="3" placeholder="(a)" maxlength="1">
-            <input type="text" id="mpid2d" name="MPIdefect2" size="120" placeholder="Defect">
-            <br>
-            <input type="checkbox" id="mpid3" name="MPIdefect3">
-						<label class="s1" for="mpid3">XX</label>
-            <input type="text" id="mpid3a" name="MPIdefect3" size="3" placeholder="No." maxlength="2">
-            <input type="text" id="mpid3b" name="MPIdefect3" size="4" placeholder="Sec." maxlength="4">
-            <input type="text" id="mpid3c" name="MPIdefect3" size="3" placeholder="(a)" maxlength="1">
-            <input type="text" id="mpid3d" name="MPIdefect3" size="120" placeholder="Defect">
-            <br>
-            <input type="checkbox" id="mpid4" name="MPIdefect4">
-						<label class="s1" for="mpid4">XX</label>
-            <input type="text" id="mpid4a" name="MPIdefect4" size="3" placeholder="No." maxlength="2">
-            <input type="text" id="mpid4b" name="MPIdefect4" size="4" placeholder="Sec." maxlength="4">
-            <input type="text" id="mpid4c" name="MPIdefect4" size="3" placeholder="(a)" maxlength="1">
-            <input type="text" id="mpid4d" name="MPIdefect4" size="120" placeholder="Defect">
-            <br>
-            <input type="checkbox" id="mpid5" name="MPIdefect5">
-						<label class="s1" for="mpid5">XX</label>
-            <input type="text" id="mpid5a" name="MPIdefect5" size="3" placeholder="No." maxlength="2">
-            <input type="text" id="mpid5b" name="MPIdefect5" size="4" placeholder="Sec." maxlength="4">
-            <input type="text" id="mpid5c" name="MPIdefect5" size="3" placeholder="(a)" maxlength="1">
-            <input type="text" id="mpid5d" name="MPIdefect5" size="120" placeholder="Defect">
-            <br>
-            <input type="checkbox" id="mpid6" name="MPIdefect6">
-						<label class="s1" for="mpid6">XX</label>
-            <input type="text" id="mpid6a" name="MPIdefect6" size="3" placeholder="No." maxlength="2">
-            <input type="text" id="mpid6b" name="MPIdefect6" size="4" placeholder="Sec." maxlength="4">
-            <input type="text" id="mpid6c" name="MPIdefect6" size="3" placeholder="(a)" maxlength="1">
-            <input type="text" id="mpid6d" name="MPIdefect6" size="120" placeholder="Defect">
+            <br id="mpid1f" hidden>
+            <input type="checkbox" id="mpid2" name="MPIdefect2" hidden>
+						<label class="s1" id="mpid2e" for="mpid2" hidden>XX</label>
+            <input type="text" id="mpid2a" name="MPIdefect2" size="3" placeholder="No." maxlength="2" hidden>
+            <input type="text" id="mpid2b" name="MPIdefect2" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpid2c" name="MPIdefect2" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpid2d" name="MPIdefect2" size="120" placeholder="Defect" hidden>
+            <br id="mpid2f" hidden>
+            <input type="checkbox" id="mpid3" name="MPIdefect3" hidden>
+						<label class="s1" id="mpid3e" for="mpid3" hidden>XX</label>
+            <input type="text" id="mpid3a" name="MPIdefect3" size="3" placeholder="No." maxlength="2" hidden>
+            <input type="text" id="mpid3b" name="MPIdefect3" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpid3c" name="MPIdefect3" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpid3d" name="MPIdefect3" size="120" placeholder="Defect" hidden>
+            <br id="mpid3f" hidden>
+            <input type="checkbox" id="mpid4" name="MPIdefect4" hidden>
+						<label class="s1" id="mpid4e" for="mpid4" hidden>XX</label>
+            <input type="text" id="mpid4a" name="MPIdefect4" size="3" placeholder="No." maxlength="2" hidden>
+            <input type="text" id="mpid4b" name="MPIdefect4" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpid4c" name="MPIdefect4" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpid4d" name="MPIdefect4" size="120" placeholder="Defect" hidden>
+            <br id="mpid4f" hidden>
+            <input type="checkbox" id="mpid5" name="MPIdefect5" hidden>
+						<label class="s1" id="mpid5e" for="mpid5" hidden>XX</label>
+            <input type="text" id="mpid5a" name="MPIdefect5" size="3" placeholder="No." maxlength="2" hidden >
+            <input type="text" id="mpid5b" name="MPIdefect5" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpid5c" name="MPIdefect5" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpid5d" name="MPIdefect5" size="120" placeholder="Defect" hidden>
+            <br id="mpid5f" hidden>
+            <input type="checkbox" id="mpid6" name="MPIdefect6" hidden>
+						<label class="s1" id="mpid6e" for="mpid6" hidden>XX</label>
+            <input type="text" id="mpid6a" name="MPIdefect6" size="3" placeholder="No." maxlength="2" hidden>
+            <input type="text" id="mpid6b" name="MPIdefect6" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpid6c" name="MPIdefect6" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpid6d" name="MPIdefect6" size="120" placeholder="Defect" hidden>
+            <br id="mpid6f" hidden>
+            <input type="checkbox" id="mpid7" name="MPIdefect7" hidden>
+						<label class="s1" id="mpid7e" for="mpid7" hidden>XX</label>
+            <input type="text" id="mpid7a" name="MPIdefect7" size="3" placeholder="No." maxlength="2" hidden>
+            <input type="text" id="mpid7b" name="MPIdefect7" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpid7c" name="MPIdefect7" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpid7d" name="MPIdefect7" size="120" placeholder="Defect" hidden>
+            <br id="mpid7f" hidden>
+            <input type="checkbox" id="mpid8" name="MPIdefect8" hidden>
+						<label class="s1" id="mpid8e" for="mpid8" hidden>XX</label>
+            <input type="text" id="mpid8a" name="MPIdefect8" size="3" placeholder="No." maxlength="2" hidden>
+            <input type="text" id="mpid8b" name="MPIdefect8" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpid8c" name="MPIdefect8" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpid8d" name="MPIdefect8" size="120" placeholder="Defect" hidden>
+            <br id="mpid8f" hidden>
+            <input type="checkbox" id="mpid9" name="MPIdefect9" hidden>
+						<label class="s1" id="mpid9e" for="mpid9" hidden>XX</label>
+            <input type="text" id="mpid9a" name="MPIdefect9" size="3" placeholder="No." maxlength="2" hidden >
+            <input type="text" id="mpid9b" name="MPIdefect9" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpid9c" name="MPIdefect9" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpid9d" name="MPIdefect9" size="120" placeholder="Defect" hidden>
+            <br id="mpid9f" hidden>
+            <input type="checkbox" id="mpid10" name="MPIdefect10" hidden>
+						<label class="s1" id="mpid10e" for="mpid10" hidden>XX</label>
+            <input type="text" id="mpid10a" name="MPIdefect10" size="3" placeholder="No." maxlength="2" hidden>
+            <input type="text" id="mpid10b" name="MPIdefect10" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpid10c" name="MPIdefect10" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpid10d" name="MPIdefect10" size="120" placeholder="Defect" hidden>
+            <br id="mpid10f" hidden>
           </form>
 					<s1 id="SAFETY">
 						<s1 id="safetyStoryResult">TEST DROVE VEHICLE. LIFTED THE VEHICLE AND REMOVED FRONT AND REAR WHEELS. INSPECTED BRAKING SYSTEM, SUSPENSION, TIRES, LIGHTS, EXHAUST SYSTEM, SEAT BELTS, STEERING, AND OTHER VEHICLE COMPONENTS AND SYSTEMS AS PER MANITOBA VEHICLE EQUIPMENT, SAFETY AND INSPECTION REGULATION FOR VEHICLES UNDER 4,500KG. ASSEMBLED IN REVERSE ORDER. TORQUED ALL FOUR WHEELS TO SPEC.</s1>
-            <s1 id="safetyNotesResult"></s1>
             <s1 id="safetyDefectResult"></s1>
+            <s1 id="safetyNotesResult"></s1>
 						</s1>
 					<s3>
             <br>WIS: BE42.00-Z-9999AZ Brake Discard Limits
-            <br><a href = "https://mpipartners.ca/documents/Notices%20to%20trade/Misc/LVI-Reference-Tool.pdf" target = "_blank">Quick Reference Tool</a>
-            <br><a href = "https://web2.gov.mb.ca/laws/regs/annual/2019/031.pdf" target = "_blank">VESI Regulation</a>
-            <br><a href="/smol.pdf" target="_blank">VESI p90-168</a>
+            <br><a href = "https://mpipartners.ca/documents/Notices%20to%20trade/Misc/LVI-Reference-Tool.pdf" target = "_blank">Quick Reference Tool&nbsp;</a>
+            <a href = "https://web2.gov.mb.ca/laws/regs/annual/2019/031.pdf" target = "_blank">VESI Regulation&nbsp;</a>
+            <a href="/smol.pdf" target="_blank">Page 90-168</a>
           </s3>
 
+				<span class="a"></span>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <button class="button"; onclick="CopyToClipboard('quickLube')">
+					QUICK LUBE</button><br>
+					<form oninput="quickLubeStory()">
+						<input type="checkbox" id="quickLubeAMG" name="quickLube">
+						<label class="s1" for="quickLubeAMG">AMG Oil&nbsp;</label>
+						<input type="checkbox" id="quickLubePlug" name="quickLube">
+						<label class="s1" for="quickLubePlug">Plastic Drain Plug&nbsp;</label>
+						<input type="checkbox" id="quickLubeXentry" name="quickLube">
+						<label class="s1" for="quickLubeXentry">Xentry Oil Check&nbsp;</label>
+						<input type="reset" onclick="quickLubeStory()" value="Reset">
+					</form>
+					<s1 id="quickLube";>TOPPED OFF COOLANT AND WASHER FLUID. REMOVED UPPER AND LOWER ENGINE COVERS. DRAINED ENGINE OIL. INSTALLED DRAIN PLUG WITH NEW CRUSH WASHER. INSTALLED NEW OIL FILTER. ADDED ENGINE OIL TO SPEC. STARTED THE ENGINE AND CONFIRMED CORRECT LEVEL OF ENGINE OIL. ADJUSTED FOUR TIRE PRESSURES AND RESET TPMS.</s1>
 
 				<span class="a"></span>
 
@@ -3463,7 +3505,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-        Last updated: 18 May 2024 Test</p></s3l>
+        Last updated: 18 May 2024</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
