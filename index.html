@@ -425,39 +425,54 @@ Todo:
       document.getElementById("2020120005").innerHTML = base2020120005;
     }
     function safetyStory(){
-      var safetyNotesF = "<br>********************** NOTES **********************<br>";
-      var safetyBase = "TEST DROVE VEHICLE. LIFTED THE VEHICLE AND REMOVED FRONT AND REAR WHEELS. CHECKED AND ADJUSTED TIRE PRESSURES. INSPECTED VEHICLE'S UNDERCARRIAGE, ENGINE COMPARTMENT, WHEELS AND TIRES, BRAKE SYSTEMS, BODY EXTERIOR, AND DRIVER'S CONTROLS PER MANITOBA CERTIFICATION OF INSPECTION FORM. ASSEMBLED IN REVERSE ORDER. TORQUED ALL FOUR WHEELS TO SPEC.";
+      var safetyNotesF = "<br>********************** REMARKS **********************<br>";
+      var safetyDefectsF = "<br>********************** DEFECTS **********************<br>";
+      var safetyBase = "TEST DROVE VEHICLE. LIFTED THE VEHICLE AND REMOVED FRONT AND REAR WHEELS. INSPECTED BRAKING SYSTEM, SUSPENSION, TIRES, LIGHTS, EXHAUST SYSTEM, SEAT BELTS, STEERING, AND OTHER VEHICLE COMPONENTS AND SYSTEMS AS PER MANITOBA VEHICLE EQUIPMENT, SAFETY AND INSPECTION REGULATION FOR VEHICLES UNDER 4,500KG. ASSEMBLED IN REVERSE ORDER. TORQUED ALL FOUR WHEELS TO SPEC.";
       var safetyBase = safetyBase
-      + "<br>TIRE TREAD DEPTHS: FL= "
-      + document.getElementById("safetylfTire").value
-      + " MM, FR= "
+      + "<br>TIRE TREAD DEPTHS: FR= " //******************** Tire Measurements
       + document.getElementById("safetyrfTire").value
-      + " MM, RL= "
-      + document.getElementById("safetylrTire").value
       + " MM, RR= "
       + document.getElementById("safetyrrTire").value
+      + " MM, FL= "
+      + document.getElementById("safetylfTire").value
+      + " MM, RL= "
+      + document.getElementById("safetylrTire").value
       + " MM. "
-      + "<br> BRAKE PAD THICKNESS: FRONT= "
-      + document.getElementById("safetyfPad").value
-      + " MM, REAR= "
-      + document.getElementById("safetyrPad").value
+      + "<br> BRAKE PAD THICKNESS: FR= "//******************** Brake Pad Measurements
+      + document.getElementById("safetyrfPad").value
+      + " MM, RR= "
+      + document.getElementById("safetyrrPad").value
+      + " MM, FL= "
+      + document.getElementById("safetylfPad").value
+      + " MM, RL= "
+      + document.getElementById("safetylrPad").value
       + " MM. "
-      + "<br> DRUM / ROTOR MEASUREMENT: FRONT= "
-      + document.getElementById("safetyfDisc").value
-      + " MM, REAR= "
-      + document.getElementById("safetyrDisc").value
-      + " MM. "
-      + "<br> DRUM / ROTOR DISCARD LIMIT: FRONT= "
+      + "<br> BRAKE ROTOR MEASUREMENT: FR= "//******************** Brake Disc Measurements
+      + document.getElementById("safetyrfDisc").value
+      + " MM, RR= "
+      + document.getElementById("safetyrrDisc").value
+      + " MM, FL "
+      + document.getElementById("safetylfDisc").value
+      + " MM, RL= "
+      + document.getElementById("safetylrDisc").value
+      + " MM."
+      + "<br> BRAKE ROTOR DISCARD LIMIT: FRONT= "//******************** Brake Disc Discard
       + document.getElementById("safetyfDiscLim").value
       + " MM, REAR= "
       + document.getElementById("safetyrDiscLim").value
       + " MM. ";
       if (document.getElementById("safetyPass").checked == true) {
         var safetyBase = safetyBase + "<br> VEHICLE MEETS THE SAFETY STANDARDS FOR OPERATION IN MANITOBA AS PER <q>VEHICLE EQUIPMENT, SAFETY AND INSPECTION REGULATION.</q>";
+        document.getElementById("MPI-defects").hidden = true;
       } else if (document.getElementById("safetyAdvice").checked == true) {
         var safetyBase = safetyBase + "<br> VEHICLE CURRENTLY MEETS ALL MINIMUM SAFETY STANDARDS AS PER <q>VEHICLE EQUIPMENT, SAFETY AND INSPECTION REGULATION.</q> HOWEVER, SOME COMPONENTS WILL SOON REQUIRE SERVICING OR REPAIR. ";
+        document.getElementById("MPI-defects").hidden = true;
+      } else if (document.getElementById("safetyFail2").checked == true) {
+        var safetyBase = safetyBase + "<br> VEHICLE CURRENT CONDITION DOES NOT MEET THE SAFETY STANDARD AND IS HAZARDOUS.";
+        document.getElementById("MPI-defects").hidden = false;
       } else {
-        var safetyBase = safetyBase + "<br> VEHICLE DOES NOT MEET THE SAFETY STANDARD.";
+        var safetyBase = safetyBase + "<br> VEHICLE CURRENT CONDITION DOES NOT MEET THE SAFETY STANDARDS.";
+        document.getElementById("MPI-defects").hidden = false;
       }
       if (document.getElementById("safetyNotesIn").value != 0) {
         safetyNotesF += document.getElementById("safetyNotesIn").value;
@@ -465,8 +480,31 @@ Todo:
       }else {
         var safetyNotesF = "";
       }
+      
+
+      if (document.getElementById("mpid1d").value != 0){
+        alert("yes");
+        var safetyDefectsF = safetyDefectsF += "TEST Defect";
+      }else{
+        var safetyDefectsF = "";
+      }
+
+
+//      var defectCount = "1";
+//      while (document.getElementById("mpid1d").value != 0){
+
+  //    }
+
+
+
+
+
+
+
+
       document.getElementById("safetyStoryResult").innerHTML = safetyBase;
       document.getElementById("safetyNotesResult").innerHTML = safetyNotesF.toUpperCase();
+      document.getElementById("safetyDefectResult").innerHTML = safetyDefectsF.toUpperCase();
     }
     function functionAdditionalService(){
       var additionalServiceResult = "";
@@ -1681,7 +1719,7 @@ Todo:
         </form>
       </div>
     </div>
-    <div class="newMainDiv" id="onOff" style="display:none" onscroll="mainPageFocus()" onclick="mainPageFocus()";> <!-- Main Story Div -->                   <!-- FIXME:  -->
+    <div class="newMainDiv" id="onOff" style="display:block" onscroll="mainPageFocus()" onclick="mainPageFocus()";> <!-- Main Story Div -->                   <!-- FIXME:  -->
       <div class="newSecondaryDiv" id="svcDiv" style="display: block;"> <!-- ***************************************** SERVICE STORIES ******************************************* -->
         <s2>Service</s2><br>
         <!--<button class="button"; onclick="testButtonFunction(97)">Test Button</button><br> FIXME --> 
@@ -1809,47 +1847,124 @@ Todo:
 
 				<span class="a"></span>
 
+
+
+
+
+
+
+
+
+
+
 				<button class="button"; onclick="CopyToClipboard('SAFETY')">
 					MB GOVERNMENT SAFETY INSPECTION</button><br>
 					<form oninput="safetyStory()">
-						<label class="s1">Result: &nbsp;&nbsp;</label>
+						<label class="s1">Result:&nbsp;</label>
 						<input type="radio" id="safetyPass" name="safetyResult">
-						<label class="s1" for="safetyPass">Pass&nbsp;&nbsp;</label>
+						<label class="s1" for="safetyPass">P&nbsp;&nbsp;</label>
 						<input type="radio" id="safetyAdvice" name="safetyResult">
-						<label class="s1" for="safetyAdvice">Advicement&nbsp;&nbsp;</label>
+						<label class="s1" for="safetyAdvice">PP&nbsp;&nbsp;</label>
 						<input type="radio" id="safetyFail" name="safetyResult">
-						<label class="s1" for="safetyFail">Fail</label>
+						<label class="s1" for="safetyFail">X&nbsp;&nbsp;</label>
+            <input type="radio" id="safetyFail2" name="safetyResult">
+						<label class="s1" for="safetyFail2">XX</label>
 						<br>
 						<label class="s1">Tires: </label>
-						<input type="text" id="safetyrfTire" name="rfTire" size="5" placeholder="RF" maxlength="4">
-						<input type="text" id="safetyrrTire" name="rrTire" size="5" placeholder="RR" maxlength="4">
-						<input type="text" id="safetylrTire" name="lrTire" size="5" placeholder="LR" maxlength="4">
-						<input type="text" id="safetylfTire" name="lfTire" size="5" placeholder="LF" maxlength="4">
+						<input type="text" id="safetyrfTire" name="rfTire" size="5" placeholder="RF" maxlength="5">
+						<input type="text" id="safetyrrTire" name="rrTire" size="5" placeholder="RR" maxlength="5">
+						<input type="text" id="safetylrTire" name="lrTire" size="5" placeholder="LR" maxlength="5">
+						<input type="text" id="safetylfTire" name="lfTire" size="5" placeholder="LF" maxlength="5">
 						&nbsp; &nbsp;
 						<label class="s1">Brakes: </label>
-						<input type="text" id="safetyfPad" name="fPad" size="5" placeholder="Fronts" maxlength="2">
-						<input type="text" id="safetyrPad" name="rPad" size="5" placeholder="Rears" maxlength="2">
+						<input type="text" id="safetyrfPad" name="fPad" size="5" placeholder="RF Pad" maxlength="5">
+						<input type="text" id="safetyrrPad" name="rPad" size="5" placeholder="RR Pad" maxlength="5">
+            <input type="text" id="safetylrPad" name="fPad" size="5" placeholder="LR Pad" maxlength="5">
+						<input type="text" id="safetylfPad" name="rPad" size="5" placeholder="LF Pad" maxlength="5">
 						&nbsp; &nbsp;
 						<label class="s1">Rotors: </label>
-						<input type="text" id="safetyfDisc" name="fDisc" size="5" placeholder="Fronts" maxlength="4">
-						<input type="text" id="safetyrDisc" name="rDisc" size="5" placeholder="Rears" maxlength="4">
+						<input type="text" id="safetyrfDisc" name="fDisc" size="5" placeholder="RF Disc" maxlength="5">
+						<input type="text" id="safetyrrDisc" name="rDisc" size="5" placeholder="RR Disc" maxlength="5">
+            <input type="text" id="safetylrDisc" name="fDisc" size="5" placeholder="LR Disc" maxlength="5">
+						<input type="text" id="safetylfDisc" name="rDisc" size="5" placeholder="LF Disc" maxlength="5">
 						&nbsp; &nbsp;
 						<label class="s1">Rotor Limit: </label>
-						<input type="text" id="safetyfDiscLim" name="fDiscLim" size="5" placeholder="Fronts" maxlength="4">
-						<input type="text" id="safetyrDiscLim" name="rDiscLim" size="5" placeholder="Rears" maxlength="4">
+						<input type="text" id="safetyfDiscLim" name="fDiscLim" size="5" placeholder="Fronts" maxlength="5">
+						<input type="text" id="safetyrDiscLim" name="rDiscLim" size="5" placeholder="Rears" maxlength="5">
             &nbsp; &nbsp;
-						<input type="text" id="safetyNotesIn" size="40" placeholder="Notes">
+						<input type="text" id="safetyNotesIn" size="40" placeholder="Remarks">
 						&nbsp; &nbsp;
 						<input type="reset" onclick="safetyStory()" value="Reset">
 					</form>
+          <form id="MPI-defects" hidden>
+            <input type="checkbox" id="mpid1" name="MPIdefect1">
+						<label class="s1" for="mpid1">XX</label>
+            <input type="text" id="mpid1a" name="MPIdefect1" size="3" placeholder="No." maxlength="2">
+            <input type="text" id="mpid1b" name="MPIdefect1" size="4" placeholder="Sec." maxlength="4">
+            <input type="text" id="mpid1c" name="MPIdefect1" size="3" placeholder="(a)" maxlength="1">
+            <input type="text" id="mpid1d" name="MPIdefect1" size="120" placeholder="Defect">
+            <br>
+            <input type="checkbox" id="mpid2" name="MPIdefect2">
+						<label class="s1" for="mpid2">XX</label>
+            <input type="text" id="mpid2a" name="MPIdefect2" size="3" placeholder="No." maxlength="2">
+            <input type="text" id="mpid2b" name="MPIdefect2" size="4" placeholder="Sec." maxlength="4">
+            <input type="text" id="mpid2c" name="MPIdefect2" size="3" placeholder="(a)" maxlength="1">
+            <input type="text" id="mpid2d" name="MPIdefect2" size="120" placeholder="Defect">
+            <br>
+            <input type="checkbox" id="mpid3" name="MPIdefect3">
+						<label class="s1" for="mpid3">XX</label>
+            <input type="text" id="mpid3a" name="MPIdefect3" size="3" placeholder="No." maxlength="2">
+            <input type="text" id="mpid3b" name="MPIdefect3" size="4" placeholder="Sec." maxlength="4">
+            <input type="text" id="mpid3c" name="MPIdefect3" size="3" placeholder="(a)" maxlength="1">
+            <input type="text" id="mpid3d" name="MPIdefect3" size="120" placeholder="Defect">
+            <br>
+            <input type="checkbox" id="mpid4" name="MPIdefect4">
+						<label class="s1" for="mpid4">XX</label>
+            <input type="text" id="mpid4a" name="MPIdefect4" size="3" placeholder="No." maxlength="2">
+            <input type="text" id="mpid4b" name="MPIdefect4" size="4" placeholder="Sec." maxlength="4">
+            <input type="text" id="mpid4c" name="MPIdefect4" size="3" placeholder="(a)" maxlength="1">
+            <input type="text" id="mpid4d" name="MPIdefect4" size="120" placeholder="Defect">
+            <br>
+            <input type="checkbox" id="mpid5" name="MPIdefect5">
+						<label class="s1" for="mpid5">XX</label>
+            <input type="text" id="mpid5a" name="MPIdefect5" size="3" placeholder="No." maxlength="2">
+            <input type="text" id="mpid5b" name="MPIdefect5" size="4" placeholder="Sec." maxlength="4">
+            <input type="text" id="mpid5c" name="MPIdefect5" size="3" placeholder="(a)" maxlength="1">
+            <input type="text" id="mpid5d" name="MPIdefect5" size="120" placeholder="Defect">
+            <br>
+            <input type="checkbox" id="mpid6" name="MPIdefect6">
+						<label class="s1" for="mpid6">XX</label>
+            <input type="text" id="mpid6a" name="MPIdefect6" size="3" placeholder="No." maxlength="2">
+            <input type="text" id="mpid6b" name="MPIdefect6" size="4" placeholder="Sec." maxlength="4">
+            <input type="text" id="mpid6c" name="MPIdefect6" size="3" placeholder="(a)" maxlength="1">
+            <input type="text" id="mpid6d" name="MPIdefect6" size="120" placeholder="Defect">
+          </form>
 					<s1 id="SAFETY">
-						<s1 id="safetyStoryResult">TEST DROVE VEHICLE. LIFTED THE VEHICLE AND REMOVED FRONT AND REAR WHEELS. CHECKED AND ADJUSTED TIRE PRESSURES. INSPECTED VEHICLE'S UNDERCARRIAGE, ENGINE COMPARTMENT, WHEELS AND TIRES, BRAKE SYSTEMS, BODY EXTERIOR, AND DRIVER'S CONTROLS PER MANITOBA CERTIFICATION OF INSPECTION FORM. ASSEMBLED IN REVERSE ORDER. TORQUED ALL FOUR WHEELS TO SPEC.</s1>
+						<s1 id="safetyStoryResult">TEST DROVE VEHICLE. LIFTED THE VEHICLE AND REMOVED FRONT AND REAR WHEELS. INSPECTED BRAKING SYSTEM, SUSPENSION, TIRES, LIGHTS, EXHAUST SYSTEM, SEAT BELTS, STEERING, AND OTHER VEHICLE COMPONENTS AND SYSTEMS AS PER MANITOBA VEHICLE EQUIPMENT, SAFETY AND INSPECTION REGULATION FOR VEHICLES UNDER 4,500KG. ASSEMBLED IN REVERSE ORDER. TORQUED ALL FOUR WHEELS TO SPEC.</s1>
             <s1 id="safetyNotesResult"></s1>
+            <s1 id="safetyDefectResult"></s1>
 						</s1>
 					<s3>
-						<br>Tire tread depths minimum of 1.6mm
             <br>WIS: BE42.00-Z-9999AZ Brake Discard Limits
+            <br><a href = "https://mpipartners.ca/documents/Notices%20to%20trade/Misc/LVI-Reference-Tool.pdf" target = "_blank">Quick Reference Tool</a>
+            <br><a href = "https://web2.gov.mb.ca/laws/regs/annual/2019/031.pdf" target = "_blank">VESI Regulation</a>
+            <br><a href="/smol.pdf" target="_blank">VESI p90-168</a>
           </s3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 				<span class="a"></span>
 
@@ -3205,7 +3320,7 @@ Todo:
 					</button><br>
 					<s1 id="test223";>
 						test pdf file.<br>
-            <a href = "/testpdf.pdf" target = "_blank">Opens in New</a> | 
+            <a href = "/testpdf.pdf" target = "_blank">Opens in New</a>
 					</s1>
 
 
@@ -3348,7 +3463,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-        Last updated: 09 May 2024</p></s3l>
+        Last updated: 18 May 2024 Test</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
