@@ -464,6 +464,7 @@ Todo:
         var safetyBase = safetyBase + "<br> VEHICLE MEETS THE SAFETY STANDARDS FOR OPERATION IN MANITOBA AS PER <q>VEHICLE EQUIPMENT, SAFETY AND INSPECTION REGULATION.</q>";
         document.getElementById("MPI-defects").hidden = true;
       } else if (document.getElementById("safetyAdvice").checked == true) {
+        //document.getElementById("mpia1").checked = true;
         var safetyBase = safetyBase + "<br> VEHICLE CURRENTLY MEETS ALL MINIMUM SAFETY STANDARDS AS PER <q>VEHICLE EQUIPMENT, SAFETY AND INSPECTION REGULATION.</q> HOWEVER, SOME COMPONENTS WILL SOON REQUIRE SERVICING OR REPAIR. ";
         document.getElementById("MPI-defects").hidden = true;
       } else if (document.getElementById("safetyFail2").checked == true) {
@@ -478,6 +479,11 @@ Todo:
         safetyNotesF = safetyNotesF.replace(/\;/g, "<br>");
       }else {
         var safetyNotesF = "<br>";
+      }
+      if (document.getElementById("safetyAdvicef").checked == true){
+        document.getElementById("MPI-Advisements").hidden = false;
+      }else if (document.getElementById("safetyAdvicef").checked == false){
+        document.getElementById("MPI-Advisements").hidden = true;
       }
       document.getElementById("safetyStoryResult").innerHTML = safetyBase;
       document.getElementById("safetyNotesResult").innerHTML = safetyNotesF.toUpperCase();
@@ -540,6 +546,52 @@ Todo:
         safetyDefectsF += document.getElementById(defectID).value.toUpperCase() + "<br>";
       }
       document.getElementById("safetyDefectResult").innerHTML = safetyDefectsF;
+    }
+    function MPIsafetyAdvice(mpiAnum){
+      var safetyAdviceF = "<br><br>********************** ADVISEMENTS **********************<br>";
+      var adviceCounter = 1;
+      for (adviceCounter; adviceCounter <= 10; adviceCounter++ ){// ----- Hides fields
+        var adviceID = "mpia" + adviceCounter + "a";
+        document.getElementById(adviceID).hidden = true
+        var adviceID = "mpia" + adviceCounter + "b";
+        document.getElementById(adviceID).hidden = true
+        var adviceID = "mpia" + adviceCounter + "c";
+        document.getElementById(adviceID).hidden = true
+        var adviceID = "mpia" + adviceCounter + "d";
+        document.getElementById(adviceID).hidden = true
+        var adviceID = "mpia" + adviceCounter + "f";
+        document.getElementById(adviceID).hidden = true
+      }
+      var adviceCounter = 1;
+      for (adviceCounter; adviceCounter <= mpiAnum.value; adviceCounter++){// ----- Shows fields
+        var adviceID = "mpia" + adviceCounter + "a";
+        document.getElementById(adviceID).hidden = false
+        var adviceID = "mpia" + adviceCounter + "b";
+        document.getElementById(adviceID).hidden = false
+        var adviceID = "mpia" + adviceCounter + "c";
+        document.getElementById(adviceID).hidden = false
+        var adviceID = "mpia" + adviceCounter + "d";
+        document.getElementById(adviceID).hidden = false
+        var adviceID = "mpia" + adviceCounter + "f";
+        document.getElementById(adviceID).hidden = false
+      }
+      var adviceCounter = 1;
+      for (adviceCounter; adviceCounter <= mpiAnum.value; adviceCounter++){
+        safetyAdviceF += "Advice: ";
+        var adviceID = "mpia" + adviceCounter + "a";
+        safetyAdviceF += "Item " + document.getElementById(adviceID).value + ", ";
+        var adviceID = "mpia" + adviceCounter + "b";
+        safetyAdviceF += "Section " + document.getElementById(adviceID).value;
+        var adviceID = "mpia" + adviceCounter + "c";
+        if(document.getElementById(adviceID).value != ""){
+          safetyAdviceF += "(" + document.getElementById(adviceID).value + "), ";
+        } else {
+          safetyAdviceF += ", ";
+        }
+        var adviceID = "mpia" + adviceCounter + "d";
+        safetyAdviceF += document.getElementById(adviceID).value.toUpperCase() + "<br>";
+      }
+      document.getElementById("safetyAdviceResult").innerHTML = safetyAdviceF;
     }
     function functionAdditionalService(){
       var additionalServiceResult = "";
@@ -1377,7 +1429,7 @@ Todo:
       document.getElementById("MENGINEidInMainStoryParts").innerHTML = functionTENGINEPartsResult;
       document.getElementById("MENGINEidInMainStoryTorque").innerHTML = functionTENGINETorqueResult;
     }
-    function functionM276NENGINE(){
+    function functionM276NENGINE(){ // ******* NA ENGINE
       var functionM276NENGINEResult = "";
       var M276NENGINEFrontCover = "REMOVED UPPER ENGINE COVER. REMOVED AIR FILTER BOX, INTAKE MANIFOLD, AND OIL FILTER CAP. REMOVED LEFT AND RIGHT FRONT CAM COVERS. REMOVED FOUR CAM ADJUSTER MAGNETS. CLEANED OLD SEALANT. REINSTALLED FRONT CAM COVERS WITH NEW SEALANT. REINSTALLED CAM ADJUSTER MAGNETS WITH NEW O-RINGS. REINSTALLED ALL PARTS IN REVERSE ORDER. CLEANED OIL LEAK. TEST DROVE THE VEHICLE. CHECKED FRONT COVERS FOR LEAKS. CONFIRMED FRONT COVERS NO LONGER LEAKING.";
       var M276NENGINESpark = "REMOVED UPPER ENGINE COVER, AIR INTAKE MANIFOLD, AND NOISE ISOLATION FOAMS. REMOVED ALL 6 COIL PACKS. CLEANED ENGINE AREA WITH COMPRESSED AIR. REMOVED SPARK PLUGS. INSTALLED AND TORQUE NEW SPARK PLUGS TO 23NM. APPLIED GREASE IN SPARK PLUG ADAPTERS. INSTALLED AND TORQUE COIL PACKS TO 9NM. REASSEMBLED IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
@@ -1394,7 +1446,7 @@ Todo:
       document.getElementById("M276NENGINE").innerHTML = functionM276NENGINEResult;
     }//turbocharged M276
     function functionM276ENGINE(){
-      var M276ENGINEFrontCover = "CLEANED FRONT COVER AREA. REMOVED UPPER ENGINE COVER, LEFT AND RIGHT AIR DUCTS UPSTREAM OF AIR FILTER, LOW TEMPERATURE COOLANT TANK, AND OIL FILTER CAP. REMOVED LEFT AND RIGHT FRONT CAM COVERS. REMOVED CAM ADJUSTER MAGNETS. CLEANED FRONT COVERS. INSTALLED CAM COVERS WITH NEW RTV SEALANT. INSTALLED CAM ADJUSTERS WITH NEW O-RINGS. REINSTALLED ALL PARTS IN REVERSE ORDER. TEST DROVE THE VEHICLE. CHECKED FRONT COVERS FOR LEAKS. CONFIRMED FRONT COVERS ARE NO LONGER LEAKING.";
+      var M276ENGINEFrontCover = "REMOVED UPPER ENGINE COVER, LEFT AND RIGHT AIR DUCTS UPSTREAM OF AIR FILTER, LOW TEMPERATURE COOLANT RESERVOIR, AND OIL FILTER CAP. CLEANED AREA OF FRONT CAM COVERS. DISCONNECTED ENGINE WIRING HARNESS FROM FRONT CAMSHAFT ADJUSTER SOLENOIDS. REMOVED LEFT AND RIGHT FRONT CAM COVERS. REMOVED CAM ADJUSTER SOLENOIDS. CLEANED FRONT COVERS. INSTALLED CAM COVERS WITH NEW RTV SEALANT. INSTALLED CAM ADJUSTER SOLENOIDS WITH NEW O-RINGS AND BOLTS. REINSTALLED ALL PARTS IN REVERSE ORDER. FILLED LOW TEMP COOLANT. STARTED THE ENGINE. CHECKED FRONT COVERS FOR LEAKS. CONFIRMED FRONT COVERS ARE NO LONGER LEAKING.";
       var M276ENGINEAirFilter = "REMOVED UPPER ENGINE COVER. REMOVED LEFT AND RIGHT ENGINE AIR FILTER COVERS. REMOVED FILTERS. INSTALLED NEW AIR FILTERS. RE-ASSEMBLED IN REVERSE ORDER.";
       var M276ENGINESpark = "REMOVED UPPER ENGINE COVER, LEFT AND RIGHT AIR FILTER BOXES AND AIR DUCTS, AND NOISE ISOLATION FOAMS. REMOVED ALL 6 COIL PACKS. CLEANED ENGINE AREA WITH COMPRESSED AIR. REMOVED SPARK PLUGS. INSTALLED AND TORQUE NEW SPARK PLUGS TO 23NM. APPLIED GREASE IN SPARK PLUG ADAPTERS. INSTALLED AND TORQUE COIL PACKS TO 9NM. REASSEMBLED IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
       var M276ENGINE43OilPan = "LIFTED THE VEHICLE AND REMOVED UPPER ENGINE COVER, BOTH LEFT AND RIGHT AIR FILTER HOUSING. REMOVED LOWER FRONT, ENGINE, AND TRANSMISSION COVERS. DRAINED ENGINE OIL. PLACED THE VEHICLE IN NEUTRAL AND ELECTRONIC PARKING BRAKE IN SERVICE MODE. DISCONNECTED BATTERY GROUND. DISCONNECTED BOTH LEFT AND RIGHT TORQUE STRUTS FROM THE SUBFRAME. <b>REMOVED PRESSURE FROM BOTH LEFT AND RIGHT FRONT AIRMATIC STRUTS.</b> SECURED STEERING WHEEL AND REMOVED STEERING RACK AND PINION ASSEMBLY. REMOVED BOTH FRONT AXLES AND INTERMEDIATE AXLE. REMOVED RIGHT CATALYTIC CONVERTER. DISCONNECTED FRONT DRIVE SHAFT AT FRONT DIFFERENTIAL AND REMOVED DIFFERENTIAL. DISCONNECTED LEFT AND RIGHT ENGINE MOUNTS AT FRONT SUBFRAME. DISCONNECTED TRANSMISSION COOLER LINES AT TRANSMISSION. DETACHED TRANSMISSION COOLER AT FAN UNIT AND MOVED TRANSMISSION FLUID LINES TO THE SIDE. REMOVED CHARGE AIR INTERCOOLER LOWER BRACKET. INSTALLED ENGINE SUPPORT FIXTURE AND SLIGHTLY LIFTED THE ENGINE. REMOVED OIL PAN LOWER SECTION AND REMOVED OIL PICK-UP TUBE. REMOVED UPPER OIL PAN. CLEANED SEALING SURFACES OF BOTH OIL PANS.<br>APPLIED RTV SEALANT PER WIS. ASSEMBLED IN REVERSE ORDER. ADDED ENGINE OIL TO SPEC. CHECKED TRANSMISSION FLUID LEVEL. STARTED THE ENGINE AND CONFIRMED ENGINE OIL LEVEL IS GOOD. CHECK AND CONFIRMED UPPER OIL PAN IS NO LONGER LEAKING. RE-INSTALLED UPPER ENGINE COVER AND LOWER COVERS. ";
@@ -1868,7 +1920,7 @@ Todo:
 				<span class="a"></span>
 
 				<button class="button"; onclick="CopyToClipboard('SAFETY')">
-					MPI MB GOVERNMENT SAFETY INSPECTION</button><br>
+					MPI MANITOBA GOVERNMENT SAFETY INSPECTION</button><br>
 					<form oninput="safetyStory()">
 						<label class="s1">Result:&nbsp;</label>
 						<input type="radio" id="safetyPass" name="safetyResult">
@@ -1878,7 +1930,9 @@ Todo:
 						<input type="radio" id="safetyFail" name="safetyResult">
 						<label class="s1" for="safetyFail">X&nbsp;&nbsp;</label>
             <input type="radio" id="safetyFail2" name="safetyResult">
-						<label class="s1" for="safetyFail2">XX</label>
+						<label class="s1" for="safetyFail2">XX&nbsp;&nbsp;</label>
+            <input type="checkbox" id="safetyAdvicef" name="safetyResult">
+						<label class="s1" for="safetyAdvicef">Advisements</label>
 						<br>
 						<label class="s1">Tires: </label>
 						<input type="text" id="safetyrfTire" name="rfTire" size="5" placeholder="RF" maxlength="5">
@@ -1906,9 +1960,9 @@ Todo:
 						&nbsp; &nbsp;
 						<input type="reset" onclick="safetyStory()" value="Reset">
 					</form>
-          <form oninput="MPIsafetyDefects(mpidnum)" id="MPI-defects" hidden>
+          <form id="MPI-defects" hidden>
             <label class="s1" for="mpidnum">Number of defects: &nbsp;</label>
-            <input type="number" id="mpidnum" value="01" size="1" maxlength="2" min="1" max="10">                 <!-- num of defects:  -->
+            <input oninput="MPIsafetyDefects(mpidnum)" type="number" id="mpidnum" value="01" size="1" maxlength="2" min="1" max="10">                 <!-- num of defects:  -->
             <br>
             <input type="checkbox" id="mpid1" name="MPIdefect1">
 						<label class="s1" id="mpid1e" for="mpid1">XX</label>
@@ -1980,10 +2034,70 @@ Todo:
             <input type="text" id="mpid10c" name="MPIdefect10" size="3" placeholder="(a)" maxlength="1" hidden>
             <input type="text" id="mpid10d" name="MPIdefect10" size="120" placeholder="Defect" hidden>
             <br id="mpid10f" hidden>
+            <br><input type="button" value="Done" onclick="MPIsafetyDefects(mpidnum)">
+            <input type="reset" onclick="MPIsafetyDefects(mpidnum)">
+          </form>
+          <form id="MPI-Advisements" hidden>
+            <label class="s1" for="mpiAnum">Number of advisements: &nbsp;</label>
+            <input oninput="MPIsafetyAdvice(mpiAnum)" type="number" id="mpiAnum" value="01" size="1" maxlength="2" min="1" max="10">                 <!-- num of defects:  -->
+            <br>
+            <input type="text" id="mpia1a" name="MPIadvice1" size="3" placeholder="No." maxlength="2">
+            <input type="text" id="mpia1b" name="MPIadvice1" size="4" placeholder="Sec." maxlength="4">
+            <input type="text" id="mpia1c" name="MPIadvice1" size="3" placeholder="(a)" maxlength="1">
+            <input type="text" id="mpia1d" name="MPIadvice1" size="120" placeholder="Advisement">
+            <br id="mpia1f" hidden>
+            <input type="text" id="mpia2a" name="MPIadvice2" size="3" placeholder="No." maxlength="2" hidden>
+            <input type="text" id="mpia2b" name="MPIadvice2" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpia2c" name="MPIadvice2" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpia2d" name="MPIadvice2" size="120" placeholder="Advisement" hidden>
+            <br id="mpia2f" hidden>
+            <input type="text" id="mpia3a" name="MPIadvice3" size="3" placeholder="No." maxlength="2" hidden>
+            <input type="text" id="mpia3b" name="MPIadvice3" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpia3c" name="MPIadvice3" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpia3d" name="MPIadvice3" size="120" placeholder="Advisement" hidden>
+            <br id="mpia3f" hidden>
+            <input type="text" id="mpia4a" name="MPIadvice4" size="3" placeholder="No." maxlength="2" hidden>
+            <input type="text" id="mpia4b" name="MPIadvice4" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpia4c" name="MPIadvice4" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpia4d" name="MPIadvice4" size="120" placeholder="Advisement" hidden>
+            <br id="mpia4f" hidden>
+            <input type="text" id="mpia5a" name="MPIadvice5" size="3" placeholder="No." maxlength="2" hidden >
+            <input type="text" id="mpia5b" name="MPIadvice5" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpia5c" name="MPIadvice5" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpia5d" name="MPIadvice5" size="120" placeholder="Advisement" hidden>
+            <br id="mpia5f" hidden>
+            <input type="text" id="mpia6a" name="MPIadvice6" size="3" placeholder="No." maxlength="2" hidden>
+            <input type="text" id="mpia6b" name="MPIadvice6" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpia6c" name="MPIadvice6" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpia6d" name="MPIadvice6" size="120" placeholder="Advisement" hidden>
+            <br id="mpia6f" hidden>
+            <input type="text" id="mpia7a" name="MPIadvice7" size="3" placeholder="No." maxlength="2" hidden>
+            <input type="text" id="mpia7b" name="MPIadvice7" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpia7c" name="MPIadvice7" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpia7d" name="MPIadvice7" size="120" placeholder="Advisement" hidden>
+            <br id="mpia7f" hidden>
+            <input type="text" id="mpia8a" name="MPIadvice8" size="3" placeholder="No." maxlength="2" hidden>
+            <input type="text" id="mpia8b" name="MPIadvice8" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpia8c" name="MPIadvice8" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpia8d" name="MPIadvice8" size="120" placeholder="Advisement" hidden>
+            <br id="mpia8f" hidden>
+            <input type="text" id="mpia9a" name="MPIadvice9" size="3" placeholder="No." maxlength="2" hidden >
+            <input type="text" id="mpia9b" name="MPIadvice9" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpia9c" name="MPIadvice9" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpia9d" name="MPIadvice9" size="120" placeholder="Advisement" hidden>
+            <br id="mpia9f" hidden>
+            <input type="text" id="mpia10a" name="MPIadvice10" size="3" placeholder="No." maxlength="2" hidden>
+            <input type="text" id="mpia10b" name="MPIadvice10" size="4" placeholder="Sec." maxlength="4" hidden>
+            <input type="text" id="mpia10c" name="MPIadvice10" size="3" placeholder="(a)" maxlength="1" hidden>
+            <input type="text" id="mpia10d" name="MPIadvice10" size="120" placeholder="Advisement" hidden>
+            <br id="mpia10f" hidden>
+            <br><input type="button" value="Done" onclick="MPIsafetyAdvice(mpiAnum)">
+            <input type="reset" onclick="MPIsafetyAdvice(mpiAnum)">
           </form>
 					<s1 id="SAFETY">
 						<s1 id="safetyStoryResult">TEST DROVE VEHICLE. LIFTED THE VEHICLE AND REMOVED FRONT AND REAR WHEELS. INSPECTED BRAKING SYSTEM, SUSPENSION, TIRES, LIGHTS, EXHAUST SYSTEM, SEAT BELTS, STEERING, AND OTHER VEHICLE COMPONENTS AND SYSTEMS AS PER MANITOBA VEHICLE EQUIPMENT, SAFETY AND INSPECTION REGULATION FOR VEHICLES UNDER 4,500KG. ASSEMBLED IN REVERSE ORDER. TORQUED ALL FOUR WHEELS TO SPEC.</s1>
             <s1 id="safetyDefectResult"></s1>
+            <s1 id="safetyAdviceResult"></s1>
             <s1 id="safetyNotesResult"></s1>
 						</s1>
 					<s3>
@@ -3505,7 +3619,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-        Last updated: 18 May 2024</p></s3l>
+        Last updated: 27 May 2024</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
