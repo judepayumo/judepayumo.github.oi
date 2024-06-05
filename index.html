@@ -1508,6 +1508,7 @@ Todo:
     function functionM270ENGINE(){
       var functionM270ENGINEResult = "";
       var functionM270ENGINEPartsResult = "";
+      var functionM270ENGINETorqueResult = "";
       var M270ENGINESpark = "REMOVED UPPER ENGINE COVER, AIR DUCT UPSTREAM OF TURBO, AND FOUR COIL PACKS. REMOVED FOUR SPARK PLUGS. INSTALLED NEW SPARK PLUGS AND TORQUE TO 23NM. REINSTALLED ALL PARTS IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
       var M270ENGINEAirFilter = "REMOVED UPPER ENGINE COVER. REMOVED ENGINE AIR FILTER COVER AND FILTER. INSTALLED NEW FILTER. RE-ASSEMBLED IN REVERSE ORDER.";
       var M270ENGINETransmissionService = "DISCONNECTED BATTERY GROUND. REMOVED AIR FILTER BOX AND AIR DUCT UPSTREAM OF FILTER. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER. DRAINED TRANSMISSION FLUID. REMOVED TRANSMISSION OIL PUMP FILTER. REMOVED TRANSMISSION OIL PAN AND FILTER. INSTALLED NEW FILTERS, O-RINGS, GASKETS, AND REINSTALLED TRANSMISSION OIL PAN AND DRAIN PLUG. REINSTALLED PARTS IN REVERSE ORDER. TORQUE DRAIN PLUG TO 25NM, OIL PAN BOLTS TO 8NM, FILTER HOUSING TO 25NM. PRE-FILLED TRANSMISSION. CONNECTED SCANNER. PERFORMED TRANSMISSION OIL LEVEL CHECK. ADJUSTED TRANSMISSION FLUID TO CORRECT SPEC. INSTALLED FILLER CAP AND LOCK. TEST DROVE THE VEHICLE.<br><s3>Pre-fill with 4L, check level with xentry and special dipstick</s3>";
@@ -1516,6 +1517,9 @@ Todo:
       var M270ENGINECrankVent = "REMOVED UPPER ENGINE COVER. DISCONNECTED BATTERY GROUND. DISCONNECTED HOSES AND ELECTRICAL CONNECTORS ON INTAKE LINE. REMOVED INTAKE LINE. LIFTED THE VEHICLE AND REMOVED RF WHEEL. UNFASTENED RF LOWER CONTROL ARM TO STEERING KNUCKLE. REMOVED RF DRIVE AXLE, LOWER RIGHT ENGINE MOUNT AND BRACKET. REMOVED CRANKCASE OIL SEPARATOR. CRANKCASE VENT KIT (INCLUDES INTAKE LINE, PCV ACTUATOR, OIL SEPARATOR). RE-ASSEMBLED IN REVERSE ORDER. TORQUED WHEEL TO SPEC. CONNECTED XENTRY DIAG TOOL AND PERFORMED QUICK TEST. CLEARED FAULTS AND PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE. CONFIRMED NO CEL.";
       var M270ENGINEHeadGasket = "FIXME";
       var M270ENGINEHeadGasketP = "<br><br>A0219979745 High pressure fuel pump o-ring<br>A1770720000 Fuel injector seals x 4<br>A2700160080 Vacuum pump gasket<br>A2700181800 Oil filler neck seal<br>A0009975711 Head cover coolant line o-ring<br>A0009986590 Cylinder cover cap (cam plug)<br>A0019905722 Cylinder head cover bolts x 18<br>A0009908419 Cylinder head cover bolts x 6<br>A0000160569 Cylinder head bolts x 10<br>A0089906582 Cylinder head bolts spacer discs x 10<br>A2700160020 Cylinder head gasket<br>A0009953033 Exhaust clamp after flex pipe<br>A2711420780 Cat to turbo seal<br>A0029903950 cat to turbo nuts x 3<br>A0019906614 cat to turbo studs x 3<br>A0009973807 seal for turbo coolant feed and return lines x 2<br>A0249971045 seal for turbo oil return and return lines x 2<br>A1199970045 seal for turbo oil return line to crankcase<br>A2740960100 seal for turbo oil return line<br>A2701420480 Exhaust manifold gasket<br>A0019901816 Exhaust manifold studs x 8<br>A2711420072 Exhaust manifold nuts x 8<br>A2700960180 Intake manifold seals x 4<br>A2700150200 Timing chain tensioner cap<br>A0169975045 Cam adjuster o-rings x 2<br>A2700960080 Throttle valve actuator seal x 2<br>N000000006648 Bolt for turbo oil feed/return line, coolant lines x 5<br>N000000007820 Engine mount to timing case bolts x 2<br>Black rtv sealant for cylinder head cover and front cover x 2<br>Pink Coolant<br>Engine oil and filter";
+      var M270ENGINdctCover = "LIFTED THE VEHICLE AND REMOVED LOWER AND UPPER ENGINE COVER. DRAINED ENGINE COOLANT, TRANSMISSION FLUID, AND RECOVERED AC REFRIGERANT. INSTALLED TRANSMISSION DRAIN PLUG WITH NEW CRUSH WASHER AND TORQUED TO SPEC. REMOVED FRONT LEFT AND RIGHT WHEELS, FENDER LINERS, WASHER FLUID RESERVOIR, ENGINE AIR FILTER HOUSING, FRONT BUMPER, LEFT AND RIGHT HEADLAMPS, ENGINE CONTROL UNIT, BATTERY AND BATTER TRAY. REMOVED RADIATOR HOLDERS, FRONT MOUNTED INTERCOOLER. REMOVED COMPLETE FRONT END ASSEMBLY (FRONT REINFORCEMENT AND FRONT CROSSMEMBER). REMOVED FRONT RADIATOR ASSEMBLY WITH FAN UNIT. DISCONNECTED CENTRE MUFFLER FROM THE CATALYTIC CONVERTER, AND PROPELLER SHAFT FROM PTO UNIT. DISCONNECTED LEFT AND RIGHT LOWER CONTROL ARM FROM STEERING KNUCKLES AND REMOVED BOTH FRONT AXLE SHAFTS. DISCONNECTED RELEVANT ENGINE COOLANT LINES, VACUUM LINES, EVAP LINES, ENGINE WIRING HARNESS, AND FUEL LINES. REMOVED 12V BATTERY AND BATTERY TRAY, AND COOLANT RESERVOIR. REMOVED TOP AND BOTTOM ENGINE STABILIZER MOUNTS. SECURED ENGINE TO ENGINE HOIST AND REMOVED ENGINE WITH TRANSMISSION. DISCONNECTED ELECTRICAL CONNECTIONS AND COOLANT LINES BETWEEN ENGINE AND TRANSMISSION UNIT. <br>REMOVED TRANSMISSION FROM THE ENGINE. <br>REMOVED DUAL CLUTCH COVER. CLEANED AREA AND INSTALLED NEW DUAL CLUTCH COVER USING THE SPECIAL TOOL. ASSEMBLED IN REVERSE ORDER. APPLIED VACUUM ON COOLING SYSTEM AND CONFIRMED SYSTEM HELD VACUUM (NO LEAKS). FILLED COOLING SYSTEM. PERFORMED VACUUM AND LEAK TEST ON AC SYSTEM. CONFIRMED NO LEAKS FOUND. CHARGED AC SYSTEM WITH REFRIGERANT AND INJECTED OIL. FILLED TRANSMISSION DCT FLUID. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED QUICK TEST. PERFORMED OIL LEVEL CHECK OF TRANSMISSION AND ADJUSTED LEVEL TO SPEC. CLEARED FAULTS. PRINTED FINAL QUICK TEST. TEST DROVE THE VEHICLE AND RE-TORQUE FRONT WHEELS.";
+      var M270ENGINdctCoverP = "<br><br><b>Parts List:</b><br>A0998350000 x 1: AC Condenser dryer (recommend, add time)<br>A0209977645 x 2: AC lines to condenser O-ring<br>A0199978545 x 1: AC line O-ring<br>A0009953433 x 1: Exhaust clamp<br>N000000007820 x 2: Engine mount to timing case<br>Transmission drain plug sealing ring<br>Transmission service (recommend)<br>Coolant<br>DCT Cover";
+      var M270ENGINdctCoverT = "<br><br><b>Torque Specs:</b><br>30 Nm: Transmission drain plug<br>25 Nm: Transmission filter cover to cooler<br>08 Nm: Transmission pan<br>39 Nm:  Transmission to engine<br>120 Nm, Loosen, 120Nm: Front end to longitudinal member (3 x 3 Big bolts)<br>20 Nm: Front end to upper longitudinal member (2 x 1 upside down)<br>10 Nm, 27 Nm, 90 deg: Driveshaft to transmission PTO<br>08 Nm: AC lines to condenser<br>16 Nm: B+ to alternator<br><br><b>Engine Mounts AR22.10-P-1260-02NKB</b><br>106 Nm: lower stabilizer mount<br>106 Nm: transmission mount to transmission<br>58 Nm: torsion bar link / to strut dome<br>58 Nm: mounting console to cylinder head<br>80 Nm, 90 deg: engine mount to timing case / engine support (replace bolt)";
       if (document.getElementById("M270ENGINESpark").checked == true) {
         var functionM270ENGINEResult = M270ENGINESpark;
       }
@@ -1538,8 +1542,14 @@ Todo:
         var functionM270ENGINEResult = M270ENGINEHeadGasket;
         var functionM270ENGINEPartsResult = M270ENGINEHeadGasketP;
       }
+      if (document.getElementById("M270ENGINdctCover").checked == true) {
+        var functionM270ENGINEResult = M270ENGINdctCover;
+        var functionM270ENGINEPartsResult = M270ENGINdctCoverP;
+        var functionM270ENGINETorqueResult = M270ENGINdctCoverT;
+      }
       document.getElementById("M270ENGINE").innerHTML = functionM270ENGINEResult;
       document.getElementById("M270ENGINEParts").innerHTML = functionM270ENGINEPartsResult;
+      document.getElementById("M270ENGINETorque").innerHTML = functionM270ENGINETorqueResult;
     }
     function functionM133ENGINE(){
       var functionM133ENGINEResult = "";
@@ -2496,12 +2506,15 @@ Todo:
 						<label class="s1" for="M270ENGINEOilFilterHousingSeal">Oil Filter Housing Seal&emsp;</label>
 						<input type="radio" id="M270ENGINERemove" name="M270ENGINE">
 						<label class="s1" for="M270ENGINERemove">Engine Removal/Installation&emsp;</label>
+            <input type="radio" id="M270ENGINdctCover" name="M270ENGINE">
+						<label class="s1" for="M270ENGINdctCover">DCT Cover&emsp;</label>
             <input type="radio" id="M270ENGINECrankVent" name="M270ENGINE">
 						<label class="s1" for="M270ENGINECrankVent">Crankcase Vent&emsp;</label>
             <input type="radio" id="M270ENGINEHeadGasket" name="M270ENGINE">
 						<label class="s1" for="M270ENGINEHeadGasket">Head Gasket&emsp;</label>
 					</form>
 					<s1 id="M270ENGINE";></s1>
+          <s3 id="M270ENGINETorque";></s3>
           <s3 id="M270ENGINEParts";></s3>
 
         <span class="a"></span>
@@ -3619,7 +3632,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-        Last updated: 27 May 2024</p></s3l>
+        Last updated: 05 June 2024</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
