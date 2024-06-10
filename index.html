@@ -1730,6 +1730,25 @@ Todo:
       document.getElementById("724Transmission").innerHTML = Transmission724Result;
       document.getElementById("724TransmissionT").innerHTML = Transmission724Torques;
     }
+    function functionTransmission7241(){
+      var Transmission7241Result = "";
+      var Transmission7241Torques = "";
+      var Transmission7241Service = "DISCONNECTED ENGINE CONTROL UNIT FROM THE AIR FILTER HOUSING. REMOVED ENGINE AIR FILTER HOUSING. REMOVED HYDRAULIC FILTER OF TRANSMISSION. INSTALLED NEW FILTER AND TORQUED CAP TO SPEC. LIFTED THE VEHICLE AND REMOVED LOWER REAR ENGINE COMPARTMENT LINING. REMOVED TRANSMISSION DRAIN SCREW AND TURNED DRAIN TO POSITION 3. TURNED DRAIN TO POSITION ONE AND REMOVED DRAIN TOOL. REMOVED PRIMARY AND SECONDARY FILTERS. REMOVED OVERFLOW PIPE AND DRAINED TRANSMISSION OIL COMPLETELY. INSTALLED NEW OVERFLOW PIPE PLUG. INSTALLED NEW SECONDARY AND PRIMARY FILTERS. INSTALLED NEW TRANSMISSION DRAIN PLUG. REMOVED TRANSMISSION FILLER CONNECTION CAP. PLACED THE TRANSMISSION INTO NEUTRAL AND POURED IN NEW TRANSMISSION FLUID. ASSEMBLED IN REVERSE ORDER. CONNECTED XENTRY DIAGNOSTIC AND BATTERY CHARGER. PERFORMED OIL LEVEL CHECK USING ULTRASOUND MEASUREMENT TOOL. ADJUSTED AND CONFIRMED TRANSMISSION FLUID LEVEL IS GOOD. ASSEMBLED IN REVERSE ORDER. ";
+      var Transmission7241ServiceT = "<br><br> 25 Nm Hydraulic Filter<br>Pour drained quantity plus 0.5 liters into transmission. If the transmission is empty, add 5.5L.";
+      var Transmission7241CU = "Fix Me";
+      var Transmission7241CUT = "Fix Me";
+      if (document.getElementById("Transmission724.1Service").checked == true) {
+        var Transmission7241Result = Transmission7241Service;
+        var Transmission7241Torques = Transmission7241ServiceT;
+      }
+      if (document.getElementById("Transmission724.1CU").checked == true) {
+        var Transmission7241Result = Transmission7241CU;
+        var Transmission7241Torques = Transmission7241CUT;
+      }
+      document.getElementById("724.1Transmission").innerHTML = Transmission7241Result;
+      document.getElementById("724.1TransmissionT").innerHTML = Transmission7241Torques;
+
+    }
     function functionM177LS2ENGINE(){
       var functionM177ls2ENGINE = ""; //leave blank
       var functionM177ls2ENGINEP = ""; //leave blank
@@ -2275,7 +2294,7 @@ Todo:
 				<span class="a"></span>
 
         <button class="button"; onclick="CopyToClipboard('724Transmission')">
-          TRANSMISSION 724 7-Speed DCT DKG</button><br>
+          TRANSMISSION 724.0 7-Speed DCT DKG</button><br>
           <form oninput="functionTransmission724()">
 						<input type="Radio" id="Transmission724Service" name="Transmission724">
 						<label class="s1" for="Transmission724Service">Transmission Service&emsp;</label>
@@ -2288,6 +2307,20 @@ Todo:
           <s3 id="724TransmissionT"></s3>
 
           <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('724.1Transmission')">
+          TRANSMISSION 724.1 8-Speed DCT DKG</button><br>
+          <form oninput="functionTransmission7241()">
+            <input type="Radio" id="Transmission724.1Service" name="Transmission724.1">
+            <label class="s1" for="Transmission724.1Service">Transmission Service&emsp;</label>
+            <input type="Radio" id="Transmission724.1CU" name="Transmission724.1">
+            <label class="s1" for="Transmission724.1CU">DKG Control Unit&emsp;</label>
+          </form>
+          <s1 id="724.1Transmission"></s1><br>
+          <s3 id="724.1TransmissionT"></s3>
+
+          <span class="a"></span>
+
 
 				<button class="button"; onclick="CopyToClipboard('SPARK3')">
 					REPLACE SPARK PLUGS M157</button><br>
@@ -3632,7 +3665,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-        Last updated: 05 June 2024</p></s3l>
+        Last updated: 09 June 2024</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
