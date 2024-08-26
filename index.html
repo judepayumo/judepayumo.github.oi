@@ -369,6 +369,31 @@ Todo:
       }
       document.getElementById("2021010004result").innerHTML = base2021010004;
     }
+    function ASSYSTPlus(){
+      document.getElementById("assyst").hidden = false;
+      var ASSYSTPlusResult = "<br>ADDITIONAL SERVICE DUE WITH THIS SERVICE ";
+      if (document.getElementById("assCode1").checked == true) {
+        ASSYSTPlusResult += "A: <br>";} // SERVICE A
+      if (document.getElementById("assCode2").checked == true) {
+        ASSYSTPlusResult += "B: <br>";} // SERVICE B
+      if (document.getElementById("assCode4").checked == true) {
+        ASSYSTPlusResult += "Brake fluid flush. <br>";} // SERVICE 4
+      if (document.getElementById("assCode8").checked == true) {
+        ASSYSTPlusResult += "engine air filter. <br>";} // SERVICE 8
+      if (document.getElementById("assCode11").checked == true) {
+        ASSYSTPlusResult += "fuel filter. <br>";} // SERVICE 11
+      if (document.getElementById("assCode12").checked == true) {
+        ASSYSTPlusResult += "spark plugs. <br>";} // SERVICE 12
+      if (document.getElementById("assCode20").checked == true) {
+        ASSYSTPlusResult += "transmission service. <br>";} // SERVICE 20
+      if (document.getElementById("assCode25").checked == true) {
+        ASSYSTPlusResult += "rear differential. <br>";} // SERVICE 25
+      if (document.getElementById("assCodeShow").checked == true) {
+        alert("01: A Service \n02: B Service \n03: Engine oil and filter \n04: Brake fluid flush \n08: Engine air filter \n10: Sunroof clean / lubricate \n11: Fuel filter\n12: Spark plugs \n13: Coolant flush \n15: Tow hitch clean / lubricate \n20: Transmission service \n24: Drive belt \n25: Rear differential \n34: Timing belt");
+        document.getElementById("assCodeShow").checked = false;
+      }
+      document.getElementById("AssystPlusR").innerHTML = ASSYSTPlusResult.toUpperCase();
+    }
     function quickLubeStory(){
       var quickLubeBase = "TOPPED OFF COOLANT AND WASHER FLUID. REMOVED UPPER AND LOWER ENGINE COVERS. DRAINED ENGINE OIL. ";
       if (document.getElementById("quickLubePlug").checked == false) {
@@ -597,19 +622,27 @@ Todo:
       var additionalServiceResult = "";
       var ASpanoramic = "CLEANED AND LUBRICATED PANORAMIC SLIDING SUNROOF MECHANISMS. ACTUATED ROOF AND CONFIRMED SMOOTH OPERATION.";
       var ASbrakeFlush = "CONNECTED BRAKE PRESSURE BLEEDER. LIFTED THE VEHICLE. DRAINED 1L OF BRAKE FLUID FROM THE SYSTEM FROM ALL FOUR BRAKE CALIPERS. ";
-      var AScombination = "REMOVED COMBINATION FILTER AND INSTALLED NEW FILTER."
+      var AScombination = "REMOVED COMBINATION FILTER AND INSTALLED NEW FILTER.";
       var ASpredust = "REMOVED PRE-DUST FILTER AND INSTALLED NEW FILTER.";
+      var AScabin = "REMOVED BOTH PRE-DUST AND DUST FILTERS. INSTALLED NEW FILTERS.";
+      var AStrailer = "CHECKED AND INSPECTED TRAILER HITCH. ";
       if (document.getElementById("ASpanoramic").checked == true) {
         var additionalServiceResult = ASpanoramic;
       }
-      if (document.getElementById("AScombination").checked == true) {
-        var additionalServiceResult = AScombination;
+      if (document.getElementById("AStrailer").checked == true) {
+        var additionalServiceResult = AStrailer;
       }
       if (document.getElementById("ASbrakeFlush").checked == true) {
         var additionalServiceResult = ASbrakeFlush;
       }
+      if (document.getElementById("AScombination").checked == true) {
+        var additionalServiceResult = AScombination;
+      }
       if (document.getElementById("ASpredust").checked == true) {
         var additionalServiceResult = ASpredust;
+      }
+      if (document.getElementById("AScabin").checked == true) {
+        var additionalServiceResult = AScabin;
       }
       document.getElementById("additionalService").innerHTML = additionalServiceResult;
     }
@@ -1089,6 +1122,7 @@ Todo:
       var endPDI = "PERFORMED CHECKS PER PDI CHECKLIST. CONFIRMED VEHICLE HAND-OVER IN WORKSHOP MENU AND RESET TPMS. TEST DROVE THE VEHICLE. TORQUED ALL FOUR WHEELS TO SPEC. ATTACHED FINAL QUICK TEST AND PDI CHECKLIST TO THE WORK ORDER.";
       var notesPDI = "<br>**********<br>";
       var PDIisEQ = document.getElementById("PDIEQ").checked;
+      var PDIisPH = document.getElementById("PDIPH").checked;
       if (PDIisEQ) {
         basePDI +=  "TOPPED OFF WASHER FLUID. ";
       } else if (PDIisEQ == false){
@@ -1120,7 +1154,11 @@ Todo:
       if (document.getElementById("PDIfuel").checked == true && PDIisEQ) {
         basePDI += "PLUGGED IN EV TO CHARGE OVERNIGHT. ";
         document.getElementById("PDIfuelR").hidden = true;
-      } else if (document.getElementById("PDIfuel").checked == true) {
+      }else if (document.getElementById("PDIfuel").checked == true && PDIisPH) {
+        basePDI += "PLUGGED IN PHEV TO CHARGE OVERNIGHT. FUELLED UP THE VEHICLE AND ATTACHED RECEIPT TO THE WORK ORDER. ";
+        document.getElementById("PDIfuelR").hidden = false;
+        basePDI += "FUEL RECEIPT NUMBER IS " + document.getElementById("PDIfuelR").value + ". ";
+      }else if (document.getElementById("PDIfuel").checked == true) {
         basePDI += "FUELLED UP THE VEHICLE AND ATTACHED RECEIPT TO THE WORK ORDER. ";
         document.getElementById("PDIfuelR").hidden = false;
         basePDI += "FUEL RECEIPT NUMBER IS " + document.getElementById("PDIfuelR").value + ". ";
@@ -1177,6 +1215,9 @@ Todo:
           }
       if (document.getElementById("preqOil").checked == true) {                                                 // if AMG oil checked
         preqFunctionResult = preqFunctionResult + preqDesctoDesc + "AMG ENGINE OIL";
+      }
+      if (document.getElementById("preqOil20").checked == true) {                                                 // if 0w-20 oil checked
+        preqFunctionResult = preqFunctionResult + preqDesctoDesc + "0w-20 ENGINE OIL";
       }
       if (document.getElementById("preqBatt").checked == true) {                                                // if key battery
         preqFunctionResult = preqFunctionResult + preqDesctoQtty + document.getElementById("preqBattn").value + preqQttytoDesc + "KEY BATTERY";
@@ -1396,6 +1437,18 @@ Todo:
         document.getElementById("presUout").innerHTML = "PSI";
       }
         return result.toFixed(1);
+    }
+    function hideById(hideID, hideID2){
+      if (document.getElementById(hideID).hidden == true){
+        document.getElementById(hideID).hidden = false;
+      }else{
+        document.getElementById(hideID).hidden = true;
+      }
+      if (document.getElementById(hideID2).hidden == true){
+        document.getElementById(hideID2).hidden = false;
+      }else{
+        document.getElementById(hideID2).hidden = true;
+      }
     }
     function treadDepth() {//not used 
       var mmToIn = 0.039370;
@@ -1712,7 +1765,7 @@ Todo:
       var Transmission724Result = "";
       var Transmission724Torques = "";
       var Transmission724Service = "REMOVED AIR FILTER HOUSING. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER. DRAINED TRANSMISSION FLUID. REMOVED TRANSMISSION OIL PAN AND FILTERS. INSTALLED NEW FILTERS. RE-INSTALLED PAN AND DRAIN BOLTS WITH NEW GASKETS. TORQUED BOLTS TO SPEC. PRE-FILLED TRANSMISSION FLUID. PERFORMED FLUID LEVEL CHECK AND CONFIRMED TRANSMISSION FLUID LEVEL IS GOOD. INSTALLED DIPSTICK TUBE CAP WITH NEW LOCK.";
-      var Transmission724ServiceT = "Pre-fill with 4L, check level with xentry and special dipstick<br>Drain Plug 30Nm";
+      var Transmission724ServiceT = "Pre-fill with 4L, check level with xentry and special dipstick<br>30Nm Drain Plug<br>25Nm Pump Filter Cap<br>08Nm Pan";
       var Transmission724AuxPump = "REMOVED AIR FILTER HOUSING. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER. DRAINED TRANSMISSION FLUID. REMOVED TRANSMISSION OIL PAN AND FILTERS. REMOVED HYDRAULIC UNIT ASSEMBLY. REMOVED AUXILIARY OIL PUMP. INSTALLED NEW AUX PUMP. ASSEMBLED IN REVERSE ORDER. PRE-FILLED TRANSMISSION FLUID. CONNECTED XENTRY AND BATTERY CHARGER. PERFORMED FLUID LEVEL CHECK AND CONFIRMED TRANSMISSION FLUID LEVEL IS GOOD. INSTALLED DIPSTICK TUBE CAP WITH NEW LOCK. ";
       var Transmission724CU = "REMOVED AIR FILTER HOUSING. LIFTED THE VEHICLE AND REMOVED LOWER ENGINE COVER. DRAINED TRANSMISSION FLUID. REMOVED TRANSMISSION OIL PAN AND FILTERS. REMOVED HYDRAULIC UNIT ASSEMBLY. REMOVED AUXILIARY OIL PUMP. REMOVED TRANSMISSION CONTROL UNIT. INSTALLED NEW CONTROL UNIT. ASSEMBLED IN REVERSE ORDER. PRE-FILLED TRANSMISSION FLUID. CONNECTED XENTRY AND BATTERY CHARGER. PERFORMED INITIAL START UP OF NEW DKG CONTROL UNIT. PERFORMED FLUID LEVEL CHECK AND CONFIRMED TRANSMISSION FLUID LEVEL IS GOOD. PERFORMED ADAPTATION TEACH IN OF TRANSMISSION. INSTALLED DIPSTICK TUBE CAP WITH NEW LOCK. ";
       if (document.getElementById("Transmission724Service").checked == true) {
@@ -1773,36 +1826,6 @@ Todo:
     }
 </script>
   <script>// test area 2
-
-
-
-    function ASSYSTPlus(){
-      var asp1 = "service 1: A service <br>";
-      var asp2 = "service 2: B service <br>";
-      var asp3 = "service 3: engine oil and filter <br>";
-      var asp4 = "service 4: brake fluid flush <br>";
-      var asp8 = "service 8: engine air filter <br>";
-      var asp10 = "service 10: sunroof clean / lubricate <br>";
-      var asp11 = "service 11: fuel filter <br>";
-      var asp12 = "service 12: spark plugs <br>";
-      var asp13 = "service 13: engine coolant flush <br>";
-      var asp15 = "service 15: tow hitch clean / lubricate <br>";
-      var asp20 = "service 20: transmission service <br>";
-      var asp24 = "service 24: drive belt <br>";
-      var asp25 = "service 25: rear differential <br>";
-      var asp34 = "service 34: timing belt <br>";
-      var ASSYSTPlusResult = "<br><br>";
-      let assystCode = prompt("ASSYST Plus Code: ");
-      if (assystCode != null) {
-        ASSYSTPlusResult += asp1 + asp2 + asp3 + asp4 + asp8 + asp10 + asp11 + asp12 + asp13 + asp15 + asp20 + asp24 + asp25 + asp34;
-      document.getElementById("AssystPlusR").innerHTML = ASSYSTPlusResult.toUpperCase();
-    }
-    }
-
-
-
-
-
 
   //event.preventDefault();
   //localStorage.setItem('ls_info1', infoToSave);
@@ -1896,23 +1919,50 @@ Todo:
 						<s1 id="storyBrake"></s1>
 						<s1 id="storyTires"></s1>
 						<s1 id="storyPSI"></s1>
-						<s1 id="ServiceNotesOut"></s1></s1>
+						<s1 id="ServiceNotesOut"></s1>
+            <s1 id="AssystPlusR"></s1></s1>
 					</s1>
-          <s3 id="AssystPlusR"></s3>
+          <br>
+          <form id="assyst" hidden oninput="ASSYSTPlus()">
+            <s1>Additional Service: </s1>
+            <input type="radio" id="assCode1" name="assCode" checked>
+						<label class="s1" for="assCode1">1&nbsp;</label>
+            <input type="radio" id="assCode2" name="assCode">
+						<label class="s1" for="assCode2">2&nbsp;</label>
+            <input type="checkbox" id="assCode4" name="assCode">
+						<label class="s1" for="assCode4">4&nbsp;</label>
+            <input type="checkbox" id="assCode8" name="assCode">
+						<label class="s1" for="assCode8">8&nbsp;</label>
+            <input type="checkbox" id="assCode11" name="assCode">
+						<label class="s1" for="assCode11">11&nbsp;</label>
+            <input type="checkbox" id="assCode12" name="assCode">
+						<label class="s1" for="assCode12">12&nbsp;</label>
+            <input type="checkbox" id="assCode20" name="assCode">
+						<label class="s1" for="assCode20">20&nbsp;</label>
+            <input type="checkbox" id="assCode25" name="assCode">
+						<label class="s1" for="assCode25">25&nbsp;</label>
+            <input type="checkbox" name="assCode" id="assCodeShow">
+            <label class="s1" for="assCodeShow">Show&nbsp;</label>
+            <button type="reset" onclick="hideById('assyst', 'AssystPlusR')">hide</button>
+          </form>
 
 				<span class="a"></span>
 
 				<button class="button"; onclick="CopyToClipboard('additionalService')">
 					ADDITIONAL SERVICE</button><br>
 					<form oninput="functionAdditionalService()">
+            <input type="radio" id="ASbrakeFlush" name="additionalService">
+						<label class="s1" for="ASbrakeFlush">S4: Brake Flush&emsp;</label>
 						<input type="radio" id="ASpanoramic" name="additionalService">
-						<label class="s1" for="ASpanoramic">Pano-Roof Service&emsp;</label>
-						<input type="radio" id="ASbrakeFlush" name="additionalService">
-						<label class="s1" for="ASbrakeFlush">Brake Flush&emsp;</label>
+						<label class="s1" for="ASpanoramic">S10: Sunroof&emsp;</label>
+            <input type="radio" id="AStrailer" name="additionalService">
+						<label class="s1" for="AStrailer">S15: Trailer hitch&emsp;</label>
             <input type="radio" id="AScombination" name="additionalService">
 						<label class="s1" for="AScombination">Combination Filter&emsp;</label>
             <input type="radio" id="ASpredust" name="additionalService">
 						<label class="s1" for="ASpredust">Pre-dust Filter&emsp;</label>
+            <input type="radio" id="AScabin" name="additionalService">
+						<label class="s1" for="AScabin">Both dust filters&emsp;</label>
 					</form>
 					<s1 id="additionalService";></s1>
 
@@ -1921,8 +1971,10 @@ Todo:
 				<button class="button"; onclick="CopyToClipboard('PDIstory')">
 					PRE-DELIVERY INSPECTION</button><br>
 					<form oninput="functionPDI()">
-            <input type="checkbox" id="PDIEQ" name="PDI">
+            <input type="radio" id="PDIEQ" name="PDI">
 						<label class="s1" for="PDIEQ">EQ&emsp;</label>
+            <input type="radio" id="PDIPH" name="PDI">
+						<label class="s1" for="PDIPH">PH&emsp;</label>
 						<input type="checkbox" id="PDIwheellock" name="PDI">
 						<label class="s1" for="PDIwheellock">Wheel Lock&emsp;</label>
 						<input type="checkbox" id="PDIfrontplate" name="PDI">
@@ -3481,8 +3533,10 @@ Todo:
           <form oninput="functionPreq()">
             <input type="text" id="preqL1" placeholder="Line" size="1" maxlength="1">
             <input type="text" id="preqEng" placeholder="ENGINE" size="5">
-            <input type="checkbox" id="preqOil" name="preqq">
+            <input type="radio" id="preqOil" name="preqq">
             <label class="s1" for="preqOil">AMG Oil&nbsp;</label>
+            <input type="radio" id="preqOil20" name="preqq">
+            <label class="s1" for="preqOil20">0w-20 Oil&nbsp;</label>
             <input type="checkbox" id="preqOilF" name="preqq">
             <label class="s1" for="preqOilF">Oil Filter&nbsp;</label>
             <input type="checkbox" id="preqDPG" name="preqq">
@@ -3686,7 +3740,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-        Last updated: 21 July 2024</p></s3l>
+        Last updated: 25 Aug 2024</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
