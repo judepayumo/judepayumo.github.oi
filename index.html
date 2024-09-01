@@ -318,7 +318,7 @@ Todo:
         }
       }
       if (document.getElementById("midtronic").checked == true) {
-        storyBase += "TESTED THE PRIMARY 12V BATTERY. ";
+        storyBase += "TESTED THE 12V BATTERY. ";
       }
       if (document.getElementById("heater").checked == true) {
         storyBase += "CHECKED BLOCK HEATER. ";
@@ -371,7 +371,8 @@ Todo:
     }
     function ASSYSTPlus(){
       document.getElementById("assyst").hidden = false;
-      var ASSYSTPlusResult = "<br>ADDITIONAL SERVICE DUE WITH THIS SERVICE ";
+      document.getElementById("AssystPlusR").hidden = false;
+      var ASSYSTPlusResult = "<br>**********<br>ADDITIONAL SERVICE DUE WITH THIS SERVICE ";
       if (document.getElementById("assCode1").checked == true) {
         ASSYSTPlusResult += "A: <br>";} // SERVICE A
       if (document.getElementById("assCode2").checked == true) {
@@ -450,40 +451,41 @@ Todo:
       document.getElementById("2020120005").innerHTML = base2020120005;
     }
     function safetyStory(){
+      var testvalue = parseFloat(document.getElementById("safetyrfTire").value).toFixed(2);
       var safetyNotesF = "<br><br>********************** REMARKS **********************<br>";
       var safetyBase = "TEST DROVE VEHICLE. LIFTED THE VEHICLE AND REMOVED FRONT AND REAR WHEELS. INSPECTED BRAKING SYSTEM, SUSPENSION, TIRES, LIGHTS, EXHAUST SYSTEM, SEAT BELTS, STEERING, AND OTHER VEHICLE COMPONENTS AND SYSTEMS AS PER MANITOBA VEHICLE EQUIPMENT, SAFETY AND INSPECTION REGULATION FOR VEHICLES UNDER 4,500KG. ASSEMBLED IN REVERSE ORDER. TORQUED ALL FOUR WHEELS TO SPEC. ";
       var safetyBase = safetyBase
       + "<br>TIRE TREAD DEPTHS: FR= " //******************** Tire Measurements
-      + document.getElementById("safetyrfTire").value
+      + parseFloat(document.getElementById("safetyrfTire").value).toFixed(2)
       + " MM, RR= "
-      + document.getElementById("safetyrrTire").value
+      + parseFloat(document.getElementById("safetyrrTire").value).toFixed(2)
       + " MM, FL= "
-      + document.getElementById("safetylfTire").value
+      + parseFloat(document.getElementById("safetylfTire").value).toFixed(2)
       + " MM, RL= "
-      + document.getElementById("safetylrTire").value
+      + parseFloat(document.getElementById("safetylrTire").value).toFixed(2)
       + " MM. "
       + "<br> BRAKE PAD THICKNESS: FR= "//******************** Brake Pad Measurements
-      + document.getElementById("safetyrfPad").value
+      + parseFloat(document.getElementById("safetyrfPad").value).toFixed(2)
       + " MM, RR= "
-      + document.getElementById("safetyrrPad").value
+      + parseFloat(document.getElementById("safetyrrPad").value).toFixed(2)
       + " MM, FL= "
-      + document.getElementById("safetylfPad").value
+      + parseFloat(document.getElementById("safetylfPad").value).toFixed(2)
       + " MM, RL= "
-      + document.getElementById("safetylrPad").value
+      + parseFloat(document.getElementById("safetylrPad").value).toFixed(2)
       + " MM. "
       + "<br> BRAKE ROTOR MEASUREMENT: FR= "//******************** Brake Disc Measurements
-      + document.getElementById("safetyrfDisc").value
+      + parseFloat(document.getElementById("safetyrfDisc").value).toFixed(2)
       + " MM, RR= "
-      + document.getElementById("safetyrrDisc").value
+      + parseFloat(document.getElementById("safetyrrDisc").value).toFixed(2)
       + " MM, FL "
-      + document.getElementById("safetylfDisc").value
+      + parseFloat(document.getElementById("safetylfDisc").value).toFixed(2)
       + " MM, RL= "
-      + document.getElementById("safetylrDisc").value
+      + parseFloat(document.getElementById("safetylrDisc").value).toFixed(2)
       + " MM."
       + "<br> BRAKE ROTOR DISCARD LIMIT: FRONT= "//******************** Brake Disc Discard
-      + document.getElementById("safetyfDiscLim").value
+      + parseFloat(document.getElementById("safetyfDiscLim").value).toFixed(2)
       + " MM, REAR= "
-      + document.getElementById("safetyrDiscLim").value
+      + parseFloat(document.getElementById("safetyrDiscLim").value).toFixed(2)
       + " MM. ";
       if (document.getElementById("safetyPass").checked == true) {
         var safetyBase = safetyBase + "<br> VEHICLE MEETS THE SAFETY STANDARDS FOR OPERATION IN MANITOBA AS PER <q>VEHICLE EQUIPMENT, SAFETY AND INSPECTION REGULATION.</q>";
@@ -1155,7 +1157,7 @@ Todo:
         basePDI += "PLUGGED IN EV TO CHARGE OVERNIGHT. ";
         document.getElementById("PDIfuelR").hidden = true;
       }else if (document.getElementById("PDIfuel").checked == true && PDIisPH) {
-        basePDI += "PLUGGED IN PHEV TO CHARGE OVERNIGHT. FUELLED UP THE VEHICLE AND ATTACHED RECEIPT TO THE WORK ORDER. ";
+        basePDI += "PLUGGED IN PHEV TO CHARGE TO 100%. FUELLED UP THE VEHICLE AND ATTACHED RECEIPT TO THE WORK ORDER. ";
         document.getElementById("PDIfuelR").hidden = false;
         basePDI += "FUEL RECEIPT NUMBER IS " + document.getElementById("PDIfuelR").value + ". ";
       }else if (document.getElementById("PDIfuel").checked == true) {
@@ -1500,16 +1502,21 @@ Todo:
     }//turbocharged M276
     function functionM276ENGINE(){
       var M276ENGINEFrontCover = "REMOVED UPPER ENGINE COVER, LEFT AND RIGHT AIR DUCTS UPSTREAM OF AIR FILTER, LOW TEMPERATURE COOLANT RESERVOIR, AND OIL FILTER CAP. CLEANED AREA OF FRONT CAM COVERS. DISCONNECTED ENGINE WIRING HARNESS FROM FRONT CAMSHAFT ADJUSTER SOLENOIDS. REMOVED LEFT AND RIGHT FRONT CAM COVERS. REMOVED CAM ADJUSTER SOLENOIDS. CLEANED FRONT COVERS. INSTALLED CAM COVERS WITH NEW RTV SEALANT. INSTALLED CAM ADJUSTER SOLENOIDS WITH NEW O-RINGS AND BOLTS. REINSTALLED ALL PARTS IN REVERSE ORDER. FILLED LOW TEMP COOLANT. STARTED THE ENGINE. CHECKED FRONT COVERS FOR LEAKS. CONFIRMED FRONT COVERS ARE NO LONGER LEAKING.";
+      var M276ENGINEFrontCoverT = "<br><br><b>Torque Specs</b><br>5 Nm: Front cover to cylinder head<br>4 Nm + 60 degrees: Cam adjuster solenoid to front cover";
       var M276ENGINEAirFilter = "REMOVED UPPER ENGINE COVER. REMOVED LEFT AND RIGHT ENGINE AIR FILTER COVERS. REMOVED FILTERS. INSTALLED NEW AIR FILTERS. RE-ASSEMBLED IN REVERSE ORDER.";
       var M276ENGINESpark = "REMOVED UPPER ENGINE COVER, LEFT AND RIGHT AIR FILTER BOXES AND AIR DUCTS, AND NOISE ISOLATION FOAMS. REMOVED ALL 6 COIL PACKS. CLEANED ENGINE AREA WITH COMPRESSED AIR. REMOVED SPARK PLUGS. INSTALLED AND TORQUE NEW SPARK PLUGS TO 23NM. APPLIED GREASE IN SPARK PLUG ADAPTERS. INSTALLED AND TORQUE COIL PACKS TO 9NM. REASSEMBLED IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
       var M276ENGINE43OilPan = "LIFTED THE VEHICLE AND REMOVED UPPER ENGINE COVER, BOTH LEFT AND RIGHT AIR FILTER HOUSING. REMOVED LOWER FRONT, ENGINE, AND TRANSMISSION COVERS. DRAINED ENGINE OIL. PLACED THE VEHICLE IN NEUTRAL AND ELECTRONIC PARKING BRAKE IN SERVICE MODE. DISCONNECTED BATTERY GROUND. DISCONNECTED BOTH LEFT AND RIGHT TORQUE STRUTS FROM THE SUBFRAME. <b>REMOVED PRESSURE FROM BOTH LEFT AND RIGHT FRONT AIRMATIC STRUTS.</b> SECURED STEERING WHEEL AND REMOVED STEERING RACK AND PINION ASSEMBLY. REMOVED BOTH FRONT AXLES AND INTERMEDIATE AXLE. REMOVED RIGHT CATALYTIC CONVERTER. DISCONNECTED FRONT DRIVE SHAFT AT FRONT DIFFERENTIAL AND REMOVED DIFFERENTIAL. DISCONNECTED LEFT AND RIGHT ENGINE MOUNTS AT FRONT SUBFRAME. DISCONNECTED TRANSMISSION COOLER LINES AT TRANSMISSION. DETACHED TRANSMISSION COOLER AT FAN UNIT AND MOVED TRANSMISSION FLUID LINES TO THE SIDE. REMOVED CHARGE AIR INTERCOOLER LOWER BRACKET. INSTALLED ENGINE SUPPORT FIXTURE AND SLIGHTLY LIFTED THE ENGINE. REMOVED OIL PAN LOWER SECTION AND REMOVED OIL PICK-UP TUBE. REMOVED UPPER OIL PAN. CLEANED SEALING SURFACES OF BOTH OIL PANS.<br>APPLIED RTV SEALANT PER WIS. ASSEMBLED IN REVERSE ORDER. ADDED ENGINE OIL TO SPEC. CHECKED TRANSMISSION FLUID LEVEL. STARTED THE ENGINE AND CONFIRMED ENGINE OIL LEVEL IS GOOD. CHECK AND CONFIRMED UPPER OIL PAN IS NO LONGER LEAKING. RE-INSTALLED UPPER ENGINE COVER AND LOWER COVERS. ";
       var M276ENGINE43OilPanT = "<br><br><b>Torque Specs</b><br>09 Nm M6 Screw/bolt, oil pan to crankcase/ timing case cover/rear end cover <br>20 Nm M8 Bolt, oil pan to crankcase <br>38 Nm Bolt, automatic transmission to engine <br>42 Nm Screw/nut, transmission to engine <br>14 Nm Bolt, oil suction pipe to oil pan shaft channel <br>14 Nm Bolt, oil pan bottom section to oil pan <br>14 Nm Bolt, bracket for charge air cooler to oil pan <br>60 Nm Collar bolt, support to oil pan <br> <br><b>AR33.30-P-0525-06AVG Front Differential Tightening Procedure:</b> <br>Hand tighten all bolts, torque top bolt to stage 1, torque other bolts to spec, torque top bolt to stage 2 and 3.<br>5 Nm + 50 Nm + 95 deg Front differential top bolt <br>65 Nm Collar bolt, front axle differential to support/oil pan <br> <br>20 Nm Front axle transmission drain screw <br>08 Nm Screw, oil cooler oil line clamp to oil pan <br>50 Nm Bolt, front diagonal strut to front axle carrier <br> <br>AH01.45-P-0001-01MMA Sealant Path";
       var M276ENGINE43OilPanP = "<b><br><br>Parts</b><br>Clamp and seal downstream of right cat<br>2 bolts upstream of right cat<br>Engine oil dipstick tube o-ring<br>Bolts for front differential<br>Engine oil drain plug<br>Engine oil and filter (recommend)";
+      var M276ENGINRRRHead = "DISCONNECTED BATTER GROUND. LIFTED THE VEHICLE AND REMOVED COMPLETE LOWER UNDERBODY COVERS. DRAINED COOLANT FROM HIGH TEMP CIRCUIT. DRAINED COOLANT FROM THE LOW TEMP CIRCUIT. REMOVED UPPER ENGINE COVER, LEFT AND RIGHT ENGINE AIR FILTER HOUSING, AND ENGINE CONTROL UNIT. DETACHED ENGINE WIRING HARNESS FROM RIGHT CYLINDER HEAD COVER AND REMOVED. DISCONNECTED THROTTLE VALVE AND REMOVED CHARGE AIR DISTRIBUTOR. REMOVED LEFT AND RIGHT CHARGE AIR PIPES FROM THE CHARGE AIR COOLER. REMOVED CHARGE AIR COOLER. TURNED THE ENGINE TO 40 DEGREES ATDC OF CYLINDER 1.  DISCONNECTED RIGHT UP AND DOWNSTREAM O2 SENSORS. DETACHED WIRING CONNECTORS AND BRACKETS ON RIGHT HIGH PRESSURE FUEL PUMP. REMOVED RIGHT HIGH PRESSURE FUEL PUMP. REMOVED FUEL RAIL WITH FUEL INJECTORS FROM THE RIGHT CYLINDER HEAD. REMOVED BANK 1 IGNITION COILS AND SPARK PLUGS. REMOVED OIL CENTRIFUGE COVER AND PLACED TO ONE SIDE. REMOVED LOW TEMP COOLANT RESERVOIR AND BRACKET. REMOVED RIGHT CYLINDER FRONT COVER. REMOVED RIGHT CYLINDER HEAD COVER. EXHAUST AND CAT HEAT SHIELDS FROM THE RIGHT CYLINDER HEAD. REMOVED RIGHT CATALYTIC CONVERTER. REMOVED COOLANT AND OIL, SUPPLY AND RETURN LINES FROM THE RIGHT TURBOCHARGER. DISCONNECTED VACUUM LINE ON RIGHT TURBOCHARGER. REMOVED OIL FILTER AND CAP. DRAINED COOLANT FROM THE PUMP AND REMOVED COOLANT THERMOSTAT. REMOVED RIGHT SECONDARY CHAIN TENSIONER. REMOVED EXHAUST CAMSHAFT POSITIONER CONTROL VALVE AND REMOVED POSITIONER. REMOVED SLIDE RAIL PINS ON RIGHT CYLINDER HEAD. REMOVED EXHAUST CAMSHAFT. REMOVED INTAKE CAMSHAFT WITH CAMSHAFT POSITIONER. LOOSENED CYLINDER HEAD BOLTS IN STAGES IN REVERSE ORDER OF TIGHTENING PROCEDURE. REMOVED RIGHT CYLINDER HEAD TOGETHER WITH TURBOCHARGER. CLEANED SEALING SURFACES AND BOLT HOLES. <br><br>INSTALLED NEW CYLINDER HEAD GASKET. INSTALLED CYLINDER HEAD AND TORQUED TO SPEC FOLLOWING TIGHTENING PROCEDURE. RE-SEALED FRONT CAM COVER AND CYLINDER HEAD COVER. CHECKED AND CONFIRMED BASIC ENGINE TIMING IS GOOD. REPLACED FUEL INJECTOR SEALS. ASSEMBLED IN REVERSE ORDER. CHECKED AND CONFIRMED  CONNECTED COOLANT VACUUM FILLER AND CONFIRMED SYSTEM IS NOT LEAKING. FILLED LOW TEMP COOLANT SYSTEM AND HIGH TEMP COOLANT SYSTEM. DISABLED FUEL INJECTORS AND PERFORMED OIL PRESSURE TEST WITH ENGINE CRANKING. CONFIRMED OIL PRESSURE IS GOOD. STARTED THE ENGINE AND IDLED TO OPERATING TEMP. CONNECTED XENTRY AND BATTERY CHARGER. PERFORMED RESET AND TECH IN OF CAMSHAFT POSITIONS. CLEARED FAULTS AND PRINTED FINAL QUICK TEST. INSPECTED AND CONFIRMED NO ENGINE OIL OR COOLANT LEAKS. TEST DROVE THE VEHICLE AND RE-CHECKED FOR LEAKS. INSTALLED UPPER AND LOWER COVERS.";
+      var M276ENGINRRRHeadT = "<br><br><b>Torque Specs</b><br>09 Nm charge air distributor to intermediate flange<br>14 Nm HPFP to drive housing<br>14 Nm HPFP shield to housing<br>15 Nm, 90d Union nut, HP line to pump and rail<br>09 Nm Fuel rail to cylinder head<br>09 Nm Ignition coils<br>06 Nm, 90d Centrifuge cover to cylinder head<br>05 Nm front cover to cylinder head<br>12 Nm, 90d Cylinder head cover to cylinder head<br>08 Nm Coolant thermostat<br>09 Nm Chain tensioner to right cylinder head<br>130Nm Center valve of camshaft adjusters<br>08 Nm, 90d Camshaft hold downs<br><br><b>AR01.30-P-5780MMV</b> Remove / Install right cylinder head<br>AR01.20-P-5014-03MMA Cylinder head cover torque pattern<br>AR05.20-P-6010MMV Basic Timing<br>AR01.30-P-5800-01MMA Tightening procedure for cylinder head<br>Right chain tensioner extended size 74.5mm";
+      var M276ENGINRRRHeadP = "<b><br><br>Parts</b><br>1 - A0269972845 Turbo o-ring<br>1 - A0249971045 Turbo o-ring<br>1 - A6510960400 Turbo seal<br>2 - A016997504564 O-ring<br>8 - N000000006365 Bolts<br>1 - A2760740180 Seal<br>1 - A276018008064 Seal<br>1 - A0219979745 O-ring<br>2 - A0049903712 Screws<br>3 - A1770720000 Seal kit<br>1 - A016997504564 O-ring<br>1 - A2760980080 Seal<br>6 - A2761410780 Seal<br>6 - A2761410480 Seal<br>1 - A1129900000 Drain plug<br>1 - A0009974516 Coolant drain plug<br>1 - A2762030102 Coolant pipe<br>1 - A0269979745 Thermostat o-ring<br>1 - A2762010680 Seal<br>2 - A0269971645 O-ring<br>8 - A2780160169 Head bolts<br>1 - A2760160200 Head gasket<br>18- A1139900222 Head cover bolts<br>1 - A0019908122 Screw<br>1 - A0029909922 Screw<br>3 - A2760160021 Seal<br>1 - A2780910060 Seal<br>1 - A0009953533 Clamp<br>1 - A2761420980 Exhaust seal<br>1 - A2204920281 Exhaust seal<br>1 - A2034900641 Clamp";
       var functionM276ENGINEResult = "";
       var functionM276ENGINEResultT = "";
       var functionM276ENGINEResultP = "";
       if (document.getElementById("M276ENGINEFrontCover").checked == true) {
         var functionM276ENGINEResult = M276ENGINEFrontCover;
+        var functionM276ENGINEResultT = M276ENGINEFrontCoverT;
       }
       if (document.getElementById("M276ENGINESpark").checked == true) {
         var functionM276ENGINEResult = M276ENGINESpark;
@@ -1521,6 +1528,11 @@ Todo:
         var functionM276ENGINEResult = M276ENGINE43OilPan;
         var functionM276ENGINEResultT = M276ENGINE43OilPanT;
         var functionM276ENGINEResultP = M276ENGINE43OilPanP;
+      }
+      if (document.getElementById("M276ENGINRRRHead").checked == true) {
+        var functionM276ENGINEResult = M276ENGINRRRHead;
+        var functionM276ENGINEResultT = M276ENGINRRRHeadT;
+        var functionM276ENGINEResultP = M276ENGINRRRHeadP;
       }
       document.getElementById("M276ENGINE").innerHTML = functionM276ENGINEResult;
       document.getElementById("M276ENGINET").innerHTML = functionM276ENGINEResultT;
@@ -1833,8 +1845,6 @@ Todo:
 
 
 
-
-
   </script>
   <body class="mainPage">
     <div class="topBanner">
@@ -1920,7 +1930,7 @@ Todo:
 						<s1 id="storyTires"></s1>
 						<s1 id="storyPSI"></s1>
 						<s1 id="ServiceNotesOut"></s1>
-            <s1 id="AssystPlusR"></s1></s1>
+            <s1 id="AssystPlusR" hidden></s1></s1>
 					</s1>
           <br>
           <form id="assyst" hidden oninput="ASSYSTPlus()">
@@ -2016,10 +2026,10 @@ Todo:
 						<label class="s1" for="safetyAdvicef">Advisements</label>
 						<br>
 						<label class="s1">Tires: </label>
-						<input type="text" id="safetyrfTire" name="rfTire" size="5" placeholder="RF" maxlength="5">
-						<input type="text" id="safetyrrTire" name="rrTire" size="5" placeholder="RR" maxlength="5">
-						<input type="text" id="safetylrTire" name="lrTire" size="5" placeholder="LR" maxlength="5">
-						<input type="text" id="safetylfTire" name="lfTire" size="5" placeholder="LF" maxlength="5">
+						<input type="text" id="safetyrfTire" name="rfTire" placeholder="RF" size="5">
+						<input type="text" id="safetyrrTire" name="rrTire" placeholder="RR" size="5">
+						<input type="text" id="safetylrTire" name="lrTire" placeholder="LR" size="5">
+						<input type="text" id="safetylfTire" name="lfTire" placeholder="LF" size="5">
 						&nbsp; &nbsp;
 						<label class="s1">Brakes: </label>
 						<input type="text" id="safetyrfPad" name="fPad" size="5" placeholder="RF Pad" maxlength="5">
@@ -2654,7 +2664,8 @@ Todo:
 						<label class="s1" for="M276ENGINEAirFilter">Air Filters&emsp;</label>
             <input type="radio" id="M276ENGINE43OilPan" name="M276ENGINE">
 						<label class="s1" for="M276ENGINE43OilPan">GLC 43 Upper Oil Pan&emsp;</label>
-
+            <input type="radio" id="M276ENGINRRRHead" name="M276ENGINE">
+						<label class="s1" for="M276ENGINRRRHead">R Cylinder Head&emsp;</label>
 					</form>
 					<s1 id="M276ENGINE";></s1>
           <s3 id="M276ENGINET";></s3>
@@ -3740,7 +3751,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-        Last updated: 25 Aug 2024</p></s3l>
+          Updated: 01 Sep 2024</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
