@@ -419,9 +419,9 @@ Todo:
     function starCert(){
       var starCertBase = "TEST DROVE THE VEHICLE. TESTED OPERATION OF ALL DRIVER'S ASSISTANCE AND WARNING SYSTEMS, NAVIGATION, ENTERTAINMENT, INTERIOR AND EXTERIOR LIGHTS, HORN, WIPERS AND WASHERS. CHECKED OVERALL VEHICLE CONDITION. LIFTED THE VEHICLE. CHECKED UNDERBODY COMPONENTS, STEERING AND SUSPENSION COMPONENTS. ADJUSTED ALL TIRE PRESSURES AND RESET TPMS. CONNECTED XENTRY DIAGNOSIS. CHECKED AND CLEARED INITIAL QUICK TEST. PRINTED FINAL QUICK TEST.";
       if (document.getElementById("starCertELW").checked == true) {
-        var starCertBase = starCertBase + "PERFORMED FURTHER INSPECTION AS PER<q>ELW SALE TO CUSTOMER</q> CHECKLIST IN TECHNICAL INSPECTION AND CERTIFICATION REPORT FORM";
+        var starCertBase = starCertBase + "PERFORMED FURTHER INSPECTION AS PER <q>ELW SALE TO CUSTOMER</q> CHECKLIST IN TECHNICAL INSPECTION AND CERTIFICATION REPORT FORM";
       } else {
-        var starCertBase = starCertBase + "PERFORMED FURTHER INSPECTION AS PER<q>PRE-OWNED CAR INSPECTION FOR STAR CERTIFIED WARRANTY</q> CHECKLIST IN TECHNICAL INSPECTION AND CERTIFICATION REPORT FORM";
+        var starCertBase = starCertBase + "PERFORMED FURTHER INSPECTION AS PER <q>PRE-OWNED CAR INSPECTION FOR STAR CERTIFIED WARRANTY</q> CHECKLIST IN TECHNICAL INSPECTION AND CERTIFICATION REPORT FORM";
       }
       document.getElementById("STARCERT1").innerHTML = starCertBase;
     }
@@ -2872,9 +2872,15 @@ Todo:
 
         <span class="a"></span>
 
-        <button class="button"; onclick="CopyToClipboard('2023080002')">
+        <button class="button"; onclick="CopyToClipboard('20230800022024090002')">
 					SOFTWARE OF THE ENGINE CONTROL UNIT 0.3H</button><br>
-					<s1 id="2023080002";>PER MBC CAMPAIGN 2023080002, THE SOFTWARE OF THE ENGINE CONTROL UNIT MIGHT NOT MEET SPECIFICATIONS. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED <b>ENGINE CONTROL UNIT SOFTWARE UPDATE</b>.</s1>
+          <form oninput=recallNumberSelect(recallNumber,"20230800022024090002a")>
+						<input type="radio" checked value="2023080002" id="2023080002Form" name="recallNumber">
+						<label class="s1" for="2023080002Form">2023080002&nbsp;</label>
+						<input type="radio" value="2024090002" id="2024090002Form" name="recallNumber">
+						<label class="s1" for="2024090002Form">2024090002&nbsp;</label>
+					</form>
+					<s1 id="20230800022024090002";>PER MBC CAMPAIGN <s1 id="20230800022024090002a">2023080002</s1> THE SOFTWARE OF THE ENGINE CONTROL UNIT MIGHT NOT MEET SPECIFICATIONS. CONNECTED XENTRY SCANNER AND BATTERY CHARGER. PERFORMED <b>ENGINE CONTROL UNIT SOFTWARE UPDATE</b>.</s1>
 
 				<span class="a"></span>
 
@@ -3527,9 +3533,55 @@ Todo:
             <b>Lock rear differential: </b><br>Start the engine - engage drive - release parking brake - engage transfers case differential lock while wheels are rotating slowly - engage rear axle differential lock - after feedback in switch - switch off ignition - disconnected plug at rear differential actuator<br><b>Rear brake assembly position<br>Transmission in permanent neutral position<br>Disconnect battery ground<br>Remove wheels<br></b>150 Nm<br><b>Drain rear axle oil<br>Disconnect rear axle wiring<br>Disconnect and plug portal banjo bleed lines</b><br>15 Nm<br><b>Disconnect and plug bleed banjo at axle bridge above the lock actuator<br></b>	8 Nm (new 3 copper rings)<br><b>Disconnect wiring harness bracket at axle tube<br>Disconnect brake hoses<br>Disconnect propeller shaft at rear axle differential<br></b>	40 Nm, 90°<br><b>Position lifting table, secure with straps<br>Remove transverse control arm</b><br>	150 Nm, 90°<b><br>Disconnect shock absorbers from axle tube</b><br>	100 Nm, 90°<br><b>Disconnect top trailing arms from rear axle</b><br>	100 Nm, 90°<br><b>Mark the adjusting plates for lower trailing arms<br>Disconnect lower trailing arms from rear axle</b><br>	100 Nm, 180°<br><b>Slightly lower lifting table<br>Mark installation position of springs with upper and lower retainers<br>Remove springs<br>Remove brakes<br></b>	brake line to brake hose: 14 Nm<br>	brake calliper support to axle housing: 50 Nm, 60°<br>	brake cover plate to steering knuckle 23 Nm<br><b>Remove brake lines with retaining clips from axle tube<br>Remove connecting bracket between portals and rear axle tubes<br></b>	mounting support: 50 Nm, 135°<br><b>Removed rear axle actuator</b><br>actuator to axle tube: 10 Nm, 20 Nm, 60°<br><b>Remove left and right portals with axle shafts<br></b>	portals to axle tube: 40 Nm, 45°<br>	provisionally attach the lock actuator when installing the right portal<br><b>Replace sealing rings on portals (included in delivery of new axle)<br>Fit retaining tab for transverse control arm at new axle bridge<br></b>	see line 34<br><b>Fill rear axle with 1.5L and rotate multiple times for at least 30s with pinion tilted down 5-10°<br>Assemble in reverse order<br>Perform quick test and clear fault memory<br>Performed wheel alignment measurement<br>Perform a workshop test drive and leak check<br>	check differential locks for proper operation<br>Apply wax to rear axle in area between axle tube and differential<br>Apple black wax all over the new rear axle carrier and all threaded connections<br>Stick running-in sticker in top left of windshield if not already installed</b>          
           </s3>
 
+        <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('2024090006')">
+          DRIVETRAIN CONTROL UNIT SOFWARE 0.3H - 1.3H</button><br>
+          <s1 id="2024090006">PER MBC CAMPAIGN 2024090006, THE DRIVETRAIN CONTROL UNIT SOFTWARE DOES NOT CORRESPOND TO THE LATEST SERIES PRODUCTION CONFIGURATION.<br> CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED SOFTWARE UPDATE OF POWER TRAIN CONTROL UNIT (N127, PTCU). PERFORMED STANDSTILL ADAPTATION OF TRANSMISSION CONTROL UNIT. PERFORMED TEACH-IN OF POWER ELECTRONICS POSITION SENSOR (N147/2). PERFORMED QUICK TEST AND CLEARED FAULT MEMORY. PRINTED FINAL QUICK TEST. DISCONNECTED XENTRY AND PERFORMED TRANSMISSION TEST DRIVE.</s1>
         
         <span class="a"></span>
 
+        <button class="button"; onclick="CopyToClipboard('2024080004')">
+        UPDATE FUEL SYSTEM CONTROL UNIT (FSCU 10) SOFTWARE 0.3H</button><br>
+          <s1 id="2024080004">PER MBC CAMPAIGN 2024080004, THE FUEL SYSTEM CONTROL UNIT (FSCU 10) SOFTWARE MAY NOT CORRESPOND TO CURRENT SERIES PRODUCTION CONFIGURATION. <br>CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED SOFTWARE UPDATE OF N118/3 FUEL SYSTEM CONTROL UNIT (FSCU 10). DISCONNECTED. 
+            </s1>
+        
+        <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('2024030008')">
+        STATE OF HEALTH CALCULATION - 48V BATTERY 0.3H - 0.7H</button><br>
+          <s1 id="2024030008">PER MBC CAMPAIGN 2024030008, STATE OF BATTERY HEALTH RESISTANCE MIGHT NOT MEET SPECIFICATIONS. <br>CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED SOFTWARE UPDATE OF A66 BATTERY MODULE (48V, BM48). CONFIRMED NO FAULTS ARE DISPLAYED IN THE CLUSTER AFTER THE UPDATE. DISCONNECTED XENTRY AND BATTERY CHARGER.</s1>
+          <s3><br>DISCONNECT 12V GROUND IF FAULTS APPEAR AFTER THE UPDATE</s3>
+        
+        <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('2024020004')">
+          SCN CODING IN DRVU CONTROL UNIT 0.3H OR (0.4H 232)</button><br>
+            <s1 id="2024020004">PER MBC CAMPAIGN 2024020004, THE SON CODING OF THE DRVU CONTROL UNIT DOES NOT CORRESPOND TO CURRENT SERIES PRODUCTION CONFIGURATION. <br>CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED <b>SCN UPDATE OF DRIVE UNIT CONTROL UNIT (DRVU).</b> DISCONNECTED.</s1>
+            <s3><br>PERFORM TEACH-IN PROCESS FOR THE REAR WING COMPONENT PART (MODEL 232)</s3>
+          
+          <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('')">
+          SYSTEM PROTECTION (80A FUSE)</button>
+          <button class="button"; onclick="CopyToClipboard('2024030006a')">&nbsp;1</button>
+          <button class="button"; onclick="CopyToClipboard('2024030006b')">&nbsp;2</button>
+          <button class="button"; onclick="CopyToClipboard('2024030006c')">&nbsp;3</button><br>
+            <s3><b>1: 192, 206, 214, 223, 232, 236, AND 254 0.7H</b></s3><br><s1 id="2024030006a">PER MBC RECALL CAMPAIGN 2024030006, CERTAIN 80A FUSES INSTALLED MIGHT NOT MEET REQUIREMENTS. <br>DISCONNECTED 12V BATTERY GROUND. REMOVED TRIM ON A-PILLAR / DOOR SILL PANEL. REMOVED FLOOR MAT AND FOLDED BACK FLOOR COVERING IN RIGHT FRONT FOOTWELL. REMOVED COVER ABOVE PREFUSE BOX. REMOVED INTERIOR PREFUSE BOX. INSTALLED NEW PREFUSE BOX AND TORQUED CONNECTING NUTS TO SPEC (8NM, 16NM). CONNECTED 12V BATTERY GROUND. CONNECTED XENTRY AND BATTERY CHARGER. PERFORMED QUICK TEST AND CLEARED FAULTS.</s1><br>
+            <s3><b>2: 294, 295, 296, AND 297; NON-AMG MODELS</b></s3><br><s1 id="2024030006b">PER MBC RECALL CAMPAIGN 2024030006, CERTAIN 80A FUSES INSTALLED MIGHT NOT MEET REQUIREMENTS. <br>DISCONNECTED 12V BATTERY GROUND. REMOVED TRIM ON A-PILLAR / DOOR SILL PANEL. PARTIALLY REMOVED FROM AND STOWAGE TRAY IN FRONT OF THE CENTRE CONSOLE. REMOVED FLOOR MAT AND FOLDED BACK FLOOR COVERING IN RIGHT FRONT FOOTWELL. REMOVED COVER ABOVE PREFUSE BOX. REMOVED INTERIOR PREFUSE BOX. INSTALLED NEW PREFUSE BOX AND TORQUED CONNECTING NUTS TO SPEC (8NM, 16NM). CONNECTED 12V BATTERY GROUND. CONNECTED XENTRY AND BATTERY CHARGER. PERFORMED QUICK TEST AND CLEARED FAULTS. </s1><br>
+            <s3><b>3: 294, 295, 296, AND 297; AFFECTS ONLY AMG MODELS 8.8H</b></s3><br><s1 id="2024030006c">PREFUSE BOX IN THE FRONT MAJOR ASSEMBLY COMPARTMENT IS REPLACED IN ADDITION. (HIGH VOLTAGE DISCONNECT REQUIRED). </s1>
+          
+          <span class="a"></span>
+
+        <button class="button"; onclick="CopyToClipboard('2023100003')">
+          ELECTRIC WATER PUMP 0.6H - 0.9H</button>
+          <button class="button"; onclick="CopyToClipboard('2023100003a')">&nbsp;1</button>
+          <button class="button"; onclick="CopyToClipboard('2023100003b')">&nbsp;2</button><br>
+            <s1 id="2023100003">PER MBC SERVICE ACTION CAMPAIGN 2023100003, CORROSION MAY OCCUR IN THE COOLANT PUMP. <br>LIFTED THE VEHICLE AND REMOVED RIGHT FRONT WHEEL FENDER LINER FRONT SECTION. REMOVED SCREW FOR ELECTRIC COOLANT PUMP BRACKET AND INSPECTED COOLANT PUMP. <br>FOUND THE MANUFACTURER IS NOT "VITESCO", NO FURTHER MEASURES NEEDED.</s1><br>
+            <s1 id="2023100003a">FOUND MANUFACTURER IS "VITESCO". CHECKED THE TEN-DIGIT PRODUCTION NUMBER AND CONFIRMED IT IS NOT LISTED IN THE DOCUMENT. NO FURTHER MEASURES NEEDED. </s1><br>
+            <s1 id="2023100003b">FOUND MANUFACTURER IS "VITESCO". CHECKED THE TEN-DIGIT PRODUCTION NUMBER AND FOUND IT IS LISTED IN THE DOCUMENT. VEHICLE WILL NEED A NEW COOLANT PUMP (M43/6). </s1>
+            
+          <span class="a"></span>
 
 
 
@@ -3751,7 +3803,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-          Updated: 01 Sep 2024</p></s3l>
+          Updated: 01 Oct 2024</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
