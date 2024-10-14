@@ -1663,12 +1663,15 @@ Todo:
         var functionM260ENGINEResult = M260ENGINEHead;
         var functionM260ENGINEPResult = M260ENGINEHeadP;
         var functionM260ENGINETResult = M260ENGINEHeadT;
+        document.getElementById("m260cylinderhead").hidden = false;
       }
       if (document.getElementById("M260ENGINESpark").checked == true) {
         var functionM260ENGINEResult = M260ENGINESpark;
+        document.getElementById("m260cylinderhead").hidden = true;
       }
       if (document.getElementById("M260ENGINEAirFilter").checked == true) {
         var functionM260ENGINEResult = M260ENGINEAirFilter;
+        document.getElementById("m260cylinderhead").hidden = true;
       }
       document.getElementById("M260ENGINE").innerHTML = functionM260ENGINEResult;
       document.getElementById("M260ENGINEP").innerHTML = functionM260ENGINEPResult;
@@ -2570,6 +2573,9 @@ Todo:
 					<s1 id="M260ENGINE";></s1>
           <s3 id="M260ENGINEP"></s3>
           <s3 id="M260ENGINET"></s3>
+          <s1 id="m260cylinderhead"; hidden>
+            <br><a href = "/m260cylinderhead.pdf" target = "_blank">M260 Cylinder Head</a>
+          </s1>
 
         <span class="a"></span>
 
