@@ -119,7 +119,7 @@ Todo:
       border-color: rgb(70, 68, 68);
     }
     .mainPage{ /* entire page*/
-      background-image: linear-gradient(to bottom, #000 20px, rgba(0, 0, 0, .2), rgba(50, 70, 200, .02)), url(https://customerracing.mercedes-amg.com/content/customerracing/en/vehicles/mercedes-amg-gt-track-series/jcr:content/content/mediaslider_19931803/slides/slide/media1/image.media5.responsive_full_viewport_16_9.1648034010867.jpeg);
+      background-image: linear-gradient(to bottom, #000 20px, rgba(0, 0, 0, .2), rgba(50, 70, 200, .02)), url(https://customerracing.mercedes-amg.com/content/customerracing/en/vehicles/mercedes-amg-gt-track-series/jcr:content/content/threeimagegallery_co/image1.media6.responsive_12col_16_9.1648031221954.jpeg);
       position: fixed;
       background-size: cover;
       background-repeat: no-repeat;
@@ -3532,8 +3532,15 @@ Todo:
         <span class="a"></span>
 
         <button class="button"; onclick="CopyToClipboard('2024030009')">
-          EIS SOFTWARE UPDATE</button><br>
-          <s1 id="2024030009">PER MBC CAMPAIGN 2024030009, THE ELECTRONIC IGNITION LOCK CONTROL UNIT SOFTWARE DOES NOT CORRESPOND TO THE CURRENT SERIES PRODUCTION CONFIGURATION. CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED SOFTWARE UPDATE OF N73 EIS CONTROL UNIT. DISCONNECTED XENTRY AND BATTERY CHARGER.</s1>
+          EIS SOFTWARE UPDATE 0.3H</button><br>
+          <form oninput="recallNumberSelect(recallNumber,'20240300092024090007')">
+            <input type="radio" checked value="2024030009" id="2024030009Form" name="recallNumber">
+            <label class="s1" for="2024030009Form">2024030009&nbsp;</label>
+            <input type="radio" value="2024090007" id="2024090007Form" name="recallNumber">
+            <label class="s1" for="2024090007Form">2024090007&nbsp;</label>
+          </form>
+          <s1 id="2024030009";>
+            PER MB CAMPAIGN <s1 id="20240300092024090007">2024030009</s1>, THE ELECTRONIC IGNITION LOCK CONTROL UNIT SOFTWARE DOES NOT CORRESPOND TO THE CURRENT SERIES PRODUCTION CONFIGURATION. CONNECTED XENTRY DIAGNOSIS AND BATTERY CHARGER. PERFORMED SOFTWARE UPDATE OF N73 EIS CONTROL UNIT. DISCONNECTED XENTRY AND BATTERY CHARGER.</s1>
         
         <span class="a"></span>
 
@@ -3821,7 +3828,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-          Updated: 14 Oct 2024</p></s3l>
+          Updated: 23 Nov 2024</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
