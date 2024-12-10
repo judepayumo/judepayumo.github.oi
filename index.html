@@ -1487,11 +1487,20 @@ Todo:
     }
     function functionM276NENGINE(){ // ******* NA ENGINE
       var functionM276NENGINEResult = "";
-      var M276NENGINEFrontCover = "REMOVED UPPER ENGINE COVER. REMOVED AIR FILTER BOX, INTAKE MANIFOLD, AND OIL FILTER CAP. REMOVED LEFT AND RIGHT FRONT CAM COVERS. REMOVED FOUR CAM ADJUSTER MAGNETS. CLEANED OLD SEALANT. REINSTALLED FRONT CAM COVERS WITH NEW SEALANT. REINSTALLED CAM ADJUSTER MAGNETS WITH NEW O-RINGS. REINSTALLED ALL PARTS IN REVERSE ORDER. CLEANED OIL LEAK. TEST DROVE THE VEHICLE. CHECKED FRONT COVERS FOR LEAKS. CONFIRMED FRONT COVERS NO LONGER LEAKING.";
-      var M276NENGINESpark = "REMOVED UPPER ENGINE COVER, AIR INTAKE MANIFOLD, AND NOISE ISOLATION FOAMS. REMOVED ALL 6 COIL PACKS. CLEANED ENGINE AREA WITH COMPRESSED AIR. REMOVED SPARK PLUGS. INSTALLED AND TORQUE NEW SPARK PLUGS TO 23NM. APPLIED GREASE IN SPARK PLUG ADAPTERS. INSTALLED AND TORQUE COIL PACKS TO 9NM. REASSEMBLED IN REVERSE ORDER. TEST DROVE THE VEHICLE AND CONFIRMED ENGINE SMOOTH OPERATION.";
+      var functionM276NENGINEResultT = "";
+      var functionM276NENGINEResultP = "";
+      var M276NENGINEFrontCover = "REMOVED UPPER ENGINE COVER. DISCONNECTED BATTERY GROUND. REMOVED ENGINE AIR FILTER HOUSING, INTAKE MANIFOLD, AND ENGINE OIL FILTER CAP. DISCONNECTED ELECTRICAL CONNECTORS AND HARNESS IN FRONT OF LEFT AND RIGHT CAM COVERS. CLEANED AREA. REMOVED LEFT AND RIGHT CAM COVERS. CLEANED SEALING SURFACES. REMOVED ALL CAM ADJUSTER SOLENOID AND REINSTALLED WITH NEW SEALS AND BOLTS. APPLIED SEALANT PER WIS AND REINSTALLED LEFT AND RIGHT COVERS. TORQUED BOLTS TO SPEC. ASSEMBLED IN REVERSE ORDER. STARTED THE ENGINE AND CONFIRMED FRONT LEFT AND RIGHT CAM COVERS ARE NO LONGER LEAKING. ";
+      var M276NENGINEFrontCoverP = "<b><br><br>Parts</b><br>Cam adjuster solenoid o-rings <br>Black RTV sealant <br>Cam cover bolts <br>Cam adjuster solenoid bolts <br>Intake upper plenum seals <br>Vent line seal (A0239970345)";
+      var M276NENGINEFrontCoverT = "<br><br><b>Torque Specs</b><br> Front cover to head: <b>5 Nm</b><br>Solenoid to front cover: <b>4Nm + 60 degrees</b>";
+      var M276NENGINESpark = "DISCONNECTED BATTERY GOURD. REMOVE UPPER ENGINE COVER AND ENGINE AIR FILTER HOUSING. REMOVED ENGINE CONTROL UNIT. REMOVED ALL IGNITION COILS AND SPARK PLUGS. INSTALLED NEW SPARK PLUGS. APPLIED DIELECTRIC GREASE TO COIL BOOTS AND INSTALLED. ASSEMBLED IN REVERSE ORDER. STARTED THE ENGINE AND CONFIRMED ENGINE RUNS SMOOTHLY.";
       var M276NENGINEAirFilter = "REMOVED UPPER ENGINE COVER. REMOVED AIR FILTER BOX. REMOVED AIR FILTER. INSTALLED NEW FILTER AND RE-ASSEMBLED IN REVERSE ORDER.";
+      var M276NENGINEThermostat = "LIFTED THE VEHICLE AND REMOVED LOWER FRONT COVER. DRAINED ENGINE COOLANT. REMOVED UPPER ENGINE COVER, AIR FILTER HOUSING, AND INTAKE MANIFOLD. DISCONNECTED COOLANT AND ELECTRICAL CONNECTIONS TO THERMOSTAT HOUSING. REMOVED COOLANT THERMOSTAT. CLEANED SEALING SURFACE. INSTALLED NEW THERMOSTAT AND TORQUED TO SPEC. ASSEMBLED IN REVERSE ORDER. CONNECTED COOLANT FILLER AND CONFIRMED GOOD SYSTEM SEAL VIA VACUUM READING. FILLED COOLANT. CONNECTED COOLANT PRESSURE TESTER. CONFIRMED PRESSURE DOES NOT DROP AND NO VISIBLE LEAKS. PERFORMED TEST DRIVE. ";
+      var M276NENGINEThermostatT = "<br><br><b>Torque Specs</b><br> 8 Nm";
+      var M276NENGINEThermostatP = "<b><br><br>Parts</b><br>Thermostat <br>Coolant<br> Upper rad hose o-ring to thermostat (A0269976745) <br>Oil cooler o-ring to thermostat (A0249977945) <br>Intake manifold plenum seals <br>Vent line seal (A0239970345) <br> Coolant drain plug (A0009970224)";
       if (document.getElementById("M276NENGINEFrontCover").checked == true) {
         var functionM276NENGINEResult = M276NENGINEFrontCover;
+        var functionM276NENGINEResultP = M276NENGINEFrontCoverP;
+        var functionM276NENGINEResultT = M276NENGINEFrontCoverT;
       }
       if (document.getElementById("M276NENGINESpark").checked == true) {
         var functionM276NENGINEResult = M276NENGINESpark;
@@ -1499,7 +1508,14 @@ Todo:
       if (document.getElementById("M276NENGINEAirFilter").checked == true) {
         var functionM276NENGINEResult = M276NENGINEAirFilter;
       }
+      if (document.getElementById("M276NENGINEThermostat").checked == true) {
+        var functionM276NENGINEResult = M276NENGINEThermostat;
+        var functionM276NENGINEResultT = M276NENGINEThermostatT;
+        var functionM276NENGINEResultP = M276NENGINEThermostatP;
+      }
       document.getElementById("M276NENGINE").innerHTML = functionM276NENGINEResult;
+      document.getElementById("M276NENGINET").innerHTML = functionM276NENGINEResultT;
+      document.getElementById("M276NENGINEP").innerHTML = functionM276NENGINEResultP;
     }//turbocharged M276
     function functionM276ENGINE(){
       var M276ENGINEFrontCover = "REMOVED UPPER ENGINE COVER, LEFT AND RIGHT AIR DUCTS UPSTREAM OF AIR FILTER, LOW TEMPERATURE COOLANT RESERVOIR, AND OIL FILTER CAP. CLEANED AREA OF FRONT CAM COVERS. DISCONNECTED ENGINE WIRING HARNESS FROM FRONT CAMSHAFT ADJUSTER SOLENOIDS. REMOVED LEFT AND RIGHT FRONT CAM COVERS. REMOVED CAM ADJUSTER SOLENOIDS. CLEANED FRONT COVERS. INSTALLED CAM COVERS WITH NEW RTV SEALANT. INSTALLED CAM ADJUSTER SOLENOIDS WITH NEW O-RINGS AND BOLTS. REINSTALLED ALL PARTS IN REVERSE ORDER. FILLED LOW TEMP COOLANT. STARTED THE ENGINE. CHECKED FRONT COVERS FOR LEAKS. CONFIRMED FRONT COVERS ARE NO LONGER LEAKING.";
@@ -2649,7 +2665,7 @@ Todo:
 				<span class="a"></span>
 
         <button class="button"; onclick="CopyToClipboard('M276NENGINE')">
-					M276 NA ENGINE</button><br>
+					M276.9 NA ENGINE</button><br>
 					<form oninput="functionM276NENGINE()">
 						<input type="radio" id="M276NENGINESpark" name="M276NENGINE">
 						<label class="s1" for="M276NENGINESpark">Spark Plugs&emsp;</label>
@@ -2657,8 +2673,13 @@ Todo:
 						<label class="s1" for="M276NENGINEFrontCover">Front Cover Seal&emsp;</label>
 						<input type="radio" id="M276NENGINEAirFilter" name="M276NENGINE">
 						<label class="s1" for="M276NENGINEAirFilter">Air Filters&emsp;</label>
+            <input type="radio" id="M276NENGINEThermostat" name="M276NENGINE">
+						<label class="s1" for="M276NENGINEThermostat">Thermostat&emsp;</label>
+            
 					</form>
 					<s1 id="M276NENGINE";></s1>
+          <s3 id="M276NENGINET";></s3>
+          <s3 id="M276NENGINEP";></s3>
 
 				<span class="a"></span>
 
@@ -3829,7 +3850,7 @@ Todo:
         By accessing or using this Website, you acknowledge that you have read, understood, and agreed to this disclaimer. If you do not agree with any part of this disclaimer, please discontinue your use of the Website.
         </p>
         <br><p>
-          Updated: 26 Nov 2024</p></s3l>
+          Updated: 10 Dec 2024</p></s3l>
         <div class="password">
           <form id="PasswordForm" onsubmit="PwordCheck('Password')">
           <input type="password" id="passInput" placeholder="Password..." size="18">
